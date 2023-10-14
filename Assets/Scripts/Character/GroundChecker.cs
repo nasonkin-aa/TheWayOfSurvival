@@ -15,7 +15,7 @@ public class GroundChecker : MonoBehaviour
         _contactFilter = new ContactFilter2D().NoFilter();
         _contactFilter.useLayerMask = true;
         
-        _contactFilter.layerMask = LayerMask.GetMask("Player");
+        _contactFilter.layerMask = ~LayerMask.GetMask("Player");
         _groundCollider = GetComponent<Collider2D>();
         Debug.Log(_contactFilter.layerMask);
     }
@@ -23,8 +23,7 @@ public class GroundChecker : MonoBehaviour
     private void Update()
     {
         List<Collider2D> list = new List<Collider2D>();
-
-        if (_groundCollider.OverlapCollider(_contactFilter, list) >= 2)
+        if (_groundCollider.OverlapCollider(_contactFilter, list) > 0)
             IsPayerOnTheGround = true;
         else
             IsPayerOnTheGround = false;

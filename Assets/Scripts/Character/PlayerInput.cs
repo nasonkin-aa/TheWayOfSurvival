@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour
    public static Action<float> OnPlayerMoveHorizontal;
    public static Action OnPlayerJump;
    public static PlayerInput current;
+   public static Action<Vector3> OnPlayerAttack;
 
    private void Awake()
    {
@@ -25,6 +26,11 @@ public class PlayerInput : MonoBehaviour
 
    public void Update()
    {
+      if (Input.GetButtonDown("Fire1"))
+      {
+         OnPlayerAttack(Input.mousePosition);
+      }
+      
       if (Input.GetButtonDown("Jump"))
          OnPlayerJump();
    }

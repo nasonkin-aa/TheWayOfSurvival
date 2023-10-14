@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         transform.GetComponentInChildren<GroundChecker>();
-        PlayerInput.OnPlayerMoveHorizontal += Move;
-        PlayerInput.OnPlayerJump += Jump;
+       
         _rb = transform.GetComponent<Rigidbody2D>();
     }
 
@@ -29,15 +29,17 @@ public class PlayerMove : MonoBehaviour
         if (GroundChecker.IsPayerOnTheGround)
         {
             _rb.AddForce(Vector2.up * jumpForce * _jumpConstanta);
-            
         }
     }
 
-    ~PlayerMove()
+    public void OnEnable()
+    {
+        PlayerInput.OnPlayerMoveHorizontal += Move;
+        PlayerInput.OnPlayerJump += Jump;
+    }
+    public void OnDisable()
     {
         PlayerInput.OnPlayerMoveHorizontal -= Move;
         PlayerInput.OnPlayerJump -= Jump;
     }
-    
-   
 }
