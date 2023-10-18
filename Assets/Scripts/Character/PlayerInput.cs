@@ -8,9 +8,10 @@ public class PlayerInput : MonoBehaviour
 
    public static float Horizontal;
    public static float Vertical;
+   public static PlayerInput current;
+   
    public static Action<float> OnPlayerMoveHorizontal;
    public static Action OnPlayerJump;
-   public static PlayerInput current;
    public static Action<Vector3> OnPlayerAttack;
 
    private void Awake()

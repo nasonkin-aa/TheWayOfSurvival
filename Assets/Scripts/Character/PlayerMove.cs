@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     
     void Start()
     {
-        transform.GetComponentInChildren<GroundChecker>();
+        // transform.GetComponentInChildren<GroundChecker>();
        
         _rb = transform.GetComponent<Rigidbody2D>();
     }
@@ -23,7 +23,6 @@ public class PlayerMove : MonoBehaviour
         Vector3 newPositioin = new Vector3((direction * _speed), 0, 0);
         transform.position += newPositioin;
     }
-
     private void Jump()
     {
         if (GroundChecker.IsPayerOnTheGround)

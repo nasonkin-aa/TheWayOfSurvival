@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         _mainCamera = Camera.main;
-        Weapon = new WeaponAxe();   
+        Weapon = new WeaponTest();   
     }
 
     private Vector3 ConvectoMousePosition(Vector3 position)
