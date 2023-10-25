@@ -5,26 +5,26 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-   [SerializeField]
-   protected int maxHealth = 100;
+    [SerializeField]
+    protected int maxHealth = 100;
+    [SerializeField]
+    private int _health;
 
-   private int _health;
+    private void Awake()
+    {
+        _health = maxHealth;
+    }
 
-   private void Awake()
-   {
-      _health = maxHealth;
-   }
+    public void TakeDamage(int amount)
+    {
+        _health -= amount;
+            if (_health <= 0) 
+                Die();
+    }
 
-   public void TakeDamage(int amount)
-   {
-      _health -= amount;
-      if (_health <= 0) 
-         Die();
-   }
-
-   private void Die()
-   {
-      Destroy(gameObject);
-   }
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
    
 }
