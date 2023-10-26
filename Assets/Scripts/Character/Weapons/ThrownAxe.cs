@@ -9,6 +9,5 @@ public class ThrownAxe : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         OnAxeCollision();
-        Debug.Log("11111");
     }
 }

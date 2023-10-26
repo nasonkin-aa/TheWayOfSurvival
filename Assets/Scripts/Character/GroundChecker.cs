@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public class GroundChecker : MonoBehaviour
 {
@@ -17,7 +14,6 @@ public class GroundChecker : MonoBehaviour
         
         _contactFilter.layerMask = ~LayerMask.GetMask("Player");
         _groundCollider = GetComponent<Collider2D>();
-        Debug.Log(_contactFilter.layerMask);
     }
 
     private void Update()
@@ -28,12 +24,4 @@ public class GroundChecker : MonoBehaviour
         else
             IsPayerOnTheGround = false;
     }
-
-    // public void OnTriggerStay2D(Collider2D other)
-    // {
-    //     if (other != null)
-    //     {
-    //         IsPayerOnTheGround = true;
-    //     }
-    // }
 }
