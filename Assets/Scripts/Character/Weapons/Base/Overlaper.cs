@@ -6,16 +6,18 @@ public class Overlaper : MonoBehaviour
 {
     public static List<GameObject> CircleOverlap(Vector2 overlapCirclePosition, float radius, ContactFilter2D filter)
     {
-        var gameObject = Instantiate(new GameObject());
-        var collider = gameObject.AddComponent<CircleCollider2D>();
+        GameObject _gameObject = Instantiate(new GameObject("Overlaper"));
+        var collider = _gameObject.AddComponent<CircleCollider2D>();
         collider.isTrigger = true;
-        gameObject.transform.position = collider.transform.position = overlapCirclePosition;
+        _gameObject.transform.position = collider.transform.position = overlapCirclePosition;
+
         collider.radius = radius;
         
         List<Collider2D> colliders = new();
         collider.OverlapCollider(filter, colliders);
-        Destroy(gameObject);
-        
+        Destroy(_gameObject, 0.01f);
+
+
         List<GameObject> finalList = new();
         colliders.ForEach(collider => finalList.Add(collider.gameObject));
         return finalList;
