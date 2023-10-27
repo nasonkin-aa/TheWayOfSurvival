@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CircleCollider2D))]
 public class Overlaper : MonoBehaviour
 {
-    public static List<GameObject> CircleOverlap(Vector2 overlapCirclePosition, float radius, ContactFilter2D filter)
+    public void Awake()
     {
-        GameObject _gameObject = Instantiate(new GameObject("Overlaper"));
-        var collider = _gameObject.AddComponent<CircleCollider2D>();
-        collider.isTrigger = true;
-        _gameObject.transform.position = collider.transform.position = overlapCirclePosition;
-
+        GetComponent<CircleCollider2D>().isTrigger = true;
+    }
+    public List<GameObject> CircleOverlap(float radius, ContactFilter2D filter)
+    {
+        var collider = GetComponent<CircleCollider2D>();
         collider.radius = radius;
-        
+
         List<Collider2D> colliders = new();
         collider.OverlapCollider(filter, colliders);
-        Destroy(_gameObject, 0.01f);
-
 
         List<GameObject> finalList = new();
         colliders.ForEach(collider => finalList.Add(collider.gameObject));

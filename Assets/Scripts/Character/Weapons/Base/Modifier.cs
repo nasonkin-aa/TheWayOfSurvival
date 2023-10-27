@@ -17,4 +17,6 @@ public class Modifier : MonoBehaviour, IWeaponModifier
         subObject.transform.position = parent.position;
         return subObject;
     }
+
+
 }

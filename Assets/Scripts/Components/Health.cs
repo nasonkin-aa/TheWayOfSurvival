@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Health : MonoBehaviour
     protected int maxHealth = 100;
     [SerializeField]
     private int _health;
+    public UnityEvent<int> OnHpChange;
 
     private void Awake()
     {
@@ -18,8 +20,10 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         _health -= amount;
-            if (_health <= 0) 
-                Die();
+        OnHpChange.Invoke(_health);
+
+        if (_health <= 0) 
+            Die();
     }
 
     private void Die()
