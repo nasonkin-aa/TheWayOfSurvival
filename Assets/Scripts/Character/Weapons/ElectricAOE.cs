@@ -26,10 +26,10 @@ public class ElectricAOE : Modifier
         
     }
 
-    public override GameObject CreateSubObject(Transform parent)
-    {
-        var newSubObj = SubObjectsCreator.CreateSubObjectWithModifier(parent, this);
-        parent.GetComponent<Projectile>().OnProjectileCollision += newSubObj.GetComponent<ElectricAOE>().ActivateEffect;
-        return newSubObj;
-    }
+    // public override GameObject CreateSubObject(Transform parent)
+    // {
+    //     var newSubObj = SubObjectsCreator.CreateSubObjectWithModifier(parent, this);
+    //     parent.GetComponent<Projectile>().OnProjectileCollision += newSubObj.GetComponent<ElectricAOE>().ActivateEffect;
+    //     return newSubObj;
+    // }
 }

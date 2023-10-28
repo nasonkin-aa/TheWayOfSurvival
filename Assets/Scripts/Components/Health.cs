@@ -11,10 +11,12 @@ public class Health : MonoBehaviour
     [SerializeField]
     private int _health;
     public UnityEvent<int> OnHpChange;
+    public GameObject g;
 
     private void Awake()
     {
         _health = maxHealth;
+        g = new GameObject("test1121");
     }
 
     public void TakeDamage(int amount)

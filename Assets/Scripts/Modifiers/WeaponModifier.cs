@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class WeaponModifier : ModifierBase
 {
-    protected IWeaponModifier mod;
+    protected ModifierPrepare mod;
     protected Weapon GetWeapon => player.GetWeapon();
 
-    public WeaponModifier(IWeaponModifier mod, Player player)
+    public WeaponModifier(ModifierPrepare mod, Player player)
     {
         this.mod = mod;
         this.player = player;

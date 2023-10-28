@@ -1,19 +1,20 @@
+using Unity.VisualScripting;
 using UnityEngine;
-
-public class SubObjectsCreator : MonoBehaviour
+using System;
+public class SubObjectsCreator 
 {
     public static GameObject CreateSubObject (Transform parent)
     {
-        GameObject subObject = Instantiate(new GameObject("SubObject"), parent);
+        GameObject subObject = new GameObject("SubObject");
         subObject.transform.parent = parent;
         subObject.transform.position = parent.position;
         return subObject;
     }
 
-    public static GameObject CreateSubObjectWithModifier(Transform parent, IWeaponModifier mod)
+    public static GameObject CreateSubObjectWithModifier(Transform parent, Type mod)
     {
         var subObject = CreateSubObject(parent);
-        var newModifier = subObject.AddComponent(mod.GetType());
+        var newModifier = subObject.AddComponent(mod);
         return subObject;
     }
 }

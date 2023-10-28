@@ -313,6 +313,7 @@ MonoBehaviour:
   OnHpChange:
     m_PersistentCalls:
       m_Calls: []
+  g: {fileID: 0}
 --- !u!50 &282195877
 Rigidbody2D:
   serializedVersion: 4
@@ -1090,6 +1091,7 @@ MonoBehaviour:
   OnHpChange:
     m_PersistentCalls:
       m_Calls: []
+  g: {fileID: 0}
 --- !u!1 &734994990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,6 +1604,7 @@ MonoBehaviour:
   OnHpChange:
     m_PersistentCalls:
       m_Calls: []
+  g: {fileID: 0}
 --- !u!114 &985492531
 MonoBehaviour:
   m_ObjectHideFlags: 0
