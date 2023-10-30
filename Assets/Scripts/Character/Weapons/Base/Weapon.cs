@@ -4,13 +4,17 @@ using UnityEngine;
 public class Weapon : MonoBehaviour, IAttackable
 {
     protected List<ModifierPrepare> _modifiers = new ();
-
-    protected int damage;
+    public int WeaponDamage;
 
     public virtual void Attack(Vector3 direction, Vector3 atackPoint)
     {
 
     }
+    public void SetDamageWeapon(int value)
+    {
+        WeaponDamage = value;
+    }
+    
 
     public virtual void AddModifier(ModifierPrepare modifier)
     {
