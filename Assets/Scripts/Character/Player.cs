@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,4 +8,5 @@ public class Player : MonoBehaviour
     {
         return GetComponentInChildren<Weapon>();
     }
+    
 }

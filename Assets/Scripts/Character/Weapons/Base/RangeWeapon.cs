@@ -1,14 +1,26 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RangeWeapon : Weapon
 {
-    protected GameObject _projectilePrefab;
-    [SerializeField] protected string _projectileName;
-    [SerializeField] protected int _projectileForce = 1000;
-
-    public virtual void Awake()
+    public enum WeaponType
     {
-        _projectilePrefab = GameObject.Find(_projectileName);
+        Axe,
+        Arrow,
+        NotExistWeapon
+    }
+    
+
+    protected GameObject _projectilePrefab;
+    [SerializeField]
+    protected int _projectileForce = 1000;
+    public void SelectRangeWeapon(WeaponType weapon)
+    {
+        _projectilePrefab = Resources.Load("Weapons/" + weapon) as GameObject;
+        if (_projectilePrefab == null)
+        {
+            Debug.LogError($"Selected RangeWeapon for Player with name: '{weapon}' not exist");
+        }
     }
 
     public override void Attack(Vector3 direction, Vector3 atackPoint)

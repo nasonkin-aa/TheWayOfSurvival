@@ -10,12 +10,10 @@ public class Health : MonoBehaviour
     [SerializeField]
     private int _health;
     public static Action<int> OnHpChange;
-    public GameObject g;
 
     private void Awake()
     {
         _health = maxHealth;
-        g = new GameObject("test1121");
         TakeDamage(0); // Reset HP UI for default value
     }
 
@@ -23,8 +21,12 @@ public class Health : MonoBehaviour
     {
         _health -= amount;
         
-        OnHpChange?.Invoke(_health);
-
+        //Check when damage Player, send health in UI
+        if (gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            OnHpChange?.Invoke(_health);
+        }
+        
         if (_health <= 0) 
             Die();
     }
