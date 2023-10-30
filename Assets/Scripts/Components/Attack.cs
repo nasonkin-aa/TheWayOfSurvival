@@ -5,10 +5,19 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public static Action<int> OnAttackZone;
+    private AttackZone _attackZone;
     public int damage = 10;
-    public void AttackZoneTarget() //Used animator attack
+    private void Start()
     {
-        OnAttackZone(damage);
+        _attackZone = gameObject.transform.GetComponentInChildren<AttackZone>();
+        if (_attackZone == null)
+        {
+            Debug.LogError("Not found AttackZone: "+ gameObject.name);
+        }
+    }
+
+    public void AttackZoneTarget()
+    {
+        _attackZone.AttackTarget(damage);
     }
 }
