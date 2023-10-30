@@ -14,6 +14,11 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         _health = maxHealth;
+        
+    }
+
+    private void Start()
+    {
         TakeDamage(0); // Reset HP UI for default value
     }
 

@@ -23,12 +23,14 @@ public class RangeWeapon : Weapon
         }
     }
 
-    public override void Attack(Vector3 direction, Vector3 atackPoint)
+    public override void Attack(Vector3 direction, Vector3 attackPoint)
     {
-        base.Attack(direction, atackPoint);
-        var newProjectile = Instantiate(_projectilePrefab, atackPoint, Quaternion.identity);
+        base.Attack(direction, attackPoint);
+        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
+        var newProjectile = Instantiate(_projectilePrefab, attackPoint, rotation);
+        Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
         _modifiers.ForEach(mod => mod.CreateSubObject(newProjectile.transform));
-
-        newProjectile.GetComponent<Rigidbody2D>().AddForce(direction * _projectileForce);
+        rb.AddForce(direction * _projectileForce);
+        rb.AddTorque(-30f);
     }
 }

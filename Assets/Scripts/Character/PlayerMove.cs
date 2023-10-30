@@ -7,14 +7,14 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private readonly int _jumpConstanta = 60;
-    private float _speed = 0.4f;
-    private Rigidbody2D _rb;
+    [SerializeField]
+    public float _speed = 0.4f;
+    [SerializeField]
     public float jumpForce = 10;
+    private Rigidbody2D _rb;
     
     void Start()
     {
-        // transform.GetComponentInChildren<GroundChecker>();
-       
         _rb = transform.GetComponent<Rigidbody2D>();
     }
 
