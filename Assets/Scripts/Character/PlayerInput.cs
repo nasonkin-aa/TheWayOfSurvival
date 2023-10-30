@@ -13,8 +13,9 @@ public class PlayerInput : MonoBehaviour
    public static Action<float> OnPlayerMoveHorizontal;
    public static Action OnPlayerJump;
    public static Action<Vector3> OnPlayerAttack;
+   public static Action<Vector3> OnPlayerFlip;
 
-   private void Awake() //Maybe this not need
+   private void Awake() //Maybe this not need??
    {
       current = this;
    }
@@ -34,5 +35,7 @@ public class PlayerInput : MonoBehaviour
       
       if (Input.GetButtonDown("Jump"))
          OnPlayerJump();
+
+      OnPlayerFlip(Input.mousePosition);
    }
 }

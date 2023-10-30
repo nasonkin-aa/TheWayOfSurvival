@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class AttackZone : MonoBehaviour
 {
-    private Health _targetHealth;
+    protected Health _targetHealth;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<Player>() != null)
@@ -22,7 +22,18 @@ public class AttackZone : MonoBehaviour
             gameObject.GetComponentInParent<Animator>().SetBool("TargetInZone", false);
         }
     }
-    public void AttackTarget(int value)
+
+    private void OnEnable()
+    {
+        Attack.OnAttackZone += AttackTarget;
+    }
+
+    private void OnDisable()
+    {
+        Attack.OnAttackZone -= AttackTarget;
+    }
+
+    private void AttackTarget(int value)
     {
         if(_targetHealth != null)
             _targetHealth.TakeDamage(value);

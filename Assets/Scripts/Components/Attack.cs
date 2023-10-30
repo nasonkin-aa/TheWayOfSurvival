@@ -5,13 +5,10 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    private AttackZone _attackZone;
-    private void Awake()
+    public static Action<int> OnAttackZone;
+    public int damage = 10;
+    public void AttackZoneTarget() //Used animator attack
     {
-        _attackZone = gameObject.transform.GetComponentInChildren<AttackZone>();
-        if (_attackZone == null)
-        {
-            Debug.LogError("Not found AttackZone: "+ gameObject.name);
-        }
+        OnAttackZone(damage);
     }
 }
