@@ -24,6 +24,7 @@ public class PlayerInput : MonoBehaviour
    {
       Horizontal = Input.GetAxis("Horizontal");
       OnPlayerMoveHorizontal(Horizontal);
+      gameObject.GetComponent<Animator>().SetFloat("Speed", MathF.Abs(Horizontal));
    }
 
    public void Update()

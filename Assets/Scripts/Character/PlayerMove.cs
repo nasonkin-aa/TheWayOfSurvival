@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(GroundChecker))]
+//[RequireComponent(typeof(GroundChecker))]
 public class PlayerMove : MonoBehaviour
 {
     private readonly int _jumpConstanta = 60;
@@ -46,6 +46,7 @@ public class PlayerMove : MonoBehaviour
         {
             _rb.AddForce(Vector2.up * jumpForce * _jumpConstanta);
         }
+        
     }
     public void OnEnable()
     {
