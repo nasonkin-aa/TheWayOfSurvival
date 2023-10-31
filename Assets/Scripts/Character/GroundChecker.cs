@@ -18,7 +18,7 @@ public class GroundChecker : MonoBehaviour
 
     private void Update()
     {
-        List<Collider2D> list = new List<Collider2D>();
+        List<Collider2D> list = new ();
         if (_groundCollider.OverlapCollider(_contactFilter, list) > 0)
             IsPayerOnTheGround = true;
         else

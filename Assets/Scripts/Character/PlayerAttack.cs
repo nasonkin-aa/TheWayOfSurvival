@@ -12,7 +12,6 @@ public class PlayerAttack : MonoBehaviour
     {
         Vector3 mouseWorldPosition = СonvertMousePosition(mousePosition);
         Vector3 attackDirection = (mouseWorldPosition - _position).normalized;
-        Debug.Log(attackDirection);
         _weaponScript.Attack(attackDirection, _position);
     }
        

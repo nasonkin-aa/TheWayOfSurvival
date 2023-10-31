@@ -26,7 +26,6 @@ public class RangeWeapon : Weapon
 
     public override void Attack(Vector3 direction, Vector3 attackPoint)
     {
-        base.Attack(direction, attackPoint);
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
         var newProjectile = Instantiate(_projectilePrefab, attackPoint, rotation);
         Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();

@@ -14,7 +14,7 @@ public class SubObjectsCreator
     public static GameObject CreateSubObjectWithModifier(Transform parent, Type mod)
     {
         var subObject = CreateSubObject(parent);
-        var newModifier = subObject.AddComponent(mod);
+        subObject.AddComponent(mod);
         return subObject;
     }
 }
