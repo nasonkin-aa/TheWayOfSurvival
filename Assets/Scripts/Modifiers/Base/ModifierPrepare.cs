@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 public class ModifierPrepare 
@@ -10,11 +8,16 @@ public class ModifierPrepare
     {
         this.modifier = modifier;
     }
-    public GameObject CreateSubObject(Transform parent)
+    public ModifierPrepare(string modifierName)
     {
-        
+        modifier = Type.GetType(modifierName);
+    }
+    public GameObject CreateSubObject(Transform parent)
+    {   
         var newSubObj = SubObjectsCreator.CreateSubObjectWithModifier(parent, modifier);
-        parent.GetComponent<Projectile>().OnProjectileCollision += newSubObj.GetComponent<Modifier>().ActivateEffect;
+        var newModifier = (Modifier)newSubObj.GetComponent(modifier);
+        newModifier?.PrepareModifier(); // Настройка модификатора
+
         return newSubObj;
     }
 }

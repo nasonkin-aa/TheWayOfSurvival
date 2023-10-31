@@ -12,7 +12,6 @@ public class AttackZone : MonoBehaviour
         {
             gameObject.GetComponentInParent<Animator>().SetBool("TargetInZone", true);
             _targetHealth = other.gameObject.GetComponent<Health>();
-            Debug.Log("enter");
         }
     }
 
@@ -21,7 +20,6 @@ public class AttackZone : MonoBehaviour
         if (other.gameObject.GetComponent<Player>() != null || (other.gameObject.GetComponent<Health>() is not null && other.gameObject.layer == LayerMask.NameToLayer("Building")))
         {
             gameObject.GetComponentInParent<Animator>().SetBool("TargetInZone", false);
-            Debug.Log("Exit");
         }
     }
 
