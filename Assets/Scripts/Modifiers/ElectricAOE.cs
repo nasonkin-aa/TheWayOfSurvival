@@ -25,7 +25,7 @@ public class ElectricAOE : Modifier
 
     private void OnDisable()
     {
-        
+        StopAllCoroutines();
     }
     public override void PrepareModifier()
     {

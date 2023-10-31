@@ -4,8 +4,9 @@ using UnityEngine.Serialization;
 
 public class WeaponAxe : RangeWeapon, IAttackable
 {
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         SetDamageWeapon(WeaponDamage);
         SelectRangeWeapon(WeaponType.Axe);
     }
