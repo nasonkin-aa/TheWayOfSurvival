@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class RangeWeapon : Weapon
 {
@@ -15,6 +14,10 @@ public class RangeWeapon : Weapon
     [SerializeField]
     protected int projectileForce = 1000;
 
+    public override void Awake()
+    {
+        base.Awake();
+    }
     protected void SelectRangeWeapon(WeaponType weapon)
     {
         _projectilePrefab = Resources.Load("Weapons/" + weapon) as GameObject;

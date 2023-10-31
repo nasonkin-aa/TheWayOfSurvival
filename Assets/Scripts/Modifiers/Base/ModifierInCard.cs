@@ -5,11 +5,6 @@ public enum ModifierTarget
     Weapon
 }
 
-public enum ModifierName
-{
-    ElectricAOE,
-    Thunderbolt
-}
 public class ModifierInCard : MonoBehaviour
 {
     public ModifierTarget modifierTarget;

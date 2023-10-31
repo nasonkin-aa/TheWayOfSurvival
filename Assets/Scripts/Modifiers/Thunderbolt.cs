@@ -23,7 +23,7 @@ public class Thunderbolt : Modifier
 
     private void OnDisable()
     {
-
+        GetComponentInParent<Projectile>().OnProjectileCollision -= ActivateEffect;
     }
     public override void PrepareModifier()
     {
