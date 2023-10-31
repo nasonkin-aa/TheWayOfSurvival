@@ -10,4 +10,9 @@ public class Player : MonoBehaviour
     {
         return GetComponentInChildren<Weapon>();
     }
+
+    public void AddModifier(ModifierPrepare modifier)
+    {
+        modifier.CreateSubObject(transform);
+    }
 }

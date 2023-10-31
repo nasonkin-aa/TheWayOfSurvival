@@ -6,7 +6,7 @@ public static class ModifierAdder
         switch (target)
         {
             case ModifierTarget.Character:
-                
+                PlayerStatic.PlayerScript.AddModifier(mod);
                 break;
 
             case ModifierTarget.Weapon:
