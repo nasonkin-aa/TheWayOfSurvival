@@ -33,7 +33,7 @@ public class PlayerInput : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
             PauseSwitch();
 
         if (IsInputBlock)

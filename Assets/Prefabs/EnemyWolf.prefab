@@ -33,12 +33,12 @@ Transform:
   m_GameObject: {fileID: 377729105087483742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.14, y: -3.23, z: 0}
-  m_LocalScale: {x: 41.329998, y: 26.921005, z: 1}
+  m_LocalScale: {x: 0.06412722, y: 0.06230569, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8605545088963818757}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1577914095100063550
 SpriteRenderer:
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.06, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -151,18 +151,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0009910194, y: -0.0024228469}
+  m_Offset: {x: -0.68189716, y: -1.720211}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 38.670002, y: 25.924763}
     newSize: {x: 0.06, y: 0.06}
     adaptiveTilingThreshold: 0.5
-    drawMode: 1
+    drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05476877, y: 0.04044699}
+  m_Size: {x: 33.79921, y: 16.978535}
   m_EdgeRadius: 0
 --- !u!114 &2471035530933760170
 MonoBehaviour:
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d57697c4b6bc040992438be288ab37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedScale: 2
 --- !u!114 &509429393900416771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e78d4febf143d549964b04ee16f2a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1
   _health: 0
 --- !u!95 &2102468744472904258
 Animator:
@@ -263,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8701541577726817925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02323, y: -0.0044, z: 0}
+  m_LocalPosition: {x: -12.9, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -302,9 +303,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0028522434, y: 0.0014773296}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.00889783
+  m_Radius: 6
 --- !u!114 &781935653575984452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,3 +318,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e497d8d0c44ead045a08d9f9c5dd6464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contactFilter2D:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 320
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
