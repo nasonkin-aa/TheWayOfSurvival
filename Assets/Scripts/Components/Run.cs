@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Move))]
 public class Run : MonoBehaviour
 {
+    [SerializeField]
     private float _speedScale = 2f;
     private Move _move;
     public void Awake()
@@ -12,7 +13,7 @@ public class Run : MonoBehaviour
     }
     public void Move(Rigidbody2D rb,Vector2 direction)
     {
-        rb.velocity = direction * _speedScale;
+        rb.velocity = direction * Random.Range(_speedScale * 0.9f, _speedScale * 1.1f);
         Flip(direction.x);
     }
     

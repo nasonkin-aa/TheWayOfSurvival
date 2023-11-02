@@ -38,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 8605545088963818757}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1577914095100063550
 SpriteRenderer:
@@ -317,3 +317,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e497d8d0c44ead045a08d9f9c5dd6464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contactFilter2D:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 320
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0

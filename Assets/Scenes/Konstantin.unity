@@ -360,6 +360,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 951799500}
+    - target: {fileID: 3522348468511783899, guid: f71f563e523acd143a4db159828ca488, type: 3}
+      propertyPath: m_Radius
+      value: 0.008
+      objectReference: {fileID: 0}
     - target: {fileID: 4007360994009000767, guid: f71f563e523acd143a4db159828ca488, type: 3}
       propertyPath: maxHealth
       value: 300
@@ -509,6 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 351457854}
   - component: {fileID: 351457853}
+  - component: {fileID: 351457855}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -593,6 +598,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &351457855
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351457852}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &533956929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,34 +1318,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 951799500}
-    - target: {fileID: 781935653575984452, guid: f71f563e523acd143a4db159828ca488, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3522348468511783899, guid: f71f563e523acd143a4db159828ca488, type: 3}
-      propertyPath: m_Radius
-      value: 0.00889783
-      objectReference: {fileID: 0}
-    - target: {fileID: 3522348468511783899, guid: f71f563e523acd143a4db159828ca488, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0028522434
-      objectReference: {fileID: 0}
-    - target: {fileID: 3522348468511783899, guid: f71f563e523acd143a4db159828ca488, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.0014773296
-      objectReference: {fileID: 0}
-    - target: {fileID: 4007360994009000767, guid: f71f563e523acd143a4db159828ca488, type: 3}
-      propertyPath: maxHealth
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 5542451316043751796, guid: f71f563e523acd143a4db159828ca488, type: 3}
-      propertyPath: damage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8605545088963818757, guid: f71f563e523acd143a4db159828ca488, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.02323
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2216,6 +2208,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4362341587198663303, guid: 69b7ca87c64c97549b2616f366c7a5ed, type: 3}
       propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893185126259826230, guid: 69b7ca87c64c97549b2616f366c7a5ed, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670124809469977344, guid: 69b7ca87c64c97549b2616f366c7a5ed, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7135167356172872712, guid: 69b7ca87c64c97549b2616f366c7a5ed, type: 3}
