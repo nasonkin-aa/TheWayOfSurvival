@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Move))]
 public class Jump : MonoBehaviour
 {
     private Move _move;
+    [SerializeField]
+    protected float _jumpForce = 15f;
     public void Awake()
     {
         _move = GetComponent<Move>();
@@ -14,14 +13,14 @@ public class Jump : MonoBehaviour
 
     public void Move(Rigidbody2D rb,Vector2 direction)
     {
-        rb.AddForce(( Vector2.up) * 15 );
+        rb.AddForce(Vector2.up * _jumpForce);
     }
     public void OnEnable()
     {
-        _move.Go  += Move;
+        _move.OnMove += Move;
     }
     public void OnDisable()
     {   
-        _move.Go  -= Move;
+        _move.OnMove -= Move;
     }
 }

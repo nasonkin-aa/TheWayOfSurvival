@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private void Awake()
+    public static Player GetPlayer { get; private set; }
+    public virtual void Awake()
     {
-        PlayerStatic.PlayerScript = this;
+        GetPlayer = this;
     }
     public Weapon GetWeapon()
     {

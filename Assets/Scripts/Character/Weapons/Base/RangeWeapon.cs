@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RangeWeapon : Weapon
@@ -10,7 +9,7 @@ public class RangeWeapon : Weapon
         NotExistWeapon
     }
     
-    private GameObject _projectilePrefab;
+    protected GameObject _projectilePrefab;
     [SerializeField]
     protected int projectileForce = 1000;
 
@@ -29,12 +28,28 @@ public class RangeWeapon : Weapon
 
     public override void Attack(Vector3 direction, Vector3 attackPoint)
     {
+        var newProjectile = CreateProjectile(direction, attackPoint);
+
+        Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
+        AddForceForProjectile(rb, direction, projectileForce);
+
+        _modifiers.ForEach(mod => mod.CreateSubObject(newProjectile.transform));
+    }
+
+    protected virtual GameObject CreateProjectile(Vector3 direction, Vector3 attackPoint)
+    {
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
         var newProjectile = Instantiate(_projectilePrefab, attackPoint, rotation);
-        Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
-        _modifiers.ForEach(mod => mod.CreateSubObject(newProjectile.transform));
+
+        var projectileDamage = newProjectile.GetComponent<Projectile>();
+        if (projectileDamage is not null)
+            newProjectile.GetComponent<Projectile>().Damage = WeaponDamage;
+
+        return newProjectile;
+    }
+
+    protected virtual void AddForceForProjectile(Rigidbody2D rb, Vector3 direction, int force)
+    {
         rb.AddForce(direction * projectileForce);
-        rb.AddTorque(-30f);
-        newProjectile.GetComponent<Projectile>().Damage = WeaponDamage; 
     }
 }

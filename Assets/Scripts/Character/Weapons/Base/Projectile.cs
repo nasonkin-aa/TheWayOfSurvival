@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    protected internal int Damage;
+    protected internal int Damage = 10;
     public Action OnProjectileCollision;
     private void OnCollisionEnter2D(Collision2D collision)
     {

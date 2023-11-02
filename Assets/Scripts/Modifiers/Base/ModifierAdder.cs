@@ -1,4 +1,3 @@
-
 public static class ModifierAdder
 {
     public static void AddModifier(ModifierPrepare mod, Player player, ModifierTarget target)
@@ -6,7 +5,7 @@ public static class ModifierAdder
         switch (target)
         {
             case ModifierTarget.Character:
-                PlayerStatic.PlayerScript.AddModifier(mod);
+                player?.AddModifier(mod);
                 break;
 
             case ModifierTarget.Weapon:

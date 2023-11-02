@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -8,7 +6,7 @@ public class Move : MonoBehaviour
 {
     public GameObject target;
 
-    public Action<Rigidbody2D,Vector2> Go;
+    public Action<Rigidbody2D,Vector2> OnMove;
         
     private Rigidbody2D _rd;
     private void Awake()
@@ -20,7 +18,7 @@ public class Move : MonoBehaviour
     {
         if (target == null)
             return;
-        Go(_rd, GetDirectionToObject(target.transform));
+        OnMove(_rd, GetDirectionToObject(target.transform));
     }
 
     public Vector2 GetDirectionToObject(Transform playerTransform)
