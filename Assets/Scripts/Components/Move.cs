@@ -6,8 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Move : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerMove _player;
+    public GameObject target;
 
     public Action<Rigidbody2D,Vector2> Go;
         
@@ -19,14 +18,12 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_player == null)
+        if (target == null)
             return;
-        Debug.Log("123");
-        Debug.Log(Go);
-        Go(_rd, GetPlayerDirection(_player.transform));
+        Go(_rd, GetDirectionToObject(target.transform));
     }
 
-    public Vector2 GetPlayerDirection(Transform playerTransform)
+    public Vector2 GetDirectionToObject(Transform playerTransform)
     {
         return ( playerTransform.position - transform.position).normalized;
     }

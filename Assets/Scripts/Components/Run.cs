@@ -14,6 +14,18 @@ public class Run : MonoBehaviour
     public void Move(Rigidbody2D rb,Vector2 direction)
     {
         rb.velocity = direction * 2;
+        Flip(direction.x);
+    }
+    
+    private void Flip(float direction)
+    {
+        var localScale = gameObject.transform.localScale;
+        
+        if ((direction < 0 && localScale.x < 0) || (direction > 0 && localScale.x > 0))
+        {
+            localScale.x *= -1;
+            gameObject.transform.localScale = localScale;
+        }
     }
     
     public void OnEnable()

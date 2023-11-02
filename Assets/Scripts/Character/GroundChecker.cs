@@ -1,39 +1,34 @@
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public class GroundChecker : MonoBehaviour
 {
     public static bool IsPayerOnTheGround { get; private set; }
     private Collider2D _groundCollider;
     private ContactFilter2D _contactFilter;
+    private Animator _animatorPlayer;
 
     private void Awake()
     {
         _contactFilter = new ContactFilter2D().NoFilter();
         _contactFilter.useLayerMask = true;
-        
         _contactFilter.layerMask = ~LayerMask.GetMask("Player");
         _groundCollider = GetComponent<Collider2D>();
-        Debug.Log(_contactFilter.layerMask);
     }
 
     private void Update()
     {
-        List<Collider2D> list = new List<Collider2D>();
+        List<Collider2D> list = new ();
         if (_groundCollider.OverlapCollider(_contactFilter, list) > 0)
+        {
             IsPayerOnTheGround = true;
+            gameObject.GetComponentInParent<Animator>().SetBool("IsJumping", false);
+        }
         else
+        {
             IsPayerOnTheGround = false;
+            gameObject.GetComponentInParent<Animator>().SetBool("IsJumping", true);
+        }
+            
     }
-
-    // public void OnTriggerStay2D(Collider2D other)
-    // {
-    //     if (other != null)
-    //     {
-    //         IsPayerOnTheGround = true;
-    //     }
-    // }
 }
