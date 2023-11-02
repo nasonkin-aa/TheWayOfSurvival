@@ -13,6 +13,6 @@ public class ModifierInCard : MonoBehaviour
     public void Activate ()
     {
         var mod = new ModifierPrepare(modifierName.ToString());
-        ModifierAdder.AddModifier(mod, PlayerStatic.PlayerScript, modifierTarget);
+        ModifierAdder.AddModifier(mod, Player.GetPlayer, modifierTarget);
     }
 }

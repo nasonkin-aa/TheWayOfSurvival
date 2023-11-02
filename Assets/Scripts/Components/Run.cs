@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 [RequireComponent(typeof(Move))]
 public class Run : MonoBehaviour
 {
+    private float _speedScale = 2f;
     private Move _move;
     public void Awake()
     {
@@ -13,7 +12,7 @@ public class Run : MonoBehaviour
     }
     public void Move(Rigidbody2D rb,Vector2 direction)
     {
-        rb.velocity = direction * 2;
+        rb.velocity = direction * _speedScale;
         Flip(direction.x);
     }
     
@@ -23,17 +22,17 @@ public class Run : MonoBehaviour
         
         if ((direction < 0 && localScale.x < 0) || (direction > 0 && localScale.x > 0))
         {
-            localScale.x *= -1;
+            localScale.x = -localScale.x;
             gameObject.transform.localScale = localScale;
         }
     }
     
     public void OnEnable()
     {
-        _move.Go  += Move;
+        _move.OnMove += Move;
     }
     public void OnDisable()
     {   
-        _move.Go  -= Move;
+        _move.OnMove -= Move;
     }
 }

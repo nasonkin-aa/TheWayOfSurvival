@@ -2,20 +2,20 @@ using UnityEngine;
 using System;
 public class ModifierPrepare 
 {
-    private Type modifier;
+    private readonly Type _modifier;
 
     public ModifierPrepare(Type modifier)
     {
-        this.modifier = modifier;
+        _modifier = modifier;
     }
     public ModifierPrepare(string modifierName)
     {
-        modifier = Type.GetType(modifierName);
+        _modifier = Type.GetType(modifierName);
     }
     public GameObject CreateSubObject(Transform parent)
     {   
-        var newSubObj = SubObjectsCreator.CreateSubObjectWithModifier(parent, modifier);
-        var newModifier = (Modifier)newSubObj.GetComponent(modifier);
+        var newSubObj = SubObjectsCreator.CreateSubObjectWithModifier(parent, _modifier);
+        var newModifier = (Modifier)newSubObj.GetComponent(_modifier);
         newModifier?.PrepareModifier(); // Настройка модификатора
 
         return newSubObj;

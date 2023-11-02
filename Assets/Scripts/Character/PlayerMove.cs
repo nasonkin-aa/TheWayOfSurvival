@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-//[RequireComponent(typeof(GroundChecker))]
 public class PlayerMove : MonoBehaviour
 {
     private readonly int _jumpConstanta = 60;
@@ -36,7 +32,7 @@ public class PlayerMove : MonoBehaviour
         var localScale = gameObject.transform.localScale;
         if ((mouseWorldPosition > 0 && localScale.x < 0) || (mouseWorldPosition < 0 && localScale.x > 0))
         {
-            localScale.x *= -1;                                     
+            localScale.x = -localScale.x;                                     
             gameObject.transform.localScale = localScale;       
         }
     }

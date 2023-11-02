@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour, IAttackable
 {
     protected List<ModifierPrepare> _modifiers = new ();
-    public int WeaponDamage;
+    public int WeaponDamage = 10;
     public static Weapon GetWeapon { get; private set; }
     public virtual void Awake()
     {
