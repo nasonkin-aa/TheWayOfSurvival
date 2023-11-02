@@ -35,6 +35,7 @@ public class PlayerMove : MonoBehaviour
             localScale.x = -localScale.x;                                     
             gameObject.transform.localScale = localScale;       
         }
+        
     }
     private void Jump()
     {
