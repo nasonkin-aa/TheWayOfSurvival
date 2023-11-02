@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ public class HealthDisplayUI : MonoBehaviour
 
     private void OnEnable()
     {
-        Health.OnHpChange += UpdateValue;
+        //Health.OnHpChange += UpdateValue;
     }
 
     private void UpdateValue(int value)
@@ -23,6 +22,6 @@ public class HealthDisplayUI : MonoBehaviour
 
     private void OnDisable()
     {
-        Health.OnHpChange -= UpdateValue;
+        //Health.OnHpChange -= UpdateValue;
     }
 }

@@ -14,17 +14,17 @@ public class Rage : Modifier
 
     private void OnDisable()
     {
-        Health.OnHpChange -= GetPowerForLosåHp;
+        //Health.OnHpChange -= GetPowerForLosåHp;
     }
     public override void PrepareModifier()
     {
-        Health.OnHpChange += GetPowerForLosåHp;
+        //Health.OnHpChange += GetPowerForLosåHp;
     }
 
     private void GetPowerForLosåHp(int health)
     {
         var wepon = Weapon.GetWeapon;
         if (wepon is not null)
-            wepon.WeaponDamage += 100 - health;
+            wepon.WeaponDamage += Weapon.GetWeapon?.WeaponDamage - health ?? 100;
     }
 }
