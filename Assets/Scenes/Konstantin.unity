@@ -1187,6 +1187,10 @@ PrefabInstance:
       value: -1.3678782
       objectReference: {fileID: 0}
     - target: {fileID: 6005515089453966795, guid: f71f563e523acd143a4db159828ca488, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005515089453966795, guid: f71f563e523acd143a4db159828ca488, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
