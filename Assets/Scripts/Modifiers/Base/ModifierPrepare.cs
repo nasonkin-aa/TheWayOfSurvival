@@ -15,7 +15,7 @@ public class ModifierPrepare
     public GameObject CreateSubObject(Transform parent)
     {   
         var newSubObj = SubObjectsCreator.CreateSubObjectWithModifier(parent, _modifier);
-        var newModifier = (Modifier)newSubObj.GetComponent(_modifier);
+        var newModifier = (IWeaponModifier)newSubObj.GetComponent(_modifier);
         newModifier?.PrepareModifier(); // Настройка модификатора
 
         return newSubObj;

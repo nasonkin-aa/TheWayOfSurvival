@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Overlaper))]
-public class ElectricAOE : Modifier
+public class ElectricAOE : MonoBehaviour, IWeaponModifier
 {
     protected static int AOEDamage = 20;
     protected static int radius = 20;
@@ -12,12 +12,7 @@ public class ElectricAOE : Modifier
     {
         GetComponent<CircleCollider2D>().isTrigger = true;
     }
-    public override void ActivateEffect()
-    {
-        base.ActivateEffect();
-        var collidedObjects = GetComponent<Overlaper>().CircleOverlap(radius, new ContactFilter2D());
-        collidedObjects.ForEach(collider => collider.GetComponent<Health>()?.TakeDamage(AOEDamage));
-    }
+
     private void OnEnable()
     {
         
@@ -27,17 +22,23 @@ public class ElectricAOE : Modifier
     {
         StopAllCoroutines();
     }
-    public override void PrepareModifier()
+    public void PrepareModifier()
     {
-        StartCoroutine(DealDamage());
+        StartCoroutine(DamageOverTime());
+    }
+    private void DealDamage()
+    {
+        var collidedObjects = GetComponent<Overlaper>().CircleOverlap(radius, Projectile.ContactWithEnemies);
+        collidedObjects.ForEach(collider => collider.GetComponent<Health>()?.TakeDamage(AOEDamage));
     }
 
-    IEnumerator DealDamage()
+
+    IEnumerator DamageOverTime()
     {
         for (;;)
         {
             yield return new WaitForSeconds(interval);
-            ActivateEffect();
+            DealDamage();
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Overlaper))]
-public class Thunderbolt : Modifier
+public class Thunderbolt : MonoBehaviour, IWeaponModifier
 {
     protected static int AOEDamage = 20;
     protected static int radius = 20;
@@ -10,12 +10,7 @@ public class Thunderbolt : Modifier
     {
         GetComponent<CircleCollider2D>().isTrigger = true;
     }
-    public override void ActivateEffect()
-    {
-        base.ActivateEffect();
-        var collidedObjects = GetComponent<Overlaper>().CircleOverlap(radius, new ContactFilter2D());
-        collidedObjects.ForEach(collider => collider.GetComponent<Health>()?.TakeDamage(AOEDamage));
-    }
+
     private void OnEnable()
     {
 
@@ -23,10 +18,17 @@ public class Thunderbolt : Modifier
 
     private void OnDisable()
     {
-        GetComponentInParent<Projectile>().OnProjectileCollision -= ActivateEffect;
+        GetComponentInParent<Projectile>().OnProjectileCollision -= DealDamage;
     }
-    public override void PrepareModifier()
+
+    public void PrepareModifier()
     {
-        GetComponentInParent<Projectile>().OnProjectileCollision += ActivateEffect;
+        GetComponentInParent<Projectile>().OnProjectileCollision += DealDamage;
+    }
+
+    private void DealDamage()
+    {
+        var collidedObjects = GetComponent<Overlaper>().CircleOverlap(radius, Projectile.ContactWithEnemies);
+        collidedObjects.ForEach(collider => collider.GetComponent<HealthBase>()?.TakeDamage(AOEDamage));
     }
 }

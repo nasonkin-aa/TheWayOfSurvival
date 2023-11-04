@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
     public static Player GetPlayer { get; private set; }
@@ -12,8 +13,18 @@ public class Player : MonoBehaviour
         return GetComponentInChildren<Weapon>();
     }
 
+    public Health GetHealth()
+    {
+        return GetComponent<Health>();
+    }
+
     public void AddModifier(ModifierPrepare modifier)
     {
-        modifier.CreateSubObject(transform);
+        modifier?.CreateSubObject(transform);
+    }
+
+    private void OnDestroy()
+    {
+        GetPlayer = null;
     }
 }

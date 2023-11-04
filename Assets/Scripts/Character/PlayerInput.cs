@@ -14,6 +14,9 @@ public class PlayerInput : MonoBehaviour
     public static Action<Vector3> OnPlayerAttack;
     public static Action<Vector3> OnPlayerFlip;
     public bool IsInputBlock = false;
+    private Animator Animator => gameObject.GetComponent<Animator>();
+    private float _defaultTimeScale = 1;
+    private float _pauseTimeScale = 0;
 
 
     private void Awake() //Maybe this not need??
@@ -27,8 +30,8 @@ public class PlayerInput : MonoBehaviour
             return;
 
         Horizontal = Input.GetAxis("Horizontal");
-        OnPlayerMoveHorizontal(Horizontal);
-        gameObject.GetComponent<Animator>().SetFloat("Speed", MathF.Abs(Horizontal));
+        OnPlayerMoveHorizontal?.Invoke(Horizontal);
+        Animator?.SetFloat("Speed", MathF.Abs(Horizontal));
     }
 
     public void Update()
@@ -41,21 +44,21 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            OnPlayerAttack(Input.mousePosition);
+            OnPlayerAttack?.Invoke(Input.mousePosition);
         }
       
         if (Input.GetButtonDown("Jump"))
-            OnPlayerJump();
+            OnPlayerJump?.Invoke();
 
-        OnPlayerFlip(Input.mousePosition);
+        OnPlayerFlip?.Invoke(Input.mousePosition);
     }
 
     public void PauseSwitch()
     {
         IsInputBlock = !IsInputBlock;
-        if (Time.timeScale == 0)
-            Time.timeScale = 1;
+        if (Time.timeScale == _pauseTimeScale)
+            Time.timeScale = _defaultTimeScale;
         else
-            Time.timeScale = 0;
+            Time.timeScale = _pauseTimeScale;
     }
 }

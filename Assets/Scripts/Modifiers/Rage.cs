@@ -1,12 +1,7 @@
 using UnityEngine;
 
-public class Rage : Modifier
+public class Rage : MonoBehaviour, IWeaponModifier
 {
-    
-    public override void ActivateEffect()
-    {
-        base.ActivateEffect();
-    }
     private void OnEnable()
     {
 
@@ -14,17 +9,18 @@ public class Rage : Modifier
 
     private void OnDisable()
     {
-        //Health.OnHpChange -= GetPowerForLosåHp;
+        Player.GetPlayer.GetHealth().OnHpChange -= GetPowerForLosåHp;
     }
-    public override void PrepareModifier()
+    public void PrepareModifier()
     {
-        //Health.OnHpChange += GetPowerForLosåHp;
+        Player.GetPlayer.GetHealth().OnHpChange += GetPowerForLosåHp;
     }
 
     private void GetPowerForLosåHp(int health)
     {
         var wepon = Weapon.GetWeapon;
         if (wepon is not null)
-            wepon.WeaponDamage += Weapon.GetWeapon?.WeaponDamage - health ?? 100;
+            wepon.WeaponDamage = health;
+        Debug.Log(wepon.WeaponDamage);
     }
 }

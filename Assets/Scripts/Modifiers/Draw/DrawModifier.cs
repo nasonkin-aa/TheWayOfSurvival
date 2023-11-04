@@ -14,13 +14,6 @@ public class DrawModifier : MonoBehaviour
     public void DrawNewModifier()
     {
         int randModNumber = rnd.Next(0, mods.Count);
-        mods[randModNumber].Activate();
-
-        //if (!modifireType.IsSubclassOf(typeof(Modifier)))
-        //    return;
-
-        //var mod = new ModifierPrepare(modifireType);
-        //Debug.Log(modifireType.ToString());
-        //ModifierAdder.AddModifier(mod, player, ModifierTarget.Weapon);
+        mods[randModNumber]?.Activate();
     }
 }
