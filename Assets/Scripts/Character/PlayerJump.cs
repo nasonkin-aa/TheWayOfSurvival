@@ -10,7 +10,6 @@ public class PlayerJump : MonoBehaviour
     void Start()
     {
         _rb = transform.GetComponent<Rigidbody2D>();
-
     }
     private void Jump()
     {
