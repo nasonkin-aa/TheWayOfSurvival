@@ -20,7 +20,7 @@ public class Rage : MonoBehaviour, IWeaponModifier
     {
         var wepon = Weapon.GetWeapon;
         if (wepon is not null)
-            wepon.WeaponDamage = health;
+            wepon.WeaponDamage -= health;
         Debug.Log(wepon.WeaponDamage);
     }
 }
