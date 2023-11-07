@@ -22,6 +22,7 @@ public class HealthBase : MonoBehaviour
     public virtual int Health {
         get { return _health; }
         set {
+            OnHpChange?.Invoke(value - _health);
             _health = value;
 
             if (_health <= 0)
@@ -34,7 +35,7 @@ public class HealthBase : MonoBehaviour
             //if (_health > MaxHealth)
             //    _health = MaxHealth;
 
-            OnHpChange?.Invoke(MaxHealth - value);
+
         }
     }
 
