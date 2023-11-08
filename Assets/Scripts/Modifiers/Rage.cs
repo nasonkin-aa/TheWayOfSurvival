@@ -16,11 +16,10 @@ public class Rage : MonoBehaviour, IWeaponModifier
         Player.GetPlayer.GetHealth().OnHpChange += GetPowerForLosåHp;
     }
 
-    private void GetPowerForLosåHp(int health)
+    private void GetPowerForLosåHp(int healthChange)
     {
         var wepon = Weapon.GetWeapon;
         if (wepon is not null)
-            wepon.WeaponDamage -= health;
-        Debug.Log(wepon.WeaponDamage);
+            wepon.WeaponDamage -= healthChange;
     }
 }

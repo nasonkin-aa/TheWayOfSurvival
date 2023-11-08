@@ -8,6 +8,11 @@ public class Projectile : MonoBehaviour
     public Action OnProjectileCollision;
     public static ContactFilter2D ContactWithEnemies = PrepareFilter();
 
+    private void Start()
+    {
+        Destroy(gameObject, 5f);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (_isContact) return; //Hack for kill 1 enemy 1 projectile
@@ -23,7 +28,7 @@ public class Projectile : MonoBehaviour
     public static ContactFilter2D PrepareFilter()
     {
         var filter = new ContactFilter2D();
-        filter.NoFilter();
+        filter.useLayerMask = true;
         filter.layerMask = (1 << 9);
         return filter;
     }

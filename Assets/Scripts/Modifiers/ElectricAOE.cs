@@ -5,7 +5,7 @@ using UnityEngine;
 public class ElectricAOE : MonoBehaviour, IWeaponModifier
 {
     protected static int AOEDamage = 20;
-    protected static int radius = 20;
+    protected static int radius = 3;
     protected static float interval = .5f; // В секундах
 
     public void Awake()
