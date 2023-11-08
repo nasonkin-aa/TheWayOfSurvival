@@ -3,8 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Overlaper))]
 public class Thunderbolt : MonoBehaviour, IWeaponModifier
 {
-    protected static int AOEDamage = 20;
-    protected static int radius = 20;
+    protected static int AOEDamage = 30;
+    protected static int radius = 3;
 
     public void Awake()
     {
