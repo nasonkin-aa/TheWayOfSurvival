@@ -5,7 +5,7 @@ using UnityEngine;
 public class Move : MoveBase
 {
     public GameObject target;
-
+             
     public Action<Rigidbody2D, Vector2> OnMove;
         
     private Rigidbody2D _rd;
