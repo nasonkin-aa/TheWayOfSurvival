@@ -8,11 +8,11 @@ public abstract class MoveBase : MonoBehaviour
     protected virtual void Flip(float direction, GameObject gameObj)
     {
         var localScale = gameObj.transform.localScale;
-        if ((direction > 0 && localScale.x < 0) || (direction < 0 && localScale.x > 0))
-        {
-            localScale.x = -localScale.x;
-            gameObj.transform.localScale = localScale;
-            OnFlip?.Invoke();
-        }
+        if (direction * localScale.x >= 0)
+            return;
+        
+        localScale.x = -localScale.x;
+        gameObj.transform.localScale = localScale;
+        OnFlip?.Invoke();
     }
 }

@@ -32,7 +32,7 @@ Transform:
   - {fileID: 8523448241996851887}
   - {fileID: 984443952143707667}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4429862968593196313
 GameObject:
@@ -410,4 +410,4 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 7
     m_NumAlphaKeys: 2
-  duration: 30
+  duration: 30000
