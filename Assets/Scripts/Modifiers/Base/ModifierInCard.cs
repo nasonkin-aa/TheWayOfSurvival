@@ -7,24 +7,16 @@ public enum ModifierTarget
 
 public class ModifierInCard : MonoBehaviour
 {
-    public ModifierTarget modifierTarget;
-    public ModifierName modifierName;
+    public ModifierBaseObject modifierInfo;
 
     public void Activate ()
     {
-        var mod = new ModifierPrepare(modifierName.ToString());
-        ModifierAdder.AddModifier(mod, Player.GetPlayer, modifierTarget);
-    }
-
-    public void Copy(ModifierInCard card)
-    {
-        modifierTarget = card.modifierTarget;
-        modifierName = card.modifierName;
+        var mod = new ModifierPrepare(modifierInfo);
+        ModifierAdder.AddModifier(mod, Player.GetPlayer, modifierInfo.GetModifierTarget);
     }
 
     public void CopyFromSO(ModifierBaseObject card)
     {
-        modifierTarget = card.GetModifierTarget;
-        modifierName = card.GetModifierName;
+        modifierInfo = card;
     }
 }

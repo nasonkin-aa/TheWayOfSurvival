@@ -72,6 +72,5 @@ public class PlayerInput : MonoBehaviour
     {
         IsInputBlock = false;
         Time.timeScale = _defaultTimeScale;
-
     }
 }

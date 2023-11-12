@@ -10,16 +10,15 @@ public class DrawModifier : MonoBehaviour
     private static readonly System.Random rnd = new System.Random();
 
     public Canvas DrawUI;
-    public ModifiersPool pool;
     private void Awake()
     {
         _mods = new(Resources.LoadAll<ModifierBaseObject>("").Where(obj => obj.Lvl == 1));
     }
     public void DrawNewModifier()
     {
-        //foreach(var mod in _mods)
+        //foreach (var mod in _mods)
         //{
-        //    Debug.Log(mod.GetModifierName);
+        //    Debug.Log(mod.GetModifierType);
         //    Debug.Log(mod.GetModifierTarget);
         //    Debug.Log(mod.Lvl);
         //}
@@ -57,7 +56,7 @@ public class DrawModifier : MonoBehaviour
     private void PrepareButton(Button button, ModifierBaseObject mod)
     {
         List<TMP_Text> buttonText = new(button.GetComponentsInChildren<TMP_Text>());
-        buttonText.First(obj => obj.name == "ModifierName").text = mod.GetModifierName.ToString();
+        buttonText.First(obj => obj.name == "ModifierName").text = mod.GetModifierType.ToString();
         buttonText.First(obj => obj.name == "Description").text = mod.Description.ToString();
         buttonText.First(obj => obj.name == "ModLvl").text = mod.Lvl.ToString();
     }

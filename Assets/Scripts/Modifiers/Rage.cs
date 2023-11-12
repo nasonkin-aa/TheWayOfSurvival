@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Rage : MonoBehaviour, IWeaponModifier
 {
+    protected static RageConfig _rageInfo;
     private void OnEnable()
     {
 
@@ -11,8 +12,9 @@ public class Rage : MonoBehaviour, IWeaponModifier
     {
         Player.GetPlayer.GetHealth().OnHpChange -= GetPowerForLosåHp;
     }
-    public void PrepareModifier()
+    void IWeaponModifier.PrepareModifier(ModifierBaseObject rageInfo)
     {
+        _rageInfo = rageInfo as RageConfig;
         Player.GetPlayer.GetHealth().OnHpChange += GetPowerForLosåHp;
     }
 

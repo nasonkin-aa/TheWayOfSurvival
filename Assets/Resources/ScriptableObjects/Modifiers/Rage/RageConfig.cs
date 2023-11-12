@@ -1,7 +1,11 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Rage Config", menuName = "Modifiers/Rage")]
 public class RageConfig : ModifierBaseObject
 {
-    private new const string _modifierName = "Rage";
+    protected new Type _modifierType = typeof(Rage);
+
+    public override Type GetModifierType => _modifierType;
+
 }

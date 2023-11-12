@@ -3,20 +3,18 @@ using System;
 public class ModifierPrepare 
 {
     private readonly Type _modifier;
+    private ModifierBaseObject _modifierInfo;
 
-    public ModifierPrepare(Type modifier)
+    public ModifierPrepare(ModifierBaseObject modifierInfo)
     {
-        _modifier = modifier;
-    }
-    public ModifierPrepare(string modifierName)
-    {
-        _modifier = Type.GetType(modifierName);
+        _modifier = modifierInfo.GetModifierType;
+        _modifierInfo = modifierInfo;
     }
     public GameObject CreateSubObject(Transform parent)
     {   
         var newSubObj = SubObjectsCreator.CreateSubObjectWithModifier(parent, _modifier);
-        var newModifier = (IWeaponModifier)newSubObj.GetComponent(_modifier);
-        newModifier?.PrepareModifier(); // Настройка модификатора
+        var newModifier = newSubObj.GetComponent(_modifier) as IWeaponModifier;
+        newModifier?.PrepareModifier(_modifierInfo); // Настройка модификатора
 
         return newSubObj;
     }

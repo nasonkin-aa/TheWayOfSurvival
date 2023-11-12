@@ -3,8 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Overlaper))]
 public class Thunderbolt : MonoBehaviour, IWeaponModifier
 {
-    protected static int AOEDamage = 30;
-    protected static float radius = 3;
+    protected static ThunderboltConfig _thunderboltInfo;
 
     public void Awake()
     {
@@ -21,14 +20,15 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
         GetComponentInParent<Projectile>().OnProjectileCollision -= DealDamage;
     }
 
-    public void PrepareModifier()
+    void IWeaponModifier.PrepareModifier(ModifierBaseObject thunderboltInfo)
     {
+        _thunderboltInfo = thunderboltInfo as ThunderboltConfig;
         GetComponentInParent<Projectile>().OnProjectileCollision += DealDamage;
     }
 
     private void DealDamage()
     {
-        var collidedObjects = GetComponent<Overlaper>().CircleOverlap(radius, Projectile.ContactWithEnemies);
-        collidedObjects.ForEach(collider => collider.GetComponent<HealthBase>()?.TakeDamage(AOEDamage));
+        var collidedObjects = GetComponent<Overlaper>().CircleOverlap(_thunderboltInfo.Radius, Projectile.ContactWithEnemies);
+        collidedObjects.ForEach(collider => collider.GetComponent<HealthBase>()?.TakeDamage(_thunderboltInfo.AreaDamage));
     }
 }

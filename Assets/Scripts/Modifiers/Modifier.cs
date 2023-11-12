@@ -1,15 +1,10 @@
 using UnityEngine;
 
-public class Modifier : MonoBehaviour, IWeaponModifier
+public abstract class Modifier : MonoBehaviour, IWeaponModifier
 {
     [SerializeField] protected GameObject _prefab;
-    public virtual void ActivateEffect()
-    {
-        
-    }
+    protected ModifierBaseObject _modifierInfo;
+    public abstract void PrepareModifier();
 
-    public virtual void PrepareModifier()
-    {
-        
-    }
+    public abstract void PrepareModifier(ModifierBaseObject modifierConfig);
 }
