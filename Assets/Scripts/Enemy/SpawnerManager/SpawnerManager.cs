@@ -57,7 +57,7 @@ public class SpawnerManager : MonoBehaviour
         
         //---------make normal  target selector
         var enemy = Instantiate(enemyType, RandomSpawnPoint.transform.position,Quaternion.identity, transform);
-        enemy.GetComponent<Move>().target = GameObject.Find("BaseLocation");
+        enemy.GetComponent<MoveController>().target = GameObject.Find("BaseLocation").transform;
         //---------make normal  target selector
     }
     

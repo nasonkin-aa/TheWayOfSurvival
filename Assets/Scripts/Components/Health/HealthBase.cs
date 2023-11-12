@@ -22,19 +22,14 @@ public class HealthBase : MonoBehaviour
     public virtual int Health {
         get { return _health; }
         set {
-            OnHpChange?.Invoke(value - _health);
-            _health = value;
-
-            if (_health <= 0)
+            if (value <= 0)
             {
                 _health = 0;
                 Die();
                 return;
             }
-
-            //if (_health > MaxHealth)
-            //    _health = MaxHealth;
-
+            OnHpChange?.Invoke(value - _health);
+            _health = value;
 
         }
     }

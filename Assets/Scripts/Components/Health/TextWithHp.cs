@@ -51,6 +51,8 @@ public class TextWithHp : MonoBehaviour
 
     private void ChangeHPBar(int hp)
     {
+        if (_hp is null)
+            return;
         _hpTextMesh.text = (_hp.Health + hp).ToString() + '/' + _hp.MaxHealth;
     }
 }

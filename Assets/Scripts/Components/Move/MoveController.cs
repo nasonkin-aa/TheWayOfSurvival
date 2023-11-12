@@ -2,23 +2,23 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Move : MoveBase
+//[RequireComponent(typeof(IMovable))]
+public class MoveController : MoveBase
 {
-    public GameObject target;
-             
-    public Action<Rigidbody2D, Vector2> OnMove;
-        
+    public Transform target;
+    private IMovable Mover;
     private Rigidbody2D _rd;
     private void Awake()
     {
+        Mover = GetComponent<IMovable>();
         _rd = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    public void MoveToTarget()
     {
-        if (target == null)
+        if (target is null)
             return;
-        OnMove?.Invoke(_rd, GetDirectionToObject(target.transform));
+        Mover.Move(_rd,GetDirectionToObject(target));
         Flip(-GetDirectionToObject(target.transform).x, gameObject);
     }
 

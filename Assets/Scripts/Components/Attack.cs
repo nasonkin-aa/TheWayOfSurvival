@@ -7,17 +7,32 @@ public class Attack : MonoBehaviour
 {
     private AttackZone _attackZone;
     public int damage = 10;
-    private void Start()
+    public Action OnAttackReady;
+    public Action OnAttackFinished;
+    private HealthBase _targetToAttack;
+    public void Start()
     {
-        _attackZone = gameObject.transform.GetComponentInChildren<AttackZone>();
-        if (_attackZone == null)
-        {
-            Debug.LogError("Not found AttackZone: "+ gameObject.name);
-        }
+        _attackZone = GetComponentInChildren<AttackZone>();
+        _attackZone.OnCollisionWithTarget += ContactWithTarget;
     }
 
-    public void AttackZoneTarget()
+    public void ContactWithTarget(HealthBase health)
     {
-        _attackZone.AttackTarget(damage);
+        _targetToAttack = health;
+        OnAttackReady?.Invoke();
+    }
+
+    public void CheckTargetToAttack()
+    {
+        var collideHealth = _attackZone.CheckTargetInCollider();
+        if (collideHealth is not null && collideHealth == _targetToAttack)
+        {
+            _targetToAttack?.TakeDamage(damage);
+        }
+        else
+        {
+            _targetToAttack = null;
+            OnAttackFinished?.Invoke();
+        }
     }
 }
