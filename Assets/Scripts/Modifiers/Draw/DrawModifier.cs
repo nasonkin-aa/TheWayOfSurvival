@@ -2,25 +2,32 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class DrawModifier : MonoBehaviour
 {
-    private static List<ModifierInCard> mods = new();
+    private static List<ModifierBaseObject> _mods;
     private static readonly System.Random rnd = new System.Random();
 
     public Canvas DrawUI;
     public ModifiersPool pool;
     private void Awake()
     {
-        mods = pool.modifiers;
+        _mods = new(Resources.LoadAll<ModifierBaseObject>("").Where(obj => obj.Lvl == 1));
     }
     public void DrawNewModifier()
     {
+        //foreach(var mod in _mods)
+        //{
+        //    Debug.Log(mod.GetModifierName);
+        //    Debug.Log(mod.GetModifierTarget);
+        //    Debug.Log(mod.Lvl);
+        //}
         PrepareUI();
         PlayerInput.Pause();
     }
 
-    private void PrepareUI ()
+    private void PrepareUI()
     {
         DrawUI.gameObject.SetActive(true);
         PrepareCards();
@@ -28,15 +35,15 @@ public class DrawModifier : MonoBehaviour
 
     private void PrepareCards()
     {
-        List<Button> buttons = new (DrawUI.GetComponentsInChildren<Button>());
+        List<Button> buttons = new(DrawUI.GetComponentsInChildren<Button>());
         foreach (var button in buttons)
         {
             Destroy(button.GetComponent<ModifierInCard>());
-            int randModNumber = rnd.Next(0, mods.Count);
+            int randModNumber = rnd.Next(0, _mods.Count);
             var newComponent = button.gameObject.AddComponent<ModifierInCard>();
-            var mod = mods[randModNumber];
-            button.GetComponentInChildren<TMP_Text>().text = mod.modifierName.ToString();
-            newComponent.Copy(mod);
+            var mod = _mods[randModNumber];
+            PrepareButton(button, mod);
+            newComponent.CopyFromSO(mod);
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() =>
                 {
@@ -45,5 +52,13 @@ public class DrawModifier : MonoBehaviour
                     newComponent.Activate();
                 });
         }
+    }
+
+    private void PrepareButton(Button button, ModifierBaseObject mod)
+    {
+        List<TMP_Text> buttonText = new(button.GetComponentsInChildren<TMP_Text>());
+        buttonText.First(obj => obj.name == "ModifierName").text = mod.GetModifierName.ToString();
+        buttonText.First(obj => obj.name == "Description").text = mod.Description.ToString();
+        buttonText.First(obj => obj.name == "ModLvl").text = mod.Lvl.ToString();
     }
 }

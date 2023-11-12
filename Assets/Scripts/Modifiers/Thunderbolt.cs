@@ -4,7 +4,7 @@ using UnityEngine;
 public class Thunderbolt : MonoBehaviour, IWeaponModifier
 {
     protected static int AOEDamage = 30;
-    protected static int radius = 3;
+    protected static float radius = 3;
 
     public void Awake()
     {

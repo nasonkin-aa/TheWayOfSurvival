@@ -21,4 +21,10 @@ public class ModifierInCard : MonoBehaviour
         modifierTarget = card.modifierTarget;
         modifierName = card.modifierName;
     }
+
+    public void CopyFromSO(ModifierBaseObject card)
+    {
+        modifierTarget = card.GetModifierTarget;
+        modifierName = card.GetModifierName;
+    }
 }
