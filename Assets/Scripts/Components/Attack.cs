@@ -9,32 +9,30 @@ public class Attack : MonoBehaviour
     public int damage = 10;
     public Action OnAttackReady;
     public Action OnAttackFinished;
-    private Health _targetToAttack;
+    private HealthBase _targetToAttack;
     public void Start()
     {
         _attackZone = GetComponentInChildren<AttackZone>();
         _attackZone.OnCollisionWithTarget += ContactWithTarget;
-        Debug.Log(_attackZone.OnCollisionWithTarget);
     }
 
-    public void AttackZoneTarget()
+    public void ContactWithTarget(HealthBase health)
     {
-        _attackZone.AttackTarget(damage);
-    }
-
-    public void ContactWithTarget(Health health)
-    {
-        Debug.Log(health + " 1");
         _targetToAttack = health;
         OnAttackReady?.Invoke();
     }
 
     public void CheckTargetToAttack()
     {
-        if (_attackZone.CheckTargetInCollider() == _targetToAttack)
+        var collideHealth = _attackZone.CheckTargetInCollider();
+        if (collideHealth is not null && collideHealth == _targetToAttack)
+        {
             _targetToAttack?.TakeDamage(damage);
-
-        _targetToAttack = null;
-        OnAttackFinished?.Invoke();
+        }
+        else
+        {
+            _targetToAttack = null;
+            OnAttackFinished?.Invoke();
+        }
     }
 }
