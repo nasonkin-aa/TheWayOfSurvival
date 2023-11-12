@@ -15,4 +15,10 @@ public class ModifierInCard : MonoBehaviour
         var mod = new ModifierPrepare(modifierName.ToString());
         ModifierAdder.AddModifier(mod, Player.GetPlayer, modifierTarget);
     }
+
+    public void Copy(ModifierInCard card)
+    {
+        modifierTarget = card.modifierTarget;
+        modifierName = card.modifierName;
+    }
 }

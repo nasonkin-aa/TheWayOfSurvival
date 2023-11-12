@@ -51,7 +51,6 @@ public class BaseEnemy : MonoBehaviour
     private void ReadyToAttack()
     {
         _state = EnemyState.Attack;
-        Debug.Log(_state);
         StartAttack();
     }
     
