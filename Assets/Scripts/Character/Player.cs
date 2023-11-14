@@ -20,7 +20,19 @@ public class Player : MonoBehaviour
 
     public void AddModifier(ModifierPrepare modifier)
     {
-        modifier?.CreateSubObject(transform);
+        ModifierPrepare containedMod = _modifiers
+            .Find(mod => mod.GetModifierInfo().GetModifierType == modifier.GetModifierInfo().GetModifierType);
+
+        if (containedMod is null)
+        {
+            modifier?.CreateSubObject(transform);
+            _modifiers.Add(modifier);
+        }
+        else
+        {
+            containedMod.SetModifierInfo(modifier.GetModifierInfo());
+            modifier?.SetModifierInfo(modifier.GetModifierInfo(), transform);
+        }
     }
 
     private void OnDestroy()
