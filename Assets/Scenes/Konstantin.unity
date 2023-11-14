@@ -5352,6 +5352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a678f7d85b453e48b17598e0c1d7a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eyeExpSpriteRenderer: {fileID: 0}
 --- !u!114 &2121853209
 MonoBehaviour:
   m_ObjectHideFlags: 0
