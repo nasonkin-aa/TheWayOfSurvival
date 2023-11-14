@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpawnerManager : MonoBehaviour
 {
-
     public GameObject[] SkySpawnPoin;
     public GameObject[] GroundSpawnPoin;
     [SerializeField] 
@@ -26,7 +22,6 @@ public class SpawnerManager : MonoBehaviour
             {
                 ChooseEnemy();
                 timeToSpawn = countWaves[_currentWave].WaveTime / countWaves[_currentWave].CountEnemy;
-                Debug.Log(timeToSpawn);
             }
         }   
         else
