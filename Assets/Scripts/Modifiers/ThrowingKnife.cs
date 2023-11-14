@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ThrowinKnife : MonoBehaviour, IWeaponModifier
+public class ThrowingKnife : MonoBehaviour, IWeaponModifier
 {  
     [SerializeField] private GameObject _knifePrefab;
-    protected static ThrowinKnifeConfig _throwinKnifeInfo;
+    protected static ThrowingKnifeConfig _ThrowingKnifeInfo;
     private bool _RechargeOver = true;
  
     public ContactFilter2D contactFilter2D;
@@ -29,14 +29,14 @@ public class ThrowinKnife : MonoBehaviour, IWeaponModifier
     }
      IEnumerator MyCoroutine(Collider2D other)
     {
-        for(int i = 0; i < _throwinKnifeInfo.GetCountKnife; i++)
+        for(int i = 0; i < _ThrowingKnifeInfo.GetCountKnife; i++)
         {
-            yield return new WaitForSeconds(_throwinKnifeInfo.GetTimeBetwinShot); 
+            yield return new WaitForSeconds(_ThrowingKnifeInfo.GetTimeBetwinShot); 
             List<Collider2D> targets = OverlapTargetWithHp();
             if (targets is not null)
                 SpawnKnifeWhithRototion(targets[Random.Range(0,targets.Count)]);
         }
-        yield return new WaitForSeconds(_throwinKnifeInfo.GetReloadTime); 
+        yield return new WaitForSeconds(_ThrowingKnifeInfo.GetReloadTime); 
         _RechargeOver = true;
     }
 
@@ -49,7 +49,7 @@ public class ThrowinKnife : MonoBehaviour, IWeaponModifier
 
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         var obj = Instantiate(_knifePrefab, transform.position, rotation);
-        obj.GetComponent<Knife>().PrepareKnife(_throwinKnifeInfo.GetKnifeSpeed, _throwinKnifeInfo.GetKnifeDamage);
+        obj.GetComponent<Knife>().PrepareKnife(_ThrowingKnifeInfo.GetKnifeSpeed, _ThrowingKnifeInfo.GetKnifeDamage);
         Destroy(obj,3f);
         
     }
@@ -62,22 +62,22 @@ public class ThrowinKnife : MonoBehaviour, IWeaponModifier
         return null;
     }
 
-    void IWeaponModifier.PrepareModifier(ModifierBaseObject throwinKnifeInfo)
+    void IWeaponModifier.PrepareModifier(ModifierBaseObject ThrowingKnifeInfo)
     {
-        _throwinKnifeInfo = throwinKnifeInfo as ThrowinKnifeConfig;
-        var prefab = Resources.Load(_throwinKnifeInfo.GetPrefabPath);
+        _ThrowingKnifeInfo = ThrowingKnifeInfo as ThrowingKnifeConfig;
+        var prefab = Resources.Load(_ThrowingKnifeInfo.GetPrefabPath);
         var obj = Instantiate(prefab, gameObject.transform.parent) as GameObject;
-        obj.GetComponent<ThrowinKnife>().SetThrowinKnifeInfo(_throwinKnifeInfo);
+        obj.GetComponent<ThrowingKnife>().SetThrowingKnifeInfo(_ThrowingKnifeInfo);
         Destroy(gameObject);
     }
 
-    public void UpdateModifierInfo(ModifierBaseObject throwinKnifeInfo)
+    public void UpdateModifierInfo(ModifierBaseObject ThrowingKnifeInfo)
     {
-        _throwinKnifeInfo = throwinKnifeInfo as ThrowinKnifeConfig;
+        _ThrowingKnifeInfo = ThrowingKnifeInfo as ThrowingKnifeConfig;
     }
 
-    public void SetThrowinKnifeInfo(ThrowinKnifeConfig throwinKnifeInfo)
+    public void SetThrowingKnifeInfo(ThrowingKnifeConfig ThrowingKnifeInfo)
     {
-        _throwinKnifeInfo = throwinKnifeInfo;
+        _ThrowingKnifeInfo = ThrowingKnifeInfo;
     }
 }

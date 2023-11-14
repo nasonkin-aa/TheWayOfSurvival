@@ -14,4 +14,6 @@ public class ElectricAOEConfig : ModifierBaseObject
     public float Interval => _interval;
     public override Type GetModifierType => _modifierType;
 
+    public override ModifierTarget GetModifierTarget => ModifierTarget.Weapon;
+
 }

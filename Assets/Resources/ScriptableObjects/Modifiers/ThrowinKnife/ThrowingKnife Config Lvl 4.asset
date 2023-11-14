@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26971e356a0a7854abad9663caba6198, type: 3}
-  m_Name: ThrowinKnife Config Lvl 1
+  m_Name: ThrowingKnife Config Lvl 4
   m_EditorClassIdentifier: 
-  _lvl: 1
-  _description: "\u041C\u0435\u0442\u0430\u0435\u0442 \u043D\u043E\u0436\u0438 \u0432
-    \u0431\u043B\u0438\u0436\u0430\u0439\u0448\u0438\u0445 \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u043E\u0432"
+  _lvl: 4
+  _description: "\u041D\u043E\u0436\u0438 \u043B\u0435\u0442\u044F\u0442 \u0431\u044B\u0441\u0442\u0440\u0435\u0435,
+    \u0443\u0440\u043E\u043D \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D"
   _countKnife: 3
-  _reloadTime: 2
+  _reloadTime: 1
   _timeBetwinShot: 0.3
-  _knifeSpeed: 20
-  _knifeDamage: 20
+  _knifeSpeed: 40
+  _knifeDamage: 60

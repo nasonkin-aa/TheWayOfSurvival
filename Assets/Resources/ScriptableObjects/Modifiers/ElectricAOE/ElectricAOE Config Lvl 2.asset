@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c69638f81d89584f9ca4ed57980940e, type: 3}
-  m_Name: Thunderbolt Config
+  m_Script: {fileID: 11500000, guid: 10350c83ae050f3488919f9e939021d2, type: 3}
+  m_Name: ElectricAOE Config Lvl 2
   m_EditorClassIdentifier: 
-  _lvl: 1
+  _lvl: 2
+  _description: "\u041D\u0430\u043D\u043E\u0441\u0438\u043C\u044B\u0439 \u0443\u0440\u043E\u043D
+    \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D"
   _radius: 2
-  _AOEdamage: 20
+  _areaDamage: 40
+  _interval: 1.5

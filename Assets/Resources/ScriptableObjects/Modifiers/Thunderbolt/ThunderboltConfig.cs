@@ -10,4 +10,5 @@ public class ThunderboltConfig : ModifierBaseObject
     public float Radius => _radius;
     public int AreaDamage => _areaDamage;
     public override Type GetModifierType => _modifierType;
+    public override ModifierTarget GetModifierTarget => ModifierTarget.Weapon;
 }
