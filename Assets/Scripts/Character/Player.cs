@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     {
         ModifierPrepare containedMod = _modifiers
             .Find(mod => mod.GetModifierInfo().GetModifierType == modifier.GetModifierInfo().GetModifierType);
-        Debug.Log(containedMod);
 
         if (containedMod is null)
         {
@@ -33,7 +32,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             containedMod.SetModifierInfo(modifier.GetModifierInfo());
             modifier?.SetModifierInfo(modifier.GetModifierInfo(), transform);
         }

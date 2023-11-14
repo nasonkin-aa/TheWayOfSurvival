@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Knife : MonoBehaviour
@@ -25,5 +22,11 @@ public class Knife : MonoBehaviour
             other.GetComponent<Health>()?.TakeDamage(_damage);
             Destroy(gameObject);
         }
+    }
+
+    public void PrepareKnife(float speed, int damage)
+    {
+        _speed = speed;
+        _damage = damage;
     }
 }
