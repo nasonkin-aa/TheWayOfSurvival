@@ -10,6 +10,8 @@ public class Attack : MonoBehaviour
     public Action OnAttackReady;
     public Action OnAttackFinished;
     private HealthBase _targetToAttack;
+    
+ 
     public void Start()
     {
         _attackZone = GetComponentInChildren<AttackZone>();
