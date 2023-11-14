@@ -16,7 +16,7 @@ TagManager:
   - Building
   - Enemy
   - Ground
-  - 
+  - Background
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 503572063
+    locked: 0
+  - name: 
+    uniqueID: 1663422891
     locked: 0
