@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -129,7 +129,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sprt_totem_0
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 448
+        height: 1280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4966c02cb29647458a249ee72d3dbc1
+      internalID: 1273792483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprt_totem_1
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 0
+        width: 447
+        height: 1280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0d83af5e3c10f4db45a61b49fecb50
+      internalID: 1071963699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprt_totem_2
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 0
+        width: 449
+        height: 1280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814c6ca43ef38264c9b120fdf1bef0fa
+      internalID: -586383944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprt_totem_3
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 0
+        width: 445
+        height: 1280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f4816c05ed497438db0157586b2be0
+      internalID: 975909521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprt_totem_4
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 637
+        width: 333
+        height: 643
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74f8a37a886b44949b2a3a3fafc5529d
+      internalID: -255444980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprt_totem_5
+      rect:
+        serializedVersion: 2
+        x: 2990
+        y: 637
+        width: 339
+        height: 643
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 534bf04a2d5a9ab41afdcb8db0ccec40
+      internalID: -1023842971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprt_totem_6
+      rect:
+        serializedVersion: 2
+        x: 3869
+        y: 640
+        width: 170
+        height: 640
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f4d73b42959d244980199952b7855e
+      internalID: 864439107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprt_totem_7
+      rect:
+        serializedVersion: 2
+        x: 3594
+        y: 640
+        width: 170
+        height: 640
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7177359f783a2824db52d28a772315f3
+      internalID: 2133934714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -140,7 +308,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sprt_totem_0: 1273792483
+      sprt_totem_1: 1071963699
+      sprt_totem_2: -586383944
+      sprt_totem_3: 975909521
+      sprt_totem_4: -255444980
+      sprt_totem_5: -1023842971
+      sprt_totem_6: 864439107
+      sprt_totem_7: 2133934714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
