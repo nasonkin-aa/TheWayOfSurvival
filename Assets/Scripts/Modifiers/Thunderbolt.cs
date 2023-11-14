@@ -31,4 +31,9 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
         var collidedObjects = GetComponent<Overlaper>().CircleOverlap(_thunderboltInfo.Radius, Projectile.ContactWithEnemies);
         collidedObjects.ForEach(collider => collider.GetComponent<HealthBase>()?.TakeDamage(_thunderboltInfo.AreaDamage));
     }
+
+    public void UpdateModifierInfo(ModifierBaseObject modifierConfig)
+    {
+        _thunderboltInfo = modifierConfig as ThunderboltConfig;
+    }
 }

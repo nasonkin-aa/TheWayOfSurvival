@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
+
 public class ModifierPrepare 
 {
     private readonly Type _modifier;
@@ -18,4 +20,30 @@ public class ModifierPrepare
 
         return newSubObj;
     }
+
+    public void LvlUpModifier(ModifierBaseObject modifierInfo)
+    {
+        if (modifierInfo is null ||
+            _modifierInfo.GetModifierType != modifierInfo.GetModifierType ||
+            _modifierInfo.Lvl + 1 != modifierInfo.Lvl)
+            return;
+
+        _modifierInfo = modifierInfo;
+    }
+
+    public ModifierBaseObject GetModifierInfo() => _modifierInfo;
+    public void SetModifierInfo(ModifierBaseObject modifierInfo)
+    {
+        _modifierInfo = modifierInfo;
+    }
+    public void SetModifierInfo(ModifierBaseObject modifierInfo, Transform transform)
+    {
+        var mod = transform.GetComponentInChildren(typeof(IWeaponModifier)) as IWeaponModifier;
+        Debug.Log(mod);
+        if (mod is null)
+            return;
+
+        mod.UpdateModifierInfo(modifierInfo);
+    }
 }
+

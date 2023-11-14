@@ -6,22 +6,19 @@ using System.Linq;
 
 public class DrawModifier : MonoBehaviour
 {
-    private static List<ModifierBaseObject> _mods;
+    private static List<ModifierBaseObject> _pool;
     private static readonly System.Random rnd = new System.Random();
 
     public Canvas DrawUI;
     private void Awake()
     {
-        _mods = new(Resources.LoadAll<ModifierBaseObject>("").Where(obj => obj.Lvl == 1));
+        _pool = new(Resources.LoadAll<ModifierBaseObject>("").Where(obj => obj.Lvl == 1));
     }
     public void DrawNewModifier()
     {
-        //foreach (var mod in _mods)
-        //{
-        //    Debug.Log(mod.GetModifierType);
-        //    Debug.Log(mod.GetModifierTarget);
-        //    Debug.Log(mod.Lvl);
-        //}
+        if (_pool.Count <= 0)
+            return;
+
         PrepareUI();
         PlayerInput.Pause();
     }
@@ -38,9 +35,9 @@ public class DrawModifier : MonoBehaviour
         foreach (var button in buttons)
         {
             Destroy(button.GetComponent<ModifierInCard>());
-            int randModNumber = rnd.Next(0, _mods.Count);
+            int randModNumber = rnd.Next(0, _pool.Count);
             var newComponent = button.gameObject.AddComponent<ModifierInCard>();
-            var mod = _mods[randModNumber];
+            var mod = _pool[randModNumber];
             PrepareButton(button, mod);
             newComponent.CopyFromSO(mod);
             button.onClick.RemoveAllListeners();
@@ -49,6 +46,7 @@ public class DrawModifier : MonoBehaviour
                     DrawUI.gameObject.SetActive(false);
                     PlayerInput.UnPause();
                     newComponent.Activate();
+                    UpdatePool(mod);
                 });
         }
     }
@@ -59,5 +57,19 @@ public class DrawModifier : MonoBehaviour
         buttonText.First(obj => obj.name == "ModifierName").text = mod.GetModifierType.ToString();
         buttonText.First(obj => obj.name == "Description").text = mod.Description.ToString();
         buttonText.First(obj => obj.name == "ModLvl").text = mod.Lvl.ToString();
+    }
+
+    private void UpdatePool(ModifierBaseObject mod)
+    {
+        _pool.Remove(mod);
+
+        var newMods = Resources.LoadAll<ModifierBaseObject>("")
+            .Where(obj => mod.GetModifierType == obj.GetModifierType &&
+                   obj.Lvl == mod.Lvl + 1);
+
+        if (newMods is null || newMods.Count() != 1)
+            return;
+
+        _pool.Add(newMods.First());
     }
 }

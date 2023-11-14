@@ -32,7 +32,6 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
     void IWeaponModifier.PrepareModifier(ModifierBaseObject electricAOEInfo)
     {
         _electricAOEInfo = electricAOEInfo as ElectricAOEConfig;
-        Debug.Log(_electricAOEInfo);
         StartCoroutine(DamageOverTime());
         Instantiate(_particleObj, transform);
     }
@@ -51,5 +50,10 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
             DealDamage();
             _particle.Play(false);
         }
+    }
+
+    public void UpdateModifierInfo(ModifierBaseObject modifierConfig)
+    {
+        _electricAOEInfo = modifierConfig as ElectricAOEConfig;
     }
 }
