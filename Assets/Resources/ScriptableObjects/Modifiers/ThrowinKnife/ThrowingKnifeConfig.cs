@@ -1,11 +1,10 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ThrowinKnife Config", menuName = "Modifiers/ThrowinKnife")]
-public class ThrowinKnifeConfig : ModifierBaseObject
+[CreateAssetMenu(fileName = "ThrowingKnife Config", menuName = "Modifiers/ThrowingKnife")]
+public class ThrowingKnifeConfig : ModifierBaseObject
 {
-    protected new Type _modifierType = typeof(ThrowinKnife);
-    protected new ModifierTarget _modifierTarget = ModifierTarget.Character;
+    protected new Type _modifierType = typeof(ThrowingKnife);
 
     [SerializeField, Range(1, 30)] protected int _countKnife = 3;
     [SerializeField, Range(.1f, 10)] protected float _reloadTime = 2;
@@ -16,7 +15,7 @@ public class ThrowinKnifeConfig : ModifierBaseObject
 
     public override Type GetModifierType => _modifierType;
 
-    public override ModifierTarget GetModifierTarget => _modifierTarget;
+    public override ModifierTarget GetModifierTarget => ModifierTarget.Character;
 
     public int GetCountKnife => _countKnife;
     public float GetReloadTime => _reloadTime;

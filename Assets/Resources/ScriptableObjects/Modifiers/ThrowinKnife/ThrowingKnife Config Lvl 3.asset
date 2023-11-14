@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26971e356a0a7854abad9663caba6198, type: 3}
-  m_Name: ThrowinKnife Config Lvl 3
+  m_Name: ThrowingKnife Config Lvl 3
   m_EditorClassIdentifier: 
   _lvl: 3
   _description: "\u041D\u043E\u0436\u0438 \u043D\u0430\u043D\u043E\u0441\u044F\u0442

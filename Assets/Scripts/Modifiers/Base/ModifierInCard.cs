@@ -11,6 +11,7 @@ public class ModifierInCard : MonoBehaviour
 
     public void Activate ()
     {
+        Debug.Log(modifierInfo.GetModifierTarget);
         var mod = new ModifierPrepare(modifierInfo);
         ModifierAdder.AddModifier(mod, Player.GetPlayer, modifierInfo.GetModifierTarget);
     }
