@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,13 @@ public class Totem : MonoBehaviour
 {
     private Collider2D _expZone;
     private PlayerLvl _playerLvl;
+
+    public static Transform TotemTransform { get; set; }
+
+    public void Awake()
+    {
+        TotemTransform = transform;
+    }
 
     private void Start()
     {

@@ -13,10 +13,10 @@ public class PlayerInput : MonoBehaviour
     public static Action OnPlayerJump;
     public static Action<Vector3> OnPlayerAttack;
     public static Action<Vector3> OnPlayerFlip;
-    public bool IsInputBlock = false;
+    private static bool IsInputBlock = false;
     private Animator Animator => gameObject.GetComponent<Animator>();
-    private float _defaultTimeScale = 1;
-    private float _pauseTimeScale = 0;
+    private static float _defaultTimeScale = 1;
+    private static float _pauseTimeScale = 0;
 
 
     private void Awake() //Maybe this not need??
@@ -37,6 +37,8 @@ public class PlayerInput : MonoBehaviour
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+        if (Input.GetKeyDown(KeyCode.P))
             PauseSwitch();
 
         if (IsInputBlock)
@@ -53,12 +55,24 @@ public class PlayerInput : MonoBehaviour
         OnPlayerFlip?.Invoke(Input.mousePosition);
     }
 
-    public void PauseSwitch()
+    public static void PauseSwitch()
     {
-        IsInputBlock = !IsInputBlock;
-        if (Time.timeScale == _pauseTimeScale)
+        if (IsInputBlock)
             Time.timeScale = _defaultTimeScale;
         else
             Time.timeScale = _pauseTimeScale;
+        IsInputBlock = !IsInputBlock;
+    }
+
+    public static void Pause()
+    {
+        IsInputBlock = true;
+        Time.timeScale = _pauseTimeScale;
+    }
+
+    public static void UnPause()
+    {
+        IsInputBlock = false;
+        Time.timeScale = _defaultTimeScale;
     }
 }

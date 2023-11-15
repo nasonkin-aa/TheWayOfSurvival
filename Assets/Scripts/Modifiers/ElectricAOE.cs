@@ -4,13 +4,20 @@ using UnityEngine;
 [RequireComponent(typeof(Overlaper))]
 public class ElectricAOE : MonoBehaviour, IWeaponModifier
 {
-    protected static int AOEDamage = 20;
-    protected static int radius = 3;
-    protected static float interval = .5f; // В секундах
+    protected static string _particlePath = "Particle\\Electric\\Prefabs\\ElectricitySphere";
+    protected static GameObject _particleObj;
+    protected ParticleSystem _particle;
+    protected static ElectricAOEConfig _electricAOEInfo;
 
-    public void Awake()
+    protected void Awake()
     {
         GetComponent<CircleCollider2D>().isTrigger = true;
+        _particleObj ??= Resources.Load(_particlePath) as GameObject;
+    }
+
+    protected void Start()
+    {
+        _particle ??= GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnEnable()
@@ -22,14 +29,16 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
     {
         StopAllCoroutines();
     }
-    public void PrepareModifier()
+    void IWeaponModifier.PrepareModifier(ModifierBaseObject electricAOEInfo)
     {
+        _electricAOEInfo = electricAOEInfo as ElectricAOEConfig;
         StartCoroutine(DamageOverTime());
+        Instantiate(_particleObj, transform);
     }
     private void DealDamage()
     {
-        var collidedObjects = GetComponent<Overlaper>().CircleOverlap(radius, Projectile.ContactWithEnemies);
-        collidedObjects.ForEach(collider => collider.GetComponent<Health>()?.TakeDamage(AOEDamage));
+        var collidedObjects = GetComponent<Overlaper>().CircleOverlap(_electricAOEInfo.Radius, Projectile.ContactWithEnemies);
+        collidedObjects.ForEach(collider => collider.GetComponent<Health>()?.TakeDamage(_electricAOEInfo.AreaDamage));
     }
 
 
@@ -37,8 +46,14 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
     {
         for (;;)
         {
-            yield return new WaitForSeconds(interval);
+            yield return new WaitForSeconds(_electricAOEInfo.Interval);
             DealDamage();
+            _particle.Play(false);
         }
+    }
+
+    public void UpdateModifierInfo(ModifierBaseObject modifierConfig)
+    {
+        _electricAOEInfo = modifierConfig as ElectricAOEConfig;
     }
 }

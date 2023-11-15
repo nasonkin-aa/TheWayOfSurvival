@@ -10,6 +10,12 @@ public class PlayerLvl : MonoBehaviour
     public int ExpToLvlUp { get; private set; } = 100;
     public Action OnLvlUp;
     public Action OnTakeExp;
+    public DrawModifier drawMod;
+
+    public void Start()
+    {
+        drawMod = FindObjectOfType<DrawModifier>();
+    }
 
     public void GetExp (int exp)
     {
@@ -21,7 +27,7 @@ public class PlayerLvl : MonoBehaviour
             OnLvlUp?.Invoke();
             PlayerExp -= ExpToLvlUp;
             ExpToLvlUp = (int)(ExpToLvlUp * _lvlUpCoef);
-            DrawModifier.DrawNewModifier();
+            drawMod.DrawNewModifier();
         }
         OnTakeExp?.Invoke();
     }
