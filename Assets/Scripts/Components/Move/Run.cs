@@ -9,7 +9,8 @@ public class Run : MonoBehaviour, IMovable
     private float _speedScale = 2f;
     public void Move(Rigidbody2D rb,Vector2 direction)
     {
-        rb.velocity = direction * UnityEngine.Random.Range(_speedScale * 0.9f, _speedScale * 1.1f);
+        float speedMultiplier = UnityEngine.Random.Range(_speedScale * 0.9f, _speedScale * 1.1f);
+        rb.velocity =  new Vector2(direction.x * speedMultiplier,rb.velocity.y);
     }
     
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 198464213672787702}
   - component: {fileID: 199039018961966016}
   m_Layer: 0
-  m_Name: Electricity
+  m_Name: Thunderbolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,6 +12,11 @@ public class PlayerLvl : MonoBehaviour
     public Action OnTakeExp;
     public DrawModifier drawMod;
 
+    public void Start()
+    {
+        drawMod = FindObjectOfType<DrawModifier>();
+    }
+
     public void GetExp (int exp)
     {
         PlayerExp += exp;

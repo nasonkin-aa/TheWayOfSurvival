@@ -33,7 +33,7 @@ public class SpawnerManager : MonoBehaviour
 
     public void ChooseEnemy()
     {
-        var RandomNumberInArray = Random.Range(0, countWaves[_currentWave].EnemyInWave.Length - 1);
+        var RandomNumberInArray = Random.Range(0, countWaves[_currentWave].EnemyInWave.Length );
         var RandomEnemy = countWaves[_currentWave].EnemyInWave[RandomNumberInArray];
         if (RandomEnemy.GetComponent<EnemyType>().enemy == EnemyType.Type.Ground)
         {
@@ -47,13 +47,10 @@ public class SpawnerManager : MonoBehaviour
 
     public void SpawnEnemy(GameObject[] spawnPoints,EnemyType enemyType )
     {
-        var RandomSpawnPoint = GroundSpawnPoin[Random.Range(0, GroundSpawnPoin.Length)];
+        var RandomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         RandomSpawnPoint.transform.position = new Vector3(RandomSpawnPoint.transform.position.x, RandomSpawnPoint.transform.position.y, 10f);
         
-        //---------make normal  target selector
-        var enemy = Instantiate(enemyType, RandomSpawnPoint.transform.position,Quaternion.identity, transform);
-        enemy.GetComponent<MoveController>().target = GameObject.Find("BaseLocation").transform;
-        //---------make normal  target selector
+        Instantiate(enemyType, RandomSpawnPoint.transform.position,Quaternion.identity, transform);
     }
     
 }
