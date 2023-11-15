@@ -2182,7 +2182,147 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
       propertyPath: duration
-      value: 60
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.ctime0
+      value: 3662
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.ctime1
+      value: 16384
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.ctime2
+      value: 26214
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.ctime3
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.ctime4
+      value: 39321
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.ctime5
+      value: 49151
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.ctime6
+      value: 61295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key0.b
+      value: 0.26415092
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key0.g
+      value: 0.02741189
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key1.b
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key1.g
+      value: 0.52884364
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key1.r
+      value: 0.7529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key2.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key2.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key2.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key3.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key3.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key3.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key4.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key4.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key4.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key5.b
+      value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key5.g
+      value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key5.r
+      value: 0.7254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key6.b
+      value: 0.2627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.key6.g
+      value: 0.027450982
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: _gradient.key1.b
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: _gradient.key1.g
+      value: 0.52884364
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: _gradient.key1.r
+      value: 0.7529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: _gradient.key5.b
+      value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: _gradient.key5.g
+      value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: _gradient.key5.r
+      value: 0.7254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847943468915249279, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: gradient.m_NumColorKeys
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7839661878460421159, guid: 27f6053558bf78449949215c6d98554a, type: 3}
       propertyPath: m_Color.b

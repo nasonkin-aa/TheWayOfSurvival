@@ -48,4 +48,18 @@ public class CountdownTimer : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    void FullNight()
+    {
+        Debug.Log("NIGHT START");
+    }
+
+    public void OnEnable()
+    {
+        LightWorld.OnNightStart += FullNight;
+    }
+    public void OnDisable()
+    {   
+        LightWorld.OnNightStart -= FullNight;
+    }
 }
