@@ -6,8 +6,11 @@ public class Player : MonoBehaviour
 {
     public static Player GetPlayer { get; private set; }
     protected List<ModifierPrepare> _modifiers = new();
+    public static Transform PlayerTransform { get; set; }
+    
     public virtual void Awake()
     {
+        PlayerTransform = transform;
         GetPlayer = this;
     }
     public Weapon GetWeapon()
