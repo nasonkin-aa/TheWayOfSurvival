@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10350c83ae050f3488919f9e939021d2, type: 3}
   m_Name: ElectricAOE Config Lvl 4
   m_EditorClassIdentifier: 
-  _lvl: 1
+  _lvl: 4
   _description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u0443\u0440\u043E\u043D \u0438 \u0440\u0430\u0434\u0438\u0443\u0441 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438"
   _radius: 3

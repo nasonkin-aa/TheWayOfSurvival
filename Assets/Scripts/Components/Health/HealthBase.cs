@@ -22,25 +22,18 @@ public class HealthBase : MonoBehaviour
     public virtual int Health {
         get { return _health; }
         set {
+            OnHpChange?.Invoke(value - _health);
             if (value <= 0)
             {
                 _health = 0;
                 Die();
                 return;
             }
-            OnHpChange?.Invoke(value - _health);
+            
             _health = value;
-
         }
     }
 
-    protected virtual void Die()
-    {
-        Destroy(gameObject);
-    }
-
-    public void TakeDamage(int amount)
-    {
-        Health -= amount;
-    }
+    protected virtual void Die() => Destroy(gameObject);
+    public void TakeDamage(int amount) => Health -= amount;
 }
