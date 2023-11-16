@@ -2108,9 +2108,21 @@ PrefabInstance:
       propertyPath: gradient.m_NumColorKeys
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6260728635545705810, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260728635545705810, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.54
+      objectReference: {fileID: 0}
     - target: {fileID: 6297890295107442055, guid: 27f6053558bf78449949215c6d98554a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6416846675295613794, guid: 27f6053558bf78449949215c6d98554a, type: 3}
+      propertyPath: m_Intensity
+      value: 72.11
       objectReference: {fileID: 0}
     - target: {fileID: 6416846675295613794, guid: 27f6053558bf78449949215c6d98554a, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
@@ -2225,7 +2237,8 @@ PrefabInstance:
       value: -69604527
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3631012146295024397, guid: 27f6053558bf78449949215c6d98554a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f6053558bf78449949215c6d98554a, type: 3}
@@ -4404,7 +4417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1452646921
 Transform:
   m_ObjectHideFlags: 0
@@ -6356,7 +6369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2103202854
 MonoBehaviour:
   m_ObjectHideFlags: 0
