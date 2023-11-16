@@ -41,8 +41,14 @@ TagManager:
   - name: Background
     uniqueID: 4225362769
     locked: 0
+  - name: LightBefore
+    uniqueID: 511219793
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: LightOnObject
+    uniqueID: 3994536977
     locked: 0
   - name: Enemy
     uniqueID: 1973768763

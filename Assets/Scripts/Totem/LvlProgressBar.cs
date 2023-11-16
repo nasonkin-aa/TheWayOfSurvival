@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
@@ -6,6 +7,7 @@ public class LvlProgressBar : MonoBehaviour
 {
     private PlayerLvl _playerLvl;
     public SpriteRenderer eyeExpSpriteRenderer;
+    private Light2D eyeLight => GetComponent<Light2D>();
     private void Start ()
     {
         _playerLvl = Player.GetPlayer?.GetComponent<PlayerLvl>();
@@ -20,7 +22,7 @@ public class LvlProgressBar : MonoBehaviour
     {
         var fillAmount = (float)_playerLvl.PlayerExp / _playerLvl.ExpToLvlUp;
         GetComponent<Image>().fillAmount = fillAmount;
-        
+        eyeLight.intensity = Mathf.Lerp(0, 2, fillAmount);
         var color = eyeExpSpriteRenderer.color;
         color.a = fillAmount;
         eyeExpSpriteRenderer.color = color;
