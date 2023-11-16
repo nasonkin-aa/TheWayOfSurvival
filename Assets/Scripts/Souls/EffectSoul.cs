@@ -26,7 +26,7 @@ public class EffectSoul : MonoBehaviour
         }
         else
         {
-            GetComponent<Rigidbody2D>().gravityScale = 1f;
+            GetComponent<Rigidbody2D>().gravityScale = 0.1f;
         }
     }
 }
