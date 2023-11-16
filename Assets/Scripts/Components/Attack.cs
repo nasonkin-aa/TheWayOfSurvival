@@ -34,7 +34,11 @@ public class Attack : MonoBehaviour
         else
         {
             _targetToAttack = null;
-            OnAttackFinished?.Invoke();
         }
+    }
+
+    public void CheckAttackFinish()
+    {
+        OnAttackFinished?.Invoke();
     }
 }

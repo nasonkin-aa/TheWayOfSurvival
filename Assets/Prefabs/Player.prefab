@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5183304655788860484}
   - component: {fileID: 2034368163089069490}
   - component: {fileID: 9209707786135157017}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: IsGroundCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e78d4febf143d549964b04ee16f2a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 100000
   _health: 10000
 --- !u!114 &5094062961161057830
 MonoBehaviour:
@@ -471,6 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a73780b6c4121418e7fddcfc1f00f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerExp: 0
   drawMod: {fileID: 0}
 --- !u!114 &7533281438597517134
 MonoBehaviour:
