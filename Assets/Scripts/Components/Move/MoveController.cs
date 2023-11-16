@@ -1,8 +1,6 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-//[RequireComponent(typeof(IMovable))]
 public class MoveController : MoveBase
 {
     public Transform target;
@@ -22,8 +20,13 @@ public class MoveController : MoveBase
         Flip(-GetDirectionToObject(target.transform).x, gameObject);
     }
 
-    public Vector2 GetDirectionToObject(Transform playerTransform)
+    public Vector2 GetDirectionToObject(Transform targetTransform)
     {
-        return ( playerTransform.position - transform.position).normalized;
+        //var directionX = (targetTransform.position.x - transform.position.x);
+        //var directionY = (targetTransform.position.y - transform.position.y);
+        //Vector2 direction = new (directionX, directionY);
+        var direction = (Vector2)(targetTransform.position - transform.position);
+        return direction.normalized;
+        //return direction.normalized;
     }
 }
