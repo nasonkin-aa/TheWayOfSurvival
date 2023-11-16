@@ -17,9 +17,9 @@ TagManager:
   - Enemy
   - Ground
   - Background
-  - 
-  - 
-  - 
+  - Totem
+  - Platform
+  - Soul
   - 
   - 
   - 
@@ -50,9 +50,9 @@ TagManager:
   - name: Background
     uniqueID: 4225362769
     locked: 0
+  - name: Foreground
+    uniqueID: 1663422891
+    locked: 0
   - name: UI
     uniqueID: 503572063
-    locked: 0
-  - name: 
-    uniqueID: 1663422891
     locked: 0

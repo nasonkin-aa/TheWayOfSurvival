@@ -3,6 +3,12 @@ using UnityEngine;
 public class Rage : MonoBehaviour, IWeaponModifier
 {
     protected static RageConfig _rageInfo;
+    protected static Weapon _weapon;
+
+    private void Start()
+    {
+        _weapon = Weapon.GetWeapon;
+    }
     private void OnEnable()
     {
 
@@ -20,8 +26,7 @@ public class Rage : MonoBehaviour, IWeaponModifier
 
     private void GetPowerForLosåHp(int healthChange)
     {
-        var wepon = Weapon.GetWeapon;
-        wepon?.SetDamageWeapon(wepon.WeaponDamage - (int)(healthChange * _rageInfo.GetScale)) ;
+        _weapon?.SetDamageWeapon(_weapon.WeaponDamage - (int)(healthChange * _rageInfo.GetScale)) ;
     }
 
     public void UpdateModifierInfo(ModifierBaseObject modifierConfig)
@@ -30,10 +35,9 @@ public class Rage : MonoBehaviour, IWeaponModifier
             return;
 
         _rageInfo = modifierConfig as RageConfig;
-        var wepon = Weapon.GetWeapon;
 
         var playerHealth = Player.GetPlayer.GetHealth();
         var lostHealth = playerHealth.MaxHealth - playerHealth.Health;
-        wepon?.SetDamageWeapon(wepon.BaseDamage + (int)(lostHealth * _rageInfo.GetScale));
+        _weapon?.SetDamageWeapon(_weapon.BaseDamage + (int)(lostHealth * _rageInfo.GetScale));
     }
 }

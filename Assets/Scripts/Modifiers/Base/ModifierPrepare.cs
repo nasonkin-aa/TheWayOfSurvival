@@ -31,14 +31,11 @@ public class ModifierPrepare
     }
 
     public ModifierBaseObject GetModifierInfo() => _modifierInfo;
-    public void SetModifierInfo(ModifierBaseObject modifierInfo)
-    {
-        _modifierInfo = modifierInfo;
-    }
+    public void SetModifierInfo(ModifierBaseObject modifierInfo) => _modifierInfo = modifierInfo;
+
     public void SetModifierInfo(ModifierBaseObject modifierInfo, Transform transform)
     {
-        var mod = transform.GetComponentInChildren(typeof(IWeaponModifier)) as IWeaponModifier;
-        Debug.Log(mod);
+        IWeaponModifier mod = transform.GetComponentInChildren(_modifier) as IWeaponModifier;
         if (mod is null)
             return;
 

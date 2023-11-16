@@ -4,15 +4,15 @@ using UnityEngine;
 [RequireComponent(typeof(Overlaper))]
 public class ElectricAOE : MonoBehaviour, IWeaponModifier
 {
-    protected static string _particlePath = "Particle\\Electric\\Prefabs\\ElectricitySphere";
-    protected static GameObject _particleObj;
+    protected static string _particlePrefabPath = "Particle\\Electric\\Prefabs\\ElectricitySphere";
+    protected static GameObject _particlePrefab;
     protected ParticleSystem _particle;
     protected static ElectricAOEConfig _electricAOEInfo;
 
     protected void Awake()
     {
         GetComponent<CircleCollider2D>().isTrigger = true;
-        _particleObj ??= Resources.Load(_particlePath) as GameObject;
+        _particlePrefab ??= Resources.Load(_particlePrefabPath) as GameObject;
     }
 
     protected void Start()
@@ -33,12 +33,13 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
     {
         _electricAOEInfo = electricAOEInfo as ElectricAOEConfig;
         StartCoroutine(DamageOverTime());
-        Instantiate(_particleObj, transform);
+        Instantiate(_particlePrefab, transform);
     }
     private void DealDamage()
     {
         var collidedObjects = GetComponent<Overlaper>().CircleOverlap(_electricAOEInfo.Radius, Projectile.ContactWithEnemies);
-        collidedObjects.ForEach(collider => collider.GetComponent<Health>()?.TakeDamage(_electricAOEInfo.AreaDamage));
+        collidedObjects.ForEach(collider => 
+            collider.GetComponent<Health>()?.TakeDamage(_electricAOEInfo.AreaDamage));
     }
 
 
@@ -52,8 +53,6 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
         }
     }
 
-    public void UpdateModifierInfo(ModifierBaseObject modifierConfig)
-    {
+    public void UpdateModifierInfo(ModifierBaseObject modifierConfig) =>
         _electricAOEInfo = modifierConfig as ElectricAOEConfig;
-    }
 }

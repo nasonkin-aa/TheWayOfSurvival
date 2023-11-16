@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
     protected internal int Damage;
     private bool _isContact = false;
     public Action OnProjectileCollision;
-    public static ContactFilter2D ContactWithEnemies = PrepareFilter();
+    public static ContactFilter2D ContactWithEnemies = PrepareFilter(); // Contact only with Enemy
 
     private void Start()
     {
@@ -19,17 +19,18 @@ public class Projectile : MonoBehaviour
         
         collision.gameObject.GetComponent<Health>()?.TakeDamage(Damage);
 
-        if (OnProjectileCollision is not null) //Modifier check
-            OnProjectileCollision();
+        OnProjectileCollision?.Invoke();
         _isContact = true;
         Destroy(gameObject);
     }
 
     public static ContactFilter2D PrepareFilter()
     {
-        var filter = new ContactFilter2D();
-        filter.useLayerMask = true;
-        filter.layerMask = (1 << 9);
+        var filter = new ContactFilter2D
+        {
+            useLayerMask = true,
+            layerMask = (1 << 9) // LayerMask with Enemy
+        };
         return filter;
     }
 

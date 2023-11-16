@@ -1,13 +1,29 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerLvl : MonoBehaviour
-{    
+{
     private static int _playerLvl = 0;
     private static float _lvlUpCoef = 1.5f;
+    private static float _timeScaleForSlowExp = .1f;
+    private static float _timeForSlowExp = 1;
 
-    public int PlayerExp { get; private set; } = 0;
-    public int ExpToLvlUp { get; private set; } = 100;
+    [SerializeField]private float _playerExp = 0;
+    public float PlayerExp
+    {
+        get => _playerExp;
+        private set
+        {
+            _playerExp = value;
+
+            if (PlayerExp >= ExpToLvlUp)
+                LvlupPlayer();
+
+            OnTakeExp?.Invoke();
+        }
+    }
+    public float ExpToLvlUp { get; private set; } = 100;
     public Action OnLvlUp;
     public Action OnTakeExp;
     public DrawModifier drawMod;
@@ -17,18 +33,29 @@ public class PlayerLvl : MonoBehaviour
         drawMod = FindObjectOfType<DrawModifier>();
     }
 
-    public void GetExp (int exp)
+    public void GetExp (float exp)
     {
-        PlayerExp += exp;
+        IEnumerator corutine = GetExpSlowly(exp);
+        StartCoroutine(corutine);
+    }
 
-        if (PlayerExp >= ExpToLvlUp)
+    private IEnumerator GetExpSlowly(float exp)
+    {
+        var countOfTicks = _timeForSlowExp / _timeScaleForSlowExp;
+        var expForTick = exp / countOfTicks;
+        for (int tickNumber = 0; tickNumber < countOfTicks; tickNumber++)
         {
-            _playerLvl++;
-            OnLvlUp?.Invoke();
-            PlayerExp -= ExpToLvlUp;
-            ExpToLvlUp = (int)(ExpToLvlUp * _lvlUpCoef);
-            drawMod.DrawNewModifier();
+            PlayerExp += expForTick;
+            yield return new WaitForSeconds(_timeScaleForSlowExp);
         }
-        OnTakeExp?.Invoke();
+    }
+
+    protected void LvlupPlayer()
+    {
+        _playerLvl++;
+        OnLvlUp?.Invoke();
+        PlayerExp -= ExpToLvlUp;
+        ExpToLvlUp *= _lvlUpCoef;
+        drawMod.DrawNewModifier();
     }
 }

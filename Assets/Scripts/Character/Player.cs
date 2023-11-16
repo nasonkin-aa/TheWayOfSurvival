@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(HealthBase))]
 public class Player : MonoBehaviour
 {
-    public static Player GetPlayer { get; private set; }
     protected List<ModifierPrepare> _modifiers = new();
-    public static Transform PlayerTransform { get; set; }
+    public static Player GetPlayer { get; private set; }   
+    public static Transform PlayerTransform { get; private set; }
     
     public virtual void Awake()
     {
@@ -18,9 +18,9 @@ public class Player : MonoBehaviour
         return GetComponentInChildren<Weapon>();
     }
 
-    public Health GetHealth()
+    public HealthBase GetHealth()
     {
-        return GetComponent<Health>();
+        return GetComponent<HealthBase>();
     }
 
     public void AddModifier(ModifierPrepare modifier)

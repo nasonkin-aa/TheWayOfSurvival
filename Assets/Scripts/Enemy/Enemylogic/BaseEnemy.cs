@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(IHaveTarget))]
@@ -8,10 +5,11 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
-    protected IHaveTarget TargetSelector;
-    protected Transform TargetTransform;
-    protected MoveController MoveControl;
-    protected Attack EnemyAttack;
+    protected IHaveTarget _targetSelector;
+    protected Transform _targetTransform;
+    protected MoveController _moveControl;
+    protected Attack _enemyAttack;
+    protected string _animatorBoolForAttack = "TargetInZone";
     private enum EnemyState
     {
         Move,
@@ -22,14 +20,14 @@ public class BaseEnemy : MonoBehaviour
     private EnemyState _state;
     void Start()
     {
-        EnemyAttack = GetComponent<Attack>();
-        EnemyAttack.OnAttackReady += ReadyToAttack;
-        EnemyAttack.OnAttackFinished += FinishAttack;
+        _enemyAttack = GetComponent<Attack>();
+        _enemyAttack.OnAttackReady += ReadyToAttack;
+        _enemyAttack.OnAttackFinished += FinishAttack;
         
-        MoveControl = GetComponent<MoveController>();
-        TargetSelector = GetComponent<IHaveTarget>();
-        TargetTransform = TargetSelector.GetTarget();
-        MoveControl.target = TargetTransform;
+        _moveControl = GetComponent<MoveController>();
+        _targetSelector = GetComponent<IHaveTarget>();
+        _targetTransform = _targetSelector.GetTarget();
+        _moveControl.target = _targetTransform;
     }
 
     void Update()
@@ -37,13 +35,13 @@ public class BaseEnemy : MonoBehaviour
         switch (_state)
         {
             case EnemyState.Move:
-                MoveControl.MoveToTarget();
+                _moveControl.MoveToTarget();
                 break;
             case EnemyState.Attack:
                 
                 break;
             default:
-                MoveControl.MoveToTarget();
+                _moveControl.MoveToTarget();
                 break;
         }
     }
@@ -56,12 +54,12 @@ public class BaseEnemy : MonoBehaviour
     
     public void StartAttack()
     {
-        gameObject.GetComponent<Animator>().SetBool("TargetInZone", true);
+        gameObject.GetComponent<Animator>().SetBool(_animatorBoolForAttack, true);
     }
     
     public void FinishAttack()
     {
-        gameObject.GetComponent<Animator>().SetBool("TargetInZone", false);
+        gameObject.GetComponent<Animator>().SetBool(_animatorBoolForAttack, false);
         _state = EnemyState.Move;
     }
 }

@@ -1,25 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Soul : MonoBehaviour
 {
     [SerializeField] private int _exp = 20;
     public static GameObject SoulPrefab;
+    
+    public static GameObject LoadFromAssets() => Resources.Load("Soul") as GameObject;
     public static void SpawnSoul(Vector2 position)
     {
         SoulPrefab ??= LoadFromAssets();
         Instantiate(SoulPrefab, position, Quaternion.identity);
     }
 
-    public static GameObject LoadFromAssets() => Resources.Load("Soul") as GameObject;
-    
-    public void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!other.GetComponent<Player>()) 
+        if (!collision.gameObject.GetComponent<Player>())
             return;
-        other.GetComponent<PlayerLvl>()?.GetExp(_exp);
+
+        collision.gameObject.GetComponent<PlayerLvl>().GetExp(_exp);
         Destroy(gameObject);
     }
+
 }
