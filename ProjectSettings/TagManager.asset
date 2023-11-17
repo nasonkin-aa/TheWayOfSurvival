@@ -53,6 +53,9 @@ TagManager:
   - name: Enemy
     uniqueID: 1973768763
     locked: 0
+  - name: ParticlesLight
+    uniqueID: 3609620977
+    locked: 0
   - name: Foreground
     uniqueID: 2034736067
     locked: 0
