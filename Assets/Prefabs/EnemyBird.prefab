@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 169677916222025104}
   - component: {fileID: 4297161429277615243}
   - component: {fileID: 1644236497513344689}
+  - component: {fileID: 187822251993500163}
   m_Layer: 9
   m_Name: EnemyBird
   m_TagString: Untagged
@@ -416,7 +417,7 @@ MonoBehaviour:
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
-  m_SelfShadows: 0
+  m_SelfShadows: 1
   m_ApplyToSortingLayers: 51ebd9fb5198781e0000000011cc17ee3b52a575c39b47795fe6031e
   m_ShapePath:
   - {x: -0.3710127, y: -2.305851, z: 0}
@@ -431,7 +432,20 @@ MonoBehaviour:
   - {x: 0.91248274, y: -0.50094604, z: 0}
   m_ShapePathHash: 1183833566
   m_Mesh: {fileID: 0}
-  m_InstanceId: -771766
+  m_InstanceId: -3989148
   m_LocalBounds:
     m_Center: {x: 0.16436934, y: 1.7080297, z: 0}
     m_Extent: {x: 3.4581435, y: 4.0138807, z: 0}
+--- !u!114 &187822251993500163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232900224820922589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4956aafecae55d345be5097022138d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashTime: 0.25

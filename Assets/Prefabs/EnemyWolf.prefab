@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 8142969970860960321}
   - component: {fileID: 8617407809638882843}
   - component: {fileID: -1373170517717830443}
+  - component: {fileID: 7743021042396409040}
   m_Layer: 9
   m_Name: EnemyWolf
   m_TagString: Untagged
@@ -355,10 +356,23 @@ MonoBehaviour:
   - {x: 11.29124, y: -9.041427, z: 0}
   m_ShapePathHash: -1209093667
   m_Mesh: {fileID: 0}
-  m_InstanceId: -771852
+  m_InstanceId: -3989476
   m_LocalBounds:
     m_Center: {x: -0.69627, y: -0.7389803, z: 0}
     m_Extent: {x: 17.335194, y: 8.867691, z: 0}
+--- !u!114 &7743021042396409040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377729105087483742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4956aafecae55d345be5097022138d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashTime: 0.25
 --- !u!1 &8701541577726817925
 GameObject:
   m_ObjectHideFlags: 0
