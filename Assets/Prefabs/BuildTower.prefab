@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 85467285848869621}
   - component: {fileID: 7932097004680125878}
   - component: {fileID: 5106869579966938585}
+  - component: {fileID: 3194288560976622447}
   m_Layer: 13
   m_Name: BuildTower
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4427095962913558422}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.87, y: 1.18, z: 0}
   m_LocalScale: {x: 0.13338083, y: 0.1360754, z: 1.0265}
   m_ConstrainProportionsScale: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 865108916, guid: 01b549e18cc97aa43bb3362a776eb1e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -150,3 +151,49 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &3194288560976622447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427095962913558422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 51ebd9fb5198781e0000000011cc17ee3b52a575c39b47795fe6031e
+  m_ShapePath:
+  - {x: -7.9595623, y: -14.824902, z: 0}
+  - {x: -6.8297534, y: -5.60132, z: 0}
+  - {x: -7.23833, y: -3.713315, z: 0}
+  - {x: -6.824248, y: 12.017707, z: 0}
+  - {x: -8.948101, y: 12.1140585, z: 0}
+  - {x: -8.905003, y: 14.824899, z: 0}
+  - {x: 8.640086, y: 14.868175, z: 0}
+  - {x: 9.020878, y: 14.024396, z: 0}
+  - {x: 8.622735, y: 13.303688, z: 0}
+  - {x: 9.0642605, y: 12.611233, z: 0}
+  - {x: 7.9162903, y: 12.005335, z: 0}
+  - {x: 6.4805555, y: 11.911196, z: 0}
+  - {x: 6.601003, y: -4.76976, z: 0}
+  - {x: 6.91548, y: -11.756805, z: 0}
+  - {x: 7.7519135, y: -14.824902, z: 0}
+  - {x: 2.4786484, y: -14.703528, z: 0}
+  - {x: 2.4156532, y: -7.9076, z: 0}
+  - {x: 0.020532146, y: -6.980882, z: 0}
+  - {x: -1.8703452, y: -7.722256, z: 0}
+  - {x: -2.4375985, y: -14.888876, z: 0}
+  m_ShapePathHash: -201497937
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 29016
+  m_LocalBounds:
+    m_Center: {x: 0.05807972, y: -0.010351181, z: 0}
+    m_Extent: {x: 9.006181, y: 14.878525, z: 0}
