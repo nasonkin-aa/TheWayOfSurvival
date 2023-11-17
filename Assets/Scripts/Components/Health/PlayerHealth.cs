@@ -5,7 +5,7 @@ namespace UnityEngine
     public class PlayerHealth : HealthBase
     {
         public static Action OnShake;
-        protected override void Die()
+        public override void Die()
         {
             SceneManager.LoadScene(SceneManager.sceneCount - 1);
         }

@@ -47,8 +47,14 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
+        
         if (Input.GetKeyDown(KeyCode.P))
             PauseSwitch();
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GetComponent<HealthBase>().Die();
+        }
 
         if (IsInputBlock)
             return;

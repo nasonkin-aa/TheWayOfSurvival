@@ -34,6 +34,6 @@ public class HealthBase : MonoBehaviour
         }
     }
 
-    protected virtual void Die() => Destroy(gameObject);
+    public virtual void Die() => Destroy(gameObject);
     public virtual void TakeDamage(int amount) => Health -= amount;
 }

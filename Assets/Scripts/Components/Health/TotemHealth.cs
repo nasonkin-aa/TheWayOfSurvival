@@ -3,7 +3,7 @@ namespace UnityEngine
 {
     public class TotemHealth : HealthBase
     {
-        protected override void Die()
+        public override void Die()
         {
             SceneManager.LoadScene(SceneManager.sceneCount - 1);            
         }
