@@ -65,9 +65,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.13506243, y: 0}
   serializedVersion: 2
-  m_Radius: 3.08
+  m_Radius: 1.5943166
 --- !u!114 &2484854107572866664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ Transform:
   m_Children:
   - {fileID: 4286156497264712373}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &300673418547382478
 SpriteRenderer:
@@ -207,7 +207,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -443,7 +443,7 @@ MonoBehaviour:
   - {x: 0.94727516, y: -3.3489666, z: 0}
   m_ShapePathHash: 685255841
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1969706
+  m_InstanceId: -851184
   m_LocalBounds:
     m_Center: {x: 0.8438325, y: -0.083875656, z: 0}
     m_Extent: {x: 2.4021363, y: 3.8428469, z: 0}

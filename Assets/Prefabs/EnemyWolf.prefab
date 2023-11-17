@@ -44,7 +44,7 @@ Transform:
   m_Children:
   - {fileID: 8605545088963818757}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1577914095100063550
 SpriteRenderer:
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e27f76318f946c444befa0c680dbe2c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.06, y: 0.06}
@@ -355,7 +355,7 @@ MonoBehaviour:
   - {x: 11.29124, y: -9.041427, z: 0}
   m_ShapePathHash: -1209093667
   m_Mesh: {fileID: 0}
-  m_InstanceId: -490080
+  m_InstanceId: -771852
   m_LocalBounds:
     m_Center: {x: -0.69627, y: -0.7389803, z: 0}
     m_Extent: {x: 17.335194, y: 8.867691, z: 0}

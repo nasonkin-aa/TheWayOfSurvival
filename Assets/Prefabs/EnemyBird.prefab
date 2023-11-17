@@ -138,7 +138,7 @@ Transform:
   m_Children:
   - {fileID: 890595782290931480}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5989713690208839742
 SpriteRenderer:
@@ -207,14 +207,14 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1463
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1463
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -416,24 +416,22 @@ MonoBehaviour:
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
-  m_SelfShadows: 1
+  m_SelfShadows: 0
   m_ApplyToSortingLayers: 51ebd9fb5198781e0000000011cc17ee3b52a575c39b47795fe6031e
   m_ShapePath:
-  - {x: -0.8572173, y: -0.6567192, z: 0}
-  - {x: -3.294177, y: -1.2850142, z: 0}
-  - {x: -3.4902048, y: -0.2656746, z: 0}
-  - {x: -0.98106384, y: 0.4792261, z: 0}
-  - {x: -2.1588469, y: 3.7064505, z: 0}
-  - {x: -0.54427147, y: 5.452738, z: 0}
-  - {x: 1.9226384, y: 1.9298053, z: 0}
-  - {x: 2.9032493, y: 1.3287354, z: 0}
-  - {x: 3.4218144, y: 0.75255156, z: 0}
-  - {x: 2.6439667, y: 0.17636776, z: 0}
-  - {x: 1.5629125, y: -1.4016199, z: 0}
-  - {x: 0.038285255, y: -2.1475315, z: 0}
-  m_ShapePathHash: -962052651
+  - {x: -0.3710127, y: -2.305851, z: 0}
+  - {x: -2.2014427, y: -0.6967974, z: 0}
+  - {x: -3.2937741, y: 1.0885739, z: 0}
+  - {x: -1.5823221, y: 2.1024156, z: 0}
+  - {x: 0.6775427, y: 5.72191, z: 0}
+  - {x: 2.029332, y: 4.321842, z: 0}
+  - {x: 0.9672117, y: 0.70097923, z: 0}
+  - {x: 3.6225128, y: -0.36114216, z: 0}
+  - {x: 3.2362866, y: -1.1335921, z: 0}
+  - {x: 0.91248274, y: -0.50094604, z: 0}
+  m_ShapePathHash: 1183833566
   m_Mesh: {fileID: 0}
-  m_InstanceId: -591052
+  m_InstanceId: -771766
   m_LocalBounds:
-    m_Center: {x: -0.034195185, y: 1.6526031, z: 0}
-    m_Extent: {x: 3.4560096, y: 3.8001347, z: 0}
+    m_Center: {x: 0.16436934, y: 1.7080297, z: 0}
+    m_Extent: {x: 3.4581435, y: 4.0138807, z: 0}
