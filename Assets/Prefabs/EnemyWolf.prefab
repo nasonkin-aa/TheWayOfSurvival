@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d57697c4b6bc040992438be288ab37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedScale: 2
+  _speedScale: 2.5
 --- !u!114 &1930880919515274647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e78d4febf143d549964b04ee16f2a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 80
   _health: 100
 --- !u!95 &2102468744472904258
 Animator:
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ae7b4c60fb6dc458bed5bdbf10987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
 --- !u!114 &-7312861945700669583
 MonoBehaviour:
   m_ObjectHideFlags: 0

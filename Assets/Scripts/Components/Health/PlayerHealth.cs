@@ -13,7 +13,6 @@ namespace UnityEngine
         public override void TakeDamage(int amount)
         {
             Health -= amount;
-            Debug.Log("Shake");
             OnShake?.Invoke();
         }
 

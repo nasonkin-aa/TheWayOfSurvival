@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c81265793c820242b1579f9b6c0a328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.15
+  _speed: 0.16
 --- !u!114 &7913350053720412904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cf7127e13336c4ebbf33890de9462f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 200
   _health: 1
 --- !u!114 &5094062961161057830
 MonoBehaviour:
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4627af097516f3439aa8a8bf0e32b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 14
+  jumpForce: 13
 --- !u!95 &584420684084264800
 Animator:
   serializedVersion: 5

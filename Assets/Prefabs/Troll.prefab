@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 7887102076436182384}
   - component: {fileID: 2168462781423783892}
   - component: {fileID: 7201342607744386670}
+  - component: {fileID: 2406877197990719282}
   m_Layer: 9
   m_Name: Troll
   m_TagString: Untagged
@@ -277,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d57697c4b6bc040992438be288ab37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedScale: 2
+  _speedScale: 0.5
 --- !u!114 &8605475696119047897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ae7b4c60fb6dc458bed5bdbf10987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 40
 --- !u!114 &6302573876868629282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e78d4febf143d549964b04ee16f2a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 666
   _health: 1
 --- !u!95 &7887102076436182384
 Animator:
@@ -459,3 +460,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashTime: 0.25
+--- !u!114 &2406877197990719282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644203141911686179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd39fd3e6153e14ba0217dce5a36f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: 0
