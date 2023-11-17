@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771470191321036613}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.5, y: -5.4, z: 0}
-  m_LocalScale: {x: -1.2826, y: 1.2462, z: 1}
+  m_LocalPosition: {x: -4.46, y: -0.81, z: 0}
+  m_LocalScale: {x: -0.42263928, y: 0.4106448, z: 0.3295176}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7607408565618142974}
@@ -133,12 +133,12 @@ Transform:
   m_GameObject: {fileID: 3232900224820922589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.2, y: 0.2, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 890595782290931480}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5989713690208839742
 SpriteRenderer:
@@ -181,9 +181,9 @@ SpriteRenderer:
   m_SortingLayerID: 1973768763
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f5f035dd0cb855a41907287dc30d80ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b3f8c910b27af24cb6dce02094ee5b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 37.95, y: 45.934753}
@@ -207,14 +207,14 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 1463
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 1079
+    m_Bits: 1463
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -224,18 +224,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.575479}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 37.95, y: 45.934753}
+    oldSize: {x: 7.36, y: 11.35}
     newSize: {x: 37.95, y: 45.934753}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 37.95, y: 45.934753}
+  m_Size: {x: 7.36, y: 8.199042}
   m_EdgeRadius: 0
 --- !u!50 &5809173889200353978
 Rigidbody2D:
@@ -419,35 +419,19 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 51ebd9fb5198781e0000000011cc17ee3b52a575c39b47795fe6031e
   m_ShapePath:
-  - {x: -1.1068118, y: -9.994583, z: 0}
-  - {x: -5.09694, y: -12.085659, z: 0}
-  - {x: -4.729785, y: -14.0438175, z: 0}
-  - {x: -8.523716, y: -16.736282, z: 0}
-  - {x: -11.338567, y: -15.512436, z: 0}
-  - {x: -13.9086485, y: -10.617042, z: 0}
-  - {x: -11.460952, y: -8.169345, z: 0}
-  - {x: -5.5864787, y: -7.6798053, z: 0}
-  - {x: -6.320789, y: -5.7216477, z: 0}
-  - {x: -15.377268, y: -4.00826, z: 0}
-  - {x: -14.887729, y: 0.6423643, z: 0}
-  - {x: -18.436888, y: -0.8262539, z: 0}
-  - {x: -17.572226, y: 3.2350712, z: 0}
-  - {x: -11.561294, y: 6.176591, z: 0}
-  - {x: -7.5966353, y: 5.0255613, z: 0}
-  - {x: -6.0619287, y: 9.246003, z: 0}
-  - {x: -7.592598, y: 12.863894, z: 0}
-  - {x: 5.959934, y: 22.674679, z: 0}
-  - {x: 11.173578, y: 18.107475, z: 0}
-  - {x: 6.9830713, y: 7.071836, z: 0}
-  - {x: 0.5884546, y: 2.2119412, z: 0}
-  - {x: 5.4483566, y: -1.6248236, z: 0}
-  - {x: 3.146298, y: -3.0316374, z: 0}
-  - {x: 12.452502, y: -5.0624743, z: 0}
-  - {x: 10.201167, y: -8.903654, z: 0}
-  - {x: 2.0013819, y: -7.1902657, z: 0}
-  m_ShapePathHash: -901863981
+  - {x: -0.3710127, y: -2.305851, z: 0}
+  - {x: -2.2014427, y: -0.6967974, z: 0}
+  - {x: -3.2937741, y: 1.0885739, z: 0}
+  - {x: -1.5823221, y: 2.1024156, z: 0}
+  - {x: 0.6775427, y: 5.72191, z: 0}
+  - {x: 2.029332, y: 4.321842, z: 0}
+  - {x: 0.9672117, y: 0.70097923, z: 0}
+  - {x: 3.6225128, y: -0.36114216, z: 0}
+  - {x: 3.2362866, y: -1.1335921, z: 0}
+  - {x: 0.91248274, y: -0.50094604, z: 0}
+  m_ShapePathHash: 1183833566
   m_Mesh: {fileID: 0}
-  m_InstanceId: -506154
+  m_InstanceId: -771766
   m_LocalBounds:
-    m_Center: {x: -2.9921932, y: 2.9691982, z: 0}
-    m_Extent: {x: 15.4446945, y: 19.70548, z: 0}
+    m_Center: {x: 0.16436934, y: 1.7080297, z: 0}
+    m_Extent: {x: 3.4581435, y: 4.0138807, z: 0}

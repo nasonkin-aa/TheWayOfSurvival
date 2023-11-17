@@ -44,7 +44,7 @@ Transform:
   m_Children:
   - {fileID: 2668629570867794640}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5003587899173031012
 SpriteRenderer:
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
-  m_SelfShadows: 0
+  m_SelfShadows: 1
   m_ApplyToSortingLayers: 51ebd9fb5198781e0000000011cc17ee3b52a575c39b47795fe6031e
   m_ShapePath:
   - {x: -3.5666542, y: -5.5254345, z: 0}
@@ -359,7 +359,7 @@ MonoBehaviour:
   - {x: -2.7467263, y: -6.3272586, z: 0}
   m_ShapePathHash: -410587343
   m_Mesh: {fileID: 0}
-  m_InstanceId: -495658
+  m_InstanceId: -772068
   m_LocalBounds:
     m_Center: {x: -1.2337992, y: -0.34577608, z: 0}
     m_Extent: {x: 3.586672, y: 6.393894, z: 0}
@@ -452,7 +452,7 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 320
+      m_Bits: 4416
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
