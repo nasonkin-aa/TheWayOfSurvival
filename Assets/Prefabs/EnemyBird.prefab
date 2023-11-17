@@ -138,7 +138,7 @@ Transform:
   m_Children:
   - {fileID: 890595782290931480}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5989713690208839742
 SpriteRenderer:
@@ -447,7 +447,7 @@ MonoBehaviour:
   - {x: 2.0013819, y: -7.1902657, z: 0}
   m_ShapePathHash: -901863981
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1831892
+  m_InstanceId: -506154
   m_LocalBounds:
     m_Center: {x: -2.9921932, y: 2.9691982, z: 0}
     m_Extent: {x: 15.4446945, y: 19.70548, z: 0}
