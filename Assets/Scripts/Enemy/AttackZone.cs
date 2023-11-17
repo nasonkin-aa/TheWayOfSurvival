@@ -22,7 +22,7 @@ public class AttackZone : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
         var health = OverlapTargetWithHp();
         if (health == null)
             return;

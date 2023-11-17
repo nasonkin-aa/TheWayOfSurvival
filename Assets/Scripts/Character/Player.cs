@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
     
     public virtual void Awake()
     {
-        PlayerTransform = transform;
         GetPlayer = this;
+        PlayerTransform = transform;
     }
     public Weapon GetWeapon()
     {
