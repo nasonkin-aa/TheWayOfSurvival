@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     public static Action<Vector3> OnPlayerAttack;
     public static Action<Vector3> OnPlayerFlip;
     private static bool IsInputBlock = false;
+    private bool isFlip = false;
     private Rigidbody2D _rigidbody2D => gameObject.GetComponent<Rigidbody2D>();
     
     private Animator Animator => gameObject.GetComponent<Animator>();
@@ -35,6 +36,11 @@ public class PlayerInput : MonoBehaviour
         OnPlayerMoveHorizontal?.Invoke(Horizontal);
         Animator?.SetFloat("Speed", MathF.Abs(Horizontal));
         Animator?.SetFloat("yVelocity", _rigidbody2D.velocity.y);
+        
+        if (isFlip)
+            Animator?.SetFloat("rawSpeed", -Horizontal);
+        else
+            Animator?.SetFloat("rawSpeed", Horizontal);
     }
 
     public void Update()
@@ -54,7 +60,7 @@ public class PlayerInput : MonoBehaviour
       
         if (Input.GetButtonDown("Jump"))
             OnPlayerJump?.Invoke();
-
+        
         OnPlayerFlip?.Invoke(Input.mousePosition);
     }
 
@@ -77,5 +83,20 @@ public class PlayerInput : MonoBehaviour
     {
         IsInputBlock = false;
         Time.timeScale = _defaultTimeScale;
+    }
+
+    private void Flip()
+    {
+        isFlip = !isFlip;
+    }
+    
+    private void OnEnable()
+    {
+        GetComponent<MoveBase>().OnFlip += Flip;
+    }
+    
+    private void OnDisable()
+    {
+        GetComponent<MoveBase>().OnFlip -= Flip;
     }
 }

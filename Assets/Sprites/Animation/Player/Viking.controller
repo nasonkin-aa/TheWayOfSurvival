@@ -113,7 +113,7 @@ AnimatorStateTransition:
   m_ExitTime: 1
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 2
+  m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1102 &-4285795029557613593
@@ -306,15 +306,15 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_Startrun
-  m_Speed: 0.6
-  m_CycleOffset: 0
+  m_Speed: 0.85
+  m_CycleOffset: 1
   m_Transitions:
   - {fileID: 5954617743604760474}
   - {fileID: -1980922117620719868}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
+  m_WriteDefaultValues: 0
   m_Mirror: 0
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
@@ -322,7 +322,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 379d2b1727eeeea488072704b0e86b0d, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: rawSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -371,10 +371,10 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -901559281300621683}
-    m_Position: {x: 460, y: 320, z: 0}
+    m_Position: {x: 370, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4835723175035929083}
-    m_Position: {x: 440, y: 410, z: 0}
+    m_Position: {x: 310, y: 480, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7260464738614645812}
     m_Position: {x: 720, y: 320, z: 0}
@@ -411,19 +411,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: yVelocity
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: rawSpeed
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -606,7 +612,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_Stoprun
-  m_Speed: 0.5
+  m_Speed: 0.86
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2371753936634085707}
@@ -619,9 +625,9 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 55f03ba25464aa140bc2320d616ef864, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0bccc3283651492429e475a0dde1a84b, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: rawSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -643,9 +649,9 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 1
   m_HasExitTime: 1
-  m_HasFixedDuration: 0
-  m_InterruptionSource: 3
-  m_OrderedInterruption: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 4
+  m_OrderedInterruption: 0
   m_CanTransitionToSelf: 1
 --- !u!1102 &7090997957379341666
 AnimatorState:
@@ -683,7 +689,7 @@ AnimatorState:
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_run
   m_Speed: 1
-  m_CycleOffset: 0
+  m_CycleOffset: 0.89
   m_Transitions:
   - {fileID: -1445950144285813655}
   - {fileID: -8450562948250477585}
@@ -698,7 +704,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: eed255b5443c14b46a73d3fa0f71511b, type: 2}
   m_Tag: 
-  m_SpeedParameter: Speed
+  m_SpeedParameter: rawSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
