@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 5632733512485860214}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!198 &198464213672787702
 ParticleSystem:
@@ -224,7 +224,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.25098038, g: 0.5683506, b: 1, a: 1}
+      maxColor: {r: 0.51651764, g: 0.75533146, b: 0.8784314, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -447,7 +447,7 @@ ParticleSystem:
     startRotationX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3.1415927
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -500,7 +500,7 @@ ParticleSystem:
     startRotationY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3.1415927
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -604,7 +604,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
+    gravitySource: 1
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -4853,8 +4853,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
-  - {fileID: 2100000, guid: 60c4f99d55be7ee44a8521d1da5a59c6, type: 2}
+  - {fileID: 2100000, guid: 5b6ec7a8509bc5a4b9f893fd96464b6c, type: 2}
+  - {fileID: 2100000, guid: 5b6ec7a8509bc5a4b9f893fd96464b6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4872,9 +4872,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1973768763
+  m_SortingLayer: 2
+  m_SortingOrder: 100
   m_RenderMode: 5
   m_MeshDistribution: 0
   m_SortMode: 0
