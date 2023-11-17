@@ -134,9 +134,9 @@ TextureImporter:
       name: the-way-of-survival_bg_0
       rect:
         serializedVersion: 2
-        x: 44
+        x: 45
         y: 0
-        width: 4644
+        width: 4643
         height: 1075
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
