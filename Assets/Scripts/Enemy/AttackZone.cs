@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,20 +8,18 @@ public class AttackZone : MonoBehaviour
 {
     public ContactFilter2D contactFilter2D;
 
-    private CircleCollider2D _circleCollider2D;
-    private Health _targetHealth;
+    protected CircleCollider2D _circleCollider2D;
 
     public Action<HealthBase> OnCollisionWithTarget;
-    private void Start()
+    protected virtual void Start()
     {
         _circleCollider2D = GetComponent<CircleCollider2D>();
         _circleCollider2D.radius = Random.Range( _circleCollider2D.radius, _circleCollider2D.radius * 2f);
         contactFilter2D.useLayerMask = true;
     }
 
-    public void OnTriggerStay2D(Collider2D other)
+    public virtual void OnTriggerStay2D(Collider2D other)
     {
-        //Debug.Log(other.name);
         var health = OverlapTargetWithHp();
         if (health == null)
             return;
@@ -34,7 +31,7 @@ public class AttackZone : MonoBehaviour
         return OverlapTargetWithHp();
     }
 
-    private HealthBase OverlapTargetWithHp()
+    protected HealthBase OverlapTargetWithHp()
     {
         var collider2Ds = new List<Collider2D>();
         var countOverlapCollider = _circleCollider2D.OverlapCollider(contactFilter2D, collider2Ds);
@@ -42,5 +39,4 @@ public class AttackZone : MonoBehaviour
             return collider2Ds[0].gameObject.GetComponent<HealthBase>();
         return null;
     }
-
 }

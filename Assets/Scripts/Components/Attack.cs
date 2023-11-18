@@ -1,24 +1,22 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    private AttackZone _attackZone;
+    protected AttackZone _attackZone;
     public int damage = 10;
     public Action OnAttackReady;
     public Action OnAttackFinished;
-    private HealthBase _targetToAttack;
+    protected HealthBase _targetToAttack;
     
  
-    public void Start()
+    public virtual void Start()
     {
         _attackZone = GetComponentInChildren<AttackZone>();
         _attackZone.OnCollisionWithTarget += ContactWithTarget;
     }
 
-    public void ContactWithTarget(HealthBase health)
+    public virtual void ContactWithTarget(HealthBase health)
     {
         _targetToAttack = health;
         OnAttackReady?.Invoke();
@@ -40,5 +38,10 @@ public class Attack : MonoBehaviour
     public void CheckAttackFinish()
     {
         OnAttackFinished?.Invoke();
+    }
+
+    public void SetTrget(HealthBase target)
+    {
+        _targetToAttack = target;
     }
 }

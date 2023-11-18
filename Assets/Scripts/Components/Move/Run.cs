@@ -12,5 +12,9 @@ public class Run : MonoBehaviour, IMovable
         float speedMultiplier = UnityEngine.Random.Range(_speedScale * 0.9f, _speedScale * 1.1f);
         rb.velocity =  new Vector2(direction.x * speedMultiplier,rb.velocity.y);
     }
-    
+
+    public void Stop(Rigidbody2D rb)
+    {
+        rb.velocity = Vector2.zero;
+    }
 }
