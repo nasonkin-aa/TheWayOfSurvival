@@ -211,10 +211,10 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 2147483647
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  _projectile: {fileID: 0}
+  _projectile: {fileID: 4186413504157704379, guid: 2a7b0ce3e6a6adf488c0dfd61228ceea, type: 3}
 --- !u!114 &8035385996595723157
 MonoBehaviour:
   m_ObjectHideFlags: 0

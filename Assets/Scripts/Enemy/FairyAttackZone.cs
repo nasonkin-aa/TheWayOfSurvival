@@ -28,7 +28,7 @@ public class FairyAttackZone : AttackZone
     {
         var collider2Ds = new List<Collider2D>();
         var countOverlapCollider = _circleCollider2D.OverlapCollider(contactFilter2D, collider2Ds);
-        var healthCollided = collider2Ds.ConvertAll(coll => coll.gameObject.GetComponent<HealthBase>()); // Залупа
+        var healthCollided = collider2Ds.ConvertAll(coll => coll.gameObject.GetComponent<HealthBase>());
 
         if (healthCollided.Contains(target))
             return target;
