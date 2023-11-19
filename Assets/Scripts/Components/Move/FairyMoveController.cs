@@ -22,8 +22,11 @@ public class FairyMoveController : MoveController
     protected Vector2 GetRandomDirection(Transform target)
     {
         var direction = (Vector2)(target.position - transform.position);
-        var angle = UnityEngine.Random.Range(90, 270);
-        return RotateVector(direction.normalized, angle);
+        var angle = Random.Range(90, 270);
+        var rotatedVector = RotateVector(direction.normalized, angle);
+        if (rotatedVector.y < 0)
+            rotatedVector.y /= 3;
+        return rotatedVector.normalized;
     }
 
     protected Vector2 RotateVector (Vector2 vectorStart, float angle)
