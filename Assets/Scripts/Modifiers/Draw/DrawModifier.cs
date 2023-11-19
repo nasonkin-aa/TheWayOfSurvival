@@ -43,8 +43,8 @@ public class DrawModifier : MonoBehaviour
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() =>
                 {
-                    DrawUI.gameObject.SetActive(false);
-                    PlayerInput.UnPause();
+                    //DrawUI.gameObject.SetActive(false);
+                    //PlayerInput.UnPause();
                     newComponent.Activate();
                     UpdatePool(mod);
                 });

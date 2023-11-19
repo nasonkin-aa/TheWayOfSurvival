@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4627af097516f3439aa8a8bf0e32b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 13
+  jumpForce: 13.5
 --- !u!95 &584420684084264800
 Animator:
   serializedVersion: 5
@@ -513,7 +513,7 @@ MonoBehaviour:
   - {x: -2.9225912, y: -8.305094, z: 0}
   m_ShapePathHash: -802913607
   m_Mesh: {fileID: 0}
-  m_InstanceId: -3989430
+  m_InstanceId: -1628
   m_LocalBounds:
     m_Center: {x: -0.25795317, y: -7.819956, z: 0}
     m_Extent: {x: 2.664638, y: 0.48513818, z: 0}
