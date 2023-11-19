@@ -43,7 +43,7 @@ public class DrawModifier : MonoBehaviour
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() =>
                 {
-                    //DrawUI.gameObject.SetActive(false);
+                    //DrawUI.gameObject.SetActive(false); // Turn on in animation script
                     //PlayerInput.UnPause();
                     newComponent.Activate();
                     UpdatePool(mod);
@@ -54,9 +54,11 @@ public class DrawModifier : MonoBehaviour
     private void PrepareButton(Button button, ModifierBaseObject mod)
     {
         List<TMP_Text> buttonText = new(button.GetComponentsInChildren<TMP_Text>());
-        buttonText.First(obj => obj.name == "ModifierName").text = mod.GetModifierType.ToString();
+        buttonText.First(obj => obj.name == "ModifierName").text = mod.Name;
         buttonText.First(obj => obj.name == "Description").text = mod.Description.ToString();
-        buttonText.First(obj => obj.name == "ModLvl").text = mod.Lvl.ToString();
+        //buttonText.First(obj => obj.name == "ModLvl").text = mod.Lvl.ToString();
+        button.GetComponentInChildren<Image>().sprite = mod.Icon;
+
     }
 
     private void UpdatePool(ModifierBaseObject mod)
