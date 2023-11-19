@@ -1,27 +1,21 @@
-using TMPro;
-using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
+using UnityEngine;
+using UnityEngine.UI;
+
 public class HealthDisplayUI : MonoBehaviour
 {
-    private TMP_Text _valueText;
-    private void Awake()
+    private PlayerHealth playerHp;
+    private void Start()
     {
-        _valueText = GetComponent<TMP_Text>();
+        playerHp = Player.GetPlayer.GetComponent<PlayerHealth>();
+        if (playerHp is not null)
+            playerHp.OnHpChange += UpdateBar;
+        GetComponent<Image>().fillAmount = 1;
     }
 
-    private void OnEnable()
+    private void UpdateBar(int value)
     {
-        //Health.OnHpChange += UpdateValue;
-    }
-
-    private void UpdateValue(int value)
-    {
-        _valueText.text = value.ToString();
-    }
-
-    private void OnDisable()
-    {
-        //Health.OnHpChange -= UpdateValue;
+        float fillAmount = (float) playerHp.Health / playerHp.MaxHealth;
+        GetComponent<Image>().fillAmount = fillAmount;
     }
 }

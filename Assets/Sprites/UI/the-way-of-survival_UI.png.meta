@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -129,7 +129,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: the-way-of-survival_UI_0
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 0
+        width: 401
+        height: 1280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91eee54a772ff2842bb97235d958eb46
+      internalID: -1043267643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the-way-of-survival_UI_1
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 0
+        width: 290
+        height: 1280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa9d1ea668d55a4c91751192a1cea26
+      internalID: 1193229905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the-way-of-survival_UI_2
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 492
+        width: 339
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b9cffc824f08149bef95dad68d367b
+      internalID: -1872197201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the-way-of-survival_UI_3
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 550
+        width: 197
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b4e71d6fcb1c341ae1f6cf0c0177b1
+      internalID: 1565496177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the-way-of-survival_UI_4
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 246
+        width: 59
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404c73c91d3316543a21faf9de07c85d
+      internalID: -1252574345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the-way-of-survival_UI_5
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 255
+        width: 397
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4c0d3b935ae5a45a08c688cf8b9a44
+      internalID: 1451798903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -140,7 +266,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      the-way-of-survival_UI_0: -1043267643
+      the-way-of-survival_UI_1: 1193229905
+      the-way-of-survival_UI_2: -1872197201
+      the-way-of-survival_UI_3: 1565496177
+      the-way-of-survival_UI_4: -1252574345
+      the-way-of-survival_UI_5: 1451798903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
