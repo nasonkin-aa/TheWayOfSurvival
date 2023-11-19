@@ -15,7 +15,7 @@ public class ModifierPrepare
     {   
         var newSubObj = SubObjectsCreator.CreateSubObjectWithModifier(parent, _modifier);
         var newModifier = newSubObj.GetComponent(_modifier) as IWeaponModifier;
-        newModifier?.PrepareModifier(_modifierInfo); // Настройка модификатора
+        newModifier?.PrepareModifier(_modifierInfo); // РќР°СЃС‚СЂРѕР№РєР° РјРѕРґРёС„РёРєР°С‚РѕСЂР°
 
         return newSubObj;
     }
