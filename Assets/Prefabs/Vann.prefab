@@ -67,7 +67,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 14.74
+  m_Radius: 180.43
 --- !u!114 &3570946797637020611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +94,37 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+--- !u!1 &9057487527323310619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357916098369865951}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1357916098369865951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9057487527323310619}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.91, y: 4.2, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8411941467920769320}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9168771958303722503
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,9 +139,9 @@ GameObject:
   - component: {fileID: 2537028679731982511}
   - component: {fileID: 4761859796798940133}
   - component: {fileID: 810821694283449357}
-  - component: {fileID: 5982526523705964284}
+  - component: {fileID: 7587636345066313433}
+  - component: {fileID: 4990286281518522634}
   - component: {fileID: 6950928772641669704}
-  - component: {fileID: 7275614460958701078}
   - component: {fileID: 3648130476892546436}
   - component: {fileID: 7578434963742836621}
   - component: {fileID: 7690421710278299511}
@@ -138,9 +169,10 @@ Transform:
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1357916098369865951}
   - {fileID: 8500380450557981380}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6352823645180485229
 SpriteRenderer:
@@ -292,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
---- !u!114 &5982526523705964284
+--- !u!114 &7587636345066313433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -301,7 +333,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 9168771958303722503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e1cb5a08e685040ab231dc2ca9e5fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 159df17ecf7bcd348addd33a4015374b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  _projectilePrefab: {fileID: 4186413504157704379, guid: 0bc9cddd4dc1545419e839eb956fa877, type: 3}
+  launchAngle: 45
+  _SpawnPoint: {fileID: 1357916098369865951}
+  _firePower: 2
+--- !u!114 &4990286281518522634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168771958303722503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca0b059d53f4aa40b9142c61b1d02a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6950928772641669704
@@ -316,19 +365,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a978695ec67d064b8a38c455240c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7275614460958701078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9168771958303722503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67ae7b4c60fb6dc458bed5bdbf10987b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 40
 --- !u!114 &3648130476892546436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +458,7 @@ MonoBehaviour:
   - {x: 2.6447127, y: -5.470206, z: 0}
   m_ShapePathHash: 1254037089
   m_Mesh: {fileID: 0}
-  m_InstanceId: -754066
+  m_InstanceId: -19986
   m_LocalBounds:
     m_Center: {x: 0.1536851, y: -0.09938717, z: 0}
     m_Extent: {x: 4.0855484, y: 5.926454, z: 0}
