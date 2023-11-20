@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(PlayerMove))]
@@ -52,6 +53,14 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             GetComponent<HealthBase>().Die();
+        }
+        
+        for (int i = 1; i <= 10; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.F1 + i - 1))
+            {
+                SceneManager.LoadScene(i - 1);
+            }
         }
 
         if (IsInputBlock)

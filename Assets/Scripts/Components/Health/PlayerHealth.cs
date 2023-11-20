@@ -7,7 +7,7 @@ namespace UnityEngine
         public static Action OnShake;
         public override void Die()
         {
-            SceneManager.LoadScene(SceneManager.sceneCount - 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         public override void TakeDamage(int amount)
