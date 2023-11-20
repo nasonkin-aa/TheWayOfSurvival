@@ -131,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: the-way-of-survival_UI_icons_0
+      name: icons_0
       rect:
         serializedVersion: 2
         x: 182
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b832cd0e09f580a489b38dad079dfcb6
-      internalID: 1410153727
+      spriteID: c5f579fefcc408047b2b8edb24fae1c4
+      internalID: 294712626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: the-way-of-survival_UI_icons_1
+      name: icons_1
       rect:
         serializedVersion: 2
         x: 614
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4972e1f8fd1203842898ab131d6d2b6d
-      internalID: 581237928
+      spriteID: b3993abc76ddf8342b453f94939dcf26
+      internalID: 375628091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: the-way-of-survival_UI_icons_2
+      name: icons_2
       rect:
         serializedVersion: 2
         x: 1048
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 757816bc314ea1f49bc528fc2e7284fd
-      internalID: -439874609
+      spriteID: 7ba2270f3b22ce94d882de3225b93a02
+      internalID: -1549888701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: the-way-of-survival_UI_icons_3
+      name: icons_3
       rect:
         serializedVersion: 2
         x: 1482
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a27732823bf2d6848b57fee7faf990a8
-      internalID: 1196267790
+      spriteID: fcec7648a2b3c1e4db1f761b6816d6ac
+      internalID: -785153650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: the-way-of-survival_UI_icons_4
+      name: icons_4
       rect:
         serializedVersion: 2
         x: 1915
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d618fb62769d2f142aa78d6e996a8e61
-      internalID: -651576003
+      spriteID: 745776bb6949a3e42b556e31c58c2481
+      internalID: 1939848579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: the-way-of-survival_UI_icons_5
+      name: icons_5
       rect:
         serializedVersion: 2
         x: 190
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b922f62dee4422409e2d890917bec23
-      internalID: -1538142593
+      spriteID: 2043bc603d1e8bf4f93f72836e05a516
+      internalID: 1854713796
       vertices: []
       indices: 
       edges: []
@@ -267,12 +267,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      the-way-of-survival_UI_icons_0: 1410153727
-      the-way-of-survival_UI_icons_1: 581237928
-      the-way-of-survival_UI_icons_2: -439874609
-      the-way-of-survival_UI_icons_3: 1196267790
-      the-way-of-survival_UI_icons_4: -651576003
-      the-way-of-survival_UI_icons_5: -1538142593
+      icons_0: 294712626
+      icons_1: 375628091
+      icons_2: -1549888701
+      icons_3: -785153650
+      icons_4: 1939848579
+      icons_5: 1854713796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
