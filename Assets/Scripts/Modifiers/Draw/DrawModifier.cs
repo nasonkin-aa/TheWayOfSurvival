@@ -60,7 +60,7 @@ public class DrawModifier : MonoBehaviour
         List<TMP_Text> buttonText = new(button.GetComponentsInChildren<TMP_Text>());
         buttonText.First(obj => obj.name == "ModifierName").text = mod.Name;
         buttonText.First(obj => obj.name == "Description").text = mod.Description.ToString();
-        //buttonText.First(obj => obj.name == "ModLvl").text = mod.Lvl.ToString();
+        buttonText.First(obj => obj.name == "ModLvl").text = mod.Lvl.ToString();
         button.GetComponentInChildren<Image>().sprite = mod.Icon;
 
     }
