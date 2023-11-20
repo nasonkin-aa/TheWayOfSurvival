@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 1901082293150640879}
   - component: {fileID: 8035385996595723157}
   - component: {fileID: 1321279821842051144}
+  - component: {fileID: 4488439717643389974}
   m_Layer: 9
   m_Name: fairy
   m_TagString: Untagged
@@ -138,7 +139,7 @@ Transform:
   m_Children:
   - {fileID: 4286156497264712373}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &300673418547382478
 SpriteRenderer:
@@ -381,34 +382,18 @@ MonoBehaviour:
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 51ebd9fb5198781e0000000011cc17ee3b52a575c39b47795fe6031e
   m_ShapePath:
-  - {x: 0.21845818, y: -3.9267225, z: 0}
-  - {x: 0.11974335, y: -2.245592, z: 0}
-  - {x: -0.1406622, y: -1.145304, z: 0}
-  - {x: -1.1030293, y: -1.9573998, z: 0}
-  - {x: -1.5583038, y: -1.5329957, z: 0}
-  - {x: -0.8597708, y: 0.13237536, z: 0}
-  - {x: -1.4760971, y: 0.92985815, z: 0}
-  - {x: -0.8625603, y: 3.7589715, z: 0}
-  - {x: -0.47140598, y: 3.654942, z: 0}
-  - {x: 0.504899, y: 1.6434828, z: 0}
-  - {x: 1.2421322, y: 2.730007, z: 0}
-  - {x: 2.411952, y: 3.5503747, z: 0}
-  - {x: 3.2459688, y: 3.5241427, z: 0}
-  - {x: 2.5952387, y: 1.3648078, z: 0}
-  - {x: 1.8185472, y: 0.71058166, z: 0}
-  - {x: 3.0997849, y: -0.0008748472, z: 0}
-  - {x: 2.83525, y: -0.794656, z: 0}
-  - {x: 1.3840246, y: -0.82039744, z: 0}
-  - {x: 1.0162354, y: -1.6709161, z: 0}
-  - {x: 1.7748022, y: -2.5903952, z: 0}
-  - {x: 1.721735, y: -3.0535057, z: 0}
-  - {x: 0.94727516, y: -3.3489666, z: 0}
-  m_ShapePathHash: 685255841
+  - {x: -0.47922468, y: -5.0227118, z: 0}
+  - {x: 0.1819148, y: -3.5987191, z: 0}
+  - {x: 0.6813803, y: -3.4803896, z: 0}
+  - {x: 2.5213351, y: -4.7175713, z: 0}
+  - {x: 0.89391375, y: -4.056431, z: 0}
+  - {x: 0.3344872, y: -3.9547167, z: 0}
+  m_ShapePathHash: 1835333571
   m_Mesh: {fileID: 0}
-  m_InstanceId: -13090
+  m_InstanceId: -2734632
   m_LocalBounds:
-    m_Center: {x: 0.8438325, y: -0.083875656, z: 0}
-    m_Extent: {x: 2.4021363, y: 3.8428469, z: 0}
+    m_Center: {x: 1.0210552, y: -4.2515507, z: 0}
+    m_Extent: {x: 1.5002799, y: 0.7711611, z: 0}
 --- !u!114 &1901082293150640879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,3 +434,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _reloadTime: 5
+--- !u!114 &4488439717643389974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113552510931987253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4956aafecae55d345be5097022138d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashTime: 0.25

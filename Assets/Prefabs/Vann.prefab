@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 9034697093846591129}
   - component: {fileID: 64504927843487094}
   - component: {fileID: 839422741551023178}
+  - component: {fileID: 8409667224679746454}
   m_Layer: 9
   m_Name: Vann
   m_TagString: Untagged
@@ -206,7 +207,7 @@ Transform:
   - {fileID: 1357916098369865951}
   - {fileID: 8500380450557981380}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6352823645180485229
 SpriteRenderer:
@@ -498,33 +499,17 @@ MonoBehaviour:
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 51ebd9fb5198781e0000000011cc17ee3b52a575c39b47795fe6031e
   m_ShapePath:
-  - {x: 0.2968779, y: -6.025841, z: 0}
-  - {x: -2.3630152, y: -4.762676, z: 0}
-  - {x: -2.3956976, y: -3.0630875, z: 0}
-  - {x: -3.6703882, y: -1.755712, z: 0}
-  - {x: -3.9318633, y: -0.088808194, z: 0}
-  - {x: -3.8338099, y: 1.6107801, z: 0}
-  - {x: -3.33109, y: 3.443774, z: 0}
-  - {x: -2.1015368, y: 5.434854, z: 0}
-  - {x: -0.7287925, y: 5.434854, z: 0}
-  - {x: -0.23852758, y: 5.827067, z: 0}
-  - {x: 2.5466623, y: 5.5028906, z: 0}
-  - {x: 3.3567545, y: 3.506475, z: 0}
-  - {x: 3.2260184, y: 2.7874181, z: 0}
-  - {x: 3.814337, y: 1.7742021, z: 0}
-  - {x: 4.239234, y: 0.23803586, z: 0}
-  - {x: 3.879705, y: -0.18686141, z: 0}
-  - {x: 4.1084948, y: -1.2327616, z: 0}
-  - {x: 3.6182299, y: -1.59229, z: 0}
-  - {x: 2.9318545, y: -3.7821453, z: 0}
-  - {x: 2.1801145, y: -3.7494605, z: 0}
-  - {x: 2.6447127, y: -5.470206, z: 0}
-  m_ShapePathHash: 1254037089
+  - {x: 0.09943298, y: -6.0653296, z: 0}
+  - {x: 1.3489832, y: -5.868377, z: 0}
+  - {x: 2.3682878, y: -6.733866, z: 0}
+  - {x: -0.72675097, y: -6.9681125, z: 0}
+  - {x: -1.2796007, y: -6.454751, z: 0}
+  m_ShapePathHash: 1192147663
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2338
+  m_InstanceId: -3736962
   m_LocalBounds:
-    m_Center: {x: 0.1536851, y: -0.09938717, z: 0}
-    m_Extent: {x: 4.0855484, y: 5.926454, z: 0}
+    m_Center: {x: 0.5443436, y: -6.418245, z: 0}
+    m_Extent: {x: 1.8239443, y: 0.54986763, z: 0}
 --- !u!114 &9034697093846591129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,3 +557,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8409667224679746454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168771958303722503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4956aafecae55d345be5097022138d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashTime: 0.25
