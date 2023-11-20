@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using Random = UnityEngine.Random;
 
 public class DrawModifier : MonoBehaviour
 {
@@ -34,25 +35,18 @@ public class DrawModifier : MonoBehaviour
 
     private void PrepareCards()
     {
-        List<Button> buttons = new(DrawUI.GetComponentsInChildren<Button>());
-        foreach (var button in buttons)
-        {
-            Destroy(button.GetComponent<ModifierInCard>());
-            int randModNumber = rnd.Next(0, _pool.Count);
-            var newComponent = button.gameObject.AddComponent<ModifierInCard>();
-            var mod = _pool[randModNumber];
-            PrepareButton(button, mod);
-            newComponent.CopyFromSO(mod);
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() =>
-                {
-                    //DrawUI.gameObject.SetActive(false); // Turn on in animation script
-                    //PlayerInput.UnPause();
-                    OnUpgradeSelect?.Invoke(mod.Icon);
-                    newComponent.Activate();
-                    UpdatePool(mod);
-                });
-        }
+        if (_pool.Count == 0)
+            return;
+        List<Button> buttons = new(DrawUI.GetComponentsInChildren<Button>()); 
+
+        var modifiersList = RandomizeModifiers();
+
+        for (int modNumber = 0; modNumber < modifiersList.Count; modNumber++)
+            ConfigurateButton(buttons[modNumber], modifiersList[modNumber]);
+
+        if (modifiersList.Count < 3)
+            for(int buttonNumber = buttons.Count; buttonNumber > modifiersList.Count; buttonNumber--)
+                buttons[buttonNumber - 1].gameObject.SetActive(false);             
     }
 
     private void PrepareButton(Button button, ModifierBaseObject mod)
@@ -60,9 +54,7 @@ public class DrawModifier : MonoBehaviour
         List<TMP_Text> buttonText = new(button.GetComponentsInChildren<TMP_Text>());
         buttonText.First(obj => obj.name == "ModifierName").text = mod.Name;
         buttonText.First(obj => obj.name == "Description").text = mod.Description.ToString();
-        //buttonText.First(obj => obj.name == "ModLvl").text = mod.Lvl.ToString();
         button.GetComponentInChildren<Image>().sprite = mod.Icon;
-
     }
 
     private void UpdatePool(ModifierBaseObject mod)
@@ -77,5 +69,39 @@ public class DrawModifier : MonoBehaviour
             return;
 
         _pool.Add(newMods.First());
+    }
+
+    private void ConfigurateButton(Button button, ModifierBaseObject mod)
+    {
+        Destroy(button.GetComponent<ModifierInCard>());
+        var newComponent = button.gameObject.AddComponent<ModifierInCard>();
+        PrepareButton(button, mod);
+        newComponent.CopyFromSO(mod);
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() =>
+        {
+            //DrawUI.gameObject.SetActive(false); // Turn on in animation script
+            //PlayerInput.UnPause();
+            OnUpgradeSelect?.Invoke(mod.Icon);
+            newComponent.Activate();
+            UpdatePool(mod);
+        });
+    }
+
+    private List<ModifierBaseObject> RandomizeModifiers()
+    {
+        List<ModifierBaseObject> randomList = new ();
+
+        int poolLength = 3;
+        if (_pool.Count < poolLength)
+            poolLength = _pool.Count;
+
+        for (; randomList.Count < poolLength;)
+        {
+            var random = _pool[Random.Range(0, _pool.Count)];
+            if (!randomList.Contains(random))
+                randomList.Add(random);
+        }
+        return randomList;
     }
 }
