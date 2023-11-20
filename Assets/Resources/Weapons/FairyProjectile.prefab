@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7159083143140192792}
   - component: {fileID: 115168273299394152}
   - component: {fileID: 5829941062361240209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FairyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 4186413504157704379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.9775496, y: -1.9411204, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8846798353721838817
 SpriteRenderer:
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -844064575, guid: 01b549e18cc97aa43bb3362a776eb1e6, type: 3}
+  m_Sprite: {fileID: -1267131396, guid: 3f6179c43cd27224d8c90a47c79bad95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.010733545, y: 0.0000003874302}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.2300005, y: 1.2104001}
+    oldSize: {x: 1.79, y: 1.27}
     newSize: {x: 7.2300005, y: 1.2104001}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.2300005, y: 1.2104001}
+  m_Size: {x: 1.8838629, y: 1.3500946}
   m_EdgeRadius: 0
 --- !u!50 &115168273299394152
 Rigidbody2D:
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4186413504157704379}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc4e5882dbd22e94da46d7a5d409a3f4, type: 3}
   m_Name: 

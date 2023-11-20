@@ -140,7 +140,7 @@ Transform:
   m_Children:
   - {fileID: 890595782290931480}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5989713690208839742
 SpriteRenderer:
@@ -419,20 +419,18 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 1
-  m_ApplyToSortingLayers: 51ebd9fb5198781e0000000011cc17ee3b52a575c39b47795fe6031e
+  m_ApplyToSortingLayers: 5198781e0000000011cc17ee3b52a575c39b4779
   m_ShapePath:
-  - {x: -0.79348135, y: -2.30585, z: 0}
-  - {x: -3.1972651, y: -1.5115604, z: 0}
-  - {x: 0.0071890354, y: -0.53112245, z: 0}
-  - {x: 2.20306, y: -1.6833035, z: 0}
-  - {x: 3.4101171, y: -2.4075375, z: 0}
-  - {x: 0.30194592, y: -2.3471842, z: 0}
-  m_ShapePathHash: -1272199820
+  - {x: -2.3356879, y: -3.6842363, z: 0}
+  - {x: -3.0556238, y: -3.2215314, z: 0}
+  - {x: 2.2616744, y: -3.256167, z: 0}
+  - {x: -0.24613261, y: -4.045649, z: 0}
+  m_ShapePathHash: 230924259
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2734748
+  m_InstanceId: -4502750
   m_LocalBounds:
-    m_Center: {x: 0.106426, y: -1.46933, z: 0}
-    m_Extent: {x: 3.3036911, y: 0.9382075, z: 0}
+    m_Center: {x: -0.3969748, y: -3.6335902, z: 0}
+    m_Extent: {x: 2.658649, y: 0.41205883, z: 0}
 --- !u!114 &187822251993500163
 MonoBehaviour:
   m_ObjectHideFlags: 0
