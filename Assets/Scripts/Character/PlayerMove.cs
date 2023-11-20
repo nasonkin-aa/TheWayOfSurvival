@@ -5,7 +5,7 @@ public class PlayerMove : MoveBase
     [SerializeField]
     public float _speed = 0.4f;
     [SerializeField]
-    private float deadZoneThreshold = 0.025f;
+    private float deadZoneThreshold = 0.003f;
     private Camera _mainCamera;
     
     private void Awake()
@@ -22,7 +22,7 @@ public class PlayerMove : MoveBase
     private void Flip(Vector3 position)
     {
         float mouseWorldPosition = (_mainCamera.ScreenToWorldPoint(position) - transform.position).normalized.x;
-        Debug.Log(mouseWorldPosition +" " + deadZoneThreshold );
+        //Debug.Log(mouseWorldPosition +" " + deadZoneThreshold );
         if (Mathf.Abs(mouseWorldPosition) > deadZoneThreshold)
         {
             Flip(mouseWorldPosition, gameObject);
