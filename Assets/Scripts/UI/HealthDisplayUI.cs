@@ -15,7 +15,7 @@ public class HealthDisplayUI : MonoBehaviour
 
     private void UpdateBar(int value)
     {
-        float fillAmount = (float) playerHp.Health / playerHp.MaxHealth;
+        float fillAmount = (playerHp.Health + value) / (float) playerHp.MaxHealth;
         GetComponent<Image>().fillAmount = fillAmount;
     }
 }
