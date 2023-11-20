@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7159083143140192792}
   - component: {fileID: 115168273299394152}
   - component: {fileID: 5829941062361240209}
+  - component: {fileID: -7020653482543592732}
   m_Layer: 7
   m_Name: FairyProjectile
   m_TagString: Untagged
@@ -166,10 +167,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4186413504157704379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc4e5882dbd22e94da46d7a5d409a3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 20
   _damage: 20
+--- !u!114 &-7020653482543592732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186413504157704379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5aadab23cbc25499bde0347641a041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

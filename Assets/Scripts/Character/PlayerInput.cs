@@ -48,8 +48,6 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
         
-        if (Input.GetKeyDown(KeyCode.P))
-            PauseSwitch();
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -58,7 +56,10 @@ public class PlayerInput : MonoBehaviour
 
         if (IsInputBlock)
             return;
-
+        
+        /*if (Input.GetKeyDown(KeyCode.P))
+            PauseSwitch();*/
+        
         if (Input.GetButtonDown("Fire1"))
         {
             OnPlayerAttack?.Invoke(Input.mousePosition);

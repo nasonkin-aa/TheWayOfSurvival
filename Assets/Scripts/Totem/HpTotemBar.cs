@@ -20,7 +20,7 @@ public class HpTotemBar : MonoBehaviour
 
     private void UpdateBar (int value)
     {
-        var fillAmount = (float)_healthBaseTotem.Health / _healthBaseTotem.MaxHealth;
+        var fillAmount = (float)(_healthBaseTotem.Health + value) / _healthBaseTotem.MaxHealth;
         GetComponent<Image>().fillAmount = fillAmount;
         var color = eyeExpSpriteRenderer.color;
         color.a = 1 - fillAmount;

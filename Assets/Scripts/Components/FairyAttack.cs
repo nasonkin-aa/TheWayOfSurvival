@@ -4,7 +4,7 @@ using UnityEngine;
 public class FairyAttack : Attack
 {
     [SerializeField] private GameObject _projectile;
-
+    [SerializeField] private float speedProjectile;
     private void Awake()
     {
         _projectile ??= Resources.Load("Weapons/Knife1") as GameObject;
@@ -31,6 +31,9 @@ public class FairyAttack : Attack
 
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         var obj = Instantiate(_projectile, transform.position, rotation);
+        obj.GetComponent<EnemyProjectiles>().Damage = damage;
+        
+        obj.GetComponent<Rigidbody2D>().velocity = direction * speedProjectile;
         GetComponent<Rigidbody2D>().AddForce(-direction * 0.2f);
         Destroy(obj, 5f);
     }
