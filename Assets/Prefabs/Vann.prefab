@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1994377077323116592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.39138538, y: 0.38027793, z: 1.8309}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8411941467920769320}
@@ -67,7 +67,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 160.43
+  m_Radius: 180
 --- !u!114 &3570946797637020611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,12 +170,10 @@ GameObject:
   - component: {fileID: 2537028679731982511}
   - component: {fileID: 4761859796798940133}
   - component: {fileID: 1870687673311029415}
-  - component: {fileID: 3434681951982849022}
   - component: {fileID: 691849316759310861}
   - component: {fileID: 7587636345066313433}
   - component: {fileID: 4990286281518522634}
   - component: {fileID: 6950928772641669704}
-  - component: {fileID: 3648130476892546436}
   - component: {fileID: 7578434963742836621}
   - component: {fileID: 7690421710278299511}
   - component: {fileID: 4479893223645730091}
@@ -359,23 +357,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
---- !u!114 &3434681951982849022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9168771958303722503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 159df17ecf7bcd348addd33a4015374b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  _projectilePrefab: {fileID: 4186413504157704379, guid: 0bc9cddd4dc1545419e839eb956fa877, type: 3}
-  launchAngle: 45
-  _SpawnPoint: {fileID: 3571183703359295982}
-  _firePower: 2
 --- !u!114 &691849316759310861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,18 +399,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6950928772641669704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9168771958303722503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a978695ec67d064b8a38c455240c22c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3648130476892546436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -497,7 +466,7 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 1
-  m_ApplyToSortingLayers: 51ebd9fb5198781e0000000011cc17ee3b52a575c39b47795fe6031e
+  m_ApplyToSortingLayers: 5198781e0000000011cc17ee3b52a575c39b4779
   m_ShapePath:
   - {x: 0.09943298, y: -6.0653296, z: 0}
   - {x: 1.3489832, y: -5.868377, z: 0}
@@ -506,7 +475,7 @@ MonoBehaviour:
   - {x: -1.2796007, y: -6.454751, z: 0}
   m_ShapePathHash: 1192147663
   m_Mesh: {fileID: 0}
-  m_InstanceId: -3736962
+  m_InstanceId: -5421104
   m_LocalBounds:
     m_Center: {x: 0.5443436, y: -6.418245, z: 0}
     m_Extent: {x: 1.8239443, y: 0.54986763, z: 0}

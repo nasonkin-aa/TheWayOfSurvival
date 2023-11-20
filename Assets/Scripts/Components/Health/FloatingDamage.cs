@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(TextMesh))]
 public class FloatingDamage : MonoBehaviour
 {
-    private readonly string _color = "#CC445C"; // Красный
+    private readonly string _color = "#760300"; // Red color
     public int Damage { get; private set; }
     private TextMesh _textMesh;
 

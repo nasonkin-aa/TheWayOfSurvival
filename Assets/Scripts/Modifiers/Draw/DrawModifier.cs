@@ -37,7 +37,11 @@ public class DrawModifier : MonoBehaviour
     {
         if (_pool.Count == 0)
             return;
-        List<Button> buttons = new(DrawUI.GetComponentsInChildren<Button>()); 
+        List<Button> buttons = new(DrawUI.GetComponentsInChildren<Button>());
+        foreach (var b in buttons)
+        {
+            b.interactable = true;
+        }
 
         var modifiersList = RandomizeModifiers();
 

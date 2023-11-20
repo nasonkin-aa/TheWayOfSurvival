@@ -12,7 +12,7 @@ public class VannMove : MoveController
         var distance = GetDistance(target);
         var colliderRadius = GetComponentInChildren<AttackZone>().GetComponent<CircleCollider2D>().radius;
 
-        if (Mathf.Abs(distance) < Mathf.Abs(colliderRadius * transform.localScale.x / 3 / 2))
+        if (Mathf.Abs(distance) < Mathf.Abs(colliderRadius * transform.localScale.x / 2 / 2))
             IsRunAway = true;
         if (Mathf.Abs(distance) > Mathf.Abs(colliderRadius * transform.localScale.x / 2))
             IsRunAway = false;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7159083143140192792}
   - component: {fileID: 115168273299394152}
   - component: {fileID: 5361773743217209364}
+  - component: {fileID: -262053371339101769}
   m_Layer: 7
   m_Name: VannArrow
   m_TagString: Untagged
@@ -169,5 +170,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ac561a9cacd82f428887e79dd980962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-262053371339101769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186413504157704379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5aadab23cbc25499bde0347641a041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
