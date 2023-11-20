@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class DrawModifier : MonoBehaviour
     private static readonly System.Random rnd = new System.Random();
 
     public Canvas DrawUI;
+
+    public static Action<Sprite> OnUpgradeSelect;
     private void Awake()
     {
         _pool = new(Resources.LoadAll<ModifierBaseObject>("").Where(obj => obj.Lvl == 1));
@@ -45,6 +48,7 @@ public class DrawModifier : MonoBehaviour
                 {
                     //DrawUI.gameObject.SetActive(false); // Turn on in animation script
                     //PlayerInput.UnPause();
+                    OnUpgradeSelect?.Invoke(mod.Icon);
                     newComponent.Activate();
                     UpdatePool(mod);
                 });
