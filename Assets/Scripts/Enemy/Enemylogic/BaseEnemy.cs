@@ -47,6 +47,9 @@ public class BaseEnemy : MonoBehaviour
 
     protected virtual void ReadyToAttack()
     {
+        _moveControl.Flip(
+            -(_moveControl.GetDirectionToObject(_moveControl.target)).x,
+            gameObject);
         _state = EnemyState.Attack;
         StartAttack();
     }

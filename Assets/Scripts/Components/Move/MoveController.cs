@@ -12,7 +12,7 @@ public class MoveController : MoveBase
         _rd = GetComponent<Rigidbody2D>();
     }
 
-    public void MoveToTarget()
+    public virtual void MoveToTarget()
     {
         if (target is null)
             return;
