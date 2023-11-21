@@ -34,6 +34,7 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
         _electricAOEInfo = electricAOEInfo as ElectricAOEConfig;
         StartCoroutine(DamageOverTime());
         Instantiate(_particlePrefab, transform);
+        
     }
     private void DealDamage()
     {
@@ -50,6 +51,7 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
             yield return new WaitForSeconds(_electricAOEInfo.Interval);
             DealDamage();
             _particle.Play(false);
+            SoundManager.instance.PlaySound("ElectricAOE");
         }
     }
 

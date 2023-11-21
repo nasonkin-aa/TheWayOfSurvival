@@ -472,6 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: 0
+  nameEnemy: 2
 --- !u!95 &839422741551023178
 Animator:
   serializedVersion: 5
