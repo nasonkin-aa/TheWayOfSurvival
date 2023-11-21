@@ -20,17 +20,26 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
 
     private void OnDisable()
     {
+        if (GetComponentInParent<Projectile>() is null)
+            return;
         GetComponentInParent<Projectile>().OnProjectileCollision -= DealDamage; //Make error when scene reload and thunderbolt spawn
     }
 
     void IWeaponModifier.PrepareModifier(ModifierBaseObject thunderboltInfo)
     {
         _thunderboltInfo = thunderboltInfo as ThunderboltConfig;
+
+        if (GetComponentInParent<Projectile>() is null)
+            return;
+
         GetComponentInParent<Projectile>().OnProjectileCollision += DealDamage;
     }
 
-    private void DealDamage()
+    private void DealDamage(Collision2D collision)
     {
+        if ( collision.gameObject.layer != 9) // 9 = enemy layer
+            return;
+
         var collidedObjects = GetComponent<Overlaper>().CircleOverlap(_thunderboltInfo.Radius, Projectile.ContactWithEnemies);
         collidedObjects.ForEach(collider => collider.GetComponent<HealthBase>()?.TakeDamage(_thunderboltInfo.AreaDamage));
 
