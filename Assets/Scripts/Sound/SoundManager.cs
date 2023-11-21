@@ -11,9 +11,9 @@ public class SoundManager : MonoBehaviour
     private Sound sound;
 
     [Range(0.0f, 1.0f)]
-    public float globalVolume = 1.0f; // Общая громкость звуков
+    public float globalVolume = 0.5f;
 
-    public AudioMixerGroup audioMixer; // Ссылка на компонент AudioMixer
+    public AudioMixerGroup audioMixer; 
 
     public void VolumeSliderMusic(float volume)
     {
