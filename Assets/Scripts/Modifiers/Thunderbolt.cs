@@ -20,7 +20,7 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
 
     private void OnDisable()
     {
-        GetComponentInParent<Projectile>().OnProjectileCollision -= DealDamage;
+        GetComponentInParent<Projectile>().OnProjectileCollision -= DealDamage; //Make error when scene reload and thunderbolt spawn
     }
 
     void IWeaponModifier.PrepareModifier(ModifierBaseObject thunderboltInfo)
