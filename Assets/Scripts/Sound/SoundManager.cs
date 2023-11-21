@@ -1,4 +1,6 @@
 // SoundManager.cs
+
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -33,7 +35,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
     }
-    
+
     public void PlaySound(string typeName)
     {
         // Get a random AudioClip based on typeName
