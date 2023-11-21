@@ -61,10 +61,7 @@ public class PlayerInput : MonoBehaviour
 
         if (IsInputBlock)
             return;
-        
-        /*if (Input.GetKeyDown(KeyCode.P))
-            PauseSwitch();*/
-        
+
         if (Input.GetButtonDown("Fire1"))
         {
             OnPlayerAttack?.Invoke(Input.mousePosition);

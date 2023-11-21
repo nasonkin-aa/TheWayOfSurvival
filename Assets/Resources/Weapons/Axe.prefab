@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3649854840176870608}
   - component: {fileID: 5045835340044789623}
   - component: {fileID: 6499079392969433440}
+  - component: {fileID: 2764190799660894969}
   m_Layer: 7
   m_Name: Axe
   m_TagString: Untagged
@@ -171,3 +172,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92375048e5fbf87418dc04f404b3fe70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2764190799660894969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909689400440807813}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 5198781e0000000011cc17ee3b52a575c39b4779
+  m_ShapePath:
+  - {x: -2.323723, y: -3.8957703, z: 0}
+  - {x: -1.9334617, y: -3.4201465, z: 0}
+  - {x: -1.504819, y: -0.5550096, z: 0}
+  - {x: -1.4675875, y: 2.323299, z: 0}
+  - {x: -1.6150025, y: 2.2806284, z: 0}
+  - {x: -2.4067864, y: 3.1542408, z: 0}
+  - {x: -2.0884337, y: 4.2367306, z: 0}
+  - {x: -1.3944653, y: 4.036757, z: 0}
+  - {x: -1.2903062, y: 4.3207464, z: 0}
+  - {x: -1.1736513, y: 4.7206936, z: 0}
+  - {x: -0.75703615, y: 4.953993, z: 0}
+  - {x: -0.30710617, y: 4.7206936, z: 0}
+  - {x: -0.30712748, y: 4.3874025, z: 0}
+  - {x: -0.25710213, y: 3.95413, z: 0}
+  - {x: 2.35918, y: 4.270753, z: 0}
+  - {x: 2.309176, y: 1.8877646, z: 0}
+  - {x: 0.5542236, y: 0.29869926, z: 0}
+  - {x: -0.48785728, y: 2.4546793, z: 0}
+  - {x: -0.7796859, y: -0.3183153, z: 0}
+  - {x: -0.7464137, y: -4.6008296, z: 0}
+  - {x: -1.3246427, y: -5.035294, z: 0}
+  m_ShapePathHash: -1559374641
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 70320
+  m_LocalBounds:
+    m_Center: {x: -0.023803234, y: -0.040650845, z: 0}
+    m_Extent: {x: 2.3829832, y: 4.994643, z: 0}
