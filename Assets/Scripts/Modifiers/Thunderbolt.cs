@@ -12,12 +12,6 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
         GetComponent<CircleCollider2D>().isTrigger = true;
         _particlePrefab ??= Resources.Load(_particlePrefabPath) as GameObject;
     }
-
-    protected void Start()
-    {
-        
-    }
-
     private void OnDisable()
     {
         GetComponentInParent<Projectile>().OnProjectileCollision -= DealDamage; //Make error when scene reload and thunderbolt spawn
@@ -37,6 +31,7 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
         var thunderObj = Instantiate(_particlePrefab);
         thunderObj.transform.position = new (transform.position.x, thunderObj.transform.position.y);
         thunderObj.GetComponentInChildren<ParticleSystem>()?.Play(false);
+        SoundManager.instance.PlaySound("Thunderbolt");
         Destroy(thunderObj, 3);
     }
 

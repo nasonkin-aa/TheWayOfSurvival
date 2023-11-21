@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: 0
-  name: 3
+  nameEnemy: 3
 --- !u!1 &6935762298735566649
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,5 +22,5 @@ public class EnemyType : MonoBehaviour
    }
    
    public Type enemy;
-   public Enemy name;
+   public Enemy nameEnemy;
 }

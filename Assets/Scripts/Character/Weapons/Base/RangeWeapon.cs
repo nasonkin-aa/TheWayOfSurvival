@@ -57,7 +57,7 @@ public class RangeWeapon : Weapon
     {
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
         var newProjectile = Instantiate(_projectilePrefab, attackPoint, rotation);
-
+        SoundManager.instance.PlaySound(WeaponType.Axe.ToString());
         var projectileDamage = newProjectile.GetComponent<Projectile>();
         if (projectileDamage is not null)
             newProjectile.GetComponent<Projectile>().Damage = WeaponDamage;

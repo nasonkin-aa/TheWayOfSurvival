@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: 1
-  name: 5
+  nameEnemy: 5
 --- !u!114 &4075224688051557756
 MonoBehaviour:
   m_ObjectHideFlags: 0

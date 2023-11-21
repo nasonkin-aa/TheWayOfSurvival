@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Ballista : MonoBehaviour
 {
-    
-    
     private bool _IsRechargeOver = true;
     private GameObject _knifePrefab;
     private bool _isRotating = false;
@@ -20,7 +18,7 @@ public class Ballista : MonoBehaviour
     {
         _ballistaZone = transform.parent.GetComponentInChildren<BallistaZone>();
         _ballistaZone.OnCollisionWithEnemy += CheckToAttack;
-        _knifePrefab = Resources.Load("Weapons/BallistaBullet") as GameObject;
+        _knifePrefab = Resources.Load("Weapons/BallistaProjectile") as GameObject;
     }
     
     public void CheckToAttack(Collider2D other)
@@ -72,6 +70,7 @@ public class Ballista : MonoBehaviour
 
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         var obj = Instantiate(_knifePrefab, transform.position, rotation);
+        SoundManager.instance.PlaySound("BallistaProjectile");
         Destroy(obj,3f);
         
     }
