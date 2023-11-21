@@ -12,7 +12,7 @@ public static class ModifierAdder
                 player?.GetWeapon()?.AddModifier(mod);
                 break;
             case ModifierTarget.Campfire:
-                Campfire.instance.AddModifier(mod);
+                Campfire.instance?.AddModifier(mod);
                     break;
         }
     }
