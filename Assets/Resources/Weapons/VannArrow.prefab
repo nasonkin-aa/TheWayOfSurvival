@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 115168273299394152}
   - component: {fileID: 5361773743217209364}
   - component: {fileID: -262053371339101769}
+  - component: {fileID: 3493400513248753100}
   m_Layer: 7
   m_Name: VannArrow
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8846798353721838817
 SpriteRenderer:
@@ -184,3 +185,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5aadab23cbc25499bde0347641a041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3493400513248753100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4186413504157704379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 0000000011cc17ee3b52a575
+  m_ShapePath:
+  - {x: -2.184085, y: -0.15229273, z: 0}
+  - {x: -2.27242, y: 0.005792141, z: 0}
+  - {x: -2.0624394, y: 0.1305852, z: 0}
+  - {x: 1.3968315, y: 0.13619947, z: 0}
+  - {x: 1.390234, y: 0.5218053, z: 0}
+  - {x: 2.2658224, y: 0.0001783371, z: 0}
+  - {x: 1.3968315, y: -0.5336304, z: 0}
+  - {x: 1.4026537, y: -0.16748762, z: 0}
+  m_ShapePathHash: -1844013765
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -983366
+  m_LocalBounds:
+    m_Center: {x: -0.0032987595, y: -0.0059125423, z: 0}
+    m_Extent: {x: 2.2691212, y: 0.5277178, z: 0}
