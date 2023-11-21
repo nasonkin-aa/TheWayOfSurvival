@@ -2,7 +2,8 @@ using UnityEngine;
 public enum ModifierTarget
 {
     Character,
-    Weapon
+    Weapon,
+    Campfire
 }
 
 public class ModifierInCard : MonoBehaviour
