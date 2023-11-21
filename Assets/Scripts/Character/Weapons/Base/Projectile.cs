@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
 {
     protected internal int Damage;
     protected bool _isContact = false;
-    public Action OnProjectileCollision;
+    public Action<Collision2D> OnProjectileCollision;
     public static ContactFilter2D ContactWithEnemies = PrepareFilter(); // Contact only with Enemy
 
     private void Start()
@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         
         collision.gameObject.GetComponent<Health>()?.TakeDamage(Damage);
 
-        OnProjectileCollision?.Invoke();
+        OnProjectileCollision?.Invoke(collision);
         _isContact = true;
         Destroy(gameObject);
     }
