@@ -50,5 +50,9 @@ public class VannAttack : Attack
     {
         yield return new WaitForSeconds(_reloadTime);
         _isReadyToAttack = true;
+        var target = _attackZone.CheckTargetInCollider();
+
+        if (target is not null)
+            ContactWithTarget(target);
     }
 }
