@@ -8,9 +8,4 @@ public class VannAttackZone : AttackZone
         _circleCollider2D.radius = Random.Range(_circleCollider2D.radius * 0.9f, _circleCollider2D.radius * 1.1f);
         contactFilter2D.useLayerMask = true;
     }
-
-    private void Update()
-    {
-        
-    }
 }
