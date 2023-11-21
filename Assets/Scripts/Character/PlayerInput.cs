@@ -47,8 +47,11 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseState.Instance.TogglePauseMenu();
-            PauseSwitch();
+            if (!IsInputBlock || PauseState.Instance.pauseMenu.activeSelf)
+            {
+                PauseState.Instance.TogglePauseMenu();
+                PauseSwitch();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R))
