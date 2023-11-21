@@ -22,6 +22,10 @@ public class Rage : MonoBehaviour, IWeaponModifier
     {
         _rageInfo = rageInfo as RageConfig;
         Player.GetPlayer.GetHealth().OnHpChange += GetPowerForLosåHp;
+
+        var playerHealth = Player.GetPlayer.GetHealth();
+        var lostHealth = playerHealth.MaxHealth - playerHealth.Health;
+        _weapon?.SetDamageWeapon(_weapon.BaseDamage + (int)(lostHealth * _rageInfo.GetScale));
     }
 
     private void GetPowerForLosåHp(int healthChange)

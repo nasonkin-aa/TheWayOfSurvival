@@ -15,6 +15,5 @@ namespace UnityEngine
             Health -= amount;
             OnShake?.Invoke();
         }
-
     }
 }
