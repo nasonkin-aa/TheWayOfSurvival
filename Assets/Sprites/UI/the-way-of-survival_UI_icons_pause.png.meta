@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -129,7 +129,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: the-way-of-survival_UI_icons_pause_0
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 200
+        width: 332
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01236f160c82b56428538fcdebf9f1b0
+      internalID: -1819214444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the-way-of-survival_UI_icons_pause_1
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 139
+        width: 358
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935e070bd8cc5ac49af39909da3207f9
+      internalID: -1694879040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -140,7 +182,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      the-way-of-survival_UI_icons_pause_0: -1819214444
+      the-way-of-survival_UI_icons_pause_1: -1694879040
+      the-way-of-survival_UI_icons_pause_2: 333328943
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

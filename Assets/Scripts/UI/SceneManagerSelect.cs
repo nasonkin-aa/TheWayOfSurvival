@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerSelect : MonoBehaviour
 {
-    public void SelectSceneByName(string sceneName)
+    public static void SelectSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        PlayerInput.UnPause();
+    }
+
+    public static void Exitgame()
+    {
+        Application.Quit();
     }
 }
