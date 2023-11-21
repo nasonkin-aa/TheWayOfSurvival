@@ -15,6 +15,11 @@ public class SoundManager : MonoBehaviour
 
     public AudioMixerGroup audioMixer; // Ссылка на компонент AudioMixer
 
+    public void VolumeSliderMusic(float volume)
+    {
+        globalVolume = volume;
+    }
+    
     private void Awake()
     {
         // Singleton pattern to ensure only one instance of SoundManager exists
