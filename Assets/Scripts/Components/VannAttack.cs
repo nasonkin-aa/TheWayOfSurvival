@@ -8,7 +8,6 @@ public class VannAttack : Attack
     protected bool _isReadyToAttack = true;
     protected float _reloadTime = 5f;
     [SerializeField] protected Transform _SpawnPoint;
-    [SerializeField] protected float _firePower = 20f;
 
     public override void ContactWithTarget(HealthBase health)
     {
@@ -30,11 +29,12 @@ public class VannAttack : Attack
         
         projectile.GetComponent<EnemyProjectiles>().Damage = damage;
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        var yDistance = (target.position.y - transform.position.y) * directionSign;
+        float yDistance = (target.position.y - transform.position.y) * directionSign;
         if (Mathf.Abs(yDistance) < 2)
             yDistance = 0;
 
-        var distance = Mathf.Abs((target.position.x - transform.position.x) / 2 + yDistance); // until target
+
+        var distance = Mathf.Abs((target.position.x - transform.position.x) / 2 + yDistance * 0.8f); // until target
         var vx = Mathf.Sqrt(distance * (-Physics2D.gravity.y) / 2); // x velicity for flying distance
         var power = vx / Mathf.Cos(45);
 
