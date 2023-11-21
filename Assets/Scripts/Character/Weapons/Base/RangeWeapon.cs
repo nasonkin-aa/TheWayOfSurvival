@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RangeWeapon : Weapon
@@ -12,6 +13,9 @@ public class RangeWeapon : Weapon
     protected GameObject _projectilePrefab;
     [SerializeField]
     protected int projectileForce = 1000;
+
+    [SerializeField] protected float delayAttack = 0.1f;
+    private bool canAttack = true;
 
     public override void Awake()
     {
@@ -28,12 +32,25 @@ public class RangeWeapon : Weapon
 
     public override void Attack(Vector3 direction, Vector3 attackPoint)
     {
-        var newProjectile = CreateProjectile(direction, attackPoint);
+        if (canAttack)
+        {
+            var newProjectile = CreateProjectile(direction, attackPoint);
 
-        Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
-        AddForceForProjectile(rb, direction, projectileForce);
+            Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
+            AddForceForProjectile(rb, direction, projectileForce);
 
-        _modifiers.ForEach(mod => mod.CreateSubObject(newProjectile.transform));
+            _modifiers.ForEach(mod => mod.CreateSubObject(newProjectile.transform));
+
+            StartCoroutine(AttackCooldown());
+        }
+    }
+    private IEnumerator AttackCooldown()
+    {
+        canAttack = false;
+        CursorManager.Instance.SetActiveCursorType(CursorManager.CursorType.Reload);
+        yield return new WaitForSeconds(delayAttack);
+        canAttack = true;
+        CursorManager.Instance.SetActiveCursorType(CursorManager.CursorType.Arrow);
     }
 
     protected virtual GameObject CreateProjectile(Vector3 direction, Vector3 attackPoint)
