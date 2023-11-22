@@ -7,7 +7,7 @@ public class HealthBase : MonoBehaviour
     private int _maxHealth = 100;
 
     [SerializeField]
-    private int _health = 1;
+    private int _health = 100;
     public Action<int> OnHpChange;
 
     protected void Awake() 
@@ -39,8 +39,9 @@ public class HealthBase : MonoBehaviour
         MaxHealth = (int) (_maxHealth * scale);
         _health = MaxHealth;
     }
-
+    public float GetHpInPercents() => (float)Health / MaxHealth;
     public virtual void Die() => Destroy(gameObject);
     public virtual void TakeDamage(int amount) => Health -= amount;
     public virtual void GetHeal(int amount) => Health += amount;
+
 }
