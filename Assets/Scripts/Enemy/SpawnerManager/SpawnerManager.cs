@@ -16,7 +16,7 @@ public class SpawnerManager : MonoBehaviour
 
     private void Awake()
     {
-        LightWorld.SetNewDuration(countWaves[_currentWave].WaveTime + countWaves[_currentWave + 1].WaveTime);
+        LightWorld.SetNewDuration(countWaves[_currentWave].WaveTime * 2 + countWaves[_currentWave + 1].WaveTime * 2);
     }
 
     void Update()
