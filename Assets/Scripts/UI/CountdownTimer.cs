@@ -29,9 +29,12 @@ public class CountdownTimer : MonoBehaviour
             {
                 _currentTime = 0f;
                 _timerActive = false;
-                DisplayWinMessage();
-            }
+                int points = (int)(Player.GetPlayer.GetComponent<HealthBase>().GetHpInPercents() * 1000f);
+                points += (int)(Totem.GetTotem.GetComponent<HealthBase>().GetHpInPercents() * 2000f);
 
+                GlobalScore.AddPoints(points);
+                SceneManagerSelect.SelectSceneByName("GameOver");
+            }
             UpdateTimerText();
         }
     }

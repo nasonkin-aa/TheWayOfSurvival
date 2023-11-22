@@ -1,24 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class Totem : MonoBehaviour
 {
-    private Collider2D _expZone;
     private PlayerLvl _playerLvl;
-
+    public static Totem GetTotem;
     public static Transform TotemTransform { get; set; }
 
     public void Awake()
     {
         TotemTransform = transform;
+        GetTotem = this;
     }
 
     private void Start()
     {
-        _expZone = GetComponent<Collider2D>();
         _playerLvl = Player.GetPlayer.GetComponent<PlayerLvl>();
     }
 

@@ -1,4 +1,3 @@
-
 namespace UnityEngine
 {
     public class TotemHealth : HealthBase
