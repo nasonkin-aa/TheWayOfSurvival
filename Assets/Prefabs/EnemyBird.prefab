@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4853050977852936684}
   m_Layer: 9
   m_Name: EnemyBird
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678752045f4844846b6aad4cc1cd2a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedScale: 2.5
+  speedScale: 2
 --- !u!114 &5325555916429444318
 MonoBehaviour:
   m_ObjectHideFlags: 0
