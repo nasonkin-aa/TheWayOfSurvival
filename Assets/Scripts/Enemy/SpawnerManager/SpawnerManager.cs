@@ -81,7 +81,6 @@ public class SpawnerManager : MonoBehaviour
         
         _currentTime = 0;
         _spawnedEnemiesInWave = 0;
-        Debug.Log($"{countWaves[_currentWave].name} start");
     }
 
     private EnemyType GetAirEnemy()

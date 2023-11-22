@@ -5,10 +5,11 @@ public class Rage : MonoBehaviour, IWeaponModifier
     protected static RageConfig _rageInfo;
     protected static Weapon _weapon;
 
-    private void Start()
+    private void Awake()
     {
         _weapon = Weapon.GetWeapon;
     }
+
     private void OnEnable()
     {
 

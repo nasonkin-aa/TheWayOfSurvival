@@ -7,7 +7,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     public float jumpForce = 10;
     private Rigidbody2D _rb;
-    private float _disableCollisionTime = 0.2f;
+    private float _disableCollisionTime = 0.4f;
     private readonly int _platformlayer =  13;
     private Collider2D Collider => GetComponent<Collider2D>();
 
