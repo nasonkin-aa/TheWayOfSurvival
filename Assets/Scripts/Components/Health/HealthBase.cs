@@ -34,6 +34,12 @@ public class HealthBase : MonoBehaviour
         }
     }
 
+    public void ScaleHealth(float scale)
+    {
+        MaxHealth = (int) (_maxHealth * scale);
+        _health = MaxHealth;
+    }
+
     public virtual void Die() => Destroy(gameObject);
     public virtual void TakeDamage(int amount) => Health -= amount;
     public virtual void GetHeal(int amount) => Health += amount;
