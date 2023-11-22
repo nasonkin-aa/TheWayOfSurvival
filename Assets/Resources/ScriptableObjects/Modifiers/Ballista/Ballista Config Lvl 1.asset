@@ -21,4 +21,4 @@ MonoBehaviour:
   _rotationSpeed: 5
   _rechargeTime: 3
   _BoltSpeed: 20
-  _BoltDamage: 30
+  _BoltDamage: 10

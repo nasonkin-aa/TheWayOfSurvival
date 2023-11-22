@@ -74,8 +74,12 @@ public class SpawnerManager : MonoBehaviour
 
     public void StartNewWave()
     {
+        if (_currentWave + 1 == countWaves.Length)
+            _currentWave--;
+        else
+            _currentWave++;
+        
         _currentTime = 0;
-        _currentWave++;
         _spawnedEnemiesInWave = 0;
         Debug.Log($"{countWaves[_currentWave].name} start");
     }
