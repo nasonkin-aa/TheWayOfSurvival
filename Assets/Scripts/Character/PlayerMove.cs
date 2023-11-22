@@ -22,19 +22,16 @@ public class PlayerMove : MoveBase
     private void Flip(Vector3 position)
     {
         float mouseWorldPosition = (_mainCamera.ScreenToWorldPoint(position) - transform.position).normalized.x;
-        //Debug.Log(mouseWorldPosition +" " + deadZoneThreshold );
         if (Mathf.Abs(mouseWorldPosition) > deadZoneThreshold)
-        {
             Flip(mouseWorldPosition, gameObject);
-        }
     }
 
     public void OnEnable()
     {
         PlayerInput.OnPlayerMoveHorizontal += Move;
         PlayerInput.OnPlayerFlip += Flip;
-
     }
+
     public void OnDisable()
     {
         PlayerInput.OnPlayerMoveHorizontal -= Move;
