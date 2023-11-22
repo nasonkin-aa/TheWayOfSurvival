@@ -301,10 +301,10 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -516,7 +516,7 @@ MonoBehaviour:
   - {x: -2.8294609, y: -8.430461, z: 0}
   m_ShapePathHash: 1792024040
   m_Mesh: {fileID: 0}
-  m_InstanceId: -3290996
+  m_InstanceId: -3336322
   m_LocalBounds:
     m_Center: {x: -0.06741786, y: -8.215956, z: 0}
     m_Extent: {x: 2.762043, y: 0.2145052, z: 0}

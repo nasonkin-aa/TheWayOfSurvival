@@ -1,11 +1,12 @@
-using UnityEngine.SceneManagement;
+
 namespace UnityEngine
 {
     public class TotemHealth : HealthBase
     {
         public override void Die()
         {
-            SceneManager.LoadScene("Menu");            
+            GlobalScore.GameFinished();
+            SceneManagerSelect.SelectSceneByName("GameOver");
         }
         
         public override void TakeDamage(int amount)

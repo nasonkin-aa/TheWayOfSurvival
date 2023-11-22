@@ -24,7 +24,7 @@ public class Soul : MonoBehaviour
             return;
         SoundManager.instance.PlaySound("SoulPickUp");
         collision.gameObject.GetComponent<PlayerLvl>().GetExp(_exp);
-        GlobalScore.Instance?.AddPoints(_exp);
+        GlobalScore.AddPoints(_exp);
         Destroy(gameObject);
     }
 
