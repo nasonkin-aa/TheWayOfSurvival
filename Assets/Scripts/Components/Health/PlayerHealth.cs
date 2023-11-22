@@ -15,7 +15,6 @@ namespace UnityEngine
             base.TakeDamage(amount);
             OnShake?.Invoke();
             SoundManager.instance.PlaySound("PlayerDamage");
-        }
-       
+        }   
     }
 }

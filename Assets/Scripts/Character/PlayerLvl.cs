@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerLvl : MonoBehaviour
 {
     private static int _playerLvl = 0;
-    private static float _lvlUpCoef = 1.5f;
+    private static float _lvlUpCoef = 60;
     private static float _timeScaleForSlowExp = .1f;
     private static float _timeForSlowExp = 1;
 
@@ -55,7 +55,7 @@ public class PlayerLvl : MonoBehaviour
         _playerLvl++;
         OnLvlUp?.Invoke();
         PlayerExp -= ExpToLvlUp;
-        ExpToLvlUp *= _lvlUpCoef;
+        ExpToLvlUp += _lvlUpCoef;
         drawMod.DrawNewModifier();
     }
 }

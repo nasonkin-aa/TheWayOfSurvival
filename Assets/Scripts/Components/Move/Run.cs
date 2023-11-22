@@ -1,8 +1,5 @@
-using System;
 using UnityEngine;
 
-
-//[RequireComponent(typeof(MoveController))]
 public class Run : MonoBehaviour, IMovable
 {
     [SerializeField]
