@@ -62,7 +62,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            GetComponent<HealthBase>().Die();
+            GetComponent<PlayerHealth>().Die();
         }
 
         if (IsInputBlock)

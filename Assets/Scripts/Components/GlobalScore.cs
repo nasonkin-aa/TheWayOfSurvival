@@ -20,11 +20,9 @@ public class GlobalScore : MonoBehaviour
     public static GlobalScore Instance { get; private set; }
     private void Awake()
     {
-        if (Instance is not null)
-            Destroy(gameObject); 
-
+        // if (Instance is not null)
+        //     Destroy(gameObject); 
         Instance = this;
-
     }
     private void OnDisable()
     {
