@@ -5,7 +5,7 @@ namespace UnityEngine
     {
         public override void Die()
         {
-            SceneManager.LoadScene(SceneManager.sceneCount - 1);            
+            SceneManager.LoadScene("Menu");            
         }
         
         public override void TakeDamage(int amount)

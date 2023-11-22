@@ -20,5 +20,5 @@ MonoBehaviour:
     \u043C\u043E\u043B\u043D\u0438\u0438, \u0431\u044C\u044E\u0449\u0435\u0439 \u043F\u043E
     \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0439 \u043F\u043B\u043E\u0449\u0430\u0434\u0438"
   _radius: 2
-  _areaDamage: 20
-  _interval: 1.5
+  _areaDamage: 5
+  _interval: 1

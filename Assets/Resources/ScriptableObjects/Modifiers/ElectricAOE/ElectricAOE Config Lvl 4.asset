@@ -18,5 +18,5 @@ MonoBehaviour:
   _description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u0443\u0440\u043E\u043D \u0438 \u0440\u0430\u0434\u0438\u0443\u0441 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438"
   _radius: 3
-  _areaDamage: 80
+  _areaDamage: 20
   _interval: 0.5

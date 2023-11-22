@@ -180,7 +180,7 @@ MonoBehaviour:
   <BaseDamage>k__BackingField: 10
   <WeaponDamage>k__BackingField: 10
   projectileForce: 700
-  delayAttack: 0.3
+  delayAttack: 0.7
 --- !u!1 &7135167356172872712
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 7533281438597517134}
   - component: {fileID: 4152066239822890621}
   - component: {fileID: 2582317202423912479}
+  - component: {fileID: 8007832185898147300}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -227,7 +228,7 @@ Transform:
   - {fileID: 5183304655788860484}
   - {fileID: 2325067851114173369}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4362341587198663303
 SpriteRenderer:
@@ -401,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c81265793c820242b1579f9b6c0a328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.16
+  _speed: 0.12
   deadZoneThreshold: 0.003
 --- !u!114 &7913350053720412904
 MonoBehaviour:
@@ -515,7 +516,7 @@ MonoBehaviour:
   - {x: -2.8294609, y: -8.430461, z: 0}
   m_ShapePathHash: 1792024040
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1006872
+  m_InstanceId: -3290996
   m_LocalBounds:
     m_Center: {x: -0.06741786, y: -8.215956, z: 0}
     m_Extent: {x: 2.762043, y: 0.2145052, z: 0}
@@ -532,3 +533,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashTime: 0.25
+--- !u!114 &8007832185898147300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135167356172872712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fd5c3217f7aaf40bd5a3feb1f69961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
