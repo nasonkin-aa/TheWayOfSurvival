@@ -36,4 +36,5 @@ public class HealthBase : MonoBehaviour
 
     public virtual void Die() => Destroy(gameObject);
     public virtual void TakeDamage(int amount) => Health -= amount;
+    public virtual void GetHeal(int amount) => Health += amount;
 }

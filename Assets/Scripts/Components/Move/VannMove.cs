@@ -12,9 +12,9 @@ public class VannMove : MoveController
         var distance = GetDistance(target);
         var colliderRadius = GetComponentInChildren<AttackZone>().GetComponent<CircleCollider2D>().radius;
 
-        if (Mathf.Abs(distance) < Mathf.Abs(colliderRadius * transform.localScale.x / 2 / 2))
+        if (Mathf.Abs(distance) < Mathf.Abs(colliderRadius * transform.localScale.x / 2))
             IsRunAway = true;
-        if (Mathf.Abs(distance) > Mathf.Abs(colliderRadius * transform.localScale.x / 2))
+        if (Mathf.Abs(distance) > Mathf.Abs(colliderRadius * transform.localScale.x))
             IsRunAway = false;
 
         if (IsRunAway)
@@ -26,7 +26,6 @@ public class VannMove : MoveController
 
     private float GetDistance(Transform targetTransform)
     {
-        var direction = (Vector2)(targetTransform.position - transform.position);
-        return direction.magnitude;
+        return targetTransform.position.x - transform.position.x;
     }
 }

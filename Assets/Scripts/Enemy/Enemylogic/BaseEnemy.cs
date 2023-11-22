@@ -27,6 +27,7 @@ public class BaseEnemy : MonoBehaviour
         _targetSelector = GetComponent<IHaveTarget>();
         _targetTransform = _targetSelector.GetTarget();
         _moveControl.target = _targetTransform;
+        _enemyAttack.SetTrget(_targetTransform.GetComponent<HealthBase>());
     }
 
     protected virtual void Update()

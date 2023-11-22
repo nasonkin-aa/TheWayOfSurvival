@@ -7,6 +7,7 @@ public class SpawnerManager : MonoBehaviour
     public GameObject[] GroundSpawnPoin;
     [SerializeField] 
     private Wave[] countWaves;
+    private int _spawnedEnemyCount = 0;
     
     private float _currentTime;
     private int _currentWave;
@@ -49,8 +50,13 @@ public class SpawnerManager : MonoBehaviour
     {
         var RandomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         RandomSpawnPoint.transform.position = new Vector3(RandomSpawnPoint.transform.position.x, RandomSpawnPoint.transform.position.y, 10f);
-        
-        Instantiate(enemyType, RandomSpawnPoint.transform.position,Quaternion.identity, transform);
+
+        if (_spawnedEnemyCount > 200)
+            _spawnedEnemyCount = 0;
+
+        _spawnedEnemyCount++;
+        var enemy = Instantiate(enemyType, RandomSpawnPoint.transform.position,Quaternion.identity, transform);
+        enemy.GetComponent<SpriteRenderer>().sortingOrder = _spawnedEnemyCount;
     }
     
 }

@@ -12,9 +12,10 @@ namespace UnityEngine
 
         public override void TakeDamage(int amount)
         {
-            Health -= amount;
+            base.TakeDamage(amount);
             OnShake?.Invoke();
+            SoundManager.instance.PlaySound("PlayerDamage");
         }
-
+       
     }
 }

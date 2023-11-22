@@ -16,7 +16,7 @@ public class Soul : MonoBehaviour
     {
         if (!collision.gameObject.GetComponent<Player>())
             return;
-
+        SoundManager.instance.PlaySound("SoulPickUp");
         collision.gameObject.GetComponent<PlayerLvl>().GetExp(_exp);
         Destroy(gameObject);
     }
