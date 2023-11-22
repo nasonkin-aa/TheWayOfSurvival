@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     public static PlayerInput current;
    
     public static Action<float> OnPlayerMoveHorizontal;
+    public static Action<float> OnPlayerMoveDown;
     public static Action OnPlayerJump;
     public static Action<Vector3> OnPlayerAttack;
     public static Action<Vector3> OnPlayerFlip;
@@ -34,6 +35,11 @@ public class PlayerInput : MonoBehaviour
 
         Horizontal = Input.GetAxis("Horizontal");
         OnPlayerMoveHorizontal?.Invoke(Horizontal);
+
+        Vertical = Input.GetAxis("Vertical");
+        if (Vertical < 0)
+            OnPlayerMoveDown?.Invoke(Vertical);
+
         Animator?.SetFloat("Speed", MathF.Abs(Horizontal));
         Animator?.SetFloat("yVelocity", _rigidbody2D.velocity.y);
         
@@ -66,7 +72,7 @@ public class PlayerInput : MonoBehaviour
         {
             OnPlayerAttack?.Invoke(Input.mousePosition);
         }
-      
+
         if (Input.GetButtonDown("Jump"))
             OnPlayerJump?.Invoke();
         
