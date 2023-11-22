@@ -18,6 +18,12 @@ public class LightWorld : MonoBehaviour
     {
         _light = GetComponent<Light2D>();
         _startTime = Time.time;
+
+    }
+
+    private void Start()
+    {
+        GlobalScore.ObjectsLoad();
     }
 
     private void Update()

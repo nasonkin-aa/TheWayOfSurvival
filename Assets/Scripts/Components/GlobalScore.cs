@@ -1,12 +1,11 @@
 using System;
-using UnityEngine;
 
-public class GlobalScore : MonoBehaviour
+public static class GlobalScore
 {
-    private int _score = 0;
-    public Action<int> OnScoreChange;
+    private static int _score = 0;
+    public static Action<int> OnScoreChange;
 
-    public int Score 
+    public static int Score 
     { 
         get { return _score; } 
         private set {
@@ -16,29 +15,27 @@ public class GlobalScore : MonoBehaviour
         } 
     }
 
-    public Action OnGetPoints;
-    public static GlobalScore Instance { get; private set; }
-    private void Awake()
+    public static void Refresh()
     {
-        // if (Instance is not null)
-        //     Destroy(gameObject); 
-        Instance = this;
+        _score = 0;
+        OnScoreChange = null;
     }
-    private void OnDisable()
-    {
-        LightWorld.OnNightStart -= NightStart;
-    }
-    private void OnEnable()
+
+    public static void ObjectsLoad ()
     {
         LightWorld.OnNightStart += NightStart;
     }
 
-    public void AddPoints(int amount)
+    public static void GameFinished()
+    {
+        LightWorld.OnNightStart -= NightStart;
+    }
+
+    public static void AddPoints(int amount)
     {
         Score += amount;
         OnScoreChange?.Invoke(Score);
-        Debug.Log(Score);
     }
 
-    private void NightStart() => AddPoints(200);
+    private static void NightStart() => AddPoints(200);
 }

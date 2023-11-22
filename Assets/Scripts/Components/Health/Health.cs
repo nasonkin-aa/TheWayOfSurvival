@@ -5,7 +5,7 @@ public class Health : HealthBase
     [SerializeField] protected int _exp = 50;
     public override void Die()
     {
-        GlobalScore.Instance?.AddPoints(_exp / 2);
+        GlobalScore.AddPoints(_exp / 2);
         PrepareSoul();
         base.Die();
     }

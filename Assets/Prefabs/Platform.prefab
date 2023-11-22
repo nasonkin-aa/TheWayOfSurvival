@@ -147,7 +147,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 129.81
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -177,7 +177,7 @@ MonoBehaviour:
   - {x: 7.2250004, y: -1.265419, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1006842
+  m_InstanceId: -5979606
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 7.2250004, y: 1.265419, z: 0}
