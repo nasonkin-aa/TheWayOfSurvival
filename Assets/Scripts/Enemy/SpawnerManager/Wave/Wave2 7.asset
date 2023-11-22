@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d083ad3306bdacf41a40c0663a4a7cb5, type: 3}
-  m_Name: Wave2 3
+  m_Name: Wave2 7
   m_EditorClassIdentifier: 
-  CountEnemy: 20
+  CountEnemy: 25
   WaveTime: 30
   EnemyInWave:
   - {fileID: 7924995758090830534, guid: ab5e55b935200cb45be748576705460f, type: 3}
@@ -21,6 +21,6 @@ MonoBehaviour:
   - {fileID: 6579578037135408123, guid: f2728bea0329f50479fbfa20103c275c, type: 3}
   - {fileID: 2406877197990719282, guid: 920d54486d6871b408a4a278b9fa2013, type: 3}
   - {fileID: 64504927843487094, guid: 973af598294856e429bbea9f691c397d, type: 3}
-  AirGroundSpawnRatio: 0.551
-  SpeedScale: 1.4
-  HealthScale: 0.9
+  AirGroundSpawnRatio: 0.371
+  SpeedScale: 1.6
+  HealthScale: 0.8
