@@ -285,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 200
   _health: 1
+  _exp: 30
 --- !u!95 &6282482711103389029
 Animator:
   serializedVersion: 5
