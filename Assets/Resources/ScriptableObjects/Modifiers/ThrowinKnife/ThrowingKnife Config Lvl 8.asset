@@ -21,4 +21,4 @@ MonoBehaviour:
   _reloadTime: 1.5
   _timeBetwinShot: 0.3
   _knifeSpeed: 30
-  _knifeDamage: 20
+  _knifeDamage: 15

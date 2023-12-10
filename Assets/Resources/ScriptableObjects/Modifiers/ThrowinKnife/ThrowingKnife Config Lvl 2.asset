@@ -15,9 +15,9 @@ MonoBehaviour:
   _name: "\u041C\u0435\u0442\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0435 \u043D\u043E\u0436\u0438 "
   _icon: {fileID: -1549888701, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
   _lvl: 2
-  _description: "\u041D\u043E\u0436 \u043F\u043E\u043F\u043E\u043B\u043D\u044F\u0435\u0442\u0441\u044F
-    \u0431\u044B\u0441\u0442\u0440\u0435\u0435"
-  _countKnife: 1
+  _description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439
+    \u043D\u043E\u0436"
+  _countKnife: 2
   _reloadTime: 1.5
   _timeBetwinShot: 0.3
   _knifeSpeed: 20

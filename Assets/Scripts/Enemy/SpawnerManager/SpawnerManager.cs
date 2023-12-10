@@ -74,6 +74,7 @@ public class SpawnerManager : MonoBehaviour
 
     public void StartNewWave()
     {
+        Debug.Log(countWaves[_currentWave].name);
         if (_currentWave + 1 == countWaves.Length)
             _currentWave--;
         else
