@@ -6,16 +6,35 @@ using UnityEngine.UI;
 
 public class IconModificatorUI : MonoBehaviour
 {
+    public GameObject modificatorPrefab;
+    private Dictionary<string, GameObject> _modifierDictionary = new Dictionary<string, GameObject>();
+
     private void AddIcon(Sprite sprite)
     {
-        GameObject modifierIcon = new GameObject("ModifierIcon");
-        Image imageUI = modifierIcon.AddComponent<Image>();
-        imageUI.sprite = sprite;
-        modifierIcon.transform.SetParent(transform);
-        imageUI.SetNativeSize();
-        modifierIcon.transform.localScale = Vector3.one;
+        GameObject foundObject;
+        if (!_modifierDictionary.TryGetValue(sprite.name, out foundObject))
+        {
+            CreateModifierIcon(sprite);
+        }
+        else
+        {
+            foundObject.GetComponent<ModificatorUIInformation>().IncreaseModificatorLevel();
+        }
     }
-    
+
+    public void CreateModifierIcon(Sprite sprite)
+    {
+       
+            GameObject modifierIcon = Instantiate(modificatorPrefab, transform);
+            modifierIcon.name = sprite.name;
+            _modifierDictionary.Add(sprite.name, modifierIcon);
+
+            Image imageUI = modifierIcon.AddComponent<Image>();
+            imageUI.sprite = sprite;
+            imageUI.SetNativeSize();
+            modifierIcon.transform.localScale = Vector3.one;
+        
+    }
     private void OnEnable()
     {
         DrawModifier.OnUpgradeSelect += AddIcon;
@@ -25,4 +44,5 @@ public class IconModificatorUI : MonoBehaviour
     {
         DrawModifier.OnUpgradeSelect -= AddIcon;
     }
+    
 }

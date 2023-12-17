@@ -45,7 +45,9 @@ public class HealthBase : MonoBehaviour
 
     public virtual void GetHeal(int amount)
     {
-        if (Health + amount >= _maxHealth)
+        if (Health == _maxHealth)
+            return;
+        if (Health + amount > _maxHealth)
             Health += _maxHealth - Health + amount;
         else
             Health += amount;
