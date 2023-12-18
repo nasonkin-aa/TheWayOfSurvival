@@ -69,9 +69,10 @@ public class Ballista : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        var obj = Instantiate(_knifePrefab, transform.position, rotation);
+        var bolt = Instantiate(_knifePrefab, transform.position, rotation);
+        bolt.GetComponent<Knife>().PrepareKnife(_ballistaInfo.GetBoltSpeed, (int)_ballistaInfo.GetBoltDamage);
         SoundManager.instance.PlaySound("BallistaProjectile");
-        Destroy(obj,3f);
+        Destroy(bolt,3f);
         
     }
     public void SetBallistaInfo(BallistaConfig BallistaInfo)

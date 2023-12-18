@@ -42,6 +42,15 @@ public class HealthBase : MonoBehaviour
     public float GetHpInPercents() => (float)Health / MaxHealth;
     public virtual void Die() => Destroy(gameObject);
     public virtual void TakeDamage(int amount) => Health -= amount;
-    public virtual void GetHeal(int amount) => Health += amount;
+
+    public virtual void GetHeal(int amount)
+    {
+        if (Health == _maxHealth)
+            return;
+        if (Health + amount > _maxHealth)
+            Health += _maxHealth - Health + amount;
+        else
+            Health += amount;
+    }
 
 }
