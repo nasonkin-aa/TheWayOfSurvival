@@ -29,9 +29,12 @@ public class CountdownTimer : MonoBehaviour
             {
                 _currentTime = 0f;
                 _timerActive = false;
-                DisplayWinMessage();
-            }
+                int points = (int)(Player.GetPlayer.GetComponent<HealthBase>().GetHpInPercents() * 1000f);
+                points += (int)(Totem.GetTotem.GetComponent<HealthBase>().GetHpInPercents() * 2000f);
 
+                GlobalScore.AddPoints(points);
+                SceneManagerSelect.SelectSceneByName("GameOver");
+            }
             UpdateTimerText();
         }
     }
@@ -49,17 +52,4 @@ public class CountdownTimer : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    void FullNight()
-    {
-        Debug.Log("NIGHT START");
-    }
-
-    public void OnEnable()
-    {
-        LightWorld.OnNightStart += FullNight;
-    }
-    public void OnDisable()
-    {   
-        LightWorld.OnNightStart -= FullNight;
-    }
 }

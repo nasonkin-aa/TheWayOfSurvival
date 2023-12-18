@@ -19,4 +19,4 @@ MonoBehaviour:
     \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044F
     \u0432 2 \u0440\u0430\u0437\u0430"
   _radius: 3
-  _areaDamage: 40
+  _areaDamage: 10

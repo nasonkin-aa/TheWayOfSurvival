@@ -6,10 +6,11 @@ using UnityEngine.Rendering.Universal;
 public class LightWorld : MonoBehaviour
 {
     [SerializeField] private Gradient gradient;
-    public float duration;
+    public static float duration;
     private Light2D _light;
-    private float _startTime;
+    private static float _startTime;
     public static Action OnNightStart;
+    public static Action OnDayStart;
 
     private bool _nightStarted = false;
 
@@ -17,6 +18,12 @@ public class LightWorld : MonoBehaviour
     {
         _light = GetComponent<Light2D>();
         _startTime = Time.time;
+
+    }
+
+    private void Start()
+    {
+        GlobalScore.ObjectsLoad();
     }
 
     private void Update()
@@ -30,21 +37,27 @@ public class LightWorld : MonoBehaviour
 
         //Debug.Log(percent + "  " + time);
 
-        CheckNight(time);
+        CheckDayNight(time);
     }
 
-    private void CheckNight(float currentTime)
+    private void CheckDayNight(float currentTime)
     {
-        if ((int) (currentTime % duration)  == (int) duration / 2 && !_nightStarted)
+        if ((int) (currentTime % duration)  > (int) (duration / 3f) && !_nightStarted)
         {
             OnNightStart?.Invoke();
             _nightStarted = true;
         }
         
-        if ((int) (currentTime % duration) == 0 && _nightStarted)
+        if ((int) (currentTime % duration) < 0.01f && _nightStarted)
         {
+            OnDayStart?.Invoke();
             _nightStarted = false;
         }
-        
+    }
+
+    public static void SetNewDuration(float curDuration)
+    {
+        duration = curDuration;
+        _startTime = Time.time;
     }
 }

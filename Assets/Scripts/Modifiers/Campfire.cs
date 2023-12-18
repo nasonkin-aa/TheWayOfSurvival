@@ -24,7 +24,6 @@ public class Campfire : MonoBehaviour
     IEnumerator HealReload (float time)
     {
         yield return new WaitForSeconds(time);
-
         var contacts = _overlaper.CircleOverlap(_modifierInfo.Radius, _contactFilter);
 
         if (contacts.Count != 0)

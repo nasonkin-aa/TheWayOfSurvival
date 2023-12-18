@@ -16,10 +16,10 @@ MonoBehaviour:
   _icon: {fileID: -1549888701, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
   _lvl: 1
   _description: "\u0412\u0438\u043A\u0438\u043D\u0433 \u0431\u0440\u043E\u0441\u0430\u0435\u0442
-    \u043D\u043E\u0436\u0438 \u0432\u043E \u0432\u0440\u0430\u0433\u043E\u0432, \u043F\u043E\u0434\u043E\u0448\u0435\u0434\u0448\u0438\u0445
+    \u043D\u043E\u0436 \u0432\u043E \u0432\u0440\u0430\u0433\u043E\u0432, \u043F\u043E\u0434\u043E\u0448\u0435\u0434\u0448\u0438\u0445
     \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u0431\u043B\u0438\u0437\u043A\u043E"
-  _countKnife: 3
+  _countKnife: 1
   _reloadTime: 2
   _timeBetwinShot: 0.3
   _knifeSpeed: 20
-  _knifeDamage: 20
+  _knifeDamage: 10

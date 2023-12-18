@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +7,8 @@ public class SceneManagerSelect : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         PlayerInput.UnPause();
+        if (sceneName == "Game")
+            GlobalScore.Refresh();
     }
 
     public static void Exitgame()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class RageConfig : ModifierBaseObject
 {
     protected new Type _modifierType = typeof(Rage);
-    [SerializeField, Range(.5f, 100)] protected float _scale = 1;
+    [SerializeField, Range(.01f, 100)] protected float _scale = 1;
 
     public override Type GetModifierType => _modifierType;
 
