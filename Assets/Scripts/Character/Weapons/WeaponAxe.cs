@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WeaponAxe : RangeWeapon, IAttackable
+public class WeaponAxe : RangeWeapon
 {
     protected float _AxeTorque = -30f;
     public override void Awake()

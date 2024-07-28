@@ -4,8 +4,9 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour, IAttackable
 {
     protected List<ModifierPrepare> _modifiers = new ();
-    [field: SerializeField, Range(0, 1000)] public int BaseDamage { get; private set; } = 10;
-    [field: SerializeField, Range(0, 1000)] public int WeaponDamage { get; private set; } = 10;
+    [field: SerializeField, Range(0, 1000)] public int BaseDamage { get; protected set; } = 10;
+    [field: SerializeField, Range(0, 1000)] public int WeaponDamage { get; protected set; } = 10;
+    [field: SerializeField, Range(0, 1000)] public int MoreDamage { get; private set; } = 0;
     public static Weapon GetWeapon { get; private set; }
     public virtual void Awake()
     {
@@ -17,9 +18,14 @@ public abstract class Weapon : MonoBehaviour, IAttackable
 
     public void SetDamageWeapon(int value)
     {
-        WeaponDamage = value;
+        BaseDamage = value;
         if (WeaponDamage < BaseDamage)
             WeaponDamage = BaseDamage;
+    }
+
+    public void AddDamage(int value)
+    {
+        MoreDamage = value;
     }
 
     public virtual void AddModifier(ModifierPrepare modifier)

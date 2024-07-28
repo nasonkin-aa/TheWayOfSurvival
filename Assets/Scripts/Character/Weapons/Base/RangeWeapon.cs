@@ -34,6 +34,7 @@ public class RangeWeapon : Weapon
     {
         if (canAttack)
         {
+            WeaponDamage = BaseDamage + MoreDamage;
             var newProjectile = CreateProjectile(direction, attackPoint);
 
             Rigidbody2D rb = newProjectile.GetComponent<Rigidbody2D>();
