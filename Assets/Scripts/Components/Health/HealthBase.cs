@@ -17,7 +17,21 @@ public class HealthBase : MonoBehaviour
 
     public int MaxHealth { 
         get { return _maxHealth; } 
-        set { _maxHealth = value; } 
+        set 
+        { 
+            var healthPercent = _health.DivideBy(_maxHealth);
+            _maxHealth = value;
+            if (_health > _maxHealth)
+            {
+                Health = _maxHealth;
+            }
+            else
+            {
+                Debug.Log(healthPercent);
+                Health = (int)(_maxHealth * healthPercent);
+            }
+            
+         } 
     }  
     public virtual int Health {
         get { return _health; }
@@ -39,6 +53,7 @@ public class HealthBase : MonoBehaviour
         MaxHealth = (int) (_maxHealth * scale);
         _health = MaxHealth;
     }
+
     public float GetHpInPercents() => (float)Health / MaxHealth;
     public virtual void Die() => Destroy(gameObject);
     public virtual void TakeDamage(int amount) => Health -= amount;
