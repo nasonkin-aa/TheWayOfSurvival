@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class Player : MonoBehaviour
     protected List<ModifierPrepare> _modifiers = new();
     public static Player GetPlayer { get; private set; }   
     public static Transform PlayerTransform { get; private set; }
+
+    public event Action SoulPickUp;
     
     public virtual void Awake()
     {
@@ -38,6 +41,11 @@ public class Player : MonoBehaviour
             containedMod.SetModifierInfo(modifier.GetModifierInfo());
             modifier?.SetModifierInfo(modifier.GetModifierInfo(), transform);
         }
+    }
+
+    public void OnSoulPickUp()
+    {
+        SoulPickUp?.Invoke();
     }
 
     private void OnDestroy()

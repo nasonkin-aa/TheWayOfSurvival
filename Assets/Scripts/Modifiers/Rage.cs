@@ -31,7 +31,7 @@ public class Rage : MonoBehaviour, IWeaponModifier
 
     private void GetPowerForLosåHp(int healthChange)
     {
-        _weapon?.SetDamageWeapon(_weapon.WeaponDamage - (int)(healthChange * _rageInfo.GetScale)) ;
+        _weapon?.SetDamageWeapon(_weapon.WeaponDamage - (int)(healthChange * _rageInfo.GetScale));
     }
 
     public void UpdateModifierInfo(ModifierBaseObject modifierConfig)
