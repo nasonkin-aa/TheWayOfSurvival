@@ -1,16 +1,16 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(HealthBase))]
+[RequireComponent(typeof(Health))]
 public class TextWithHp : MonoBehaviour
 {
     private TextMesh _hpTextMesh;
     private MoveBase _move;
-    private HealthBase _hp;
+    private Health _hp;
 
     protected void Awake()
     {
-        _hp = GetComponent<HealthBase>();
+        _hp = GetComponent<Health>();
         _move = GetComponent<MoveBase>();
     }
 
@@ -18,7 +18,7 @@ public class TextWithHp : MonoBehaviour
     {
         CreateTextWithHP();
         if (_hp is not null)
-            _hp.OnHpChange += ChangeHPBar;
+            _hp.ChangeEvent += ChangeHPBar;
         if (_move is not null)
             _move.OnFlip += FlipText;
     }
@@ -36,7 +36,7 @@ public class TextWithHp : MonoBehaviour
 
     private void SetUpTextMesh(TextMesh text)
     {
-        text.text = _hp.Health.ToString() + '/' + _hp.MaxHealth;
+        text.text = _hp.CurrentHealth.ToString() + '/' + _hp.MaxHealth;
         text.fontSize = 25;
         text.characterSize = 0.2f;
         text.anchor = TextAnchor.MiddleCenter;
@@ -53,6 +53,6 @@ public class TextWithHp : MonoBehaviour
     {
         if (_hp is null)
             return;
-        _hpTextMesh.text = (_hp.Health + hp).ToString() + '/' + _hp.MaxHealth;
+        _hpTextMesh.text = (_hp.CurrentHealth + hp).ToString() + '/' + _hp.MaxHealth;
     }
 }

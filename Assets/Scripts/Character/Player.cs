@@ -2,28 +2,58 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(HealthBase))]
+[RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour
 {
-    protected List<ModifierPrepare> _modifiers = new();
+    [SerializeField] private Health health;
+    
+    private List<ModifierPrepare> _modifiers = new();
     public static Player GetPlayer { get; private set; }   
     public static Transform PlayerTransform { get; private set; }
 
-    public event Action SoulPickUp;
+    public static event Action ShakeEvent;
+    public event Action SoulPickUpEvent;
     
     public virtual void Awake()
     {
+        health ??= GetComponent<Health>();
         GetPlayer = this;
         PlayerTransform = transform;
     }
+
+    private void OnEnable()
+    {
+        health.DamageEvent += OnDamage;
+        health.DieEvent += OnDie;
+    }
+
+    private void OnDisable()
+    {
+        health.DamageEvent -= OnDamage;
+        health.DieEvent -= OnDie;
+    }
+
+    private void OnDamage(int value)
+    {
+        SoundManager.instance.PlaySound("PlayerDamage");
+        ShakeEvent?.Invoke();
+    }
+
+    private void OnDie()
+    {
+        GlobalScore.GameFinished();
+        SceneManagerSelect.SelectSceneByName("GameOver");
+    }
+    
+
     public Weapon GetWeapon()
     {
         return GetComponentInChildren<Weapon>();
     }
 
-    public HealthBase GetHealth()
+    public Health GetHealth()
     {
-        return GetComponent<HealthBase>();
+        return GetComponent<Health>();
     }
 
     public void AddModifier(ModifierPrepare modifier)
@@ -45,7 +75,7 @@ public class Player : MonoBehaviour
 
     public void OnSoulPickUp()
     {
-        SoulPickUp?.Invoke();
+        SoulPickUpEvent?.Invoke();
     }
 
     private void OnDestroy()

@@ -2,14 +2,18 @@ using UnityEngine;
 
 [RequireComponent(typeof(IHaveTarget))]
 [RequireComponent(typeof(MoveController))]
-
+[RequireComponent(typeof(Health))]
 public class BaseEnemy : MonoBehaviour
 {
+    [SerializeField] protected Health health;
+    [SerializeField] protected int exp = 50;
+    
     protected IHaveTarget _targetSelector;
     protected Transform _targetTransform;
     protected MoveController _moveControl;
     protected Attack _enemyAttack;
     protected string _animatorBoolForAttack = "TargetInZone";
+
     protected enum EnemyState
     {
         Move,
@@ -17,6 +21,12 @@ public class BaseEnemy : MonoBehaviour
     }
 
     protected EnemyState _state = EnemyState.Move;
+
+    private void Awake()
+    {
+        health ??= GetComponent<Health>();
+    }
+
     protected virtual void Start()
     {
         _enemyAttack = GetComponent<Attack>();
@@ -28,6 +38,36 @@ public class BaseEnemy : MonoBehaviour
         _targetTransform = _targetSelector.GetTarget();
         _moveControl.target = _targetTransform;
     }
+
+    private void OnEnable()
+    {
+        health.DamageEvent += OnDamage;
+        health.DieEvent += OnDie;
+    }
+
+    private void OnDisable()
+    {
+        health.DamageEvent -= OnDamage;
+        health.DieEvent -= OnDie;
+    }
+
+    private void OnDamage(int value)
+    {
+        SoundManager.instance.PlaySound("HitSound");
+    }
+
+    private void OnDie()
+    {
+        GlobalScore.AddPoints(exp / 2);
+        PrepareSoul();
+        Destroy(gameObject);
+    }
+    
+    protected void PrepareSoul()
+    {
+        var soul = Soul.SpawnSoul(transform.position);
+        soul.SetExp(exp);
+    }   
 
     protected virtual void Update()
     {

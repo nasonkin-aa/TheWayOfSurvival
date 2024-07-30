@@ -9,7 +9,7 @@ public class VannAttack : Attack
     protected float _reloadTime = 5f;
     [SerializeField] protected Transform _SpawnPoint;
 
-    public override void ContactWithTarget(HealthBase health)
+    public override void ContactWithTarget(Health health)
     {
         if (!_isReadyToAttack)
             return;

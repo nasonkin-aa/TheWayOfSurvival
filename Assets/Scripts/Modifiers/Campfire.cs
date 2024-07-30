@@ -28,7 +28,7 @@ public class Campfire : MonoBehaviour
 
         if (contacts.Count != 0)
             contacts.ForEach(obj => 
-                obj.GetComponent<HealthBase>()?.GetHeal(_modifierInfo.HealAmount));
+                obj.GetComponent<Health>()?.Heal(_modifierInfo.HealAmount));
 
         StartCoroutine(HealReload(_modifierInfo.ReloadTime));
     }

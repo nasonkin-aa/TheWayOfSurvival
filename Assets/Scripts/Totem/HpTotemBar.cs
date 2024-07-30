@@ -3,15 +3,15 @@ using UnityEngine.UI;
 
 public class HpTotemBar : MonoBehaviour
 {
-    private HealthBase _healthBaseTotem;
+    private Health _healthTotem;
     public SpriteRenderer eyeExpSpriteRenderer;
     private void Start ()
     {
-        _healthBaseTotem = transform.parent.parent.parent.GetComponent<HealthBase>();
-        if (_healthBaseTotem is not null)
+        _healthTotem = transform.parent.parent.parent.GetComponent<Health>();
+        if (_healthTotem is not null)
         {
-            _healthBaseTotem.OnHpChange += UpdateBar;
-            GetComponent<Image>().fillAmount = _healthBaseTotem.Health;
+            _healthTotem.ChangeEvent += UpdateBar;
+            GetComponent<Image>().fillAmount = _healthTotem.CurrentHealth;
         }
         
         if (eyeExpSpriteRenderer is null)
@@ -20,7 +20,7 @@ public class HpTotemBar : MonoBehaviour
 
     private void UpdateBar (int value)
     {
-        var fillAmount = (float)(_healthBaseTotem.Health + value) / _healthBaseTotem.MaxHealth;
+        var fillAmount = (float)(_healthTotem.CurrentHealth + value) / _healthTotem.MaxHealth;
         GetComponent<Image>().fillAmount = fillAmount;
         var color = eyeExpSpriteRenderer.color;
         color.a = 1 - fillAmount;

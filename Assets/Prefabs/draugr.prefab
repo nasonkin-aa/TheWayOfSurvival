@@ -20,11 +20,11 @@ GameObject:
   - component: {fileID: 2637749118048896245}
   - component: {fileID: 3122446280806698965}
   - component: {fileID: 421681287445395448}
-  - component: {fileID: 5776853209843405664}
   - component: {fileID: 6282482711103389029}
   - component: {fileID: 266495302500371553}
   - component: {fileID: 3499465640490692334}
   - component: {fileID: 7924995758090830534}
+  - component: {fileID: 8212121562615653068}
   m_Layer: 9
   m_Name: draugr
   m_TagString: Enemy
@@ -46,7 +46,7 @@ Transform:
   m_Children:
   - {fileID: 2668629570867794640}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5003587899173031012
 SpriteRenderer:
@@ -222,6 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a978695ec67d064b8a38c455240c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 8212121562615653068}
+  exp: 50
 --- !u!114 &6902550539326549379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a978695ec67d064b8a38c455240c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  exp: 50
 --- !u!114 &3122446280806698965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,21 +275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059001e6885da934fb43b4cb353e504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5776853209843405664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4008874985900004576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e78d4febf143d549964b04ee16f2a63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 70
-  _health: 1
-  _exp: 30
 --- !u!95 &6282482711103389029
 Animator:
   serializedVersion: 5
@@ -333,7 +322,7 @@ MonoBehaviour:
   - {x: -3.6937058, y: -6.0823493, z: 0}
   m_ShapePathHash: 1253693764
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2734678
+  m_InstanceId: 85994
   m_LocalBounds:
     m_Center: {x: -0.7190342, y: -5.730623, z: 0}
     m_Extent: {x: 2.9746716, y: 0.7641387, z: 0}
@@ -364,6 +353,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: 0
   nameEnemy: 3
+--- !u!114 &8212121562615653068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4008874985900004576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c6ab22c8a354343a3b446cf74d1eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100
 --- !u!1 &6935762298735566649
 GameObject:
   m_ObjectHideFlags: 0

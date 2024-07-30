@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoreHealthCharacter : MonoBehaviour, IWeaponModifier
 {
     protected static MoreHealthCharacterConfig _moreHealthCharacterInfo;
-    protected static HealthBase _health;
+    protected static Health _health;
 
     private void Awake()
     {

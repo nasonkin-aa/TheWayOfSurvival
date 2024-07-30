@@ -8,7 +8,7 @@ public class EnemyProjectiles : Projectile
     {
         //if (_isContact) return; //Hack for kill 1 enemy 1 projectile
         
-        other.gameObject.GetComponent<HealthBase>()?.TakeDamage(Damage);
+        other.gameObject.GetComponent<Health>()?.TakeDamage(Damage);
         
         //OnProjectileCollision?.Invoke();
         //_isContact = true;

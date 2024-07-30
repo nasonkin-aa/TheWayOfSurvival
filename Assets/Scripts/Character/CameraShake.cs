@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using Cinemachine;
-using Unity.VisualScripting;
 
 public class CameraShake : MonoBehaviour
 {
@@ -16,11 +14,11 @@ public class CameraShake : MonoBehaviour
     private void Awake()
     {
         _cinemahineCamera = GetComponent<CinemachineVirtualCamera>();
-        _cameraModule =
-            _cinemahineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        _cameraModule = _cinemahineCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        _cameraModule.m_AmplitudeGain = 0;
     }
 
-    private void Shake()
+    private void OnShake()
     {
         _cameraModule.m_AmplitudeGain = intensity;
         _startingIntensity = intensity;
@@ -40,11 +38,11 @@ public class CameraShake : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerHealth.OnShake += Shake;
+        Player.ShakeEvent += OnShake;
     }
 
     private void OnDisable()
     {
-        PlayerHealth.OnShake -= Shake;
+        Player.ShakeEvent -= OnShake;
     }
 }

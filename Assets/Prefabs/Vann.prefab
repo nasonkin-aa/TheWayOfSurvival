@@ -145,12 +145,12 @@ GameObject:
   - component: {fileID: 6950928772641669704}
   - component: {fileID: 7578434963742836621}
   - component: {fileID: 7690421710278299511}
-  - component: {fileID: 4479893223645730091}
   - component: {fileID: 3189901997968990710}
   - component: {fileID: 9034697093846591129}
   - component: {fileID: 64504927843487094}
   - component: {fileID: 839422741551023178}
   - component: {fileID: 8409667224679746454}
+  - component: {fileID: 6255435244036706471}
   m_Layer: 9
   m_Name: Vann
   m_TagString: Enemy
@@ -377,6 +377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a978695ec67d064b8a38c455240c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  exp: 50
 --- !u!114 &7578434963742836621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,21 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059001e6885da934fb43b4cb353e504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4479893223645730091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9168771958303722503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e78d4febf143d549964b04ee16f2a63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 20
-  _health: 1
-  _exp: 30
 --- !u!114 &3189901997968990710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +430,7 @@ MonoBehaviour:
   - {x: -1.2796007, y: -6.454751, z: 0}
   m_ShapePathHash: 1192147663
   m_Mesh: {fileID: 0}
-  m_InstanceId: 32518
+  m_InstanceId: 86402
   m_LocalBounds:
     m_Center: {x: 0.5443436, y: -6.418245, z: 0}
     m_Extent: {x: 1.8239443, y: 0.54986763, z: 0}
@@ -508,3 +495,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashTime: 0.25
+--- !u!114 &6255435244036706471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168771958303722503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c6ab22c8a354343a3b446cf74d1eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100

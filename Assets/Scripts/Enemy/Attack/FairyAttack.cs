@@ -14,7 +14,7 @@ public class FairyAttack : Attack
         _attackZone = GetComponentInChildren<AttackZone>();
         _attackZone.OnCollisionWithTarget += ContactWithTarget;
     }
-    public override void ContactWithTarget(HealthBase health)
+    public override void ContactWithTarget(Health health)
     {
         if (health is null)
             return;
@@ -39,7 +39,7 @@ public class FairyAttack : Attack
         Destroy(obj, 5f);
     }
 
-    public bool CheckTargetToAttack(HealthBase health)
+    public bool CheckTargetToAttack(Health health)
     {
         var fairyAttackZone = _attackZone as FairyAttackZone;
         var target = fairyAttackZone.CheckTargetInCollider(health);

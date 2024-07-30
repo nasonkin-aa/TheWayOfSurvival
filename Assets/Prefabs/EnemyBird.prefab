@@ -113,12 +113,12 @@ GameObject:
   - component: {fileID: 6262425806418569226}
   - component: {fileID: 7663579530294693150}
   - component: {fileID: 508932979009097681}
-  - component: {fileID: 3586988622586098190}
   - component: {fileID: 169677916222025104}
   - component: {fileID: 4297161429277615243}
   - component: {fileID: 1644236497513344689}
   - component: {fileID: 187822251993500163}
   - component: {fileID: 4853050977852936684}
+  - component: {fileID: 4851439577484637714}
   m_Layer: 9
   m_Name: EnemyBird
   m_TagString: Enemy
@@ -140,7 +140,7 @@ Transform:
   m_Children:
   - {fileID: 890595782290931480}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5989713690208839742
 SpriteRenderer:
@@ -303,6 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a978695ec67d064b8a38c455240c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 4851439577484637714}
+  exp: 50
 --- !u!114 &3763821635501955624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,21 +366,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3586988622586098190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3232900224820922589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e78d4febf143d549964b04ee16f2a63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 20
-  _health: 1
-  _exp: 20
 --- !u!114 &169677916222025104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +416,7 @@ MonoBehaviour:
   - {x: -0.24613261, y: -4.045649, z: 0}
   m_ShapePathHash: 230924259
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4502750
+  m_InstanceId: 86136
   m_LocalBounds:
     m_Center: {x: -0.3969748, y: -3.6335902, z: 0}
     m_Extent: {x: 2.658649, y: 0.41205883, z: 0}
@@ -458,3 +445,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e1cb5a08e685040ab231dc2ca9e5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4851439577484637714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232900224820922589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c6ab22c8a354343a3b446cf74d1eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100

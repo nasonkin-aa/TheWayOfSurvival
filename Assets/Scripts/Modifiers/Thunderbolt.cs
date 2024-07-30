@@ -35,7 +35,7 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
             return;
 
         var collidedObjects = GetComponent<Overlaper>().CircleOverlap(_thunderboltInfo.Radius, Projectile.ContactWithEnemies);
-        collidedObjects.ForEach(collider => collider.GetComponent<HealthBase>()?.TakeDamage(_thunderboltInfo.AreaDamage));
+        collidedObjects.ForEach(collider => collider.GetComponent<Health>()?.TakeDamage(_thunderboltInfo.AreaDamage));
 
         var thunderObj = Instantiate(_particlePrefab);
         thunderObj.transform.position = new (transform.position.x, thunderObj.transform.position.y);

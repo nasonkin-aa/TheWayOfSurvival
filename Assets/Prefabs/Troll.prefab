@@ -114,11 +114,11 @@ GameObject:
   - component: {fileID: 6302573876868629282}
   - component: {fileID: 7803152856915688821}
   - component: {fileID: 7067475011485684224}
-  - component: {fileID: 3178765234948811790}
   - component: {fileID: 7887102076436182384}
   - component: {fileID: 2168462781423783892}
   - component: {fileID: 7201342607744386670}
   - component: {fileID: 2406877197990719282}
+  - component: {fileID: 5236145845024398681}
   m_Layer: 9
   m_Name: Troll
   m_TagString: Enemy
@@ -316,6 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a978695ec67d064b8a38c455240c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  exp: 50
 --- !u!114 &121377156366981233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a978695ec67d064b8a38c455240c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  exp: 50
 --- !u!114 &7803152856915688821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,21 +369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059001e6885da934fb43b4cb353e504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3178765234948811790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5644203141911686179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e78d4febf143d549964b04ee16f2a63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 150
-  _health: 1
-  _exp: 50
 --- !u!95 &7887102076436182384
 Animator:
   serializedVersion: 5
@@ -428,7 +417,7 @@ MonoBehaviour:
   - {x: 2.9373398, y: -4.7866974, z: 0}
   m_ShapePathHash: 1700622567
   m_Mesh: {fileID: 0}
-  m_InstanceId: 67200
+  m_InstanceId: 86492
   m_LocalBounds:
     m_Center: {x: 0.34449935, y: -4.451509, z: 0}
     m_Extent: {x: 2.5928407, y: 1.5743326, z: 0}
@@ -459,3 +448,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: 0
   nameEnemy: 4
+--- !u!114 &5236145845024398681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644203141911686179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c6ab22c8a354343a3b446cf74d1eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100

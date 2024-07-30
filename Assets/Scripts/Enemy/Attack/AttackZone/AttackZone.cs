@@ -10,7 +10,7 @@ public class AttackZone : MonoBehaviour
 
     protected CircleCollider2D _circleCollider2D;
 
-    public Action<HealthBase> OnCollisionWithTarget;
+    public Action<Health> OnCollisionWithTarget;
     protected virtual void Start()
     {
         _circleCollider2D = GetComponent<CircleCollider2D>();
@@ -26,17 +26,17 @@ public class AttackZone : MonoBehaviour
         OnCollisionWithTarget?.Invoke(health);
     }
 
-    public HealthBase CheckTargetInCollider()
+    public Health CheckTargetInCollider()
     {
         return OverlapTargetWithHp();
     }
 
-    protected HealthBase OverlapTargetWithHp()
+    protected Health OverlapTargetWithHp()
     {
         var collider2Ds = new List<Collider2D>();
         var countOverlapCollider = _circleCollider2D.OverlapCollider(contactFilter2D, collider2Ds);
         if (countOverlapCollider > 0)
-            return collider2Ds[0].gameObject.GetComponent<HealthBase>();
+            return collider2Ds[0].gameObject.GetComponent<Health>();
         return null;
     }
 }

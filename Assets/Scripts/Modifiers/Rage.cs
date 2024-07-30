@@ -10,26 +10,21 @@ public class Rage : MonoBehaviour, IWeaponModifier
         _weapon = Weapon.GetWeapon;
     }
 
-    private void OnEnable()
-    {
-
-    }
-
     private void OnDisable()
     {
-        Player.GetPlayer.GetHealth().OnHpChange -= GetPowerForLosåHp;
+        Player.GetPlayer.GetHealth().ChangeEvent -= GetPowerForLost;
     }
     void IWeaponModifier.PrepareModifier(ModifierBaseObject rageInfo)
     {
         _rageInfo = rageInfo as RageConfig;
-        Player.GetPlayer.GetHealth().OnHpChange += GetPowerForLosåHp;
+        Player.GetPlayer.GetHealth().ChangeEvent += GetPowerForLost;
 
         var playerHealth = Player.GetPlayer.GetHealth();
-        var lostHealth = playerHealth.MaxHealth - playerHealth.Health;
+        var lostHealth = playerHealth.MaxHealth - playerHealth.CurrentHealth;
         _weapon?.SetDamageWeapon(_weapon.BaseDamage + (int)(lostHealth * _rageInfo.GetScale));
     }
 
-    private void GetPowerForLosåHp(int healthChange)
+    private void GetPowerForLost(int healthChange)
     {
         _weapon?.SetDamageWeapon(_weapon.WeaponDamage - (int)(healthChange * _rageInfo.GetScale));
     }
@@ -42,7 +37,7 @@ public class Rage : MonoBehaviour, IWeaponModifier
         _rageInfo = modifierConfig as RageConfig;
 
         var playerHealth = Player.GetPlayer.GetHealth();
-        var lostHealth = playerHealth.MaxHealth - playerHealth.Health;
+        var lostHealth = playerHealth.MaxHealth - playerHealth.CurrentHealth;
         _weapon?.SetDamageWeapon(_weapon.BaseDamage + (int)(lostHealth * _rageInfo.GetScale));
     }
 }

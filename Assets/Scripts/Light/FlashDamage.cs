@@ -49,11 +49,11 @@ public class FlashDamage : MonoBehaviour
 
     private void OnEnable()
     {
-        GetComponent<HealthBase>().OnHpChange += CallDamageFlash;
+        GetComponent<Health>().ChangeEvent += CallDamageFlash;
     }
 
     private void OnDisable()
     {
-        GetComponent<HealthBase>().OnHpChange -= CallDamageFlash;
+        GetComponent<Health>().ChangeEvent -= CallDamageFlash;
     }
 }

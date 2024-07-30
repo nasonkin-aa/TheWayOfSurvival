@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7131441859103112966}
   - component: {fileID: 5209476361569347775}
-  - component: {fileID: 6049999883754066080}
   - component: {fileID: 1321265116405764344}
   - component: {fileID: 3581195333865206298}
   - component: {fileID: 6621902724100307307}
   - component: {fileID: 3114989217020922835}
+  - component: {fileID: -2559639230459471287}
   m_Layer: 12
   m_Name: TOTEM
   m_TagString: Untagged
@@ -91,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6049999883754066080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477796752182547072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e70e2ee8859f1a64099991b43eff2001, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 500
-  _health: 1
 --- !u!61 &1321265116405764344
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -264,6 +250,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7262cad2751db6f43b1b2b99c197ee3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: -2559639230459471287}
+--- !u!114 &-2559639230459471287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477796752182547072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c6ab22c8a354343a3b446cf74d1eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100
 --- !u!1 &3187647124420749519
 GameObject:
   m_ObjectHideFlags: 0

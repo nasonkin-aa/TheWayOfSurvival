@@ -10,7 +10,7 @@ public class FairyAttackZone : AttackZone
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var health = collision.gameObject.GetComponent<HealthBase>();
+        var health = collision.gameObject.GetComponent<Health>();
         OnCollisionWithTarget?.Invoke(health);
     }
 
@@ -19,16 +19,16 @@ public class FairyAttackZone : AttackZone
 
     }
 
-    public HealthBase CheckTargetInCollider(HealthBase target)
+    public Health CheckTargetInCollider(Health target)
     {
         return OverlapTargetWithHp(target);
     }
 
-    protected HealthBase OverlapTargetWithHp(HealthBase target)
+    protected Health OverlapTargetWithHp(Health target)
     {
         var collider2Ds = new List<Collider2D>();
         var countOverlapCollider = _circleCollider2D.OverlapCollider(contactFilter2D, collider2Ds);
-        var healthCollided = collider2Ds.ConvertAll(coll => coll.gameObject.GetComponent<HealthBase>());
+        var healthCollided = collider2Ds.ConvertAll(coll => coll.gameObject.GetComponent<Health>());
 
         if (healthCollided.Contains(target))
             return target;

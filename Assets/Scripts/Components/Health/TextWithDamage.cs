@@ -1,17 +1,17 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(HealthBase))]
+[RequireComponent(typeof(Health))]
 public class TextWithDamage : MonoBehaviour
 {
     private GameObject _text;
-    private HealthBase _hp;
+    private Health _hp;
     private static Vector2 _offset = new (0.4f, 0.4f);
     private int _offsetCount = 0;
     void Start()
     {
-        _hp = GetComponent<HealthBase>();
-        _hp.OnHpChange += CreateText;
+        _hp = GetComponent<Health>();
+        _hp.ChangeEvent += CreateText;
         _text = (GameObject)Resources.Load("FloatingDamage");
     }
 
@@ -27,8 +27,8 @@ public class TextWithDamage : MonoBehaviour
 
     private void OnDisable()
     {
-        if (_hp.OnHpChange is not null)
-            _hp.OnHpChange -= CreateText;
+        if (_hp is not null)
+            _hp.ChangeEvent -= CreateText;
     }
 
     private IEnumerator RemoveFloatingDamageOffset()

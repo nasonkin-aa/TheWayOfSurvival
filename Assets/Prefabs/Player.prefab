@@ -197,7 +197,6 @@ GameObject:
   - component: {fileID: 8024410015909220742}
   - component: {fileID: 4677294879168754439}
   - component: {fileID: 1588486800313787944}
-  - component: {fileID: 7913350053720412904}
   - component: {fileID: 5094062961161057830}
   - component: {fileID: 584420684084264800}
   - component: {fileID: 2855214112693847229}
@@ -205,6 +204,7 @@ GameObject:
   - component: {fileID: 7533281438597517134}
   - component: {fileID: 4152066239822890621}
   - component: {fileID: 2582317202423912479}
+  - component: {fileID: 37440581825233985}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -317,7 +317,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.53, y: 0.65}
-    oldSize: {x: 7.06, y: 13.37}
+    oldSize: {x: 7.0599995, y: 13.387851}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cf3b463a9ca564c996e76e461aa11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 37440581825233985}
 --- !u!114 &8024410015909220742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,20 +404,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0.12
   deadZoneThreshold: 0.003
---- !u!114 &7913350053720412904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135167356172872712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13cf7127e13336c4ebbf33890de9462f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 200
-  _health: 1
 --- !u!114 &5094062961161057830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +502,7 @@ MonoBehaviour:
   - {x: -2.8294609, y: -8.430461, z: 0}
   m_ShapePathHash: 1792024040
   m_Mesh: {fileID: 0}
-  m_InstanceId: 116180
+  m_InstanceId: 85834
   m_LocalBounds:
     m_Center: {x: -0.06741786, y: -8.215956, z: 0}
     m_Extent: {x: 2.762043, y: 0.2145052, z: 0}
@@ -532,3 +519,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashTime: 0.25
+--- !u!114 &37440581825233985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135167356172872712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c6ab22c8a354343a3b446cf74d1eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100

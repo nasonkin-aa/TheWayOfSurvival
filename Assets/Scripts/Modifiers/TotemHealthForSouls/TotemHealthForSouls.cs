@@ -4,12 +4,12 @@ public class TotemHealthForSouls : MonoBehaviour, IWeaponModifier
 {
     protected static TotemHealthForSoulsConfig _totemRegenInfo;
     protected static Player _player;
-    protected static HealthBase _totemHealth;
+    protected static Health _totemHealth;
 
     private void Awake()
     {
         _player = Player.GetPlayer;
-        _totemHealth = Totem.GetTotem.GetComponent<TotemHealth>();
+        _totemHealth = Totem.GetTotem.Health;
     }
 
     private void OnEnable()
@@ -19,13 +19,13 @@ public class TotemHealthForSouls : MonoBehaviour, IWeaponModifier
 
     private void OnDisable()
     {
-        _player.SoulPickUp -= RegenerateHealth;
+        _player.SoulPickUpEvent -= RegenerateHealth;
     }
     void IWeaponModifier.PrepareModifier(ModifierBaseObject totemRegenInfo)
     {
         _totemRegenInfo = totemRegenInfo as TotemHealthForSoulsConfig;
 
-        _player.SoulPickUp += RegenerateHealth;
+        _player.SoulPickUpEvent += RegenerateHealth;
     }
 
     public void UpdateModifierInfo(ModifierBaseObject totemRegenInfo)
@@ -38,6 +38,6 @@ public class TotemHealthForSouls : MonoBehaviour, IWeaponModifier
     
     private void RegenerateHealth()
     {
-        _totemHealth.GetHeal(_totemRegenInfo.GetRegeneratedHealth);
+        _totemHealth.Heal(_totemRegenInfo.GetRegeneratedHealth);
     }
 }

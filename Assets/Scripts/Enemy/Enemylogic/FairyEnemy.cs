@@ -20,14 +20,14 @@ public class FairyEnemy : BaseEnemy
         _targetSelector = GetComponent<IHaveTarget>();
         _targetTransform = _targetSelector.GetTarget();
         _moveController.target = _targetTransform;
-        _attack.SetTrget(_targetTransform.GetComponent<HealthBase>());
+        _attack.SetTrget(_targetTransform.GetComponent<Health>());
     }
     protected IEnumerator Reload()
     {
         yield return new WaitForSeconds(_reloadTime);
         _isReadyToAttack = true;
 
-        if (_attack.CheckTargetToAttack(_targetTransform.GetComponent<HealthBase>()))
+        if (_attack.CheckTargetToAttack(_targetTransform.GetComponent<Health>()))
             ReadyToAttack();
     }
     protected override void Update()

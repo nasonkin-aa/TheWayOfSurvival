@@ -7,7 +7,7 @@ public class Attack : MonoBehaviour
     public int damage = 10;
     public Action OnAttackReady;
     public Action OnAttackFinished;
-    protected HealthBase _targetToAttack;
+    protected Health _targetToAttack;
     
  
     public virtual void Start()
@@ -16,7 +16,7 @@ public class Attack : MonoBehaviour
         _attackZone.OnCollisionWithTarget += ContactWithTarget;
     }
 
-    public virtual void ContactWithTarget(HealthBase health)
+    public virtual void ContactWithTarget(Health health)
     {
         _targetToAttack = health;
         OnAttackReady?.Invoke();
@@ -40,7 +40,7 @@ public class Attack : MonoBehaviour
         OnAttackFinished?.Invoke();
     }
 
-    public void SetTrget(HealthBase target)
+    public void SetTrget(Health target)
     {
         _targetToAttack = target;
     }
