@@ -16,4 +16,4 @@ MonoBehaviour:
   _icon: {fileID: 47885521, guid: 01b549e18cc97aa43bb3362a776eb1e6, type: 3}
   _lvl: 2
   _description: eeeeee
-  _damage: 20
+  _damage: 10

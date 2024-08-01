@@ -5,27 +5,30 @@ public abstract class Weapon : MonoBehaviour, IAttackable
 {
     protected List<ModifierPrepare> _modifiers = new ();
     [field: SerializeField, Range(0, 1000)] public int BaseDamage { get; protected set; } = 10;
-    [field: SerializeField, Range(0, 1000)] public int WeaponDamage { get; protected set; } = 10;
-    [field: SerializeField, Range(0, 1000)] public int MoreDamage { get; private set; } = 0;
+    [field: SerializeField, Range(0, 1000)] public int WeaponDamage { get; protected set; } = 0;
+    
+    [field: SerializeField, Range(0, 1000)] public int MoreDamageAxe { get; private set; } = 0;
+    [field: SerializeField, Range(0, 1000)] public float MoreDamageRage { get; private set; } = 0;
+    [field: SerializeField, Range(0, 1000)] public float RageInfoScale { get; private set; } = 0;
+
+    private int _damageFromConfig;
     public static Weapon GetWeapon { get; private set; }
+    
     public virtual void Awake()
     {
         GetWeapon = this;
-        WeaponDamage = BaseDamage;
     }
 
     public abstract void Attack(Vector3 direction, Vector3 atackPoint);
 
-    public void SetDamageWeapon(int value)
+    public void SetDamageWeapon(float value)
     {
-        BaseDamage = value;
-        if (WeaponDamage < BaseDamage)
-            WeaponDamage = BaseDamage;
+        MoreDamageRage = value;
     }
 
     public void AddDamage(int value)
     {
-        MoreDamage = value;
+        MoreDamageAxe = value;
     }
 
     public virtual void AddModifier(ModifierPrepare modifier)
