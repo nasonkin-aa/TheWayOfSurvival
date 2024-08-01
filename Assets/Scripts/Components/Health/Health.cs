@@ -24,13 +24,10 @@ public class Health : MonoBehaviour
         get => maxHealth;
         set 
         { 
-            var healthPercent = currentHealth.DivideBy(maxHealth);
             maxHealth = value;
             
-            if (currentHealth > maxHealth)
-                CurrentHealth = maxHealth;
-            else
-                CurrentHealth = (int)(maxHealth * healthPercent);
+            var healthPercent = currentHealth.DivideBy(maxHealth);
+            CurrentHealth = currentHealth > maxHealth ? maxHealth : (int)(maxHealth * healthPercent);
         } 
     }  
     
@@ -64,9 +61,6 @@ public class Health : MonoBehaviour
         currentHealth = MaxHealth;
     }
 
-    
-    public virtual void Die() => Destroy(gameObject);
-    
     public void TakeDamage(int amount) => CurrentHealth -= amount;
     public void Heal(int amount) => CurrentHealth += amount;
 }
