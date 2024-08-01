@@ -6,6 +6,7 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
     protected static ThunderboltConfig _thunderboltInfo;
     protected static string _particlePrefabPath = "Particle\\Electric\\Prefabs\\Thunderbolt";
     protected static GameObject _particlePrefab;
+    protected static int _timesHit = 0;
     protected ParticleSystem _particle;
     public void Awake()
     {
@@ -31,8 +32,17 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
 
     private void DealDamage(Collision2D collision)
     {
+        
         if ( collision.gameObject.layer != 9) // 9 = enemy layer
             return;
+
+        if (_timesHit < _thunderboltInfo.Frequency - 1)
+        {
+            Debug.Log(_timesHit);
+            _timesHit++;
+            return;
+        }
+
 
         var collidedObjects = GetComponent<Overlaper>().CircleOverlap(_thunderboltInfo.Radius, Projectile.ContactWithEnemies);
         collidedObjects.ForEach(collider => collider.GetComponent<Health>()?.TakeDamage(_thunderboltInfo.AreaDamage));
@@ -42,8 +52,12 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
         thunderObj.GetComponentInChildren<ParticleSystem>()?.Play(false);
         SoundManager.instance.PlaySound("Thunderbolt");
         Destroy(thunderObj, 3);
+        _timesHit = 0;
     }
 
-    public void UpdateModifierInfo(ModifierBaseObject modifierConfig) => 
+    public void UpdateModifierInfo(ModifierBaseObject modifierConfig) 
+    {
         _thunderboltInfo = modifierConfig as ThunderboltConfig;
+        //_timesHit = 0;
+    }
 }
