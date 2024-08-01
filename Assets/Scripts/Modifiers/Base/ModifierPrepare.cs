@@ -11,25 +11,13 @@ public class ModifierPrepare
         _modifier = modifierInfo.GetModifierType;
         _modifierInfo = modifierInfo;
     }
-    public GameObject CreateSubObject(Transform parent)
+    public void CreateSubObject(Transform parent)
     {   
         var newSubObj = SubObjectsCreator.CreateSubObjectWithModifier(parent, _modifier);
         var newModifier = newSubObj.GetComponent(_modifier) as IWeaponModifier;
         newModifier?.PrepareModifier(_modifierInfo); // Настройка модификатора
-
-        return newSubObj;
     }
-
-    public void LvlUpModifier(ModifierBaseObject modifierInfo)
-    {
-        if (modifierInfo is null ||
-            _modifierInfo.GetModifierType != modifierInfo.GetModifierType ||
-            _modifierInfo.Lvl + 1 != modifierInfo.Lvl)
-            return;
-
-        _modifierInfo = modifierInfo;
-    }
-
+    
     public ModifierBaseObject GetModifierInfo() => _modifierInfo;
     public void SetModifierInfo(ModifierBaseObject modifierInfo) => _modifierInfo = modifierInfo;
 
@@ -41,5 +29,14 @@ public class ModifierPrepare
 
         mod.UpdateModifierInfo(modifierInfo);
     }
+    /*public void LvlUpModifier(ModifierBaseObject modifierInfo)
+    {
+        if (modifierInfo is null ||
+            _modifierInfo.GetModifierType != modifierInfo.GetModifierType ||
+            _modifierInfo.Lvl + 1 != modifierInfo.Lvl)
+            return;
+
+        _modifierInfo = modifierInfo;
+    }*/
 }
 

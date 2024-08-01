@@ -19,12 +19,6 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
     {
         _particle ??= GetComponentInChildren<ParticleSystem>();
     }
-
-    private void OnEnable()
-    {
-        
-    }
-
     private void OnDisable()
     {
         StopAllCoroutines();
@@ -42,8 +36,7 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
         collidedObjects.ForEach(collider => 
             collider.GetComponent<Health>()?.TakeDamage(_electricAOEInfo.AreaDamage));
     }
-
-
+    
     IEnumerator DamageOverTime()
     {
         for (;;)
