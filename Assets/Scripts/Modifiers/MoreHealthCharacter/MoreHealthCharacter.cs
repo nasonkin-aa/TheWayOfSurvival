@@ -9,7 +9,7 @@ public class MoreHealthCharacter : MonoBehaviour, IWeaponModifier
 
     private void Awake()
     {
-        _health = Player.GetPlayer.GetHealth();
+        _health = Player.Instance.Health;
     }
 
     private void OnEnable()

@@ -15,7 +15,7 @@ public class EffectSoul : MonoBehaviour
 
     private void ApplyMagneticForce()
     {
-        var player = Player.GetPlayer.GameObject();
+        var player = Player.Instance.GameObject();
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         if (distanceToPlayer < magneticRadius)
         {

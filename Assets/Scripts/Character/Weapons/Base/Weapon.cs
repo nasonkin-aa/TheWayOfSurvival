@@ -12,11 +12,11 @@ public abstract class Weapon : MonoBehaviour, IAttackable
     [field: SerializeField, Range(0, 1000)] public float RageInfoScale { get; private set; } = 0;
 
     private int _damageFromConfig;
-    public static Weapon GetWeapon { get; private set; }
+    public static Weapon Inctance { get; private set; }
     
     public virtual void Awake()
     {
-        GetWeapon = this;
+        Inctance = this;
     }
 
     public abstract void Attack(Vector3 direction, Vector3 atackPoint);

@@ -6,19 +6,24 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Health health;
-    
-    private List<ModifierPrepare> _modifiers = new();
-    public static Player GetPlayer { get; private set; }   
-    public static Transform PlayerTransform { get; private set; }
+    [SerializeField] private Weapon weapon;
 
+    private List<ModifierPrepare> _modifiers = new();
+    public static Player Instance { get; private set; }   
+
+    public Health Health => health;
+    public Weapon Weapon => weapon;
+    public Transform Transform => transform;
+    
     public static event Action ShakeEvent;
     public event Action SoulPickUpEvent;
     
     public virtual void Awake()
     {
         health ??= GetComponent<Health>();
-        GetPlayer = this;
-        PlayerTransform = transform;
+        weapon ??= GetComponentInChildren<Weapon>();
+        
+        Instance = this;
     }
 
     private void OnEnable()
@@ -43,17 +48,6 @@ public class Player : MonoBehaviour
     {
         GlobalScore.GameFinished();
         SceneManagerSelect.SelectSceneByName("GameOver");
-    }
-    
-
-    public Weapon GetWeapon()
-    {
-        return GetComponentInChildren<Weapon>();
-    }
-
-    public Health GetHealth()
-    {
-        return GetComponent<Health>();
     }
 
     public void AddModifier(ModifierPrepare modifier)
@@ -80,6 +74,6 @@ public class Player : MonoBehaviour
 
     private void OnDestroy()
     {
-        GetPlayer = null;
+        Instance = null;
     }
 }

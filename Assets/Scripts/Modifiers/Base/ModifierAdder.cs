@@ -9,7 +9,7 @@ public static class ModifierAdder
                 break;
 
             case ModifierTarget.Weapon:
-                player?.GetWeapon()?.AddModifier(mod);
+                player?.Weapon?.AddModifier(mod);
                 break;
             case ModifierTarget.Campfire:
                 Campfire.instance?.AddModifier(mod);

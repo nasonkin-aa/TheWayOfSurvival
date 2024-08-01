@@ -19,7 +19,7 @@ public class Totem : MonoBehaviour
 
     private void Start()
     {
-        _playerLvl = Player.GetPlayer.GetComponent<PlayerLvl>();
+        _playerLvl = Player.Instance.GetComponent<PlayerLvl>();
     }
 
     private void OnEnable()

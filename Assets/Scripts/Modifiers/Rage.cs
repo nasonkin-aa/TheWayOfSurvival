@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class Rage : MonoBehaviour, IWeaponModifier
@@ -9,19 +8,20 @@ public class Rage : MonoBehaviour, IWeaponModifier
 
     private void Awake()
     {
-        _weapon = Weapon.GetWeapon;
+        _weapon = Weapon.Inctance;
     }
     
     private void OnDisable()
     {
-        Player.GetPlayer.GetHealth().GetPowerRage -= GetPowerForLostHp;
+        Player.Instance.Health.ChangeEvent -= GetPowerForLostHp;
     }
+    
     public void PrepareModifier(ModifierBaseObject rageInfo)
     {
         _rageInfo = rageInfo as RageConfig;
-        Player.GetPlayer.GetHealth().GetPowerRage += GetPowerForLostHp;
+        Player.Instance.Health.ChangeEvent += GetPowerForLostHp;
 
-        GetPowerForLostHp();
+        GetPowerForLostHp(0);
     }
 
     public void UpdateModifierInfo(ModifierBaseObject modifierConfig)
@@ -29,17 +29,15 @@ public class Rage : MonoBehaviour, IWeaponModifier
         if (_rageInfo is null)
             return;
         _rageInfo = modifierConfig as RageConfig;
-        GetPowerForLostHp();
+        GetPowerForLostHp(0);
     }
-    private void GetPowerForLostHp()
+    
+    private void GetPowerForLostHp(int delta)
     {
-        var playerHealth = Player.GetPlayer.GetHealth();
-        var lostHealth = _rageInfo.GetScale * (playerHealth.MaxHealth - playerHealth.Health) / 5 ;
+        var playerHealth = Player.Instance.Health;
+        var lostHealth = _rageInfo.GetScale * (playerHealth.MaxHealth - playerHealth.CurrentHealth) / 5 ;
         lostHealth = MathF.Floor(lostHealth * 10) / 10;
-        _weapon?.SetDamageWeapon((lostHealth ));
+        _weapon?.SetDamageWeapon(lostHealth);
         Debug.Log("+ damage" + (lostHealth ));
     }
-
-  
-
 }

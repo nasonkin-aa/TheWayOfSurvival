@@ -13,7 +13,7 @@ public class ModifierInCard : MonoBehaviour
     public void Activate ()
     {
         var mod = new ModifierPrepare(modifierInfo);
-        ModifierAdder.AddModifier(mod, Player.GetPlayer, modifierInfo.GetModifierTarget);
+        ModifierAdder.AddModifier(mod, Player.Instance, modifierInfo.GetModifierTarget);
     }
 
     public void CopyFromSO(ModifierBaseObject card) => modifierInfo = card;

@@ -13,7 +13,7 @@ public class WeaponAxe : RangeWeapon
     protected override void AddForceForProjectile(Rigidbody2D rb, Vector3 direction, int force)
     {
         base.AddForceForProjectile (rb, direction, force);
-        var sign = Mathf.Sign(Player.GetPlayer.transform.localScale.x);
+        var sign = Mathf.Sign(Player.Instance.transform.localScale.x);
 
         rb.AddTorque(sign * _AxeTorque);
 

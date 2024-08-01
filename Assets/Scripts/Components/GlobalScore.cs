@@ -21,7 +21,7 @@ public static class GlobalScore
         OnScoreChange = null;
     }
 
-    public static void ObjectsLoad ()
+    public static void ObjectsLoad()
     {
         LightWorld.OnNightStart += NightStart;
     }

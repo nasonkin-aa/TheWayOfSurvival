@@ -10,7 +10,7 @@ public class LvlProgressBar : MonoBehaviour
     private Light2D eyeLight => GetComponent<Light2D>();
     private void Start ()
     {
-        _playerLvl = Player.GetPlayer?.GetComponent<PlayerLvl>();
+        _playerLvl = Player.Instance?.GetComponent<PlayerLvl>();
         if (_playerLvl is not null)
             _playerLvl.OnTakeExp += UpdateBar;
         GetComponent<Image>().fillAmount = 0;
