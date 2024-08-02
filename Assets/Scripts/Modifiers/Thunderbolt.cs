@@ -7,6 +7,7 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
     protected static string _particlePrefabPath = "Particle\\Electric\\Prefabs\\Thunderbolt";
     protected static GameObject _particlePrefab;
     protected ParticleSystem _particle;
+    
     public void Awake()
     {
         GetComponent<CircleCollider2D>().isTrigger = true;

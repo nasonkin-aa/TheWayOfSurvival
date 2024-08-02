@@ -9,8 +9,8 @@ public class LightWorld : MonoBehaviour
     public static float duration;
     private Light2D _light;
     private static float _startTime;
-    public static Action OnNightStart;
-    public static Action OnDayStart;
+    public static event Action NightStartEvent;
+    public static event Action DayStartEvent;
 
     private bool _nightStarted = false;
 
@@ -23,7 +23,7 @@ public class LightWorld : MonoBehaviour
 
     private void Start()
     {
-        GlobalScore.ObjectsLoad();
+        GlobalScore.Initialize();
     }
 
     private void Update()
@@ -44,13 +44,13 @@ public class LightWorld : MonoBehaviour
     {
         if ((int) (currentTime % duration)  > (int) (duration / 3f) && !_nightStarted)
         {
-            OnNightStart?.Invoke();
+            NightStartEvent?.Invoke();
             _nightStarted = true;
         }
         
         if ((int) (currentTime % duration) < 0.01f && _nightStarted)
         {
-            OnDayStart?.Invoke();
+            DayStartEvent?.Invoke();
             _nightStarted = false;
         }
     }

@@ -23,16 +23,20 @@ public static class GlobalScore
         ChangeEvent = null;
     }
 
-    public static void ObjectsLoad()
+    public static void Initialize()
     {
-        LightWorld.OnNightStart += NightStart;
+        LightWorld.NightStartEvent += NightStart;
+        Soul.PickUpEvent += AddPoints;
+        BaseEnemy.DeathEvent += AddPoints;
     }
 
-    public static void GameFinished()
+    public static void Dispose()
     {
-        LightWorld.OnNightStart -= NightStart;
+        LightWorld.NightStartEvent -= NightStart;
+        Soul.PickUpEvent += AddPoints;
+        BaseEnemy.DeathEvent += AddPoints;
     }
 
-    public static void AddPoints(int amount) => Score += amount;
+    private static void AddPoints(int amount) => Score += amount;
     private static void NightStart() => AddPoints(200);
 }

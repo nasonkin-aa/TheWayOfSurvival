@@ -1,3 +1,5 @@
+using System;
+using Enemy;
 using UnityEngine;
 
 [RequireComponent(typeof(IHaveTarget))]
@@ -5,9 +7,9 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class BaseEnemy : MonoBehaviour
 {
+    [SerializeField] protected BaseEnemyConfig config;
     [SerializeField] protected Health health;
-    [SerializeField] protected int exp = 50;
-    
+
     protected IHaveTarget _targetSelector;
     protected Transform _targetTransform;
     protected MoveController _moveControl;
@@ -22,9 +24,12 @@ public class BaseEnemy : MonoBehaviour
 
     protected EnemyState _state = EnemyState.Move;
 
+    public static event Action<int> DeathEvent;
+
     private void Awake()
     {
         health ??= GetComponent<Health>();
+        config ??= Resources.Load<BaseEnemyConfig>(BaseEnemyConfig.DefaultConfigPath);
     }
 
     protected virtual void Start()
@@ -42,13 +47,13 @@ public class BaseEnemy : MonoBehaviour
     private void OnEnable()
     {
         health.DamageEvent += OnDamage;
-        health.DieEvent += OnDie;
+        health.DeathEvent += OnDeath;
     }
 
     private void OnDisable()
     {
         health.DamageEvent -= OnDamage;
-        health.DieEvent -= OnDie;
+        health.DeathEvent -= OnDeath;
     }
 
     private void OnDamage(int value)
@@ -56,17 +61,19 @@ public class BaseEnemy : MonoBehaviour
         SoundManager.instance.PlaySound("HitSound");
     }
 
-    private void OnDie()
+    private void OnDeath()
     {
-        GlobalScore.AddPoints(exp / 2);
+        DeathEvent?.Invoke(config.ScorePoints);
         PrepareSoul();
+        
+        // Object Pool Doesn't Exist Yet :(
         Destroy(gameObject);
     }
     
     protected void PrepareSoul()
     {
         var soul = Soul.SpawnSoul(transform.position);
-        soul.SetExp(exp);
+        soul.SetExp(config.SoulPoints);
     }   
 
     protected virtual void Update()

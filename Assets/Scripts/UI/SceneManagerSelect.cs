@@ -7,8 +7,6 @@ public class SceneManagerSelect : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         PlayerInput.UnPause();
-        if (sceneName == "Game")
-            GlobalScore.Refresh();
     }
 
     public static void Exitgame()

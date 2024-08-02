@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int currentHealth = 100;
     
     public event Action<int> ChangeEvent;
-    public event Action DieEvent;
+    public event Action DeathEvent;
 
     public event Action<int> DamageEvent;
     public event Action<int> HealEvent;
@@ -47,7 +47,7 @@ public class Health : MonoBehaviour
             if (value <= 0)
             {
                 currentHealth = 0;
-                DieEvent?.Invoke();
+                DeathEvent?.Invoke();
                 return;
             }
 

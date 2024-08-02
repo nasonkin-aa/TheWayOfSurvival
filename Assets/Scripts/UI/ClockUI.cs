@@ -19,7 +19,7 @@ public class ClockUI : MonoBehaviour
     
     private Clock _innerClock;
 
-    void Start()
+    private void Start()
     {
         tmpText ??= GetComponent<TMP_Text>();
 
@@ -29,16 +29,27 @@ public class ClockUI : MonoBehaviour
             ClockType.Stopwatch => new Stopwatch(0, format),
             _ => throw new ArgumentOutOfRangeException()
         };
-        _innerClock.Start();
-        
+
         UpdateText();
     }
 
-    void Update()
+    private void OnEnable()
+    {
+        GameLogic.Instance.StartedEvent += OnGameStarted;
+    }
+
+    private void OnDisable()
+    {
+        GameLogic.Instance.StartedEvent -= OnGameStarted;
+    }
+
+    private void OnGameStarted() => _innerClock.Start();
+    
+    private void Update()
     {
         _innerClock.Tick(Time.deltaTime);
         UpdateText();
     }
 
-    void UpdateText() => tmpText.text = _innerClock.ToString();
+    private void UpdateText() => tmpText.text = _innerClock.ToString();
 }

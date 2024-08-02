@@ -21,7 +21,7 @@ public class Campfire : MonoBehaviour
         _overlaper = GetComponent<Overlaper>();
     }
 
-    IEnumerator HealReload (float time)
+    IEnumerator HealReload(float time)
     {
         yield return new WaitForSeconds(time);
         var contacts = _overlaper.CircleOverlap(_modifierInfo.Radius, _contactFilter);

@@ -3,12 +3,11 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(PlayerMove))]
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : Singleton<PlayerInput>
 {
     public static float Horizontal;
     public static float Vertical;
-    public static PlayerInput current;
-   
+
     public static Action<float> OnPlayerMoveHorizontal;
     public static Action<float> OnPlayerMoveDown;
     public static Action OnPlayerJump;
@@ -16,17 +15,12 @@ public class PlayerInput : MonoBehaviour
     public static Action<Vector3> OnPlayerFlip;
     private static bool IsInputBlock = false;
     private bool isFlip = false;
-    private Rigidbody2D _rigidbody2D => gameObject.GetComponent<Rigidbody2D>();
     
-    private Animator Animator => gameObject.GetComponent<Animator>();
     private static float _defaultTimeScale = 1;
     private static float _pauseTimeScale = 0;
 
-
-    private void Awake() //Maybe this not need??
-    {
-        current = this;
-    }
+    private Rigidbody2D Rigidbody => gameObject.GetComponent<Rigidbody2D>();
+    private Animator Animator => gameObject.GetComponent<Animator>();
 
     public void FixedUpdate()
     {
@@ -41,7 +35,7 @@ public class PlayerInput : MonoBehaviour
             OnPlayerMoveDown?.Invoke(Vertical);
 
         Animator?.SetFloat("Speed", MathF.Abs(Horizontal));
-        Animator?.SetFloat("yVelocity", _rigidbody2D.velocity.y);
+        Animator?.SetFloat("yVelocity", Rigidbody.velocity.y);
         
         if (isFlip)
             Animator?.SetFloat("rawSpeed", -Horizontal);

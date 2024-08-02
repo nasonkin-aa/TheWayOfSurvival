@@ -4,6 +4,6 @@ public class PlayerSelector : MonoBehaviour,  IHaveTarget
 {
     public Transform GetTarget()
     {
-        return Player.Instance.Transform;
+        return Player.Instance.transform;
     }
 }

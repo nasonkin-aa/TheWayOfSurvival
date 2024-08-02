@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -98,8 +97,8 @@ public class SpawnerManager : MonoBehaviour
     
     private void OnEnable()
     {
-        LightWorld.OnNightStart += StartNewWave;
-        LightWorld.OnDayStart += SetTimeDayNight;
+        LightWorld.NightStartEvent += StartNewWave;
+        LightWorld.DayStartEvent += SetTimeDayNight;
     }
 
     private void SetTimeDayNight()
@@ -110,8 +109,8 @@ public class SpawnerManager : MonoBehaviour
 
     private void OnDisable()
     {
-        LightWorld.OnNightStart -= StartNewWave;
-        LightWorld.OnDayStart -= SetTimeDayNight;
+        LightWorld.NightStartEvent -= StartNewWave;
+        LightWorld.DayStartEvent -= SetTimeDayNight;
     }
 
     public void SpawnEnemy(GameObject spawnPoints, EnemyType enemyType)

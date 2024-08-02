@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -9,6 +10,8 @@ public class Soul : MonoBehaviour
     private Material GetMaterial => SpriteRenderer?.material;
     private TrailRenderer TrailRenderer => GetComponent<TrailRenderer>();
     private Light2D Light => GetComponent<Light2D>();
+
+    public static event Action<int> PickUpEvent;
 
     public static GameObject LoadFromAssets() => Resources.Load("Soul") as GameObject;
     public static Soul SpawnSoul(Vector2 position)
@@ -25,15 +28,19 @@ public class Soul : MonoBehaviour
         SoundManager.instance.PlaySound("SoulPickUp");
         collision.gameObject.GetComponent<PlayerLvl>().GetExp(_exp);
         collision.gameObject.GetComponent<Player>().OnSoulPickUp();
-        GlobalScore.AddPoints(_exp);
+        
+        PickUpEvent?.Invoke(_exp);
+        
         Destroy(gameObject);
     }
 
     public void SetExp(int amount)
     {
+        _exp = amount;
+
         if (amount < 20 || amount > 60)
             return;
-        _exp = amount;
+        
 
         if (GetMaterial is null)
             return;

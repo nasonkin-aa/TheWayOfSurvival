@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class TotemtSelector : MonoBehaviour, IHaveTarget
 {
-    public Transform GetTarget() => Totem.Instance.Transform;
+    public Transform GetTarget() => Totem.Instance.transform;
 }

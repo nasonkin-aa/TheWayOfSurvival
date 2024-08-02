@@ -12,11 +12,6 @@ public class TotemHealthForSouls : MonoBehaviour, IWeaponModifier
         _totemHealth = Totem.Instance.Health;
     }
 
-    private void OnEnable()
-    {
-
-    }
-
     private void OnDisable()
     {
         _player.SoulPickUpEvent -= RegenerateHealth;

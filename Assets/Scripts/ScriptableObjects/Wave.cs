@@ -12,5 +12,4 @@ public class Wave : ScriptableObject
     
     public float SpeedScale = 1f;
     public float HealthScale = 1f;
-
 }

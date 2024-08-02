@@ -3,39 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
     [SerializeField] private Health health;
     [SerializeField] private Weapon weapon;
 
-    private List<ModifierPrepare> _modifiers = new();
-    public static Player Instance { get; private set; }   
+    private readonly List<ModifierPrepare> _modifiers = new();
 
     public Health Health => health;
     public Weapon Weapon => weapon;
-    public Transform Transform => transform;
-    
-    public static event Action ShakeEvent;
+
+    public event Action ShakeEvent;
     public event Action SoulPickUpEvent;
-    
-    public virtual void Awake()
+
+    protected override void Awake()
     {
+        base.Awake();
+        
         health ??= GetComponent<Health>();
         weapon ??= GetComponentInChildren<Weapon>();
-        
-        Instance = this;
     }
 
     private void OnEnable()
     {
         health.DamageEvent += OnDamage;
-        health.DieEvent += OnDie;
+        health.DeathEvent += OnDeath;
     }
 
     private void OnDisable()
     {
         health.DamageEvent -= OnDamage;
-        health.DieEvent -= OnDie;
+        health.DeathEvent -= OnDeath;
     }
 
     private void OnDamage(int value)
@@ -44,10 +42,9 @@ public class Player : MonoBehaviour
         ShakeEvent?.Invoke();
     }
 
-    private void OnDie()
+    private void OnDeath()
     {
-        GlobalScore.GameFinished();
-        SceneManagerSelect.SelectSceneByName("GameOver");
+        GlobalScore.Dispose();
     }
 
     public void AddModifier(ModifierPrepare modifier)
