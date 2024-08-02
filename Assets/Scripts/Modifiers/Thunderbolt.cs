@@ -38,7 +38,7 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
 
         if (_timesHit < _thunderboltInfo.Frequency - 1)
         {
-            Debug.Log(_timesHit);
+            //Debug.Log(_timesHit);
             _timesHit++;
             return;
         }
