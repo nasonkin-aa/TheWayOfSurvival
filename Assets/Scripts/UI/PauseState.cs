@@ -23,7 +23,7 @@ public class PauseState : MonoBehaviour
         else
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
-            Score.Instance?.SetScore();
+            Score.Instance?.OnScoreChange();
         }
     }
 }

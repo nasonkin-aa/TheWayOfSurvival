@@ -24,10 +24,10 @@ public class Health : MonoBehaviour
         get => maxHealth;
         set 
         { 
-            maxHealth = value;
-            
             var healthPercent = currentHealth.DivideBy(maxHealth);
-            CurrentHealth = currentHealth > maxHealth ? maxHealth : (int)(maxHealth * healthPercent);
+            
+            maxHealth = value;
+            CurrentHealth = currentHealth >= maxHealth ? maxHealth : (int)(maxHealth * healthPercent);
         } 
     }  
     

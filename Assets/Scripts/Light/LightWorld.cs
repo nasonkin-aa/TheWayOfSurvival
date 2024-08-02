@@ -30,7 +30,7 @@ public class LightWorld : MonoBehaviour
     {
         var time = Time.time - _startTime;
 
-        var percent = (Mathf.Sin(time / duration * Mathf.PI) * 0.5f + 0.5f);
+        var percent = Mathf.Sin(time / duration * Mathf.PI) * 0.5f + 0.5f;
 
         percent = Mathf.Clamp01(percent);
         _light.color = gradient.Evaluate(percent);

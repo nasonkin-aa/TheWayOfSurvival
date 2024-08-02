@@ -6,15 +6,15 @@ public class Totem : MonoBehaviour
     public Health Health => health;
     
     private PlayerLvl _playerLvl;
-    public static Totem GetTotem;
-    public static Transform TotemTransform { get; set; }
+    public  Transform Transform { get; set; }
 
+    public static Totem Instance { get; private set; }
+    
     public void Awake()
     {
         health ??= GetComponent<Health>();
         
-        TotemTransform = transform;
-        GetTotem = this;
+        Instance = this;
     }
 
     private void Start()

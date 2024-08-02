@@ -12,9 +12,10 @@ public class ClockUI : MonoBehaviour
     
     [SerializeField] private TMP_Text tmpText;
     [SerializeField] private ClockType type;
+    [SerializeField] private string format = "mm\\:ss";
     
-    public int initialMinutes = 2;
-    public int initialSeconds = 30;
+    [SerializeField] private int initialMinutes = 2;
+    [SerializeField] private int initialSeconds = 30;
     
     private Clock _innerClock;
 
@@ -24,8 +25,8 @@ public class ClockUI : MonoBehaviour
 
         _innerClock = type switch
         {
-            ClockType.Countdown => new Countdown(initialMinutes * 60 + initialSeconds, "mm\\:ss"),
-            ClockType.Stopwatch => new Stopwatch(0, "mm\\:ss"),
+            ClockType.Countdown => new Countdown(initialMinutes * 60 + initialSeconds, format),
+            ClockType.Stopwatch => new Stopwatch(0, format),
             _ => throw new ArgumentOutOfRangeException()
         };
         _innerClock.Start();

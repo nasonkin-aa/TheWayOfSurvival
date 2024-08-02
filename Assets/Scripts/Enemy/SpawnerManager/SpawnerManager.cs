@@ -14,6 +14,8 @@ public class SpawnerManager : MonoBehaviour
     private int _currentWave = 0;
     private int _spawnedEnemiesInWave;
 
+    private float timeToSpawn;
+    
     private void Awake()
     {
         LightWorld.SetNewDuration(countWaves[_currentWave].WaveTime + countWaves[_currentWave + 1].WaveTime);
@@ -37,7 +39,6 @@ public class SpawnerManager : MonoBehaviour
         }
     }
 
-    private float timeToSpawn;
 
     public void ChooseEnemy()
     {

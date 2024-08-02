@@ -9,7 +9,7 @@ public class TotemHealthForSouls : MonoBehaviour, IWeaponModifier
     private void Awake()
     {
         _player = Player.Instance;
-        _totemHealth = Totem.GetTotem.Health;
+        _totemHealth = Totem.Instance.Health;
     }
 
     private void OnEnable()

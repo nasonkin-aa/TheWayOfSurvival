@@ -19,7 +19,7 @@ public abstract class Weapon : MonoBehaviour, IAttackable
         Inctance = this;
     }
 
-    public abstract void Attack(Vector3 direction, Vector3 atackPoint);
+    public abstract void Attack(Vector3 direction, Vector3 attackPoint);
 
     public void SetDamageWeapon(float value)
     {
