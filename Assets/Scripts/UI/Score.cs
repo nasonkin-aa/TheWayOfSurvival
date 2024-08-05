@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,12 +9,17 @@ public class Score : Singleton<Score>
     protected override void Awake()
     {
         base.Awake();
-        
+
         gameObject.AssignComponentIfUnityNull(ref tmpText);
     }
 
-    private void OnEnable() => GlobalScore.ChangeEvent += OnScoreChange;
+    private void OnEnable()
+    {
+        OnScoreChange(GlobalScore.Score);
+        GlobalScore.ChangeEvent += OnScoreChange;
+    }
+
     private void OnDisable() => GlobalScore.ChangeEvent -= OnScoreChange;
 
-    private void OnScoreChange(int value) => tmpText.text = $"Ñ÷¸ò: {value}";
+    private void OnScoreChange(int value) => tmpText.text = $"ï¿½ï¿½ï¿½ï¿½: {value}";
 }
