@@ -21,11 +21,6 @@ public class LightWorld : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        GlobalScore.Initialize();
-    }
-
     private void Update()
     {
         var time = Time.time - _startTime;

@@ -1,38 +1,37 @@
+using Souls;
 using UnityEngine;
 
 public class TotemHealthForSouls : MonoBehaviour, IWeaponModifier
 {
-    protected static TotemHealthForSoulsConfig _totemRegenInfo;
-    protected static Player _player;
-    protected static Health _totemHealth;
+    protected static TotemHealthForSoulsConfig TotemRegenInfo;
+    protected static Health TotemHealth;
 
     private void Awake()
     {
-        _player = Player.Instance;
-        _totemHealth = Totem.Instance.Health;
+        TotemHealth = Totem.Instance.Health;
     }
 
     private void OnDisable()
     {
-        _player.SoulPickUpEvent -= RegenerateHealth;
+        SoulCollector.PickUpEvent -= RegenerateHealth;
     }
     void IWeaponModifier.PrepareModifier(ModifierBaseObject totemRegenInfo)
     {
-        _totemRegenInfo = totemRegenInfo as TotemHealthForSoulsConfig;
+        TotemRegenInfo = totemRegenInfo as TotemHealthForSoulsConfig;
 
-        _player.SoulPickUpEvent += RegenerateHealth;
+        SoulCollector.PickUpEvent += RegenerateHealth;
     }
 
     public void UpdateModifierInfo(ModifierBaseObject totemRegenInfo)
     {
-        if (_totemRegenInfo is null)
+        if (TotemRegenInfo is null)
             return;
 
-        _totemRegenInfo = totemRegenInfo as TotemHealthForSoulsConfig;
+        TotemRegenInfo = totemRegenInfo as TotemHealthForSoulsConfig;
     }
     
-    private void RegenerateHealth()
+    private void RegenerateHealth(int value)
     {
-        _totemHealth.Heal(_totemRegenInfo.GetRegeneratedHealth);
+        TotemHealth.Heal(TotemRegenInfo.GetRegeneratedHealth);
     }
 }

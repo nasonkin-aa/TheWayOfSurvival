@@ -304,7 +304,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 4851439577484637714}
-  exp: 50
+  config: {fileID: 11400000, guid: d1aaad594e861fe4aa253d5828913e8c, type: 2}
+  moveControl: {fileID: 3763821635501955624}
+  enemyAttack: {fileID: 6262425806418569226}
+  animator: {fileID: 508932979009097681}
 --- !u!114 &3763821635501955624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ae7b4c60fb6dc458bed5bdbf10987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
 --- !u!114 &7663579530294693150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede9d7c257d3a894bab84c675a41b12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &1644236497513344689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +420,7 @@ MonoBehaviour:
   - {x: -0.24613261, y: -4.045649, z: 0}
   m_ShapePathHash: 230924259
   m_Mesh: {fileID: 0}
-  m_InstanceId: 86136
+  m_InstanceId: 36186
   m_LocalBounds:
     m_Center: {x: -0.3969748, y: -3.6335902, z: 0}
     m_Extent: {x: 2.658649, y: 0.41205883, z: 0}
@@ -457,5 +461,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c6ab22c8a354343a3b446cf74d1eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 20
+  maxHealth: 100
+  currentHealth: 100

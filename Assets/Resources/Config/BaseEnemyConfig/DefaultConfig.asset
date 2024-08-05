@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: DefaultConfig
   m_EditorClassIdentifier: 
   maxHealth: 1
-  soulPoints: 0
-  scorePoints: 0
+  damage: 1
+  soulPoints: 10
+  scorePoints: 10

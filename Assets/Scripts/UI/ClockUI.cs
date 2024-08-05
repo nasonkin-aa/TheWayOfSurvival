@@ -19,19 +19,19 @@ public class ClockUI : MonoBehaviour
     
     private Clock _innerClock;
 
-    private void Start()
+    private void Awake()
     {
-        tmpText ??= GetComponent<TMP_Text>();
-
+        gameObject.AssignComponentIfUnityNull(ref tmpText);
+        
         _innerClock = type switch
         {
             ClockType.Countdown => new Countdown(initialMinutes * 60 + initialSeconds, format),
             ClockType.Stopwatch => new Stopwatch(0, format),
             _ => throw new ArgumentOutOfRangeException()
         };
-
-        UpdateText();
     }
+
+    private void Start() => UpdateText();
 
     private void OnEnable()
     {

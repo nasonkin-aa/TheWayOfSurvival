@@ -1,4 +1,5 @@
 using System;
+using Souls;
 
 public static class GlobalScore
 {
@@ -25,18 +26,19 @@ public static class GlobalScore
 
     public static void Initialize()
     {
-        LightWorld.NightStartEvent += NightStart;
-        Soul.PickUpEvent += AddPoints;
-        BaseEnemy.DeathEvent += AddPoints;
+        LightWorld.NightStartEvent += OnNightStart;
+        SoulCollector.PickUpEvent += AddPoints;
+        BaseEnemy.DeathEvent += OnEnemyDeath;
     }
 
     public static void Dispose()
     {
-        LightWorld.NightStartEvent -= NightStart;
-        Soul.PickUpEvent += AddPoints;
-        BaseEnemy.DeathEvent += AddPoints;
+        LightWorld.NightStartEvent -= OnNightStart;
+        SoulCollector.PickUpEvent -= AddPoints;
+        BaseEnemy.DeathEvent -= OnEnemyDeath;
     }
 
     private static void AddPoints(int amount) => Score += amount;
-    private static void NightStart() => AddPoints(200);
+    private static void OnNightStart() => AddPoints(200);
+    private static void OnEnemyDeath(BaseEnemy.DeathInfo info) => AddPoints(info.Config.ScorePoints);
 }

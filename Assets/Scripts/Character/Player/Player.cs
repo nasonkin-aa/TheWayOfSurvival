@@ -14,14 +14,13 @@ public class Player : Singleton<Player>
     public Weapon Weapon => weapon;
 
     public event Action ShakeEvent;
-    public event Action SoulPickUpEvent;
 
     protected override void Awake()
     {
         base.Awake();
         
-        health ??= GetComponent<Health>();
-        weapon ??= GetComponentInChildren<Weapon>();
+        gameObject.AssignComponentIfUnityNull(ref health);
+        gameObject.AssignComponentInChildrenIfUnityNull(ref weapon);
     }
 
     private void OnEnable()
@@ -44,7 +43,6 @@ public class Player : Singleton<Player>
 
     private void OnDeath()
     {
-        GlobalScore.Dispose();
     }
 
     public void AddModifier(ModifierPrepare modifier)
@@ -62,15 +60,5 @@ public class Player : Singleton<Player>
             containedMod.SetModifierInfo(modifier.GetModifierInfo());
             modifier?.SetModifierInfo(modifier.GetModifierInfo(), transform);
         }
-    }
-
-    public void OnSoulPickUp()
-    {
-        SoulPickUpEvent?.Invoke();
-    }
-
-    private void OnDestroy()
-    {
-        Instance = null;
     }
 }

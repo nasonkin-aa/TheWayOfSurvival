@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,18 +7,30 @@ public class SpawnerManager : MonoBehaviour
     public GameObject[] SkySpawnPoints;
     public GameObject[] GroundSpawnPoints;
     [SerializeField]
-    private Wave[] countWaves;
+    private WaveConfig[] countWaves;
     private int _spawnedEnemyCount = 0;
 
     private float _currentTime;
     private int _currentWave = 0;
     private int _spawnedEnemiesInWave;
 
-    private float timeToSpawn;
+    private float _timeToSpawn;
     
     private void Awake()
     {
-        LightWorld.SetNewDuration(countWaves[_currentWave].WaveTime + countWaves[_currentWave + 1].WaveTime);
+        LightWorld.SetNewDuration(CalculateDuration());
+    }
+    
+    private void OnEnable()
+    {
+        LightWorld.NightStartEvent += StartNewWave;
+        LightWorld.DayStartEvent += SetTimeDayNight;
+    }
+    
+    private void OnDisable()
+    {
+        LightWorld.NightStartEvent -= StartNewWave;
+        LightWorld.DayStartEvent -= SetTimeDayNight;
     }
 
     void Update()
@@ -28,17 +41,19 @@ public class SpawnerManager : MonoBehaviour
 
             if (_spawnedEnemiesInWave < countWaves[_currentWave].CountEnemy)
             {
-                timeToSpawn -= Time.deltaTime;
-                if (timeToSpawn <= 0f)
+                _timeToSpawn -= Time.deltaTime;
+                if (_timeToSpawn <= 0f)
                 {
                     ChooseEnemy();
-                    timeToSpawn = countWaves[_currentWave].WaveTime / countWaves[_currentWave].CountEnemy;
+                    _timeToSpawn = countWaves[_currentWave].WaveTime / countWaves[_currentWave].CountEnemy;
                 }
             }
         }
     }
 
-
+    private float CalculateDuration() =>
+        countWaves[_currentWave].WaveTime + countWaves[_currentWave + 1].WaveTime;
+    
     public void ChooseEnemy()
     {
         float randomValue = Random.Range(0f, 1f);
@@ -61,57 +76,30 @@ public class SpawnerManager : MonoBehaviour
         _spawnedEnemiesInWave++;
     }
 
-    private EnemyType GetGroundEnemy()
-    {
-        EnemyType groundEnemy;
-        do
-        {
-            groundEnemy = countWaves[_currentWave].EnemyInWave[Random.Range(0, countWaves[_currentWave].EnemyInWave.Length)];
-        } while (groundEnemy.GetComponent<EnemyType>().enemy != EnemyType.Type.Ground);
-
-        return groundEnemy;
-    }
+    private EnemyType GetGroundEnemy() =>
+        countWaves[_currentWave].EnemyInWave.First(x => x.GetComponent<EnemyType>().enemy != EnemyType.Type.Ground);
 
     public void StartNewWave()
     {
-        Debug.Log(countWaves[_currentWave].name);
         if (_currentWave + 1 == countWaves.Length)
             _currentWave--;
         else
             _currentWave++;
-        
+
         _currentTime = 0;
         _spawnedEnemiesInWave = 0;
     }
 
-    private EnemyType GetAirEnemy()
-    {
-        EnemyType airEnemy;
-        do
-        {
-            airEnemy = countWaves[_currentWave].EnemyInWave[Random.Range(0, countWaves[_currentWave].EnemyInWave.Length)];
-        } while (airEnemy.GetComponent<EnemyType>().enemy != EnemyType.Type.Sky);
+    private EnemyType GetAirEnemy() => 
+        countWaves[_currentWave].EnemyInWave.First(x => x.GetComponent<EnemyType>().enemy != EnemyType.Type.Sky);
 
-        return airEnemy;
-    }
-    
-    private void OnEnable()
-    {
-        LightWorld.NightStartEvent += StartNewWave;
-        LightWorld.DayStartEvent += SetTimeDayNight;
-    }
 
     private void SetTimeDayNight()
     {
         StartNewWave();
-        LightWorld.SetNewDuration(countWaves[_currentWave].WaveTime + countWaves[_currentWave + 1].WaveTime);
+        LightWorld.SetNewDuration(CalculateDuration());
     }
 
-    private void OnDisable()
-    {
-        LightWorld.NightStartEvent -= StartNewWave;
-        LightWorld.DayStartEvent -= SetTimeDayNight;
-    }
 
     public void SpawnEnemy(GameObject spawnPoints, EnemyType enemyType)
     {
@@ -119,13 +107,13 @@ public class SpawnerManager : MonoBehaviour
             _spawnedEnemyCount = 0;
 
         _spawnedEnemyCount++;
-        spawnPoints.transform.position = new Vector3(spawnPoints.transform.position.x, spawnPoints.transform.position.y, 10f);
+        
+        var position = spawnPoints.transform.position.With(z: 10f);
+        spawnPoints.transform.position = position;
 
-        var enemy = Instantiate(enemyType, spawnPoints.transform.position, Quaternion.identity, transform);
+        var enemy = Instantiate(enemyType, position, Quaternion.identity, transform);
         enemy.GetComponent<SpriteRenderer>().sortingOrder = _spawnedEnemyCount;
-        enemy.GetComponent<Health>().ScaleHealth(countWaves[_currentWave].HealthScale);
+        enemy.GetComponent<Health>().Scale(countWaves[_currentWave].HealthScale);
         enemy.GetComponent<IMovable>().ScaleSpeed(countWaves[_currentWave].SpeedScale);
     }
-
-    
 }

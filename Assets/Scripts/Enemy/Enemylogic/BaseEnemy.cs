@@ -7,13 +7,15 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class BaseEnemy : MonoBehaviour
 {
-    [SerializeField] protected BaseEnemyConfig config;
     [SerializeField] protected Health health;
+    [SerializeField] protected BaseEnemyConfig config;
 
+    [SerializeField] protected MoveController moveControl;
+    [SerializeField] protected Attack enemyAttack;
+    [SerializeField] protected Animator animator;
+    
+    protected Transform targetTransform;
     protected IHaveTarget _targetSelector;
-    protected Transform _targetTransform;
-    protected MoveController _moveControl;
-    protected Attack _enemyAttack;
     protected string _animatorBoolForAttack = "TargetInZone";
 
     protected enum EnemyState
@@ -24,24 +26,31 @@ public class BaseEnemy : MonoBehaviour
 
     protected EnemyState _state = EnemyState.Move;
 
-    public static event Action<int> DeathEvent;
+    public static event Action<DeathInfo> DeathEvent;
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        health ??= GetComponent<Health>();
+        config ??= Resources.Load<BaseEnemyConfig>(BaseEnemyConfig.GetConfigPath(name));
         config ??= Resources.Load<BaseEnemyConfig>(BaseEnemyConfig.DefaultConfigPath);
+        
+        gameObject.AssignComponentIfUnityNull(ref health);
+        gameObject.AssignComponentIfUnityNull(ref enemyAttack);
+        gameObject.AssignComponentIfUnityNull(ref moveControl);
+        gameObject.AssignComponentIfUnityNull(ref animator);
+
+        _targetSelector = GetComponent<IHaveTarget>();
     }
 
     protected virtual void Start()
     {
-        _enemyAttack = GetComponent<Attack>();
-        _enemyAttack.OnAttackReady += ReadyToAttack;
-        _enemyAttack.OnAttackFinished += FinishAttack;
+        health.MaxHealth = config.MaxHealth;
+        enemyAttack.Damage = config.Damage;
+    
+        enemyAttack.OnAttackReady += ReadyToAttack;
+        enemyAttack.OnAttackFinished += FinishAttack;
         
-        _moveControl = GetComponent<MoveController>();
-        _targetSelector = GetComponent<IHaveTarget>();
-        _targetTransform = _targetSelector.GetTarget();
-        _moveControl.target = _targetTransform;
+        targetTransform = _targetSelector.GetTarget();
+        moveControl.target = targetTransform;
     }
 
     private void OnEnable()
@@ -63,39 +72,32 @@ public class BaseEnemy : MonoBehaviour
 
     private void OnDeath()
     {
-        DeathEvent?.Invoke(config.ScorePoints);
-        PrepareSoul();
-        
+        DeathEvent?.Invoke(new DeathInfo(config, transform.position));
+
         // Object Pool Doesn't Exist Yet :(
         Destroy(gameObject);
     }
-    
-    protected void PrepareSoul()
-    {
-        var soul = Soul.SpawnSoul(transform.position);
-        soul.SetExp(config.SoulPoints);
-    }   
 
     protected virtual void Update()
     {
         switch (_state)
         {
             case EnemyState.Move:
-                _moveControl.MoveToTarget();
+                moveControl.MoveToTarget();
                 break;
             case EnemyState.Attack:
-                _moveControl.Stop();
+                moveControl.Stop();
                 break;
             default:
-                _moveControl.MoveToTarget();
+                moveControl.MoveToTarget();
                 break;
         }
     }
 
     protected virtual void ReadyToAttack()
     {
-        _moveControl.Flip(
-            -(_moveControl.GetDirectionToObject(_moveControl.target)).x,
+        moveControl.Flip(
+            -(moveControl.GetDirectionToObject(moveControl.target)).x,
             gameObject);
         _state = EnemyState.Attack;
         StartAttack();
@@ -103,12 +105,24 @@ public class BaseEnemy : MonoBehaviour
     
     public virtual void StartAttack()
     {
-        gameObject.GetComponent<Animator>().SetBool(_animatorBoolForAttack, true);
+        animator.SetBool(_animatorBoolForAttack, true);
     }
     
     public virtual void FinishAttack()
     {
-        gameObject.GetComponent<Animator>().SetBool(_animatorBoolForAttack, false);
+        animator.SetBool(_animatorBoolForAttack, false);
         _state = EnemyState.Move;
+    }
+    
+    public readonly struct DeathInfo
+    {
+        public readonly BaseEnemyConfig Config;
+        public readonly Vector3 Position;
+
+        public DeathInfo(BaseEnemyConfig config, Vector3 position)
+        {
+            Config = config;
+            Position = position;
+        }
     }
 }

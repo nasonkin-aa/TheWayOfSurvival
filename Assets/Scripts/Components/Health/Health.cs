@@ -12,11 +12,8 @@ public class Health : MonoBehaviour
     public event Action<int> DamageEvent;
     public event Action<int> HealEvent;
 
-    protected void Awake() 
-    {
-        currentHealth = MaxHealth;
-    }
-    
+    private void Awake() => CurrentHealth = MaxHealth;
+
     public float Percentage => CurrentHealth.DivideBy(maxHealth);
 
     public int MaxHealth 
@@ -39,10 +36,8 @@ public class Health : MonoBehaviour
             int delta = value - currentHealth;
             ChangeEvent?.Invoke(delta);
 
-            if (delta < 0)
-                DamageEvent?.Invoke(delta);
-            else
-                HealEvent?.Invoke(delta);
+            if (delta < 0) DamageEvent?.Invoke(delta);
+            if (delta > 0) HealEvent?.Invoke(delta);
 
             if (value <= 0)
             {
@@ -55,10 +50,10 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void ScaleHealth(float scale)
+    public void Scale(float scale)
     {
-        MaxHealth = (int) (maxHealth * scale);
-        currentHealth = MaxHealth;
+        MaxHealth = (int)(MaxHealth * scale);
+        CurrentHealth = MaxHealth;
     }
 
     public void TakeDamage(int amount) => CurrentHealth -= amount;

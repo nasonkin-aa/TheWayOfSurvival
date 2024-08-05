@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 2231597646404449991}
   - component: {fileID: 5173489402313521998}
   - component: {fileID: 6902550539326549379}
-  - component: {fileID: 2637749118048896245}
   - component: {fileID: 3122446280806698965}
   - component: {fileID: 421681287445395448}
   - component: {fileID: 6282482711103389029}
@@ -223,7 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 8212121562615653068}
-  exp: 50
+  config: {fileID: 0}
+  moveControl: {fileID: 2095466478650730514}
+  enemyAttack: {fileID: 6902550539326549379}
+  animator: {fileID: 6282482711103389029}
 --- !u!114 &6902550539326549379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,21 +238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ae7b4c60fb6dc458bed5bdbf10987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
---- !u!114 &2637749118048896245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4008874985900004576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a978695ec67d064b8a38c455240c22c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  exp: 50
 --- !u!114 &3122446280806698965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede9d7c257d3a894bab84c675a41b12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &421681287445395448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +311,7 @@ MonoBehaviour:
   - {x: -3.6937058, y: -6.0823493, z: 0}
   m_ShapePathHash: 1253693764
   m_Mesh: {fileID: 0}
-  m_InstanceId: 85994
+  m_InstanceId: 36810
   m_LocalBounds:
     m_Center: {x: -0.7190342, y: -5.730623, z: 0}
     m_Extent: {x: 2.9746716, y: 0.7641387, z: 0}
@@ -366,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  health: 100
+  currentHealth: 100
 --- !u!1 &6935762298735566649
 GameObject:
   m_ObjectHideFlags: 0

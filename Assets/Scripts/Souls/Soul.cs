@@ -1,66 +1,88 @@
 using System;
+using System.Collections;
+using AlexTools;
+using AlexTools.Flyweight;
+using Souls;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class Soul : MonoBehaviour
+public class Soul : MonoFlyweight<Soul, SoulSetting>
 {
-    [SerializeField] private int _exp = 20;
-    public static GameObject SoulPrefab;
-    private SpriteRenderer SpriteRenderer => GetComponent<SpriteRenderer>();
-    private Material GetMaterial => SpriteRenderer?.material;
-    private TrailRenderer TrailRenderer => GetComponent<TrailRenderer>();
-    private Light2D Light => GetComponent<Light2D>();
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private TrailRenderer trailRenderer;
+    [SerializeField] private new Light2D light;
+    [SerializeField] private new Rigidbody2D rigidbody;
+    
+    private static readonly int GlowColor = Shader.PropertyToID("_GlowColor");
+    
+    const float MagneticRadius = 2.5f;
+    const float MagneticForce = 0.5f;
+    
+    private Vector3 PlayerPosition => Player.Instance.transform.position;
+    
+    private int _points;
 
-    public static event Action<int> PickUpEvent;
-
-    public static GameObject LoadFromAssets() => Resources.Load("Soul") as GameObject;
-    public static Soul SpawnSoul(Vector2 position)
+    public int Points
     {
-        SoulPrefab ??= LoadFromAssets();
-        var soul = Instantiate(SoulPrefab, position, Quaternion.identity);
-        return soul.GetComponent<Soul>();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!collision.gameObject.GetComponent<Player>())
-            return;
-        SoundManager.instance.PlaySound("SoulPickUp");
-        collision.gameObject.GetComponent<PlayerLvl>().GetExp(_exp);
-        collision.gameObject.GetComponent<Player>().OnSoulPickUp();
-        
-        PickUpEvent?.Invoke(_exp);
-        
-        Destroy(gameObject);
-    }
-
-    public void SetExp(int amount)
-    {
-        _exp = amount;
-
-        if (amount < 20 || amount > 60)
-            return;
-        
-
-        if (GetMaterial is null)
-            return;
-
-        Color myColor;
-        switch (_exp)
+        get => _points;
+        set
         {
-            case 30:
-                ColorUtility.TryParseHtmlString("#d9de3e", out myColor); // Yellow
-                break;
-            case 50:
-                ColorUtility.TryParseHtmlString("#FF2A2A", out myColor); // Red
-                break;
-            default:
-                ColorUtility.TryParseHtmlString("#34ebe5", out myColor); // Blue
-                break;
+            _points = value.AtLeast(0);
+            ChangeColor();
         }
-        SpriteRenderer.color = myColor;
-        GetMaterial.SetColor("_GlowColor", myColor);
-        TrailRenderer.startColor = myColor;
-        Light.color = myColor;
+    }
+
+    private Coroutine _coroutine;
+
+    public override void Initialize(SoulSetting settings)
+    {
+        base.Initialize(settings);
+        
+        gameObject.AssignComponentIfUnityNull(ref spriteRenderer);
+        gameObject.AssignComponentIfUnityNull(ref trailRenderer);
+        gameObject.AssignComponentIfUnityNull(ref light);
+        gameObject.AssignComponentIfUnityNull(ref rigidbody);
+    }
+
+    public override void OnGet() => _coroutine = StartCoroutine(DespawnRoutine());
+
+    public override void OnRelease()
+    {
+        if (_coroutine != null) StopCoroutine(_coroutine);
+        trailRenderer.Clear();
+    }
+
+    private void Update() => ApplyMagneticForce();
+
+    private void ApplyMagneticForce()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, PlayerPosition);
+        
+        if (distanceToPlayer < MagneticRadius)
+        {
+            Vector3 directionToPlayer = (PlayerPosition - transform.position).normalized;
+            transform.position += directionToPlayer * (MagneticForce * Time.deltaTime);
+            rigidbody.gravityScale = 0f;
+        }
+        else
+        {
+            rigidbody.gravityScale = 0.1f;
+        }
+    }
+
+    private void ChangeColor()
+    {
+        var newColor = Settings.GetColor(Points);
+        
+        spriteRenderer.color = newColor;
+        spriteRenderer.material.SetColor(GlowColor, newColor);
+        trailRenderer.startColor = newColor;
+        light.color = newColor;
+    }
+
+    private IEnumerator DespawnRoutine()
+    {
+        yield return Waiters.GetWaitForSeconds(Settings.DespawnTime);
+        ReleaseSelf(); 
     }
 }

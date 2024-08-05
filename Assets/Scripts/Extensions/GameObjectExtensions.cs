@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -31,6 +32,24 @@ public static class GameObjectExtensions
     {
         var components = gameObject.GetComponents<T>();
         components.ForEach(Object.Destroy);
+    }
+
+    public static void AssignComponentIfUnityNull<T>(
+        this GameObject gameObject, 
+        ref T component) 
+        where T : Component
+    {
+        if (component.IsUnityNull())
+            component = gameObject.GetComponent<T>();
+    }
+    
+    public static void AssignComponentInChildrenIfUnityNull<T>(
+        this GameObject gameObject, 
+        ref T component) 
+        where T : Component
+    {
+        if (component.IsUnityNull())
+            component = gameObject.GetComponentInChildren<T>();
     }
 
     public static string GetPath(this GameObject gameObject) =>

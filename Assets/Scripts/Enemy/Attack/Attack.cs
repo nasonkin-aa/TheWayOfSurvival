@@ -4,7 +4,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     protected AttackZone _attackZone;
-    public int damage = 10;
+    public int Damage { get; set; } = 10;
     public Action OnAttackReady;
     public Action OnAttackFinished;
     protected Health _targetToAttack;
@@ -27,7 +27,7 @@ public class Attack : MonoBehaviour
         var collideHealth = _attackZone.CheckTargetInCollider();
         if (collideHealth is not null && collideHealth == _targetToAttack)
         {
-            _targetToAttack?.TakeDamage(damage);
+            _targetToAttack?.TakeDamage(Damage);
         }
         else
         {

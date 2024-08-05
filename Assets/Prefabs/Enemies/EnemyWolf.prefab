@@ -197,7 +197,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 2671001215042601686}
-  exp: 50
+  config: {fileID: 0}
+  moveControl: {fileID: 509429393900416771}
+  enemyAttack: {fileID: 5542451316043751796}
+  animator: {fileID: 2102468744472904258}
 --- !u!114 &509429393900416771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ae7b4c60fb6dc458bed5bdbf10987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
 --- !u!114 &-7312861945700669583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede9d7c257d3a894bab84c675a41b12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &-1373170517717830443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +325,7 @@ MonoBehaviour:
   - {x: -17.154694, y: -9.382627, z: 0}
   m_ShapePathHash: -1207962909
   m_Mesh: {fileID: 0}
-  m_InstanceId: 86260
+  m_InstanceId: 35968
   m_LocalBounds:
     m_Center: {x: -2.0237665, y: -8.5701275, z: 0}
     m_Extent: {x: 15.130927, y: 0.8124988, z: 0}
@@ -350,8 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c6ab22c8a354343a3b446cf74d1eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
-  currentHealth: 30
+  maxHealth: 100
+  currentHealth: 100
 --- !u!1 &8701541577726817925
 GameObject:
   m_ObjectHideFlags: 0

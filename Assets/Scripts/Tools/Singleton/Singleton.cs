@@ -7,7 +7,12 @@ public class Singleton<T> : MonoBehaviour where T : Component
     private static T _instance;
 
     public static bool HasInstance => _instance != null;
-    public static T TryGetInstance() => HasInstance ? _instance : null;
+
+    public static bool TryGetInstance(out T instance)
+    {
+        instance = _instance;
+        return HasInstance;
+    }
 
     public static T Instance 
     {

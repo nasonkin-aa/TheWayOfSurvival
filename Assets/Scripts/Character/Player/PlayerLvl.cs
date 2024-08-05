@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Souls;
 using UnityEngine;
 
 public class PlayerLvl : MonoBehaviour
@@ -9,7 +10,7 @@ public class PlayerLvl : MonoBehaviour
     private static float _timeScaleForSlowExp = .1f;
     private static float _timeForSlowExp = 1;
 
-    [SerializeField]private float _playerExp = 0;
+    [SerializeField] private float _playerExp = 0;
     public float PlayerExp
     {
         get => _playerExp;
@@ -33,7 +34,19 @@ public class PlayerLvl : MonoBehaviour
         drawMod = FindObjectOfType<DrawModifier>();
     }
 
-    public void GetExp (float exp)
+    private void OnEnable()
+    {
+        SoulCollector.PickUpEvent += OnSoulPickUp;
+    }
+
+    private void OnDisable()
+    {
+        SoulCollector.PickUpEvent += OnSoulPickUp;
+    }
+
+    private void OnSoulPickUp(int points) => GetExp(points);
+
+    public void GetExp(float exp)
     {
         IEnumerator corutine = GetExpSlowly(exp);
         StartCoroutine(corutine);

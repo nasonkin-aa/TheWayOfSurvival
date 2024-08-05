@@ -179,6 +179,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BaseDamage>k__BackingField: 10
   <WeaponDamage>k__BackingField: 10
+  <MoreDamageAxe>k__BackingField: 0
+  <MoreDamageRage>k__BackingField: 0
+  <RageInfoScale>k__BackingField: 0
   projectileForce: 700
   delayAttack: 0.7
 --- !u!1 &7135167356172872712
@@ -205,6 +208,7 @@ GameObject:
   - component: {fileID: 4152066239822890621}
   - component: {fileID: 2582317202423912479}
   - component: {fileID: 37440581825233985}
+  - component: {fileID: 1185114754925165141}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -366,6 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 37440581825233985}
+  weapon: {fileID: 0}
 --- !u!114 &8024410015909220742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede9d7c257d3a894bab84c675a41b12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &4152066239822890621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,4 +539,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  health: 100
+  currentHealth: 100
+--- !u!114 &1185114754925165141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135167356172872712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e04a5a2fcaa4e48a722e6a8c4889442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

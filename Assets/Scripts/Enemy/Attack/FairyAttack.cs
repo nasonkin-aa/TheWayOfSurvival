@@ -31,12 +31,12 @@ public class FairyAttack : Attack
 
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         var obj = Instantiate(_projectile, transform.position, rotation);
-        obj.GetComponent<EnemyProjectiles>().Damage = damage;
+        obj.GetComponent<EnemyProjectiles>().Damage = Damage;
         SoundManager.instance.PlaySound("FairyProjectile");
         
         obj.GetComponent<Rigidbody2D>().velocity = direction * speedProjectile;
         GetComponent<Rigidbody2D>().AddForce(-direction * 0.2f);
-        Destroy(obj, 5f);
+        // Destroy(obj, 5f);
     }
 
     public bool CheckTargetToAttack(Health health)

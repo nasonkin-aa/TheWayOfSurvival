@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -6,12 +7,15 @@ public class Score : Singleton<Score>
 {
     [SerializeField] private TMP_Text tmpText;
 
-    private void Awake()
+    protected override void Awake()
     {
-        tmpText ??= GetComponent<TMP_Text>();
+        base.Awake();
+        
+        gameObject.AssignComponentIfUnityNull(ref tmpText);
     }
-    
-    private void Start() => OnScoreChange();
 
-    public void OnScoreChange() => tmpText.text = $"Ñ÷¸ò: {GlobalScore.Score}";
+    private void OnEnable() => GlobalScore.ChangeEvent += OnScoreChange;
+    private void OnDisable() => GlobalScore.ChangeEvent -= OnScoreChange;
+
+    private void OnScoreChange(int value) => tmpText.text = $"Ñ÷¸ò: {value}";
 }

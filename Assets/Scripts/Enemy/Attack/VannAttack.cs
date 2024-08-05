@@ -27,7 +27,7 @@ public class VannAttack : Attack
 
         GameObject projectile = Instantiate(_projectilePrefab, _SpawnPoint.position, Quaternion.identity);
         
-        projectile.GetComponent<EnemyProjectiles>().Damage = damage;
+        projectile.GetComponent<EnemyProjectiles>().Damage = Damage;
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         float yDistance = (target.position.y - transform.position.y) * directionSign;
         if (Mathf.Abs(yDistance) < 2)
