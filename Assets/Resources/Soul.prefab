@@ -102,10 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6232e7d5a3bc0f449832f864b6046bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Settings>k__BackingField: {fileID: 0}
+  <Settings>k__BackingField: {fileID: 11400000, guid: a17a9dec4b648804a9d7555ae5925e78, type: 2}
   spriteRenderer: {fileID: 0}
   trailRenderer: {fileID: 0}
-  light: {fileID: 0}
+  light: {fileID: 3354665232621969895}
   rigidbody: {fileID: 0}
 --- !u!58 &4067019495463003866
 CircleCollider2D:
@@ -1278,7 +1278,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8419011968743330026}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0

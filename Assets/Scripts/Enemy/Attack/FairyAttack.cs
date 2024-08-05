@@ -16,9 +16,9 @@ public class FairyAttack : Attack
     }
     public override void ContactWithTarget(Health health)
     {
-        if (health is null)
-            return;
-        OnAttackReady?.Invoke();
+        if (health is null) return;
+        
+        base.ContactWithTarget(health);
     }
 
     public void Attack ()
@@ -32,7 +32,7 @@ public class FairyAttack : Attack
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         var obj = Instantiate(_projectile, transform.position, rotation);
         obj.GetComponent<EnemyProjectiles>().Damage = Damage;
-        SoundManager.instance.PlaySound("FairyProjectile");
+        SoundManager.Instance.PlaySound("FairyProjectile");
         
         obj.GetComponent<Rigidbody2D>().velocity = direction * speedProjectile;
         GetComponent<Rigidbody2D>().AddForce(-direction * 0.2f);

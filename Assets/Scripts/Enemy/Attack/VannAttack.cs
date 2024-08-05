@@ -14,8 +14,8 @@ public class VannAttack : Attack
         if (!_isReadyToAttack)
             return;
 
-        _targetToAttack = health;
-        OnAttackReady?.Invoke();
+        base.ContactWithTarget(health);
+        
         _isReadyToAttack = false;
         StartCoroutine(Reload());
     }

@@ -39,35 +39,34 @@ public class BaseEnemy : MonoBehaviour
         gameObject.AssignComponentIfUnityNull(ref animator);
 
         _targetSelector = GetComponent<IHaveTarget>();
-    }
-
-    protected virtual void Start()
-    {
-        health.MaxHealth = config.MaxHealth;
-        enemyAttack.Damage = config.Damage;
-    
-        enemyAttack.OnAttackReady += ReadyToAttack;
-        enemyAttack.OnAttackFinished += FinishAttack;
-        
         targetTransform = _targetSelector.GetTarget();
         moveControl.target = targetTransform;
+        
+        health.MaxHealth = config.MaxHealth;
+        enemyAttack.Damage = config.Damage;
     }
 
     private void OnEnable()
     {
+        enemyAttack.OnAttackReady += ReadyToAttack;
+        enemyAttack.OnAttackFinished += FinishAttack;
+        
         health.DamageEvent += OnDamage;
         health.DeathEvent += OnDeath;
     }
 
     private void OnDisable()
     {
+        enemyAttack.OnAttackReady -= ReadyToAttack;
+        enemyAttack.OnAttackFinished -= FinishAttack;
+        
         health.DamageEvent -= OnDamage;
         health.DeathEvent -= OnDeath;
     }
 
     private void OnDamage(int value)
     {
-        SoundManager.instance.PlaySound("HitSound");
+        SoundManager.Instance.PlaySound("HitSound");
     }
 
     private void OnDeath()

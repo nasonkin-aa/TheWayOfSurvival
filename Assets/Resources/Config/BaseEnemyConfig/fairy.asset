@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52c5d06c390147e9a45b2e03e21ab57b, type: 3}
-  m_Name: EnemyBird
+  m_Name: fairy
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  damage: 5
-  soulPoints: 10
-  scorePoints: 20
+  maxHealth: 50
+  damage: 10
+  soulPoints: 15
+  scorePoints: 30

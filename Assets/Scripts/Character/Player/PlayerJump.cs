@@ -22,7 +22,7 @@ public class PlayerJump : MonoBehaviour
         if (GroundChecker.IsPayerOnTheGround && velocityY <= 0)
         {
             _rb.AddForce(Vector2.up * (jumpForce * _jumpConstanta));
-            SoundManager.instance.PlaySound("PlayerJump");
+            SoundManager.Instance.PlaySound("PlayerJump");
         }
     }
 

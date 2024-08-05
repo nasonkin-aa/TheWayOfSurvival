@@ -5,8 +5,8 @@ public class Attack : MonoBehaviour
 {
     protected AttackZone _attackZone;
     public int Damage { get; set; } = 10;
-    public Action OnAttackReady;
-    public Action OnAttackFinished;
+    public event Action OnAttackReady;
+    public event Action OnAttackFinished;
     protected Health _targetToAttack;
     
  
@@ -40,7 +40,7 @@ public class Attack : MonoBehaviour
         OnAttackFinished?.Invoke();
     }
 
-    public void SetTrget(Health target)
+    public void SetTarget(Health target)
     {
         _targetToAttack = target;
     }
