@@ -23,19 +23,27 @@ public static class GlobalScore
 
     public static void ObjectsLoad ()
     {
-        LightWorld.OnNightStart += NightStart;
+        LightWorld.NightStartEvent += OnNightStart;
+        SoulCollector.PickUpEvent += AddPoints;
+        BaseEnemy.DeathEvent += OnEnemyDeath;
+        GameLogic.Instance.EndedEvent += OnGameEnded;
     }
 
     public static void GameFinished()
     {
-        LightWorld.OnNightStart -= NightStart;
+        LightWorld.NightStartEvent -= OnNightStart;
+        SoulCollector.PickUpEvent -= AddPoints;
+        BaseEnemy.DeathEvent -= OnEnemyDeath;
+        GameLogic.Instance.EndedEvent += OnGameEnded;
     }
 
-    public static void AddPoints(int amount)
+    private static void AddPoints(int amount) => Score += amount;
+    private static void OnNightStart() => AddPoints(200);
+    private static void OnEnemyDeath(BaseEnemy.DeathInfo info) => AddPoints(info.Config.ScorePoints);
+
+    private static void OnGameEnded()
     {
-        Score += amount;
-        OnScoreChange?.Invoke(Score);
+        AddPoints((int)(Player.Instance.Health.Percentage * 1000));
+        AddPoints((int)(Totem.Instance.Health.Percentage * 2000));
     }
-
-    private static void NightStart() => AddPoints(200);
 }
