@@ -41,7 +41,7 @@ public class Thunderbolt : MonoBehaviour, IWeaponModifier
         var thunderObj = Instantiate(_particlePrefab);
         thunderObj.transform.position = new (transform.position.x, thunderObj.transform.position.y);
         thunderObj.GetComponentInChildren<ParticleSystem>()?.Play(false);
-        SoundManager.instance.PlaySound("Thunderbolt");
+        SoundManager.Instance.PlaySound("Thunderbolt");
         Destroy(thunderObj, 3);
     }
 

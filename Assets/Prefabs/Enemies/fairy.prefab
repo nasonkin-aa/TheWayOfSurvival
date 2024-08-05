@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 5954010619701400526}
-  config: {fileID: 0}
+  config: {fileID: 11400000, guid: acd4f212b6d550848a3042cc0a5ceeb8, type: 2}
   moveControl: {fileID: 8035385996595723157}
   enemyAttack: {fileID: 1901082293150640879}
   animator: {fileID: 1528407257624868279}

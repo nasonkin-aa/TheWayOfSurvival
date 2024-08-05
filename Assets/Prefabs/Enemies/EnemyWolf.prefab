@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 2671001215042601686}
-  config: {fileID: 0}
+  config: {fileID: 11400000, guid: 7498b457d56409a46b225cdc5b16f51d, type: 2}
   moveControl: {fileID: 509429393900416771}
   enemyAttack: {fileID: 5542451316043751796}
   animator: {fileID: 2102468744472904258}

@@ -37,7 +37,7 @@ public class Player : Singleton<Player>
 
     private void OnDamage(int value)
     {
-        SoundManager.instance.PlaySound("PlayerDamage");
+        SoundManager.Instance.PlaySound("PlayerDamage");
         ShakeEvent?.Invoke();
     }
 

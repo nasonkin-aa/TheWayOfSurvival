@@ -1,16 +1,11 @@
-// SoundManager.cs
-
-using System;
 using System.Collections;
+using AlexTools;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
-    public static SoundManager instance;
-
     [SerializeField]
     private Sound sound;
 
@@ -57,19 +52,6 @@ public class SoundManager : MonoBehaviour
         savedSoundVolume = soundSlider.value;
         PlayerPrefs.SetFloat("SoundVolume", savedSoundVolume);
     }
-    private void Awake()
-    {
-        // Singleton pattern to ensure only one instance of SoundManager exists
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
 
     public void PlaySound(string typeName)
     {
@@ -99,7 +81,7 @@ public class SoundManager : MonoBehaviour
 
     private IEnumerator DestroyAfterPlay(AudioSource audioSource, GameObject soundObject)
     {
-        yield return new WaitForSeconds(audioSource.clip.length);
+        yield return Waiters.GetWaitForSeconds(audioSource.clip.length);
         Destroy(soundObject);
     }
 }

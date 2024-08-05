@@ -19,15 +19,9 @@ public class FairyEnemy : BaseEnemy
         moveController ??= GetComponent<FairyMoveController>();
         
         _targetSelector = GetComponent<IHaveTarget>();
+        attack.SetTarget(targetTransform.GetComponent<Health>());
     }
 
-    protected override void Start()
-    {
-        base.Start();
-        
-        attack.SetTrget(targetTransform.GetComponent<Health>());
-    }
-    
     protected IEnumerator Reload()
     {
         yield return new WaitForSeconds(_reloadTime);
