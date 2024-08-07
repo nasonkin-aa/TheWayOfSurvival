@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Totem Health For Souls Config 1
   m_EditorClassIdentifier: 
   _name: Totem Soul Health
-  _icon: {fileID: -1023842971, guid: 8a2df2d1b5f45204b84b8ae7d117af98, type: 3}
+  _icon: {fileID: 954596773, guid: 96e847b394462284ba314f44c448e91d, type: 3}
   _lvl: 1
   _description: Totem regenerates health for picking up soul
   _regeneratedlHealth: 1

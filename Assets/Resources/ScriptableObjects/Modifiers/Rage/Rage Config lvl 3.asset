@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rage Config lvl 3
   m_EditorClassIdentifier: 
   _name: "\u0411\u0435\u0440\u0441\u0435\u0440\u043A"
-  _icon: {fileID: 294712626, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
+  _icon: {fileID: 821945480, guid: 96e847b394462284ba314f44c448e91d, type: 3}
   _lvl: 3
   _description: "\u041F\u0440\u0438 \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u0438
     \u0443\u0440\u043E\u043D\u0430 \u0433\u0435\u0440\u043E\u0435\u043C, \u0443\u0440\u043E\u043D
