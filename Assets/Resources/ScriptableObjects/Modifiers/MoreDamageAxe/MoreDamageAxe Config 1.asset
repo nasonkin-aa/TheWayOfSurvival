@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MoreDamageAxe Config 1
   m_EditorClassIdentifier: 
   _name: MoreDamageAxe
-  _icon: {fileID: 47885521, guid: 01b549e18cc97aa43bb3362a776eb1e6, type: 3}
+  _icon: {fileID: 739835139, guid: 96e847b394462284ba314f44c448e91d, type: 3}
   _lvl: 1
   _description: qqqqq
   _damage: 5

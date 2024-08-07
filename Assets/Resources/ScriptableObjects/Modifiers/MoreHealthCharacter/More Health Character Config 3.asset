@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: More Health Character Config 3
   m_EditorClassIdentifier: 
   _name: More Health
-  _icon: {fileID: -1252574345, guid: 75747852c46d5134d9cf4095d9769a5f, type: 3}
+  _icon: {fileID: -911854409, guid: 96e847b394462284ba314f44c448e91d, type: 3}
   _lvl: 3
   _description: Add more health to character
   _additionalHealth: 10
