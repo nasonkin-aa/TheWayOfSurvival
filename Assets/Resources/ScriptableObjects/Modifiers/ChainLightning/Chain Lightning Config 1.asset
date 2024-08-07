@@ -21,4 +21,4 @@ MonoBehaviour:
   _radius: 5
   _damage: 5
   _additionalTargets: 2
-  _chance: 20
+  _chance: 100
