@@ -11,12 +11,6 @@ public class GameLogic : Singleton<GameLogic>
         Totem.Instance.Health.DeathEvent += OnGameEnded;
     }
 
-    private void OnDisable()
-    {
-        Player.Instance.Health.DeathEvent -= OnGameEnded;
-        Totem.Instance.Health.DeathEvent -= OnGameEnded;
-    }
-
     private void Start()
     {
         GlobalScore.Initialize();

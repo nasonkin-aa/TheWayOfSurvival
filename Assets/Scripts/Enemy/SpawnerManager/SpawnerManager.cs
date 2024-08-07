@@ -77,7 +77,7 @@ public class SpawnerManager : MonoBehaviour
     }
 
     private EnemyType GetGroundEnemy() =>
-        countWaves[_currentWave].EnemyInWave.First(x => x.GetComponent<EnemyType>().enemy != EnemyType.Type.Ground);
+        countWaves[_currentWave].EnemyInWave.First(x => x.GetComponent<EnemyType>().enemy == EnemyType.Type.Ground);
 
     public void StartNewWave()
     {
@@ -91,7 +91,7 @@ public class SpawnerManager : MonoBehaviour
     }
 
     private EnemyType GetAirEnemy() => 
-        countWaves[_currentWave].EnemyInWave.First(x => x.GetComponent<EnemyType>().enemy != EnemyType.Type.Sky);
+        countWaves[_currentWave].EnemyInWave.First(x => x.GetComponent<EnemyType>().enemy == EnemyType.Type.Sky);
 
 
     private void SetTimeDayNight()

@@ -40,9 +40,4 @@ public class CameraShake : MonoBehaviour
     {
         Player.Instance.ShakeEvent += OnShake;
     }
-
-    private void OnDisable()
-    {
-        Player.Instance.ShakeEvent -= OnShake;
-    }
 }

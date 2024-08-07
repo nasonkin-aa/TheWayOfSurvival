@@ -36,9 +36,6 @@ public class Health : MonoBehaviour
             int delta = value - currentHealth;
             ChangeEvent?.Invoke(delta);
 
-            if (delta < 0) DamageEvent?.Invoke(delta);
-            if (delta > 0) HealEvent?.Invoke(delta);
-
             if (value <= 0)
             {
                 currentHealth = 0;
@@ -50,12 +47,17 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void Scale(float scale)
+    public void Scale(float scale) => MaxHealth = (int)(MaxHealth * scale);
+
+    public void TakeDamage(int amount)
     {
-        MaxHealth = (int)(MaxHealth * scale);
-        CurrentHealth = MaxHealth;
+        DamageEvent?.Invoke(amount);
+        CurrentHealth -= amount;
     }
 
-    public void TakeDamage(int amount) => CurrentHealth -= amount;
-    public void Heal(int amount) => CurrentHealth += amount;
+    public void Heal(int amount)
+    {
+        HealEvent?.Invoke(amount);
+        CurrentHealth += amount;
+    }
 }

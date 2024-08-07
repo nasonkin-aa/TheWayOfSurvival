@@ -64,10 +64,7 @@ public class BaseEnemy : MonoBehaviour
         health.DeathEvent -= OnDeath;
     }
 
-    private void OnDamage(int value)
-    {
-        SoundManager.Instance.PlaySound("HitSound");
-    }
+    private void OnDamage(int value) => SoundManager.Instance.PlaySound("HitSound");
 
     private void OnDeath()
     {

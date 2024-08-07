@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6621902724100307307}
   - component: {fileID: 3114989217020922835}
   - component: {fileID: -2559639230459471287}
+  - component: {fileID: 7524640323950286499}
   m_Layer: 12
   m_Name: TOTEM
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   - {fileID: 6534181432408343227}
   - {fileID: 385811001625316125}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5209476361569347775
 SpriteRenderer:
@@ -221,7 +222,7 @@ MonoBehaviour:
   - {x: 0.019505676, y: -6.3903713, z: 0}
   m_ShapePathHash: -584007374
   m_Mesh: {fileID: 0}
-  m_InstanceId: -6650112
+  m_InstanceId: 40464
   m_LocalBounds:
     m_Center: {x: 0.013413668, y: 0.019387245, z: 0}
     m_Extent: {x: 2.243415, y: 6.4097586, z: 0}
@@ -264,7 +265,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  health: 100
+  currentHealth: 100
+--- !u!114 &7524640323950286499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477796752182547072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba8a4876e342f540bfe9402595a03b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: -2559639230459471287}
+  image: {fileID: 8417743318033085111}
+  eyeExpSpriteRenderer: {fileID: 1347210118232918377}
 --- !u!1 &3187647124420749519
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +369,7 @@ GameObject:
   - component: {fileID: 4700604006345574910}
   - component: {fileID: 5243508373090337409}
   - component: {fileID: 8417743318033085111}
-  - component: {fileID: 429068400046727508}
+  - component: {fileID: 1958691550909899146}
   m_Layer: 0
   m_Name: HpTotemBar
   m_TagString: Untagged
@@ -419,7 +435,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &429068400046727508
+--- !u!114 &1958691550909899146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,10 +444,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3350652072942207535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba963210b0cb0b04fb2bd63ff01d1114, type: 3}
+  m_Script: {fileID: 11500000, guid: fba8a4876e342f540bfe9402595a03b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyeExpSpriteRenderer: {fileID: 8053019880236158208}
+  health: {fileID: -2559639230459471287}
+  image: {fileID: 8417743318033085111}
+  eyeExpSpriteRenderer: {fileID: 1347210118232918377}
 --- !u!1 &3566643930070644661
 GameObject:
   m_ObjectHideFlags: 0

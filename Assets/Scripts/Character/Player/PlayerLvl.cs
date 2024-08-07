@@ -48,18 +48,6 @@ public class PlayerLvl : MonoBehaviour
 
     public void GetExp(float exp)
     {
-        SoulCollector.PickUpEvent += OnSoulPickUp;
-    }
-
-    private void OnDisable()
-    {
-        SoulCollector.PickUpEvent -= OnSoulPickUp;
-    }
-
-    private void OnSoulPickUp(int points) => GetExp(points);
-
-    public void GetExp(float exp)
-    {
         IEnumerator corutine = GetExpSlowly(exp);
         StartCoroutine(corutine);
     }
