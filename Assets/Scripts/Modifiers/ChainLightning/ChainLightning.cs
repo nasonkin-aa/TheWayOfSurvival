@@ -1,31 +1,84 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChainLightning : MonoBehaviour, IWeaponModifier
+public class ChainLightning : MonoBehaviour
 {
-    protected static ChainLightningConfig _chainLightningInfo;
-    protected static string _particlePrefabPath = "Particle\\Electric\\Prefabs\\ChainLightning";
-    protected static GameObject _chainLightningPrefab;
-    protected static int _timesHit = 0;
-    protected ParticleSystem _particle;
+    
+    public int Damage;
+    public int AdditionalTargets;
 
-    public void Awake()
+    private CircleCollider2D _circleCollider;
+    [SerializeField] private LayerMask _enemyLayer;
+
+    [SerializeField] private GameObject _chainLightningPrefab;
+    [SerializeField] private GameObject _beenStruckPrefab;
+
+
+    [SerializeField] private GameObject _startObject;
+    public GameObject _endObject;
+
+    private Animator _animator;
+
+    [SerializeField] private ParticleSystem _particleSystem;
+
+    private int _singleSpawn;
+
+    private void Start()
     {
-        GetComponent<CircleCollider2D>().isTrigger = true;
-        _chainLightningPrefab ??= Resources.Load(_particlePrefabPath) as GameObject;
+        if (AdditionalTargets == 0) Destroy(gameObject);
+
+        _animator = GetComponent<Animator>();
+        _particleSystem = GetComponent<ParticleSystem>();
+        _circleCollider = GetComponent<CircleCollider2D>();
+        _startObject = gameObject;
+
+        _singleSpawn = 1;
+        Destroy(gameObject, .4f);
     }
 
-    public void PrepareModifier(ModifierBaseObject modifierConfig)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        _chainLightningInfo = modifierConfig as ChainLightningConfig;
+        //Debug.Log(collision.gameObject.layer + " --------- " + _enemyLayer.value);
+        //Debug.Log(_enemyLayer == (_enemyLayer | (1 << collision.gameObject.layer)));
 
-        
-        Instantiate(_chainLightningPrefab, transform.position, Quaternion.identity);
+        if (_enemyLayer == (_enemyLayer | (1 << collision.gameObject.layer)) && !collision.GetComponentInChildren<EnemyStruck>() )
+        {
+            if (_singleSpawn != 0)
+            {
+                _singleSpawn--;
+                Debug.Log(_enemyLayer == (_enemyLayer | (1 << collision.gameObject.layer)));
+                _endObject = collision.gameObject;
+
+                AdditionalTargets -= 1;
+                Instantiate(_chainLightningPrefab, collision.gameObject.transform.position, Quaternion.identity);
+
+                Instantiate(_beenStruckPrefab, collision.gameObject.transform);
+
+                collision.gameObject.GetComponent<Health>()?.TakeDamage(Damage);
+
+                _animator.StopPlayback();
+                _circleCollider.enabled = false;
+
+                _particleSystem.Play();
+
+                var emitParams = new ParticleSystem.EmitParams();
+
+                emitParams.position = _startObject.transform.position;
+                _particleSystem.Emit(emitParams, 1);
+
+                emitParams.position = _endObject.transform.position;
+                _particleSystem.Emit(emitParams, 1);
+
+                emitParams.position = (_startObject.transform.position + _endObject.transform.position) / 2;
+                _particleSystem.Emit(emitParams, 1);
+
+                Destroy(gameObject, .4f);
+            }
+
+        }
+
     }
 
-    public void UpdateModifierInfo(ModifierBaseObject modifierConfig)
-    {
-        throw new System.NotImplementedException();
-    }
 }

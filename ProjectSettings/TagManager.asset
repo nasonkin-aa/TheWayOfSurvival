@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ballists
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Totem
   - Platform
   - Soul
-  - 
+  - Effect
   - 
   - 
   - 
