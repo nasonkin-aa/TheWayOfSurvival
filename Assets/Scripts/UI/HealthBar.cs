@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour
     private void Awake()
     {
         gameObject.AssignComponentInChildrenIfUnityNull(ref health);
+        gameObject.AssignComponentIfUnityNull(ref image);
     }
 
     private void OnEnable()

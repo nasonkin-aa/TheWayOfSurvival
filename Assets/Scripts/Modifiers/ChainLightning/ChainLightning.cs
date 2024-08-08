@@ -18,6 +18,7 @@ public class ChainLightning : MonoBehaviour
 
     [SerializeField] private GameObject _startObject;
     public GameObject _endObject;
+    public LayerMask EnemyMask;
 
     private Animator _animator;
 
@@ -40,8 +41,9 @@ public class ChainLightning : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log(collision.gameObject.layer + " --------- " + _enemyLayer.value);
+        //Debug.Log(collision.gameObject.layer + " --------- " + _enemyLayer);
         //Debug.Log(_enemyLayer == (_enemyLayer | (1 << collision.gameObject.layer)));
+
 
         if (_enemyLayer == (_enemyLayer | (1 << collision.gameObject.layer)) && !collision.GetComponentInChildren<EnemyStruck>() )
         {

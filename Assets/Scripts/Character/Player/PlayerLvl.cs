@@ -41,7 +41,7 @@ public class PlayerLvl : MonoBehaviour
 
     private void OnDisable()
     {
-        SoulCollector.PickUpEvent += OnSoulPickUp;
+        SoulCollector.PickUpEvent -= OnSoulPickUp;
     }
 
     private void OnSoulPickUp(int points) => GetExp(points);
