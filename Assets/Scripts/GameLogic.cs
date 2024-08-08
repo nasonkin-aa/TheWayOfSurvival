@@ -3,10 +3,21 @@ using Leaderboard;
 
 public class GameLogic : Singleton<GameLogic>
 {
-    private readonly ILeaderboard<LeaderboardEntry> _leaderboard = new PlayerPrefsLeaderboard();
+    private ILeaderboard<LeaderboardEntry> _leaderboard;
 
     public event Action StartedEvent;
     public event Action EndedEvent;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+#if UNITY_EDITOR
+        _leaderboard = new PlayerPrefsLeaderboard();
+#else        
+        _leaderboard = new YandexLeaderboard();
+#endif
+    }
 
     private void OnEnable()
     {

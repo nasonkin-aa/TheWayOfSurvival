@@ -21,10 +21,10 @@ public class Health : MonoBehaviour
         get => maxHealth;
         set 
         { 
-            var healthPercent = currentHealth.DivideBy(maxHealth);
+            var percentage = Percentage;
             
             maxHealth = value;
-            CurrentHealth = currentHealth >= maxHealth ? maxHealth : (int)(maxHealth * healthPercent);
+            CurrentHealth = currentHealth >= maxHealth ? maxHealth : (int)(maxHealth * percentage);
         } 
     }  
     
@@ -33,6 +33,8 @@ public class Health : MonoBehaviour
         get => currentHealth;
         set
         {
+            currentHealth = maxHealth.AtMost(value);
+            
             int delta = value - currentHealth;
             ChangeEvent?.Invoke(delta);
 
@@ -40,10 +42,7 @@ public class Health : MonoBehaviour
             {
                 currentHealth = 0;
                 DeathEvent?.Invoke();
-                return;
             }
-
-            currentHealth = maxHealth.AtMost(value);
         }
     }
 
