@@ -1,7 +1,10 @@
 using System;
+using Leaderboard;
 
 public class GameLogic : Singleton<GameLogic>
 {
+    private readonly ILeaderboard<LeaderboardEntry> _leaderboard = new PlayerPrefsLeaderboard();
+
     public event Action StartedEvent;
     public event Action EndedEvent;
 
@@ -14,7 +17,7 @@ public class GameLogic : Singleton<GameLogic>
     private void Start()
     {
         GlobalScore.Initialize();
-        GlobalScore.Refresh();
+
         
         StartedEvent?.Invoke();
     }
@@ -23,7 +26,9 @@ public class GameLogic : Singleton<GameLogic>
     {
         EndedEvent?.Invoke();
         
+        _leaderboard.SetEntry(new LeaderboardEntry.Builder().WithScore(GlobalScore.Score).Build());
         GlobalScore.Dispose();
+
         SceneManagerSelect.SelectSceneByName("GameOver");
     }
 }

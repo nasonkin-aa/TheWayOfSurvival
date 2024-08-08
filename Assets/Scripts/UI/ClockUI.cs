@@ -38,11 +38,6 @@ public class ClockUI : MonoBehaviour
         GameLogic.Instance.StartedEvent += OnGameStarted;
     }
 
-    private void OnDisable()
-    {
-        GameLogic.Instance.StartedEvent -= OnGameStarted;
-    }
-
     private void OnGameStarted() => _innerClock.Start();
     
     private void Update()

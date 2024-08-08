@@ -4,28 +4,24 @@ using Souls;
 public static class GlobalScore
 {
     private static int _score = 0;
-    public static Action<int> ChangeEvent;
+    public static event Action<int> ChangeEvent;
 
     public static int Score
     {
         get => _score;
         private set 
         {
-            if (value < Score || value > 100000) return;
+            if (value < 0) return;
             
             _score = value;
             ChangeEvent?.Invoke(value);
         } 
     }
-
-    public static void Refresh()
-    {
-        _score = 0;
-        ChangeEvent = null;
-    }
-
+    
     public static void Initialize()
     {
+        Score = 0;
+        
         LightWorld.NightStartEvent += OnNightStart;
         SoulCollector.PickUpEvent += AddPoints;
         BaseEnemy.DeathEvent += OnEnemyDeath;

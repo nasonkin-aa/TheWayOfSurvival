@@ -11,7 +11,7 @@ public class Totem : Singleton<Totem>
     {
         base.Awake();
         
-        health ??= GetComponent<Health>();
+        gameObject.AssignComponentIfUnityNull(ref health);
     }
 
     private void Start()

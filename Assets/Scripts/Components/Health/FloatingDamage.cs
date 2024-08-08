@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(TextMesh))]
@@ -8,9 +9,20 @@ public class FloatingDamage : MonoBehaviour
     public int Damage { get; private set; }
     private TextMesh _textMesh;
 
-    void Start()
+    private void Awake()
     {
         _textMesh = GetComponent<TextMesh>();
+    }
+
+    void Start()
+    {
+        if (Mathf.Approximately(Damage, 0))
+        {
+            _textMesh.text = "";
+            _textMesh.color = Color.clear;
+            return;
+        }
+        
         _textMesh.text = Damage.ToString("+#;-#;0");
         var color = Damage < 0 ? _colorDamage : _colorHeal;
 

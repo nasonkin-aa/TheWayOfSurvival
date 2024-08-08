@@ -15,11 +15,15 @@ public class FlashDamage : MonoBehaviour
 
     private IEnumerator DamageFlasher(float value)
     {
+        if (Mathf.Approximately(value, 0)) 
+            yield break;
+        
         Color myColor;
         if (value < 0)
             ColorUtility.TryParseHtmlString("#FF2A2A", out myColor); // Red
         else
             ColorUtility.TryParseHtmlString("#55CF7D", out myColor); // Green
+        
         GetMaterial.SetColor("_FlashColor", myColor);
 
         var elapsedTime = 0f;
