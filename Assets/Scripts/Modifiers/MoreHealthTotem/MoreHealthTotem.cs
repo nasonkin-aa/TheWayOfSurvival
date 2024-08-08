@@ -9,7 +9,7 @@ public class MoreHealthTotem : MonoBehaviour, IWeaponModifier
 
     private void Awake()
     {
-        _health = Totem.GetTotem.Health;
+        _health = Totem.Instance.Health;
     }
 
     private void OnEnable()
