@@ -28,7 +28,6 @@ public class GameLogic : Singleton<GameLogic>
     private void Start()
     {
         GlobalScore.Initialize();
-
         
         StartedEvent?.Invoke();
     }

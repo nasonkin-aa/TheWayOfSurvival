@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(TextMesh))]
@@ -14,22 +13,6 @@ public class FloatingDamage : MonoBehaviour
         _textMesh = GetComponent<TextMesh>();
     }
 
-    void Start()
-    {
-        if (Mathf.Approximately(Damage, 0))
-        {
-            _textMesh.text = "";
-            _textMesh.color = Color.clear;
-            return;
-        }
-        
-        _textMesh.text = Damage.ToString("+#;-#;0");
-        var color = Damage < 0 ? _colorDamage : _colorHeal;
-
-        ColorUtility.TryParseHtmlString(color, out Color myColor);
-        _textMesh.color = myColor;    
-    }
-    
     public void OnAnimationOver()
     {
         Destroy(transform.parent.gameObject);
@@ -38,5 +21,18 @@ public class FloatingDamage : MonoBehaviour
     public void SetDamage(int damage)
     {
         Damage = damage;
+        
+        if (damage == 0)
+        {
+            _textMesh.text = "";
+            _textMesh.color = Color.clear;
+            return;
+        }
+
+        _textMesh.text = Damage.ToString("+#;-#;0");
+        var color = Damage < 0 ? _colorDamage : _colorHeal;
+
+        ColorUtility.TryParseHtmlString(color, out Color myColor);
+        _textMesh.color = myColor;
     }
 }

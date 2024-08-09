@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
+using AlexTools;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
@@ -22,28 +22,28 @@ public class TextWithDamage : MonoBehaviour
 
     private void OnEnable()
     {
-        health.ChangeEvent += OnHealthChange;
+        health.ChangeEvent += OnChangeEvent;
     }
     
     private void OnDisable()
     {
-        health.ChangeEvent -= OnHealthChange;
+        health.ChangeEvent -= OnChangeEvent;
     }
 
-    private void OnHealthChange(int change)
+    private void OnChangeEvent(int value)
     {
         float height = spriteRenderer.bounds.size.y;
         var instantPos = new Vector2(0, height / 1.3f) + (Vector2)transform.position + (_offset * _offsetCount);
         _offsetCount++;
         var newText = Instantiate(_text, instantPos, Quaternion.identity);
-        newText.GetComponentInChildren<FloatingDamage>().SetDamage(change);
+        newText.GetComponentInChildren<FloatingDamage>().SetDamage(value);
         StartCoroutine(RemoveFloatingDamageOffset());
     }
 
 
     private IEnumerator RemoveFloatingDamageOffset()
     {
-        yield return new WaitForSeconds(1);
+        yield return Waiters.GetWaitForSeconds(1);
         _offsetCount = 0;
         StopAllCoroutines();
     }

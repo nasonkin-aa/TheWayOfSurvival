@@ -9,6 +9,7 @@ namespace Leaderboard
         private readonly IEnumerable<LeaderboardEntry> _cachedEntries = Array.Empty<LeaderboardEntry>();
 
         public void SetEntry(LeaderboardEntry entry) => SetScoreExtern(entry.Score);
+
         public IEnumerable<LeaderboardEntry> GetEntries() => _cachedEntries;
         
         [DllImport("__Internal")]

@@ -33,9 +33,10 @@ public class Health : MonoBehaviour
         get => currentHealth;
         set
         {
-            currentHealth = maxHealth.AtMost(value);
+            int newValue = value.AtMost(maxHealth);
+            int delta = newValue - currentHealth;
+            currentHealth = newValue;
             
-            int delta = value - currentHealth;
             ChangeEvent?.Invoke(delta);
 
             if (value <= 0)
