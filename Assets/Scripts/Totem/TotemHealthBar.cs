@@ -21,7 +21,7 @@ public class TotemHealthBar : MonoBehaviour
 
     private void OnDisable()
     {
-        health.ChangeEvent += OnHealthChange;
+        //health.ChangeEvent += OnHealthChange;
     }
 
     private void OnHealthChange(int value)

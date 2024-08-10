@@ -85,6 +85,7 @@ public class SpawnerManager : MonoBehaviour
             _currentWave--;
         else
             _currentWave++;
+        Debug.Log(countWaves[_currentWave].name);
 
         _currentTime = 0;
         _spawnedEnemiesInWave = 0;

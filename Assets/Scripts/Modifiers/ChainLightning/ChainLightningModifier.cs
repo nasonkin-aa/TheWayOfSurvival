@@ -10,9 +10,10 @@ public class ChainLightningModifier : MonoBehaviour, IWeaponModifier
     protected static Projectile _projectile;
     protected static int _timesHit = 0;
     protected ParticleSystem _particle;
-
+    [SerializeField] private LayerMask _enemyLayer;
     public void Awake()
     {
+        _enemyLayer = LayerMask.NameToLayer("Enemy");
         //GetComponent<CircleCollider2D>().isTrigger = true;
         _chainLightningPrefab = Resources.Load<GameObject>(_chainLightningPrefabPath);
         _beenStruck = Resources.Load<GameObject>(_beenStruckPath);
@@ -22,9 +23,6 @@ public class ChainLightningModifier : MonoBehaviour, IWeaponModifier
 
     private void OnDisable()
     {
-        if (_projectile == null)
-            return;
-        GetComponentInParent<Projectile>().OnProjectileCollision -= SpawnChainLightning;
     }
 
     public void PrepareModifier(ModifierBaseObject modifierConfig)
@@ -48,10 +46,10 @@ public class ChainLightningModifier : MonoBehaviour, IWeaponModifier
     private void SpawnChainLightning(Collision2D target)
     {
         int random = Random.Range(0, 100);
-
-
-        if (random <= _chainLightningInfo.Chance)
+        if (_enemyLayer.value == target.gameObject.layer &&
+            !target.gameObject.GetComponentInChildren<EnemyStruck>())
         {
+            if (random > _chainLightningInfo.Chance) return;
             GameObject chainLightning;
 
             Instantiate(_beenStruck, target.gameObject.transform);
@@ -61,7 +59,10 @@ public class ChainLightningModifier : MonoBehaviour, IWeaponModifier
 
             target.gameObject.GetComponent<Health>()?.TakeDamage(_chainLightningInfo.Damage);
             _projectile.OnProjectileCollision -= SpawnChainLightning;
+
         }
+        GetComponentInParent<Projectile>().OnProjectileCollision -= SpawnChainLightning;
+        
 
     }
 }
