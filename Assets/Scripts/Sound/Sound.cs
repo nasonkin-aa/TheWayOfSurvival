@@ -1,33 +1,41 @@
+using System.Collections;
+using AlexTools;
+using AlexTools.Flyweight;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Sound", menuName = "Audio/Sound")]
-public class Sound : ScriptableObject
+public class Sound : MonoFlyweight<Sound, SoundSettings>
 {
-    [System.Serializable]
-    public class SoundType
+    [SerializeField] private AudioSource source;
+
+    private Coroutine _coroutine;
+    
+    public override void Initialize(SoundSettings settings)
     {
-        public string typeName;
-        public AudioClip[] clips;
+        base.Initialize(settings);
+
+        gameObject.AssignComponentIfUnityNull(ref source);
+        source.outputAudioMixerGroup = Settings.AudioMixerGroup;
     }
 
-    public SoundType[] soundTypes;
-
-    public AudioClip GetRandomClip(string typeName)
+    public override void OnRelease()
     {
-        SoundType soundType = System.Array.Find(soundTypes, type => type.typeName == typeName);
-
-        if (soundType == null)
-        {
-            Debug.LogWarning("Sound type not found: " + typeName);
-            return null;
-        }
-
-        if (soundType.clips.Length == 0)
-        {
-            Debug.LogWarning("No clips assigned to the sound type: " + typeName);
-            return null;
-        }
-
-        return soundType.clips[Random.Range(0, soundType.clips.Length)];
+        if (_coroutine != null) StopCoroutine(_coroutine);
     }
+
+    private IEnumerator ReleaseCoroutine(float clipLength)
+    {
+        yield return Waiters.GetWaitForSeconds(clipLength);
+        ReleaseSelf();
+    }
+    
+    public void PlayOneShot(string type)
+    {
+        if (!Settings.Clips.TryGetValue(type, out var clip))
+            return;
+        
+        source.PlayOneShot(clip);
+        _coroutine = StartCoroutine(ReleaseCoroutine(clip.length));
+    }
+
+    public void ChangeVolume(float value) => source.volume = value;
 }

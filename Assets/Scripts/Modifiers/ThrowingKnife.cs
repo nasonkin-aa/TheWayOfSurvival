@@ -46,7 +46,7 @@ public class ThrowingKnife : MonoBehaviour, IWeaponModifier
 
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         var obj = Instantiate(_knifePrefab, transform.position, rotation);
-        SoundManager.Instance.PlaySound("Knife");
+        AudioManager.Instance.Play("Knife");
         obj.GetComponent<Knife>().PrepareKnife(_throwingKnifeInfo.GetKnifeSpeed, _throwingKnifeInfo.GetKnifeDamage);
         Destroy(obj,3f);
         

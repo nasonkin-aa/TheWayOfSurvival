@@ -71,7 +71,7 @@ public class Ballista : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         var bolt = Instantiate(_knifePrefab, transform.position, rotation);
         bolt.GetComponent<Knife>().PrepareKnife(_ballistaInfo.GetBoltSpeed, (int)_ballistaInfo.GetBoltDamage);
-        SoundManager.Instance.PlaySound("BallistaProjectile");
+        AudioManager.Instance.Play("BallistaProjectile");
         Destroy(bolt,3f);
         
     }

@@ -12,7 +12,7 @@ namespace Souls
             if (!other.gameObject.TryGetComponent(out Soul soul))
                 return;
             
-            SoundManager.Instance.PlaySound("SoulPickUp");
+            AudioManager.Instance.Play("SoulPickUp");
             PickUpEvent?.Invoke(soul.Points);
             soul.ReleaseSelf();
         }

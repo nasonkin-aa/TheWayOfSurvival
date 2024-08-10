@@ -10,7 +10,7 @@ public class VannArrow : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        SoundManager.Instance.PlaySound("VannArrow");
+        AudioManager.Instance.Play("VannArrow");
     }
 
     void Update()

@@ -21,5 +21,17 @@ namespace Souls
 
             return color;
         }
+
+        protected override void OnGet(Soul flyweight)
+        {
+            flyweight.gameObject.Enable();
+            base.OnGet(flyweight);
+        }
+
+        protected override void OnRelease(Soul flyweight)
+        {
+            base.OnRelease(flyweight);
+            flyweight.gameObject.Disable();
+        }
     }
 }

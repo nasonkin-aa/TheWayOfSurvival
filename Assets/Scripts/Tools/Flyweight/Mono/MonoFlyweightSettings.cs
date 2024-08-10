@@ -23,18 +23,6 @@ namespace AlexTools.Flyweight
             return flyweight;
         }
 
-        protected override void OnGet(TFlyweight flyweight)
-        {
-            flyweight.gameObject.Enable();
-            base.OnGet(flyweight);
-        }
-
-        protected override void OnRelease(TFlyweight flyweight)
-        {
-            base.OnRelease(flyweight);
-            flyweight.gameObject.Disable();
-        }
-        
         protected override void OnDestroyPoolObject(TFlyweight flyweight) => Destroy(flyweight.gameObject);
     }
 }

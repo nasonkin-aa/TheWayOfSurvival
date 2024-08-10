@@ -31,7 +31,7 @@ public class Totem : Singleton<Totem>
     
     private void OnDamage(int value)
     {
-        SoundManager.Instance.PlaySound("TotemDamage");
+        AudioManager.Instance.Play("TotemDamage");
         _playerLvl.GetExp(value);
     }
 }

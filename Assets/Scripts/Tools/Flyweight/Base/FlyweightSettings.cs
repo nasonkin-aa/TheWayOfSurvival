@@ -14,7 +14,7 @@ namespace AlexTools.Flyweight
         
         private ObjectPool<TFlyweight> _pool;
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             _pool ??= new ObjectPool<TFlyweight>(
                 Create,

@@ -44,7 +44,7 @@ public class ElectricAOE : MonoBehaviour, IWeaponModifier
             yield return new WaitForSeconds(_electricAOEInfo.Interval);
             DealDamage();
             _particle.Play(false);
-            SoundManager.Instance.PlaySound("ElectricAOE");
+            AudioManager.Instance.Play("ElectricAOE");
         }
     }
 
