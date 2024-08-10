@@ -12,7 +12,8 @@ public class SoundSettings : MonoFlyweightSettings<Sound, SoundSettings>
 
     public AudioMixerGroup AudioMixerGroup => audioMixerGroup;
     public IReadOnlyDictionary<string, AudioClip> Clips { get; private set; }
-    
+
+    private float _volume;
     private readonly List<Sound> _soundList = new();
 
     protected override void OnEnable()
@@ -25,6 +26,7 @@ public class SoundSettings : MonoFlyweightSettings<Sound, SoundSettings>
     protected override Sound Create()
     {
         var sound = base.Create();
+        sound.ChangeVolume(_volume);
         _soundList.Add(sound);
         return sound;
     }
@@ -35,5 +37,9 @@ public class SoundSettings : MonoFlyweightSettings<Sound, SoundSettings>
         base.OnDestroyPoolObject(flyweight);
     }
 
-    public void ChangeVolume(float value) => _soundList.ForEach(x => x.ChangeVolume(value));
+    public void ChangeVolume(float value)
+    {
+        _volume = value;
+        _soundList.ForEach(x => x.ChangeVolume(value));
+    }
 } 

@@ -12,6 +12,9 @@ public class AudioManager : Singleton<AudioManager>
     private const string MusicVolumeKey = "MusicVolume";
     private const string SoundVolumeKey = "SoundVolume";
 
+    private const float DefaultMusicVolume = 0.5f;
+    private const float DefaultSoundVolume = 0.5f;
+
     protected override void Awake()
     {
         base.Awake();
@@ -21,6 +24,14 @@ public class AudioManager : Singleton<AudioManager>
 
     private void OnEnable()
     {
+        float musicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, DefaultMusicVolume);
+        musicSlider.value = musicVolume;
+        musicSource.volume = musicVolume;
+        
+        float soundVolume = PlayerPrefs.GetFloat(SoundVolumeKey, DefaultSoundVolume);
+        soundSlider.value = soundVolume;
+        soundSettings.ChangeVolume(soundVolume);
+        
         musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
         soundSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
     }
@@ -29,32 +40,13 @@ public class AudioManager : Singleton<AudioManager>
     {
         musicSlider.onValueChanged.RemoveListener(OnMusicSliderValueChanged);
         soundSlider.onValueChanged.RemoveListener(OnSoundSliderValueChanged);
-    }
-    
-    private void Start()
-    {
-        if (PlayerPrefs.HasKey(MusicVolumeKey))
-            musicSlider.value = PlayerPrefs.GetFloat(MusicVolumeKey);
-
-        if (PlayerPrefs.HasKey(SoundVolumeKey))
-        {
-            float value = PlayerPrefs.GetFloat(SoundVolumeKey);
-            soundSlider.value = value;
-            soundSettings.ChangeVolume(value);
-        }
-    }
-    
-    private void OnMusicSliderValueChanged(float value)
-    {
-        musicSource.volume = value;
-        PlayerPrefs.SetFloat(MusicVolumeKey, value);
-    }
-
-    private void OnSoundSliderValueChanged(float value)
-    {
-        soundSettings.ChangeVolume(soundSlider.value);
+        
+        PlayerPrefs.SetFloat(MusicVolumeKey, musicSlider.value);
         PlayerPrefs.SetFloat(SoundVolumeKey, soundSlider.value);
     }
+
+    private void OnMusicSliderValueChanged(float value) => musicSource.volume = value;
+    private void OnSoundSliderValueChanged(float value) => soundSettings.ChangeVolume(value);
 
 
     public void Play(string type)

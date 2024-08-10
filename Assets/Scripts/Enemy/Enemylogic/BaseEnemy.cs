@@ -30,8 +30,10 @@ public class BaseEnemy : MonoBehaviour
 
     protected virtual void Awake()
     {
-        config ??= Resources.Load<BaseEnemyConfig>(BaseEnemyConfig.GetConfigPath(name));
-        config ??= Resources.Load<BaseEnemyConfig>(BaseEnemyConfig.DefaultConfigPath);
+        gameObject.AssignIfUnityNull(ref config, () =>
+            Resources.Load<BaseEnemyConfig>(BaseEnemyConfig.GetConfigPath(name)));
+        gameObject.AssignIfUnityNull(ref config, () =>
+            Resources.Load<BaseEnemyConfig>(BaseEnemyConfig.DefaultConfigPath));
         
         gameObject.AssignComponentIfUnityNull(ref health);
         gameObject.AssignComponentIfUnityNull(ref enemyAttack);

@@ -38,7 +38,7 @@ public static class GameObjectExtensions
         this GameObject gameObject, 
         ref T component,
         Func<T> func) 
-        where T : Component
+        where T : Object
     {
         if (component.IsUnityNull())
             component = func();
@@ -47,14 +47,14 @@ public static class GameObjectExtensions
     public static void AssignComponentIfUnityNull<T>(
         this GameObject gameObject,
         ref T component)
-        where T : Component =>
+        where T : Object =>
         gameObject.AssignIfUnityNull(ref component, gameObject.GetComponent<T>);
 
 
     public static void AssignComponentInChildrenIfUnityNull<T>(
         this GameObject gameObject,
         ref T component)
-        where T : Component =>
+        where T : Object =>
         gameObject.AssignIfUnityNull(ref component, gameObject.GetComponentInChildren<T>);
 
     public static string GetPath(this GameObject gameObject) =>
