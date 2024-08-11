@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb923c160f723ba408bc6fd862ce393e, type: 3}
   m_Name: Totem Health For Souls Config 1
   m_EditorClassIdentifier: 
-  _name: Totem Soul Health
+  _name: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435
+    \u044D\u043D\u0435\u0440\u0433\u0438\u0435\u0439 "
   _icon: {fileID: 954596773, guid: 96e847b394462284ba314f44c448e91d, type: 3}
   _lvl: 1
-  _description: Totem regenerates health for picking up soul
+  _description: "\u041F\u0440\u0438 \u043F\u043E\u0434\u0431\u043E\u0440\u0435 \u0434\u0443\u0448\u0438,
+    \u0442\u043E\u0442\u0435\u043C \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442
+    \u0438\u0441\u0446\u0435\u043B\u0435\u043D\u0438\u0435 "
   _regeneratedlHealth: 1

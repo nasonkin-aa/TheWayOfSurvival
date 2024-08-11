@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: More Health Totem Config 2
   m_EditorClassIdentifier: 
   _name: "\u041F\u043B\u043E\u0442\u043D\u043E\u0441\u0442\u044C \u0442\u043E\u0442\u0435\u043C\u0430"
-  _icon: {fileID: -780425815, guid: 01b549e18cc97aa43bb3362a776eb1e6, type: 3}
+  _icon: {fileID: 1561455973, guid: 96e847b394462284ba314f44c448e91d, type: 3}
   _lvl: 2
   _description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435
     \u0422\u043E\u0442\u0435\u043C\u0430"
-  _additionalHealth: 50
+  _additionalHealth: 100

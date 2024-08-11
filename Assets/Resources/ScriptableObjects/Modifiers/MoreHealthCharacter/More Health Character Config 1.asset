@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858984c9a611fa148b0ae12c170a6794, type: 3}
   m_Name: More Health Character Config 1
   m_EditorClassIdentifier: 
-  _name: More Health
+  _name: "\u041A\u0440\u0435\u043F\u043A\u0430\u044F \u043A\u043E\u0436\u0430 "
   _icon: {fileID: -911854409, guid: 96e847b394462284ba314f44c448e91d, type: 3}
   _lvl: 1
-  _description: Add more health to character
-  _additionalHealth: 5
+  _description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435 \u0432\u0438\u043A\u0438\u043D\u0433\u0430
+    \u043D\u0430 25"
+  _additionalHealth: 25

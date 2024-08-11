@@ -15,10 +15,9 @@ MonoBehaviour:
   _name: "\u0411\u0430\u043B\u043B\u0438\u0441\u0442\u0430"
   _icon: {fileID: 375628091, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
   _lvl: 2
-  _description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
-    \u0443\u0440\u043E\u043D \u0438 \u0441\u043E\u043A\u0440\u0430\u0449\u0430\u0435\u0442
-    \u0432\u0440\u0435\u043C\u044F \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0438"
+  _description: "\u0423\u043C\u0435\u043D\u044C\u0448\u0430\u0435\u0442 \u0432\u0440\u0435\u043C\u044F
+    \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0438 "
   _rotationSpeed: 5
-  _rechargeTime: 1
+  _rechargeTime: 3
   _BoltSpeed: 20
   _BoltDamage: 10
