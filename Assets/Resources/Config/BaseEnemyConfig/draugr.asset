@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   damage: 20
-  soulPoints: 15
+  soulPoints: 30
   scorePoints: 30

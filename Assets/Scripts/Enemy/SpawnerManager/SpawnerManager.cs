@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -76,8 +77,13 @@ public class SpawnerManager : MonoBehaviour
         _spawnedEnemiesInWave++;
     }
 
-    private EnemyType GetGroundEnemy() =>
-        countWaves[_currentWave].EnemyInWave.First(x => x.GetComponent<EnemyType>().enemy == EnemyType.Type.Ground);
+    private EnemyType GetGroundEnemy()
+    {
+        var a = (IList<EnemyType>)(countWaves[_currentWave].EnemyInWave
+            .Where(x => x.GetComponent<EnemyType>().enemy == EnemyType.Type.Ground)
+            .ToList());
+       return a.GetRandomItem();
+    }
 
     public void StartNewWave()
     {
@@ -91,8 +97,12 @@ public class SpawnerManager : MonoBehaviour
         _spawnedEnemiesInWave = 0;
     }
 
-    private EnemyType GetAirEnemy() => 
-        countWaves[_currentWave].EnemyInWave.First(x => x.GetComponent<EnemyType>().enemy == EnemyType.Type.Sky);
+    private EnemyType GetAirEnemy() {
+        var a = (IList<EnemyType>)(countWaves[_currentWave].EnemyInWave
+            .Where(x => x.GetComponent<EnemyType>().enemy == EnemyType.Type.Sky)
+            .ToList());
+        return a.GetRandomItem();
+    }
 
 
     private void SetTimeDayNight()
