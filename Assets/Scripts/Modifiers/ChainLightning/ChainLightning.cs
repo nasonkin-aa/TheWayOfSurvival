@@ -50,7 +50,7 @@ public class ChainLightning : MonoBehaviour
             if (_singleSpawn != 0)
             {
                 _singleSpawn--;
-                Debug.Log(_enemyLayer == (_enemyLayer | (1 << collision.gameObject.layer)));
+                //Debug.Log(_enemyLayer == (_enemyLayer | (1 << collision.gameObject.layer)));
                 _endObject = collision.gameObject;
 
                 AdditionalTargets -= 1;

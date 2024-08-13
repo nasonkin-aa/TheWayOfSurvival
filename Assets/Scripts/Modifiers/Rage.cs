@@ -38,6 +38,6 @@ public class Rage : MonoBehaviour, IWeaponModifier
         var lostHealth = _rageInfo.GetScale * (playerHealth.MaxHealth - playerHealth.CurrentHealth) / 5 ;
         lostHealth = MathF.Floor(lostHealth * 10) / 10;
         _weapon?.SetDamageWeapon(lostHealth);
-        Debug.Log("+ damage" + (lostHealth ));
+        //Debug.Log("+ damage" + (lostHealth ));
     }
 }

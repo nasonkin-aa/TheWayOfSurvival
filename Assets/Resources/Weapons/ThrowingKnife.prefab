@@ -45,21 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e8080889c210644b8846724a528c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knifePrefab: {fileID: 4186413504157704379, guid: 5f70b721b372b3f49a13ef5a0aebafb7, type: 3}
-  contactFilter2D:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 512
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
 --- !u!58 &2652091327824569951
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -94,4 +79,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 4
