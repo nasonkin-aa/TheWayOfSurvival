@@ -21,6 +21,6 @@ MonoBehaviour:
   colorDictionary:
     _serializedList:
     - Key: 30
-      Value: {r: 0.8509804, g: 0.87058824, b: 0.24313726, a: 1}
+      Value: {r: 1, g: 0.61875004, b: 0, a: 1}
     - Key: 50
       Value: {r: 1, g: 0.16470589, b: 0.16470589, a: 1}
