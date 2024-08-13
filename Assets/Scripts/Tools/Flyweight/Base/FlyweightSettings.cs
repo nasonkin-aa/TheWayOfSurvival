@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -31,8 +32,7 @@ namespace AlexTools.Flyweight
         
         protected virtual void OnGet(TFlyweight flyweight) => flyweight.OnGet();
         protected virtual void OnRelease(TFlyweight flyweight) => flyweight.OnRelease();
-        
-        protected abstract void OnDestroyPoolObject(TFlyweight flyweight);
+        protected virtual void OnDestroyPoolObject(TFlyweight flyweight) => flyweight.OnDestroyPoolObject();
 
         public TFlyweight Get() => _pool.Get();
         public PooledObject<TFlyweight> Get(out TFlyweight v) => _pool.Get(out v);

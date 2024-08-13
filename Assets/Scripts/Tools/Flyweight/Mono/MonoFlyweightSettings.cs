@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace AlexTools.Flyweight
@@ -23,6 +24,12 @@ namespace AlexTools.Flyweight
             return flyweight;
         }
 
-        protected override void OnDestroyPoolObject(TFlyweight flyweight) => Destroy(flyweight.gameObject);
+        protected override void OnDestroyPoolObject(TFlyweight flyweight)
+        {
+            base.OnDestroyPoolObject(flyweight);
+            
+            if (flyweight.IsUnityNull()) return;
+            Destroy(flyweight.gameObject);
+        }
     }
 }

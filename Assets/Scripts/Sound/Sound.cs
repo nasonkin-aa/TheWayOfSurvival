@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using AlexTools;
 using AlexTools.Flyweight;
@@ -15,12 +16,16 @@ public class Sound : MonoFlyweight<Sound, SoundSettings>
 
         gameObject.AssignComponentIfUnityNull(ref source);
         source.outputAudioMixerGroup = Settings.AudioMixerGroup;
+        
+        Settings.ChangeVolumeEvent += OnChangeVolume;
     }
-
+    
     public override void OnRelease()
     {
         if (_coroutine != null) StopCoroutine(_coroutine);
     }
+
+    private void OnDestroy() => Settings.ChangeVolumeEvent -= OnChangeVolume;
 
     private IEnumerator ReleaseCoroutine(float clipLength)
     {
@@ -37,5 +42,5 @@ public class Sound : MonoFlyweight<Sound, SoundSettings>
         _coroutine = StartCoroutine(ReleaseCoroutine(clip.length));
     }
 
-    public void ChangeVolume(float value) => source.volume = value;
+    private void OnChangeVolume(float value) => source.volume = value;
 }

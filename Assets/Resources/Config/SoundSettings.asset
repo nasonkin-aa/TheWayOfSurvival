@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf59b12c47d343abb01d41bd3b8513e0, type: 3}
   m_Name: SoundSettings
   m_EditorClassIdentifier: 
-  collectionCheck: 1
+  collectionCheck: 0
   defaultCapacity: 10
   maxSize: 10000
   prefab: {fileID: 1410812625393297107, guid: d3603ed900f1e3e448d6d62612d5ebca, type: 3}

@@ -9,7 +9,7 @@ namespace AlexTools.Flyweight
         void Initialize(TSettings settings);
         void OnGet();
         void OnRelease();
-        void OnDestroy();
+        void OnDestroyPoolObject();
         
         void ReleaseSelf();
     }

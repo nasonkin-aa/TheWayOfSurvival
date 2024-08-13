@@ -8,11 +8,11 @@ public class PlayerInput : Singleton<PlayerInput>
     public static float Horizontal;
     public static float Vertical;
 
-    public static Action<float> OnPlayerMoveHorizontal;
-    public static Action<float> OnPlayerMoveDown;
-    public static Action OnPlayerJump;
-    public static Action<Vector3> OnPlayerAttack;
-    public static Action<Vector3> OnPlayerFlip;
+    public static event Action<float> OnPlayerMoveHorizontal;
+    public static event Action<float> OnPlayerMoveDown;
+    public static event Action OnPlayerJump;
+    public static event Action<Vector3> OnPlayerAttack;
+    public static event Action<Vector3> OnPlayerFlip;
     private static bool IsInputBlock = false;
     private bool isFlip = false;
     
@@ -52,11 +52,6 @@ public class PlayerInput : Singleton<PlayerInput>
                 PauseState.Instance.TogglePauseMenu();
                 PauseSwitch();
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Destroy(gameObject);
         }
 
         if (IsInputBlock)

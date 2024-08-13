@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AlexTools.Flyweight;
@@ -12,34 +13,14 @@ public class SoundSettings : MonoFlyweightSettings<Sound, SoundSettings>
 
     public AudioMixerGroup AudioMixerGroup => audioMixerGroup;
     public IReadOnlyDictionary<string, AudioClip> Clips { get; private set; }
-
-    private float _volume;
-    private readonly List<Sound> _soundList = new();
+    public event Action<float> ChangeVolumeEvent;
 
     protected override void OnEnable()
     {
         base.OnEnable();
-
+        
         Clips = clips.ToDictionary(x => x.name);
     }
 
-    protected override Sound Create()
-    {
-        var sound = base.Create();
-        sound.ChangeVolume(_volume);
-        _soundList.Add(sound);
-        return sound;
-    }
-
-    protected override void OnDestroyPoolObject(Sound flyweight)
-    {
-        _soundList.Remove(flyweight);
-        base.OnDestroyPoolObject(flyweight);
-    }
-
-    public void ChangeVolume(float value)
-    {
-        _volume = value;
-        _soundList.ForEach(x => x.ChangeVolume(value));
-    }
+    public void ChangeVolume(float value) => ChangeVolumeEvent?.Invoke(value);
 } 

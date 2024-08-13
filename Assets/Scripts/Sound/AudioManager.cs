@@ -20,6 +20,7 @@ public class AudioManager : Singleton<AudioManager>
         base.Awake();
         
         gameObject.AssignComponentIfUnityNull(ref musicSource);
+        soundSettings.Clear();
     }
 
     private void OnEnable()

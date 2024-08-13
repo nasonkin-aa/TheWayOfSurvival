@@ -12,7 +12,7 @@ namespace AlexTools.Flyweight.Default
         public void Initialize(TSettings settings) => Settings = settings;
         public virtual void OnGet() {}
         public virtual void OnRelease() {}
-        public virtual void OnDestroy() {}
+        public virtual void OnDestroyPoolObject() {}
         
         public virtual void ReleaseSelf() => Settings.Release(this);
         
