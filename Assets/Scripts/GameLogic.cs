@@ -1,9 +1,12 @@
 using System;
+using Advertisement;
 using Leaderboard;
 
 public class GameLogic : Singleton<GameLogic>
 {
     private ILeaderboard<LeaderboardEntry> _leaderboard;
+
+    public IShowAd ShowAd { get; private set; }
 
     public event Action StartedEvent;
     public event Action EndedEvent;
@@ -14,21 +17,29 @@ public class GameLogic : Singleton<GameLogic>
 
 #if UNITY_EDITOR
         _leaderboard = new PlayerPrefsLeaderboard();
-#else        
+        ShowAd = new EmptyAdd();
+#else
         _leaderboard = new YandexLeaderboard();
+        ShowAd = YandexAd.Create();
 #endif
+    }
+
+    private void Start()
+    {
+        ShowAd.ShowFullscreenAd();
     }
 
     private void OnEnable()
     {
         Player.Instance.Health.DeathEvent += OnGameEnded;
         Totem.Instance.Health.DeathEvent += OnGameEnded;
+
+        ShowAd.FullscreenAdCloseEvent += OnFullscreenAdClose;
     }
 
-    private void Start()
+    private void OnFullscreenAdClose()
     {
         GlobalScore.Initialize();
-        
         StartedEvent?.Invoke();
     }
 

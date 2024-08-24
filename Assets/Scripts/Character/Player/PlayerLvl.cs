@@ -25,8 +25,8 @@ public class PlayerLvl : MonoBehaviour
         }
     }
     public float ExpToLvlUp { get; private set; } = 100;
-    public Action OnLvlUp;
-    public Action OnTakeExp;
+    public event Action OnLvlUp;
+    public event Action OnTakeExp;
     public DrawModifier drawMod;
 
     public void Start()
