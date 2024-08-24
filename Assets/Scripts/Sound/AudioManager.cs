@@ -1,3 +1,6 @@
+using AlexTools;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,16 +26,19 @@ public class AudioManager : Singleton<AudioManager>
         soundSettings.Clear();
     }
 
-    private void OnEnable()
+    private void Start()
     {
         float musicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, DefaultMusicVolume);
         musicSlider.value = musicVolume;
         musicSource.volume = musicVolume;
-        
+
         float soundVolume = PlayerPrefs.GetFloat(SoundVolumeKey, DefaultSoundVolume);
         soundSlider.value = soundVolume;
         soundSettings.ChangeVolume(soundVolume);
-        
+    }
+
+    private void OnEnable()
+    {
         musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
         soundSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
     }
