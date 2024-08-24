@@ -13,6 +13,8 @@ public class SoundSettings : MonoFlyweightSettings<Sound, SoundSettings>
 
     public AudioMixerGroup AudioMixerGroup => audioMixerGroup;
     public IReadOnlyDictionary<string, AudioClip> Clips { get; private set; }
+
+    public float Volume { get; private set; }
     public event Action<float> ChangeVolumeEvent;
 
     protected override void OnEnable()
@@ -22,5 +24,9 @@ public class SoundSettings : MonoFlyweightSettings<Sound, SoundSettings>
         Clips = clips.ToDictionary(x => x.name);
     }
 
-    public void ChangeVolume(float value) => ChangeVolumeEvent?.Invoke(value);
+    public void ChangeVolume(float value)
+    {
+        Volume = value;
+        ChangeVolumeEvent?.Invoke(value);
+    }
 } 

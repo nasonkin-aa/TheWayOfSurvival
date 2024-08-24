@@ -15,7 +15,9 @@ public class Sound : MonoFlyweight<Sound, SoundSettings>
         base.Initialize(settings);
 
         gameObject.AssignComponentIfUnityNull(ref source);
+
         source.outputAudioMixerGroup = Settings.AudioMixerGroup;
+        source.volume = Settings.Volume;
         
         Settings.ChangeVolumeEvent += OnChangeVolume;
     }
