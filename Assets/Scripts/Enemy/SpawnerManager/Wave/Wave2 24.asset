@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d083ad3306bdacf41a40c0663a4a7cb5, type: 3}
+  m_Name: Wave2 24
+  m_EditorClassIdentifier: 
+  CountEnemy: 15
+  WaveTime: 30
+  EnemyInWave:
+  - {fileID: -7312861945700669583, guid: f71f563e523acd143a4db159828ca488, type: 3}
+  - {fileID: 7663579530294693150, guid: 2912093235d67cf4194cd72c63ce8a11, type: 3}
+  AirGroundSpawnRatio: 0.542
+  SpeedScale: 1.2
+  HealthScale: 1.2
+  DamageScale: 1.2

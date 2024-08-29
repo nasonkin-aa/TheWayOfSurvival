@@ -21,6 +21,8 @@ public class Attack : MonoBehaviour
         _targetToAttack = health;
         OnAttackReady?.Invoke();
     }
+    
+    public void Scale(float scale) => Damage = (int)(Damage * scale);
 
     public void CheckTargetToAttack()
     {

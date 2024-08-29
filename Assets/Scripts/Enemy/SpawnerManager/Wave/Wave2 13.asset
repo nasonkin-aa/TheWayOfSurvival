@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d083ad3306bdacf41a40c0663a4a7cb5, type: 3}
   m_Name: Wave2 13
   m_EditorClassIdentifier: 
-  CountEnemy: 35
+  CountEnemy: 30
   WaveTime: 30
   EnemyInWave:
   - {fileID: 6579578037135408123, guid: f2728bea0329f50479fbfa20103c275c, type: 3}
   - {fileID: 6579578037135408123, guid: f2728bea0329f50479fbfa20103c275c, type: 3}
   AirGroundSpawnRatio: 0
-  SpeedScale: 1.5
+  SpeedScale: 1.2
   HealthScale: 0.85

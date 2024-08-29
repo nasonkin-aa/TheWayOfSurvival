@@ -17,6 +17,7 @@ MonoBehaviour:
   EnemyInWave:
   - {fileID: 2406877197990719282, guid: 920d54486d6871b408a4a278b9fa2013, type: 3}
   - {fileID: 6579578037135408123, guid: f2728bea0329f50479fbfa20103c275c, type: 3}
-  AirGroundSpawnRatio: 0.328
+  AirGroundSpawnRatio: 0.15
   SpeedScale: 1.1
   HealthScale: 0.9
+  DamageScale: 1

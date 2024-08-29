@@ -126,5 +126,6 @@ public class SpawnerManager : MonoBehaviour
         enemy.GetComponent<SpriteRenderer>().sortingOrder = _spawnedEnemyCount;
         enemy.GetComponent<Health>().Scale(countWaves[_currentWave].HealthScale);
         enemy.GetComponent<IMovable>().ScaleSpeed(countWaves[_currentWave].SpeedScale);
+        enemy.GetComponent<Attack>().Scale(countWaves[_currentWave].DamageScale);
     }
 }

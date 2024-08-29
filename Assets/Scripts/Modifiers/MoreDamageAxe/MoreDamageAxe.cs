@@ -10,8 +10,6 @@ public class MoreDamageAxe : MonoBehaviour, IWeaponModifier
     }
     public void PrepareModifier(ModifierBaseObject modifierConfig)
     {
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11");
-
         if (modifierConfig is MoreDamageAxeConfig axeConfig)
             _weapon.AddDamage((int)axeConfig.GetDamage);
     }

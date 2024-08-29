@@ -22,15 +22,15 @@ public static class GlobalScore
     {
         Score = 0;
         
-        LightWorld.NightStartEvent += OnNightStart;
-        SoulCollector.PickUpEvent += AddPoints;
+        /*LightWorld.NightStartEvent += OnNightStart;
+        SoulCollector.PickUpEvent += AddPoints;*/
         BaseEnemy.DeathEvent += OnEnemyDeath;
     }
 
     public static void Dispose()
     {
-        LightWorld.NightStartEvent -= OnNightStart;
-        SoulCollector.PickUpEvent -= AddPoints;
+        /*LightWorld.NightStartEvent -= OnNightStart;
+        SoulCollector.PickUpEvent -= AddPoints;*/
         BaseEnemy.DeathEvent -= OnEnemyDeath;
     }
 
