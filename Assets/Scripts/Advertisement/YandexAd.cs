@@ -25,8 +25,6 @@ public class YandexAd : MonoBehaviour, IShowAd
 
     public void OnFullscreenAdClose(bool wasShown)
     {
-        if (!wasShown) return;
-
         FullscreenAdCloseEvent?.Invoke();
         PauseSystem.Unpause();
     }
