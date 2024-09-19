@@ -20,6 +20,9 @@ public class Sound : MonoFlyweight<Sound, SoundSettings>
         source.volume = Settings.Volume;
         
         Settings.ChangeVolumeEvent += OnChangeVolume;
+
+        PauseSystem.PauseEvent += OnPause;
+        PauseSystem.UnpauseEvent += OnUnpause;
     }
     
     public override void OnRelease()
@@ -27,7 +30,12 @@ public class Sound : MonoFlyweight<Sound, SoundSettings>
         if (_coroutine != null) StopCoroutine(_coroutine);
     }
 
-    private void OnDestroy() => Settings.ChangeVolumeEvent -= OnChangeVolume;
+    private void OnDestroy()
+    {
+        Settings.ChangeVolumeEvent -= OnChangeVolume;
+
+        PauseSystem.UnpauseEvent -= OnUnpause;
+    }
 
     private IEnumerator ReleaseCoroutine(float clipLength)
     {
@@ -45,4 +53,7 @@ public class Sound : MonoFlyweight<Sound, SoundSettings>
     }
 
     private void OnChangeVolume(float value) => source.volume = value;
+
+    private void OnPause() => source.Pause();
+    private void OnUnpause() => source.UnPause();
 }

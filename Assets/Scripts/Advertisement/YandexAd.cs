@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class YandexAd : MonoBehaviour, IShowAd
 {
-    public void ShowFullscreenAd() => ShowFullscreenAdExtern();
+    public void ShowFullscreenAd()
+    {
+        PauseSystem.Pause();
+        ShowFullscreenAdExtern();
+    }
+
     public event Action FullscreenAdCloseEvent;
     public event Action FullscreenAdErrorEvent;
     
@@ -20,8 +25,10 @@ public class YandexAd : MonoBehaviour, IShowAd
 
     public void OnFullscreenAdClose(bool wasShown)
     {
-        if (wasShown)
-            FullscreenAdCloseEvent?.Invoke();
+        if (!wasShown) return;
+
+        FullscreenAdCloseEvent?.Invoke();
+        PauseSystem.Unpause();
     }
     public void OnFullscreenAdError() => FullscreenAdErrorEvent?.Invoke();
 

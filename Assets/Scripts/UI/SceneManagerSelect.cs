@@ -6,7 +6,7 @@ public class SceneManagerSelect : MonoBehaviour
     public static void SelectSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-        PlayerInput.UnPause();
+        PlayerInput.OnUnpause();
     }
 
     public static void Exitgame()

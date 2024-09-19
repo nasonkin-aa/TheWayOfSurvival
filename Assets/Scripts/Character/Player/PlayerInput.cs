@@ -15,9 +15,6 @@ public class PlayerInput : Singleton<PlayerInput>
     public static event Action<Vector3> OnPlayerFlip;
     private static bool IsInputBlock = false;
     private bool isFlip = false;
-    
-    private static float _defaultTimeScale = 1;
-    private static float _pauseTimeScale = 0;
 
     private Rigidbody2D Rigidbody => gameObject.GetComponent<Rigidbody2D>();
     private Animator Animator => gameObject.GetComponent<Animator>();
@@ -45,14 +42,8 @@ public class PlayerInput : Singleton<PlayerInput>
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!IsInputBlock || PauseState.Instance.pauseMenu.activeSelf)
-            {
-                PauseState.Instance.TogglePauseMenu();
-                PauseSwitch();
-            }
-        }
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+            PauseSystem.Toggle();
 
         if (IsInputBlock)
             return;
@@ -68,26 +59,8 @@ public class PlayerInput : Singleton<PlayerInput>
         OnPlayerFlip?.Invoke(Input.mousePosition);
     }
 
-    public static void PauseSwitch()
-    {
-        if (IsInputBlock)
-            Time.timeScale = _defaultTimeScale;
-        else
-            Time.timeScale = _pauseTimeScale;
-        IsInputBlock = !IsInputBlock;
-    }
-
-    public static void Pause()
-    {
-        IsInputBlock = true;
-        Time.timeScale = _pauseTimeScale;
-    }
-
-    public static void UnPause()
-    {
-        IsInputBlock = false;
-        Time.timeScale = _defaultTimeScale;
-    }
+    public static void OnPause() => IsInputBlock = true;
+    public static void OnUnpause() => IsInputBlock = false;
 
     private void Flip()
     {
@@ -97,10 +70,16 @@ public class PlayerInput : Singleton<PlayerInput>
     private void OnEnable()
     {
         GetComponent<MoveBase>().OnFlip += Flip;
+
+        PauseSystem.PauseEvent += OnPause;
+        PauseSystem.UnpauseEvent += OnUnpause;
     }
     
     private void OnDisable()
     {
         GetComponent<MoveBase>().OnFlip -= Flip;
+
+        PauseSystem.PauseEvent -= OnPause;
+        PauseSystem.UnpauseEvent -= OnUnpause;
     }
 }

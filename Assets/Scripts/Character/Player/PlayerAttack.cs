@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 Position => transform.position;
     private IAttackable WeaponScript => GetComponentInChildren<IAttackable>();
 
-    private void Attack( Vector3 mousePosition)
+    private void Attack(Vector3 mousePosition)
     {
         Vector3 mouseWorldPosition = СonvertMousePosition(mousePosition);
         Vector3 attackDirection = (mouseWorldPosition - Position).normalized;
@@ -22,14 +22,15 @@ public class PlayerAttack : MonoBehaviour
 
     private Vector3 СonvertMousePosition(Vector3 position)
     {
-        Vector3 mouseWorldPosition = _mainCamera.ScreenToWorldPoint(position);
-        mouseWorldPosition.z = 0f;
+        Vector3 mouseWorldPosition = _mainCamera.ScreenToWorldPoint(position).With(z: 0);
         return mouseWorldPosition;
     }
+
     public void OnEnable()
     {
         PlayerInput.OnPlayerAttack += Attack;
     }
+
     public void OnDisable()
     {   
         PlayerInput.OnPlayerAttack -= Attack;

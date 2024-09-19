@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using AlexTools;
 using Souls;
 using UnityEngine;
 
@@ -59,7 +60,7 @@ public class PlayerLvl : MonoBehaviour
         for (int tickNumber = 0; tickNumber < countOfTicks; tickNumber++)
         {
             PlayerExp += expForTick;
-            yield return new WaitForSeconds(_timeScaleForSlowExp);
+            yield return Waiters.GetWaitForSeconds(_timeScaleForSlowExp);
         }
     }
 

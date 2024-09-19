@@ -95,6 +95,7 @@ public abstract class Clock
     #region Ticking
 
     public virtual void Tick(float deltaTime) => TickEvent?.Invoke(CurrentTime);
+
     private void StartTicking() => IsTicking = true;
     private void StopTicking() => IsTicking = false;
 

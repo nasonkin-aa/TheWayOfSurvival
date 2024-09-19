@@ -24,7 +24,7 @@ public class DrawModifier : MonoBehaviour
             return;
 
         PrepareUI();
-        PlayerInput.Pause();
+        PlayerInput.OnPause();
     }
 
     private void PrepareUI()

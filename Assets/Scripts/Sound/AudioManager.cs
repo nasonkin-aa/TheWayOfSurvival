@@ -38,6 +38,9 @@ public class AudioManager : Singleton<AudioManager>
     {
         musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
         soundSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
+
+        PauseSystem.PauseEvent += OnPause;
+        PauseSystem.UnpauseEvent += OnUnpause;
     }
     
     private void OnDisable()
@@ -47,6 +50,9 @@ public class AudioManager : Singleton<AudioManager>
         
         PlayerPrefs.SetFloat(MusicVolumeKey, musicSlider.value);
         PlayerPrefs.SetFloat(SoundVolumeKey, soundSlider.value);
+
+        PauseSystem.PauseEvent -= OnPause;
+        PauseSystem.UnpauseEvent -= OnUnpause;
     }
 
     private void OnMusicSliderValueChanged(float value) => musicSource.volume = value;
@@ -58,4 +64,7 @@ public class AudioManager : Singleton<AudioManager>
         var audioObject = soundSettings.Get();
         audioObject.PlayOneShot(type);
     }
+
+    private void OnPause() => musicSource.Pause();
+    private void OnUnpause() => musicSource.UnPause();
 }

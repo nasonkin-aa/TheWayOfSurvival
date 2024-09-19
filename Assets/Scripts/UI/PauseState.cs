@@ -4,25 +4,15 @@ public class PauseState : MonoBehaviour
 {
     public GameObject pauseMenu;
 
-    private static PauseState instance;
-
-    private void Awake()
+    private void OnEnable()
     {
-        instance = this;
+        PauseSystem.ToggleEvent += OnToggle;
     }
 
-    public static PauseState Instance
+    private void OnDisable()
     {
-        get { return instance; }
+        PauseSystem.ToggleEvent -= OnToggle;
     }
 
-    public void TogglePauseMenu()
-    {
-        if (pauseMenu is null)
-            Debug.LogError("No pauseMenu GameObject in PauseState");
-        else
-        {
-            pauseMenu.SetActive(!pauseMenu.activeSelf);
-        }
-    }
+    public void OnToggle(bool isPaused) => pauseMenu.SetActive(isPaused);
 }
