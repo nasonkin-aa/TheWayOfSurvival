@@ -34,6 +34,7 @@ public class Sound : MonoFlyweight<Sound, SoundSettings>
     {
         Settings.ChangeVolumeEvent -= OnChangeVolume;
 
+        PauseSystem.PauseEvent -= OnPause;
         PauseSystem.UnpauseEvent -= OnUnpause;
     }
 

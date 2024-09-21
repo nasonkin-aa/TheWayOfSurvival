@@ -24,12 +24,12 @@ public class DrawModifier : MonoBehaviour
             return;
 
         PrepareUI();
-        PlayerInput.OnPause();
+        PauseSystem.Pause(this);
     }
 
     private void PrepareUI()
     {
-        DrawUI.gameObject.SetActive(true);
+        DrawUI.gameObject.Enable();
         PrepareCards();
     }
 
@@ -85,8 +85,9 @@ public class DrawModifier : MonoBehaviour
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
-            //DrawUI.gameObject.SetActive(false); // Turn on in animation script
-            //PlayerInput.UnPause();
+            DrawUI.gameObject.Disable();
+            PauseSystem.Unpause(this);
+
             OnUpgradeSelect?.Invoke(mod.Icon);
             newComponent.Activate();
             UpdatePool(mod);

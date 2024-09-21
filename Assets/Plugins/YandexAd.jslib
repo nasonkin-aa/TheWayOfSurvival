@@ -3,6 +3,9 @@ mergeInto(LibraryManager.library, {
     ShowFullscreenAdExtern : function () {
         ysdk.adv.showFullscreenAdv({
             callbacks: {
+                onOpen: () {
+                    myGameInstance.SendMessage('YandexAd', 'OnFullscreenAdOpen');
+                },
                 onClose: function(wasShown) {
                     myGameInstance.SendMessage('YandexAd', 'OnFullscreenAdClose', wasShown);
                 },
