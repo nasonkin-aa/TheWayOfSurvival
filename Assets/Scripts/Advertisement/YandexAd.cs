@@ -22,7 +22,7 @@ public class YandexAd : MonoBehaviour, IShowAd
     private static extern void ShowFullscreenAdExtern();
 
     public void OnFullscreenAdOpen() => FullscreenAdOpenEvent?.Invoke();
-    public void OnFullscreenAdClose(bool wasShown) => FullscreenAdCloseEvent?.Invoke();
+    public void OnFullscreenAdClose() => FullscreenAdCloseEvent?.Invoke();
     public void OnFullscreenAdError() => FullscreenAdErrorEvent?.Invoke();
 
     [DllImport("__Internal")]

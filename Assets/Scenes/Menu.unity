@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 1855348009}
   - component: {fileID: 1855348008}
   - component: {fileID: 1855348007}
-  - component: {fileID: 1855348006}
+  - component: {fileID: 1855348010}
   m_Layer: 5
   m_Name: StartBtn
   m_TagString: Untagged
@@ -638,18 +638,6 @@ RectTransform:
   m_AnchoredPosition: {x: -8.7901, y: 8.699905}
   m_SizeDelta: {x: 367.5634, y: 368.5421}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1855348006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855348004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05c1eba7820fbb4458eb94ea9fe7e8a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1855348007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,16 +682,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1855348006}
-        m_TargetAssemblyTypeName: SceneManagerSelect, Assembly-CSharp
-        m_MethodName: SelectSceneByName
-        m_Mode: 5
+      - m_Target: {fileID: 1855348010}
+        m_TargetAssemblyTypeName: SceneSelector, Assembly-CSharp
+        m_MethodName: SelectGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Game
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1855348008
@@ -744,3 +732,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855348004}
   m_CullTransparentMesh: 1
+--- !u!114 &1855348010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855348004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c40f2d384c08044bbde2edd2eb6d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

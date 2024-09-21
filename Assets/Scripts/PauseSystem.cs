@@ -39,7 +39,7 @@ public static class PauseSystem
 
         _isPaused = false;
 
-        Time.timeScale = _gameTimeScale;
+        Time.timeScale = 1;
 
         UnpauseEvent?.Invoke();
     }

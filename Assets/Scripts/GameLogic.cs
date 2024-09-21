@@ -37,8 +37,8 @@ public class GameLogic : Singleton<GameLogic>
         Player.Instance.Health.DeathEvent += OnGameEnded;
         Totem.Instance.Health.DeathEvent += OnGameEnded;
 
-        ShowAd.FullscreenAdOpenEvent += () => PauseSystem.Pause(100);
-        ShowAd.FullscreenAdCloseEvent += () => PauseSystem.Unpause(100);
+        ShowAd.FullscreenAdOpenEvent += () => PauseSystem.Pause(this);
+        ShowAd.FullscreenAdCloseEvent += () => PauseSystem.Unpause(this);
     }
 
     private void OnGameEnded()

@@ -3,13 +3,16 @@ mergeInto(LibraryManager.library, {
     ShowFullscreenAdExtern : function () {
         ysdk.adv.showFullscreenAdv({
             callbacks: {
-                onOpen: () {
+                onOpen: () => {
+                    console.log('OnFullscreenAdOpen');
                     myGameInstance.SendMessage('YandexAd', 'OnFullscreenAdOpen');
                 },
-                onClose: function(wasShown) {
-                    myGameInstance.SendMessage('YandexAd', 'OnFullscreenAdClose', wasShown);
+                onClose: () => {
+                    console.log('OnFullscreenAdClose');
+                    myGameInstance.SendMessage('YandexAd', 'OnFullscreenAdClose');
                 },
-                onError: function(error) {
+                onError: (error) => {
+                    console.log('OnFullscreenAdError');
                     myGameInstance.SendMessage('YandexAd', 'OnFullscreenAdError');
                 }
             }
@@ -20,15 +23,19 @@ mergeInto(LibraryManager.library, {
         ysdk.adv.showRewardedVideo({
             callbacks: {
                 onOpen: () => {
+                    console.log('OnRewardVideoOpen');
                     myGameInstance.SendMessage('YandexAd', 'OnRewardVideoOpen');
                 },
                 onRewarded: () => {
+                    console.log('OnRewardVideoRewarded');
                     myGameInstance.SendMessage('YandexAd', 'OnRewardVideoRewarded');
                 },
                 onClose: () => {
+                    console.log('OnRewardVideoClose');
                     myGameInstance.SendMessage('YandexAd', 'OnRewardVideoClose');
                 },
                 onError: (e) => {
+                    console.log('OnRewardVideoError');
                     myGameInstance.SendMessage('YandexAd', 'OnRewardVideoError');
                 }
             }
