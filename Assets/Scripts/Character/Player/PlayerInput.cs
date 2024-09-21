@@ -13,6 +13,9 @@ public class PlayerInput : Singleton<PlayerInput>
     public static event Action OnPlayerJump;
     public static event Action<Vector3> OnPlayerAttack;
     public static event Action<Vector3> OnPlayerFlip;
+
+    public event Action PausePressedEvent;
+
     private static bool IsInputBlock = false;
     private bool isFlip = false;
 
@@ -42,8 +45,8 @@ public class PlayerInput : Singleton<PlayerInput>
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
-            PauseSystem.Toggle();
+        if (Input.GetKeyDown(KeyCode.Escape))
+            PausePressedEvent?.Invoke();
 
         if (IsInputBlock)
             return;
@@ -59,8 +62,8 @@ public class PlayerInput : Singleton<PlayerInput>
         OnPlayerFlip?.Invoke(Input.mousePosition);
     }
 
-    public static void OnPause() => IsInputBlock = true;
-    public static void OnUnpause() => IsInputBlock = false;
+    private void OnPause() => IsInputBlock = true;
+    private void OnUnpause() => IsInputBlock = false;
 
     private void Flip()
     {

@@ -1,7 +1,7 @@
 using System;
 using Advertisement;
 using Leaderboard;
-using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLogic : Singleton<GameLogic>
 {
@@ -18,7 +18,7 @@ public class GameLogic : Singleton<GameLogic>
 
 #if UNITY_EDITOR
         _leaderboard = new PlayerPrefsLeaderboard();
-        ShowAd = new EmptyAdd();
+        ShowAd = new EmptyAd();
 #else
         _leaderboard = new YandexLeaderboard();
         ShowAd = YandexAd.Create();
@@ -27,6 +27,8 @@ public class GameLogic : Singleton<GameLogic>
 
     private void Start()
     {
+        GlobalScore.Initialize();
+        StartedEvent?.Invoke();
         ShowAd.ShowFullscreenAd();
     }
 
@@ -35,13 +37,8 @@ public class GameLogic : Singleton<GameLogic>
         Player.Instance.Health.DeathEvent += OnGameEnded;
         Totem.Instance.Health.DeathEvent += OnGameEnded;
 
-        ShowAd.FullscreenAdCloseEvent += OnFullscreenAdClose;
-    }
-
-    private void OnFullscreenAdClose()
-    {
-        GlobalScore.Initialize();
-        StartedEvent?.Invoke();
+        ShowAd.FullscreenAdOpenEvent += () => PauseSystem.Pause(100);
+        ShowAd.FullscreenAdCloseEvent += () => PauseSystem.Unpause(100);
     }
 
     private void OnGameEnded()
@@ -51,6 +48,6 @@ public class GameLogic : Singleton<GameLogic>
         _leaderboard.SetEntry(new LeaderboardEntry.Builder().WithScore(GlobalScore.Score).Build());
         GlobalScore.Dispose();
 
-        SceneManagerSelect.SelectSceneByName("GameOver");
+        SceneManager.LoadScene("GameOver");
     }
 }
