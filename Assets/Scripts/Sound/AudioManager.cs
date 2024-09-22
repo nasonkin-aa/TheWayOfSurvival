@@ -18,7 +18,7 @@ public class AudioManager : Singleton<AudioManager>
     protected override void Awake()
     {
         base.Awake();
-        
+
         gameObject.AssignComponentIfUnityNull(ref musicSource);
         soundSettings.Clear();
     }
@@ -42,12 +42,12 @@ public class AudioManager : Singleton<AudioManager>
         //PauseSystem.PauseEvent += OnPause;
         //PauseSystem.UnpauseEvent += OnUnpause;
     }
-    
+
     private void OnDisable()
     {
         musicSlider.onValueChanged.RemoveListener(OnMusicSliderValueChanged);
         soundSlider.onValueChanged.RemoveListener(OnSoundSliderValueChanged);
-        
+
         PlayerPrefs.SetFloat(MusicVolumeKey, musicSlider.value);
         PlayerPrefs.SetFloat(SoundVolumeKey, soundSlider.value);
 
@@ -67,4 +67,8 @@ public class AudioManager : Singleton<AudioManager>
 
     private void OnPause() => musicSource.Pause();
     private void OnUnpause() => musicSource.UnPause();
+
+    public static void AllAudioPause() =>  AudioListener.pause = true;
+    public static void AllAudioUnPause() =>  AudioListener.pause = false;
+
 }

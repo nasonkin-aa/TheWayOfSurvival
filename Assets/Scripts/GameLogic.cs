@@ -1,6 +1,7 @@
 using System;
 using Advertisement;
 using Leaderboard;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameLogic : Singleton<GameLogic>
@@ -37,8 +38,8 @@ public class GameLogic : Singleton<GameLogic>
         Player.Instance.Health.DeathEvent += OnGameEnded;
         Totem.Instance.Health.DeathEvent += OnGameEnded;
 
-        ShowAd.FullscreenAdOpenEvent += () => PauseSystem.Pause(this);
-        ShowAd.FullscreenAdCloseEvent += () => PauseSystem.Unpause(this);
+        ShowAd.FullscreenAdOpenEvent += StopGameForYandexAd;
+        ShowAd.FullscreenAdCloseEvent += StartGameForYandexAd;
     }
 
     private void OnGameEnded()
@@ -49,5 +50,16 @@ public class GameLogic : Singleton<GameLogic>
         GlobalScore.Dispose();
 
         SceneManager.LoadScene("GameOver");
+    }
+
+    private void StopGameForYandexAd()
+    {
+        PauseSystem.Pause(this);
+        AudioManager.AllAudioPause();
+    }
+    private void StartGameForYandexAd()
+    {
+        PauseSystem.Unpause(this);
+        AudioManager.AllAudioUnPause();
     }
 }
