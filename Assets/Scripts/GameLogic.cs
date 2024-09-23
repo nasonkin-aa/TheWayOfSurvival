@@ -40,6 +40,9 @@ public class GameLogic : Singleton<GameLogic>
 
         ShowAd.FullscreenAdOpenEvent += StopGameForYandexAd;
         ShowAd.FullscreenAdCloseEvent += StartGameForYandexAd;
+        
+        ShowAd.RewardVideoOpenEvent += StopGameForYandexAd;
+        ShowAd.RewardVideoCloseEvent += StartGameForYandexAd;
     }
 
     private void OnGameEnded()
@@ -56,6 +59,8 @@ public class GameLogic : Singleton<GameLogic>
     {
         PauseSystem.Pause(this);
         AudioManager.AllAudioPause();
+        var Modifier = GameObject.FindObjectOfType<DrawModifier>();
+        Modifier.DisableButtonAd();
     }
     private void StartGameForYandexAd()
     {

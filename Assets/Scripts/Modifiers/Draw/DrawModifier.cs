@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -6,14 +7,17 @@ using TMPro;
 using System.Linq;
 using Random = UnityEngine.Random;
 
+
 public class DrawModifier : MonoBehaviour
 {
+    [SerializeField] private GameObject AdButton;
     private static List<ModifierBaseObject> _pool;
     private static readonly System.Random rnd = new System.Random();
-
+    
     public Canvas DrawUI;
 
     public static Action<Sprite> OnUpgradeSelect;
+    
     private void Awake()
     {
         _pool = new(Resources.LoadAll<ModifierBaseObject>("").Where(obj => obj.Lvl == 1));
@@ -23,10 +27,19 @@ public class DrawModifier : MonoBehaviour
         if (_pool.Count <= 0)
             return;
 
+        StartCoroutine(Delay());
         PrepareUI();
         PauseSystem.Pause(this);
     }
 
+    public IEnumerator Delay()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        AdButton.Enable();
+    }
+
+    public void DisableButtonAd() => AdButton.Disable();
+        
     private void PrepareUI()
     {
         DrawUI.gameObject.Enable();
