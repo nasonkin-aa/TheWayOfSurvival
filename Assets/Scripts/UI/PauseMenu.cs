@@ -1,19 +1,26 @@
+using System;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private PlayerInput _playerInput;
 
     private bool _isOpened;
 
+    /*public void Start()
+    {
+        _playerInput = FindObjectOfType<PlayerInput>();
+    }*/
+
     private void OnEnable()
     {
-        PlayerInput.Instance.PausePressedEvent += OnPausePressed;
+        _playerInput.PausePressedEvent += OnPausePressed;
     }
 
     private void OnDisable()
     {
-        PlayerInput.Instance.PausePressedEvent -= OnPausePressed;
+        _playerInput.PausePressedEvent -= OnPausePressed;
     }
 
     private void OnPausePressed()

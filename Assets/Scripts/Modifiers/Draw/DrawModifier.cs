@@ -24,6 +24,7 @@ public class DrawModifier : MonoBehaviour
     }
     public void DrawNewModifier()
     {
+        //AdButton.Enable();
         if (_pool.Count <= 0)
             return;
 
@@ -104,7 +105,9 @@ public class DrawModifier : MonoBehaviour
             OnUpgradeSelect?.Invoke(mod.Icon);
             newComponent.Activate();
             UpdatePool(mod);
+            AdButton.Disable();
         });
+        AdButton.Disable();
     }
 
     private List<ModifierBaseObject> RandomizeModifiers()

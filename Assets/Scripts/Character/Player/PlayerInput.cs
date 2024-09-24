@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(PlayerMove))]
-public class PlayerInput : Singleton<PlayerInput>
+public class PlayerInput : MonoBehaviour
 {
     public static float Horizontal;
     public static float Vertical;

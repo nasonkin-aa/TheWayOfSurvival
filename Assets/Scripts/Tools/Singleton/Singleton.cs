@@ -25,7 +25,6 @@ public class Singleton<T> : MonoBehaviour where T : Component
                 
             var go = new GameObject(Name);
             _instance = go.AddComponent<T>();
-
             return _instance;
         }
         set => _instance = value;
@@ -42,4 +41,5 @@ public class Singleton<T> : MonoBehaviour where T : Component
 
         Instance = this as T;
     }       
+   
 }
