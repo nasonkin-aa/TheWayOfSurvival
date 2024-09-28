@@ -68,7 +68,7 @@ public class AudioManager : Singleton<AudioManager>
     private void OnPause() => musicSource.Pause();
     private void OnUnpause() => musicSource.UnPause();
 
-    public static void AllAudioPause() =>  AudioListener.pause = true;
-    public static void AllAudioUnPause() =>  AudioListener.pause = false;
+    public static void AllAudioPause() => AudioListener.pause = true;
+    public static void AllAudioUnPause() => AudioListener.pause = false;
 
 }

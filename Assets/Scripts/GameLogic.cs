@@ -59,7 +59,7 @@ public class GameLogic : Singleton<GameLogic>
 
         ShowAd.RewardVideoOpenEvent += Gameplay.Stop;
         ShowAd.RewardVideoErrorEvent += Gameplay.Start;
-        ShowAd.FullscreenAdCloseEvent += Gameplay.Start;
+        ShowAd.RewardVideoCloseEvent += Gameplay.Start;
     }
 
     private void OnGameEnded()
