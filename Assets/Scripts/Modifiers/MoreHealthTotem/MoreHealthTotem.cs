@@ -12,15 +12,6 @@ public class MoreHealthTotem : MonoBehaviour, IWeaponModifier
         _health = Totem.Instance.Health;
     }
 
-    private void OnEnable()
-    {
-
-    }
-
-    private void OnDisable()
-    {
-
-    }
     void IWeaponModifier.PrepareModifier(ModifierBaseObject moreHealthTotemInfo)
     {
         _moreHealthTotemInfo = moreHealthTotemInfo as MoreHealthTotemConfig;

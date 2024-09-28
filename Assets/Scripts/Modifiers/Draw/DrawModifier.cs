@@ -13,6 +13,7 @@ public class DrawModifier : MonoBehaviour
     [SerializeField] private GameObject AdButton;
     private static List<ModifierBaseObject> _pool;
     private static readonly System.Random rnd = new System.Random();
+    private bool CanActive;
     
     public Canvas DrawUI;
 
@@ -24,6 +25,7 @@ public class DrawModifier : MonoBehaviour
     }
     public void DrawNewModifier()
     {
+        CanActive = true;
         //AdButton.Enable();
         if (_pool.Count <= 0)
             return;
@@ -35,11 +37,19 @@ public class DrawModifier : MonoBehaviour
 
     public IEnumerator Delay()
     {
+        Debug.Log(CanActive);
         yield return new WaitForSecondsRealtime(2f);
-        AdButton.Enable();
+        if (CanActive)
+            AdButton.Enable();
+        
+    }
+    public IEnumerator DelayForDisable()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        CanActive = false;
     }
 
-    public void DisableButtonAd() => AdButton.Disable();
+    public void DisableButtonAd() => StartCoroutine(DelayForDisable());
         
     private void PrepareUI()
     {

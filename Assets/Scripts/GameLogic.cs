@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 public class GameLogic : Singleton<GameLogic>
 {
     private ILeaderboard<LeaderboardEntry> _leaderboard;
+    [SerializeField] private DrawModifier _modifier;
 
     public IShowAd ShowAd { get; private set; }
 
     public event Action StartedEvent;
     public event Action EndedEvent;
 
+    
     protected override void Awake()
     {
         base.Awake();
@@ -59,12 +61,12 @@ public class GameLogic : Singleton<GameLogic>
     {
         PauseSystem.Pause(this);
         AudioManager.AllAudioPause();
-        var Modifier = GameObject.FindObjectOfType<DrawModifier>();
-        Modifier.DisableButtonAd();
+        _modifier.DisableButtonAd();
     }
     private void StartGameForYandexAd()
     {
         PauseSystem.Unpause(this);
         AudioManager.AllAudioUnPause();
+        _modifier.DisableButtonAd();
     }
 }

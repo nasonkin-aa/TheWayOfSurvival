@@ -22,9 +22,9 @@ public class Health : MonoBehaviour
         set 
         { 
             var percentage = Percentage;
-            
             maxHealth = value;
-            CurrentHealth = currentHealth >= maxHealth ? maxHealth : (int)(maxHealth * percentage);
+            
+            CurrentHealth = currentHealth >= maxHealth ? maxHealth : (int)(maxHealth * percentage + 20);
         } 
     }  
     
