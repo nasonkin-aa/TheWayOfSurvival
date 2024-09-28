@@ -1,5 +1,4 @@
 mergeInto(LibraryManager.library, {
-
     ShowFullscreenAdExtern : function () {
         ysdk.adv.showFullscreenAdv({
             callbacks: {
