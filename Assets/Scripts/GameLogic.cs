@@ -39,7 +39,7 @@ public class GameLogic : Singleton<GameLogic>
         StartedEvent?.Invoke();
 
         Gameplay.Start();
-        ShowAd.ShowFullscreenAd();
+        //ShowAd.ShowFullscreenAd();
     }
 
     private void OnEnable()
@@ -60,6 +60,9 @@ public class GameLogic : Singleton<GameLogic>
         ShowAd.RewardVideoOpenEvent += Gameplay.Stop;
         ShowAd.RewardVideoErrorEvent += Gameplay.Start;
         ShowAd.RewardVideoCloseEvent += Gameplay.Start;
+        
+        ShowAd.RewardVideoOpenEvent += StopGameForYandexAd;
+        ShowAd.RewardVideoCloseEvent += StartGameForYandexAd;
     }
 
     private void OnGameEnded()

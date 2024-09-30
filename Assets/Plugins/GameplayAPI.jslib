@@ -1,9 +1,13 @@
 mergeInto(LibraryManager.library, {
     StartExtern : function () {
-        ysdk.features.GameplayAPI?.start();
+        if (ysdk.features.GameplayAPI) {
+            ysdk.features.GameplayAPI.start();
+        }
     },
 
     StopExtern: function () {
-        ysdk.features.GameplayAPI?.stop();
+        if (ysdk.features.GameplayAPI) {
+            ysdk.features.GameplayAPI.stop();
+        }
     },
 });
