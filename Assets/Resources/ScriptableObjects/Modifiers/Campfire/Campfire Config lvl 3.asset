@@ -20,4 +20,4 @@ MonoBehaviour:
     \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
   _radius: 20
   _healAmount: 10
-  _reloadTime: 4
+  _reloadTime: 3

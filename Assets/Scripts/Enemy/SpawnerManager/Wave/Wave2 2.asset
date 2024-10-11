@@ -20,3 +20,4 @@ MonoBehaviour:
   AirGroundSpawnRatio: 0.293
   SpeedScale: 1
   HealthScale: 0.8
+  DamageScale: 0.7

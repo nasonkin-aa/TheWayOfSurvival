@@ -19,6 +19,6 @@ MonoBehaviour:
   - {fileID: 64504927843487094, guid: 973af598294856e429bbea9f691c397d, type: 3}
   - {fileID: 7663579530294693150, guid: 2912093235d67cf4194cd72c63ce8a11, type: 3}
   AirGroundSpawnRatio: 0.536
-  SpeedScale: 1.2
+  SpeedScale: 1
   HealthScale: 0.7
   DamageScale: 1

@@ -16,7 +16,7 @@ MonoBehaviour:
   defaultCapacity: 10
   maxSize: 10000
   prefab: {fileID: 8419011968743330026, guid: 0a8d54143c98db34bad1553553b37fe0, type: 3}
-  despawnTime: 5
+  despawnTime: 10
   defaultColor: {r: 0.20392157, g: 0.92156863, b: 0.8980392, a: 1}
   colorDictionary:
     _serializedList:
