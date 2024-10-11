@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
+
 public class TextWithHp : MonoBehaviour
 {
     private TextMesh _hpTextMesh;

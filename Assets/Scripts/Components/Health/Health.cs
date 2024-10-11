@@ -47,6 +47,11 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void Start()
+    {
+        
+    }
+
     public void Scale(float scale) => MaxHealth = (int)(MaxHealth * scale);
 
     public void TakeDamage(int amount)
