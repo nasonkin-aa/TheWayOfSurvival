@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 6860c3e894e096f448ad6e647c6f9ce5, type: 3}
+    - {fileID: 2800000, guid: 75747852c46d5134d9cf4095d9769a5f, type: 3}
+    - {fileID: 2800000, guid: 5227bc1a88ee9ab40bd870fa5b50873d, type: 3}
+    - {fileID: 2800000, guid: 9ee3963cd01d97448bdc625cab8e1529, type: 3}
+    - {fileID: 2800000, guid: 0fb89c22f8d3c084991c500de4c1c288, type: 3}
+    - {fileID: 2800000, guid: 92586e274bbadb5488eaa0e7d5904626, type: 3}
+    - {fileID: 2800000, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
+    - {fileID: 2800000, guid: 96e847b394462284ba314f44c448e91d, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 0fb89c22f8d3c084991c500de4c1c288: -1694879040
+    - 0fb89c22f8d3c084991c500de4c1c288: -1819214444
+    - 75747852c46d5134d9cf4095d9769a5f: 1193229905
+    - 75747852c46d5134d9cf4095d9769a5f: -1043267643
+    - 75747852c46d5134d9cf4095d9769a5f: 1565496177
+    - 75747852c46d5134d9cf4095d9769a5f: -1872197201
+    - 75747852c46d5134d9cf4095d9769a5f: 1451798903
+    - 75747852c46d5134d9cf4095d9769a5f: -1252574345
+    - 96e847b394462284ba314f44c448e91d: 821945480
+    - 96e847b394462284ba314f44c448e91d: 1561455973
+    - 96e847b394462284ba314f44c448e91d: 954596773
+    - 96e847b394462284ba314f44c448e91d: 2056251993
+    - 96e847b394462284ba314f44c448e91d: 739835139
+    - 96e847b394462284ba314f44c448e91d: -911854409
+    - 96e847b394462284ba314f44c448e91d: 1054324352
+    - 92586e274bbadb5488eaa0e7d5904626: -822221530
+    - 92586e274bbadb5488eaa0e7d5904626: -763801348
+    - 92586e274bbadb5488eaa0e7d5904626: 1126161369
+    - 92586e274bbadb5488eaa0e7d5904626: -107887144
+    - 92586e274bbadb5488eaa0e7d5904626: -624055331
+    - 92586e274bbadb5488eaa0e7d5904626: -2092760121
+    - 92586e274bbadb5488eaa0e7d5904626: 427554801
+    - 6860c3e894e096f448ad6e647c6f9ce5: 21300000
+    - 5227bc1a88ee9ab40bd870fa5b50873d: 21300000
+    - 9ee3963cd01d97448bdc625cab8e1529: 21300000
+    - be7c75fd89af32446a25fae5bec1317f: -1549888701
+    - be7c75fd89af32446a25fae5bec1317f: -785153650
+    - be7c75fd89af32446a25fae5bec1317f: 294712626
+    - be7c75fd89af32446a25fae5bec1317f: 375628091
+    - be7c75fd89af32446a25fae5bec1317f: 1939848579
+    - be7c75fd89af32446a25fae5bec1317f: 1854713796
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1694879040, guid: 0fb89c22f8d3c084991c500de4c1c288, type: 3}
+  - {fileID: -1819214444, guid: 0fb89c22f8d3c084991c500de4c1c288, type: 3}
+  - {fileID: 1193229905, guid: 75747852c46d5134d9cf4095d9769a5f, type: 3}
+  - {fileID: -1043267643, guid: 75747852c46d5134d9cf4095d9769a5f, type: 3}
+  - {fileID: 1565496177, guid: 75747852c46d5134d9cf4095d9769a5f, type: 3}
+  - {fileID: -1872197201, guid: 75747852c46d5134d9cf4095d9769a5f, type: 3}
+  - {fileID: 1451798903, guid: 75747852c46d5134d9cf4095d9769a5f, type: 3}
+  - {fileID: -1252574345, guid: 75747852c46d5134d9cf4095d9769a5f, type: 3}
+  - {fileID: 821945480, guid: 96e847b394462284ba314f44c448e91d, type: 3}
+  - {fileID: 1561455973, guid: 96e847b394462284ba314f44c448e91d, type: 3}
+  - {fileID: 954596773, guid: 96e847b394462284ba314f44c448e91d, type: 3}
+  - {fileID: 2056251993, guid: 96e847b394462284ba314f44c448e91d, type: 3}
+  - {fileID: 739835139, guid: 96e847b394462284ba314f44c448e91d, type: 3}
+  - {fileID: -911854409, guid: 96e847b394462284ba314f44c448e91d, type: 3}
+  - {fileID: 1054324352, guid: 96e847b394462284ba314f44c448e91d, type: 3}
+  - {fileID: -822221530, guid: 92586e274bbadb5488eaa0e7d5904626, type: 3}
+  - {fileID: -763801348, guid: 92586e274bbadb5488eaa0e7d5904626, type: 3}
+  - {fileID: 1126161369, guid: 92586e274bbadb5488eaa0e7d5904626, type: 3}
+  - {fileID: -107887144, guid: 92586e274bbadb5488eaa0e7d5904626, type: 3}
+  - {fileID: -624055331, guid: 92586e274bbadb5488eaa0e7d5904626, type: 3}
+  - {fileID: -2092760121, guid: 92586e274bbadb5488eaa0e7d5904626, type: 3}
+  - {fileID: 427554801, guid: 92586e274bbadb5488eaa0e7d5904626, type: 3}
+  - {fileID: 21300000, guid: 6860c3e894e096f448ad6e647c6f9ce5, type: 3}
+  - {fileID: 21300000, guid: 5227bc1a88ee9ab40bd870fa5b50873d, type: 3}
+  - {fileID: 21300000, guid: 9ee3963cd01d97448bdc625cab8e1529, type: 3}
+  - {fileID: -1549888701, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
+  - {fileID: -785153650, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
+  - {fileID: 294712626, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
+  - {fileID: 375628091, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
+  - {fileID: 1939848579, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
+  - {fileID: 1854713796, guid: be7c75fd89af32446a25fae5bec1317f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - the-way-of-survival_UI_icons_pause_1
+  - the-way-of-survival_UI_icons_pause_0
+  - the-way-of-survival_UI_1
+  - the-way-of-survival_UI_0
+  - the-way-of-survival_UI_3
+  - the-way-of-survival_UI_2
+  - the-way-of-survival_UI_5
+  - the-way-of-survival_UI_4
+  - new icons_4
+  - new icons_5
+  - new icons_6
+  - new icons_0
+  - new icons_1
+  - new icons_2
+  - new icons_3
+  - the-way-of-survival_UI_icons_pause 1_9
+  - the-way-of-survival_UI_icons_pause 1_5
+  - the-way-of-survival_UI_icons_pause 1_6
+  - the-way-of-survival_UI_icons_pause 1_0
+  - the-way-of-survival_UI_icons_pause 1_1
+  - the-way-of-survival_UI_icons_pause 1_3
+  - the-way-of-survival_UI_icons_pause 1_10
+  - the-way-of-survival-menu 1
+  - the-way-of-survival_UI_icons_bonfire
+  - the-way-of-survival_UI_icons_bonfire (1)
+  - icons_2
+  - icons_3
+  - icons_0
+  - icons_1
+  - icons_4
+  - icons_5
+  m_RenderDataMap: {}
+  m_Tag: New Sprite Atlas
+  m_IsVariant: 0

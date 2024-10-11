@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d2527b36bd11a7747b0725464f642c39, type: 3}
+    - {fileID: 2800000, guid: c781aca59bb8c11448bf6da824489e71, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - c781aca59bb8c11448bf6da824489e71: 21300000
+    - d2527b36bd11a7747b0725464f642c39: -172920087
+    - d2527b36bd11a7747b0725464f642c39: 779693828
+    - d2527b36bd11a7747b0725464f642c39: -195447932
+    - d2527b36bd11a7747b0725464f642c39: -161187103
+    - d2527b36bd11a7747b0725464f642c39: 2092147958
+    - d2527b36bd11a7747b0725464f642c39: -1577160734
+    - d2527b36bd11a7747b0725464f642c39: -1145919698
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: c781aca59bb8c11448bf6da824489e71, type: 3}
+  - {fileID: -172920087, guid: d2527b36bd11a7747b0725464f642c39, type: 3}
+  - {fileID: 779693828, guid: d2527b36bd11a7747b0725464f642c39, type: 3}
+  - {fileID: -195447932, guid: d2527b36bd11a7747b0725464f642c39, type: 3}
+  - {fileID: -161187103, guid: d2527b36bd11a7747b0725464f642c39, type: 3}
+  - {fileID: 2092147958, guid: d2527b36bd11a7747b0725464f642c39, type: 3}
+  - {fileID: -1577160734, guid: d2527b36bd11a7747b0725464f642c39, type: 3}
+  - {fileID: -1145919698, guid: d2527b36bd11a7747b0725464f642c39, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - cave
+  - the-way-of-survival_bg_6
+  - the-way-of-survival_bg_4
+  - the-way-of-survival_bg_5
+  - the-way-of-survival_bg_2
+  - the-way-of-survival_bg_3
+  - the-way-of-survival_bg_0
+  - the-way-of-survival_bg_1
+  m_RenderDataMap: {}
+  m_Tag: New Sprite Atlas
+  m_IsVariant: 0

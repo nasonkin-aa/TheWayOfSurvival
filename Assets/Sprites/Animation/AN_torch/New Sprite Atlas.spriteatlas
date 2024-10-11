@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: dc9cd97e77110ee4096283edf30b1a44, type: 3}
+    - {fileID: 2800000, guid: cb47b28e62576aa4ebcb9bbf328320a5, type: 3}
+    - {fileID: 2800000, guid: 097a1c8de9b07154bb3b7fc97f8d2b06, type: 3}
+    - {fileID: 2800000, guid: 157ec6892a1a4c140913e246b867f83b, type: 3}
+    - {fileID: 2800000, guid: 90786f11abd94bb43928b0f49e3f5c79, type: 3}
+    - {fileID: 2800000, guid: 7408b5a23118918419f626a34fa1e1c1, type: 3}
+    - {fileID: 2800000, guid: bc7c314630564714bbfb77954412b726, type: 3}
+    - {fileID: 2800000, guid: f9956a9a6cd915e4e963dbabf32af7d4, type: 3}
+    - {fileID: 2800000, guid: e26d0f64b0011bd4aaecebe0c41bf8fe, type: 3}
+    - {fileID: 2800000, guid: 25a791eaa15eee1458b845f3b34ae681, type: 3}
+    - {fileID: 2800000, guid: e6de0154578200a499a1c49bdef55c5f, type: 3}
+    - {fileID: 2800000, guid: 52c5b0db7baf27246af70cc3e954a6e7, type: 3}
+    - {fileID: 2800000, guid: d0e90ca3449fee14ea52e44150096819, type: 3}
+    - {fileID: 2800000, guid: ee568fc3045442844ad41f206379fb92, type: 3}
+    - {fileID: 2800000, guid: 1c621bad0dd5910438ed433f540f524e, type: 3}
+    - {fileID: 2800000, guid: c2714514cb3b3ea42aa296479bb830a9, type: 3}
+    - {fileID: 2800000, guid: 4c1dbbab416a7234cb5d50ad59c73610, type: 3}
+    - {fileID: 2800000, guid: d76f828625982534f8153f2043953bed, type: 3}
+    - {fileID: 2800000, guid: b5c4be0e21f1ac44aa13e7b20a0f701b, type: 3}
+    - {fileID: 2800000, guid: 9c7b298a72cff534291b3e66b93fc959, type: 3}
+    - {fileID: 2800000, guid: 732bed313745c3e49b230c458f866d82, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 90786f11abd94bb43928b0f49e3f5c79: 21300000
+    - 732bed313745c3e49b230c458f866d82: 21300000
+    - 7408b5a23118918419f626a34fa1e1c1: 21300000
+    - d0e90ca3449fee14ea52e44150096819: 21300000
+    - ee568fc3045442844ad41f206379fb92: 21300000
+    - c2714514cb3b3ea42aa296479bb830a9: 21300000
+    - e6de0154578200a499a1c49bdef55c5f: 21300000
+    - e26d0f64b0011bd4aaecebe0c41bf8fe: 21300000
+    - bc7c314630564714bbfb77954412b726: 21300000
+    - d76f828625982534f8153f2043953bed: 21300000
+    - 157ec6892a1a4c140913e246b867f83b: 21300000
+    - 9c7b298a72cff534291b3e66b93fc959: 21300000
+    - f9956a9a6cd915e4e963dbabf32af7d4: 21300000
+    - 25a791eaa15eee1458b845f3b34ae681: 21300000
+    - 4c1dbbab416a7234cb5d50ad59c73610: 21300000
+    - 52c5b0db7baf27246af70cc3e954a6e7: 21300000
+    - 097a1c8de9b07154bb3b7fc97f8d2b06: 21300000
+    - 1c621bad0dd5910438ed433f540f524e: 21300000
+    - b5c4be0e21f1ac44aa13e7b20a0f701b: 21300000
+    - dc9cd97e77110ee4096283edf30b1a44: 21300000
+    - cb47b28e62576aa4ebcb9bbf328320a5: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 90786f11abd94bb43928b0f49e3f5c79, type: 3}
+  - {fileID: 21300000, guid: 732bed313745c3e49b230c458f866d82, type: 3}
+  - {fileID: 21300000, guid: 7408b5a23118918419f626a34fa1e1c1, type: 3}
+  - {fileID: 21300000, guid: d0e90ca3449fee14ea52e44150096819, type: 3}
+  - {fileID: 21300000, guid: ee568fc3045442844ad41f206379fb92, type: 3}
+  - {fileID: 21300000, guid: c2714514cb3b3ea42aa296479bb830a9, type: 3}
+  - {fileID: 21300000, guid: e6de0154578200a499a1c49bdef55c5f, type: 3}
+  - {fileID: 21300000, guid: e26d0f64b0011bd4aaecebe0c41bf8fe, type: 3}
+  - {fileID: 21300000, guid: bc7c314630564714bbfb77954412b726, type: 3}
+  - {fileID: 21300000, guid: d76f828625982534f8153f2043953bed, type: 3}
+  - {fileID: 21300000, guid: 157ec6892a1a4c140913e246b867f83b, type: 3}
+  - {fileID: 21300000, guid: 9c7b298a72cff534291b3e66b93fc959, type: 3}
+  - {fileID: 21300000, guid: f9956a9a6cd915e4e963dbabf32af7d4, type: 3}
+  - {fileID: 21300000, guid: 25a791eaa15eee1458b845f3b34ae681, type: 3}
+  - {fileID: 21300000, guid: 4c1dbbab416a7234cb5d50ad59c73610, type: 3}
+  - {fileID: 21300000, guid: 52c5b0db7baf27246af70cc3e954a6e7, type: 3}
+  - {fileID: 21300000, guid: 097a1c8de9b07154bb3b7fc97f8d2b06, type: 3}
+  - {fileID: 21300000, guid: 1c621bad0dd5910438ed433f540f524e, type: 3}
+  - {fileID: 21300000, guid: b5c4be0e21f1ac44aa13e7b20a0f701b, type: 3}
+  - {fileID: 21300000, guid: dc9cd97e77110ee4096283edf30b1a44, type: 3}
+  - {fileID: 21300000, guid: cb47b28e62576aa4ebcb9bbf328320a5, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Armature_animtion0_04
+  - Armature_animtion0_20
+  - Armature_animtion0_05
+  - Armature_animtion0_12
+  - Armature_animtion0_13
+  - Armature_animtion0_15
+  - Armature_animtion0_10
+  - Armature_animtion0_08
+  - Armature_animtion0_06
+  - Armature_animtion0_17
+  - Armature_animtion0_03
+  - Armature_animtion0_19
+  - Armature_animtion0_07
+  - Armature_animtion0_09
+  - Armature_animtion0_16
+  - Armature_animtion0_11
+  - Armature_animtion0_02
+  - Armature_animtion0_14
+  - Armature_animtion0_18
+  - Armature_animtion0_00
+  - Armature_animtion0_01
+  m_RenderDataMap: {}
+  m_Tag: New Sprite Atlas
+  m_IsVariant: 0
