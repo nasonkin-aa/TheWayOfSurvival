@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +14,13 @@ public class ScoreUI : Singleton<ScoreUI>
         gameObject.AssignComponentIfUnityNull(ref tmpText);
     }
 
-    private void OnEnable() => OnScoreChange(GlobalScore.Score);
-    private void OnScoreChange(int value) => tmpText.text = $"Счёт: {value}";
+    private void FixedUpdate()
+    {
+        
+        OnScoreChange(GlobalScore.Score);
+    }
+
+   
+        
+    private void OnScoreChange(int value) => tmpText.text = $"Счёт:\n{value}";
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d083ad3306bdacf41a40c0663a4a7cb5, type: 3}
   m_Name: Wave2
   m_EditorClassIdentifier: 
-  CountEnemy: 30
+  CountEnemy: 35
   WaveTime: 30
   EnemyInWave:
   - {fileID: 7663579530294693150, guid: 2912093235d67cf4194cd72c63ce8a11, type: 3}
