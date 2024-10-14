@@ -19,9 +19,7 @@ public class StartAd : MonoBehaviour
         ShowAd = YandexAd.Create();
         Loading = new LoadingAPI();
         Gameplay = new GameplayAPI();
-#endif
-
-        Loading.Ready();
+#endif    
     }
 
     private void Start()
@@ -29,5 +27,7 @@ public class StartAd : MonoBehaviour
         Gameplay.Start();
         Gameplay.Stop();
         ShowAd.ShowFullscreenAd();
+
+        Loading.Ready();
     }
 }
