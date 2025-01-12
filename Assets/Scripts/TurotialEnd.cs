@@ -7,6 +7,6 @@ public class TurotialEnd : MonoBehaviour
     {
         if (!collision.CompareTag("Player")) return;
 
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MenuNotAd");
     }
 }

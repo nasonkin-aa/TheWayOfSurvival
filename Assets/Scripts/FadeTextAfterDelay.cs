@@ -4,26 +4,26 @@ using TMPro;
 
 public class FadeTextAfterDelay : MonoBehaviour
 {
-    public TMP_Text text;  // Ссылка на компонент TMP_Text
-    public float fadeDuration = 2f;  // Длительность плавного исчезновения
-    public float delay = 5f;  // Задержка перед началом исчезновения
+    public TMP_Text text;  // РЎСЃС‹Р»РєР° РЅР° РєРѕРјРїРѕРЅРµРЅС‚ TMP_Text
+    public float fadeDuration = 2f;  // Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ РїР»Р°РІРЅРѕРіРѕ РёСЃС‡РµР·РЅРѕРІРµРЅРёСЏ
+    public float delay = 5f;  // Р—Р°РґРµСЂР¶РєР° РїРµСЂРµРґ РЅР°С‡Р°Р»РѕРј РёСЃС‡РµР·РЅРѕРІРµРЅРёСЏ
 
     private void Start()
     {
-        // Запускаем корутину с задержкой
+        // Р—Р°РїСѓСЃРєР°РµРј РєРѕСЂСѓС‚РёРЅСѓ СЃ Р·Р°РґРµСЂР¶РєРѕР№
         StartCoroutine(FadeOutText());
     }
 
     IEnumerator FadeOutText()
     {
-        // Ждем 5 секунд
+        // Р–РґРµРј 5 СЃРµРєСѓРЅРґ
         yield return new WaitForSeconds(delay);
 
-        // Получаем текущий цвет текста
+        // РџРѕР»СѓС‡Р°РµРј С‚РµРєСѓС‰РёР№ С†РІРµС‚ С‚РµРєСЃС‚Р°
         Color originalColor = text.color;
         float elapsedTime = 0f;
 
-        // Плавно уменьшаем альфа-канал цвета текста
+        // РџР»Р°РІРЅРѕ СѓРјРµРЅСЊС€Р°РµРј Р°Р»СЊС„Р°-РєР°РЅР°Р» С†РІРµС‚Р° С‚РµРєСЃС‚Р°
         while (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
@@ -32,7 +32,7 @@ public class FadeTextAfterDelay : MonoBehaviour
             yield return null;
         }
 
-        // Убедимся, что текст полностью прозрачный
+        // РЈР±РµРґРёРјСЃСЏ, С‡С‚Рѕ С‚РµРєСЃС‚ РїРѕР»РЅРѕСЃС‚СЊСЋ РїСЂРѕР·СЂР°С‡РЅС‹Р№
         text.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
     }
 }
