@@ -9,7 +9,7 @@ namespace Gameplay
 
         [DllImport("__Internal")]
         private static extern void StartExtern();
-
+        
         [DllImport("__Internal")]
         private static extern void StopExtern();
     }

@@ -10,16 +10,20 @@ public class StartAd : MonoBehaviour
     public IGameplay Gameplay { get; private set; }
 
     protected void Awake()
-    {
-#if UNITY_EDITOR
+    { 
         ShowAd = new EmptyAd();
         Loading = new EmptyLoading();
         Gameplay = new EmptyGameplay();
-#else
-        ShowAd = YandexAd.Create();
-        Loading = new LoadingAPI();
-        Gameplay = new GameplayAPI();
-#endif    
+        
+// #if UNITY_EDITOR
+//         ShowAd = new EmptyAd();
+//         Loading = new EmptyLoading();
+//         Gameplay = new EmptyGameplay();
+// #else
+//         ShowAd = YandexAd.Create();
+//         Loading = new LoadingAPI();
+//         Gameplay = new GameplayAPI();
+// #endif    
     }
 
     private void Start()

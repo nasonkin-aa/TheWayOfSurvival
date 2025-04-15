@@ -20,16 +20,21 @@ public class GameLogic : Singleton<GameLogic>
     protected override void Awake()
     {
         base.Awake();
-
-#if UNITY_EDITOR
+        
         _leaderboard = new PlayerPrefsLeaderboard();
         ShowAd = new EmptyAd();
         Gameplay = new EmptyGameplay();
-#else
-        _leaderboard = new YandexLeaderboard();
-        ShowAd = YandexAd.Create();
-        Gameplay = new GameplayAPI();
-#endif
+        
+// Old code for mock YG API's in editor
+// #if UNITY_EDITOR
+//         _leaderboard = new PlayerPrefsLeaderboard();
+//         ShowAd = new EmptyAd();
+//         Gameplay = new EmptyGameplay();
+// #else
+//         _leaderboard = new YandexLeaderboard();
+//         ShowAd = YandexAd.Create();
+//         Gameplay = new GameplayAPI();
+// #endif
     }
 
     private void Start()
