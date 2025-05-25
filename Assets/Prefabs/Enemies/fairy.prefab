@@ -67,7 +67,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.13506243, y: 0}
   serializedVersion: 2
-  m_Radius: 19
+  m_Radius: 22
 --- !u!114 &2979442900800253413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
   - {x: 0.6046934, y: -5.19767, z: 0}
   m_ShapePathHash: -121434481
   m_Mesh: {fileID: 0}
-  m_InstanceId: 37140
+  m_InstanceId: 47814
   m_LocalBounds:
     m_Center: {x: 1.2912614, y: -5.170255, z: 0}
     m_Extent: {x: 1.4462388, y: 0.77116156, z: 0}

@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: -7312861945700669583, guid: f71f563e523acd143a4db159828ca488, type: 3}
   AirGroundSpawnRatio: 1
   SpeedScale: 1.2
-  HealthScale: 0.5
-  DamageScale: 0.5
+  HealthScale: 0.6
+  DamageScale: 0.6

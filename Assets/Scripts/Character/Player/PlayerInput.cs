@@ -1,6 +1,6 @@
 using System;
+using System.Collections;
 using UnityEngine;
-
 
 [RequireComponent(typeof(PlayerMove))]
 public class PlayerInput : MonoBehaviour
@@ -19,6 +19,11 @@ public class PlayerInput : MonoBehaviour
     private static bool IsInputBlock = false;
     private bool isFlip = false;
 
+    private bool isAttackingHeld = false;
+    private Coroutine attackCoroutine;
+
+    private readonly float attackInterval = 0.25f;
+
     private Rigidbody2D Rigidbody => gameObject.GetComponent<Rigidbody2D>();
     private Animator Animator => gameObject.GetComponent<Animator>();
 
@@ -36,11 +41,8 @@ public class PlayerInput : MonoBehaviour
 
         Animator?.SetFloat("Speed", MathF.Abs(Horizontal));
         Animator?.SetFloat("yVelocity", Rigidbody.velocity.y);
-        
-        if (isFlip)
-            Animator?.SetFloat("rawSpeed", -Horizontal);
-        else
-            Animator?.SetFloat("rawSpeed", Horizontal);
+
+        Animator?.SetFloat("rawSpeed", isFlip ? -Horizontal : Horizontal);
     }
 
     public void Update()
@@ -53,35 +55,47 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            OnPlayerAttack?.Invoke(Input.mousePosition);
+            isAttackingHeld = true;
+            attackCoroutine = StartCoroutine(AutoAttackWhileHeld());
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            isAttackingHeld = false;
+            if (attackCoroutine != null)
+                StopCoroutine(attackCoroutine);
         }
 
         if (Input.GetButtonDown("Jump"))
             OnPlayerJump?.Invoke();
-        
+
         OnPlayerFlip?.Invoke(Input.mousePosition);
+    }
+
+    private IEnumerator AutoAttackWhileHeld()
+    {
+        while (isAttackingHeld)
+        {
+            OnPlayerAttack?.Invoke(Input.mousePosition);
+            yield return new WaitForSeconds(attackInterval);
+        }
     }
 
     private void OnPause() => IsInputBlock = true;
     private void OnUnpause() => IsInputBlock = false;
 
-    private void Flip()
-    {
-        isFlip = !isFlip;
-    }
-    
+    private void Flip() => isFlip = !isFlip;
+
     private void OnEnable()
     {
         GetComponent<MoveBase>().OnFlip += Flip;
-
         PauseSystem.PauseEvent += OnPause;
         PauseSystem.UnpauseEvent += OnUnpause;
     }
-    
+
     private void OnDisable()
     {
         GetComponent<MoveBase>().OnFlip -= Flip;
-
         PauseSystem.PauseEvent -= OnPause;
         PauseSystem.UnpauseEvent -= OnUnpause;
     }

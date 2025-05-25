@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 public class DrawModifier : MonoBehaviour
 {
     [SerializeField] private GameObject AdButton;
+    private float timeToAdIsActive = 100;
     private static List<ModifierBaseObject> _pool;
     private static readonly System.Random rnd = new System.Random();
     private bool CanActive;
@@ -38,7 +39,7 @@ public class DrawModifier : MonoBehaviour
     public IEnumerator Delay()
     {
         Debug.Log(CanActive);
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(timeToAdIsActive);
         if (CanActive)
             AdButton.Enable();
         
